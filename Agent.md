@@ -20,6 +20,7 @@
 **PHASE 1 — COMPLETE**
 **PHASE 2 — COMPLETE**
 **PHASE 3 — COMPLETE**
+**PHASE 4 — COMPLETE**
 
 - [x] React + Vite scaffold (manual, not `create-vite` due to existing .git)
 - [x] Tailwind CSS v4 via `@tailwindcss/vite` plugin
@@ -40,6 +41,15 @@
 - [x] ProductGrid — AnimatePresence popLayout filter transitions, result count
 - [x] ProductCard — 12 products, badges, hover lift+glow, enquiry CTA
 - [x] products.js data — 12 products across 4 categories
+- [x] FragranceBuilderHero — 50vh, FM stagger
+- [x] StepIndicator — 5 steps, animated fill track, ✓ complete circles, sticky glass
+- [x] BottlePreview — CSS SVG bottle, animated fill height/opacity, compact mobile strip
+- [x] Step1Family — 4 gradient cards, FM stagger, selected glow+checkmark
+- [x] Step2Notes — 3 layers, chip toggle (max 2 each), family-filtered
+- [x] Step3Intensity — custom slider (1–5), spring thumb, level descriptions
+- [x] Step4Name — luxury input, live bottle label, ornament animations
+- [x] Step5Enquiry — summary pills, form, WhatsApp deep link, success state
+- [x] notes.js — all note options + FAMILIES + INTENSITY_LEVELS data
 - [x] Reusable Button component (3 variants)
 - [x] 5 placeholder pages (Home, Collections, CustomFragrance, About, Contact)
 - [x] Agent.md initialized
@@ -144,7 +154,7 @@ Zyrah/
 │   ├── pages/
 │   │   ├── Home.jsx                # ✅ Complete — 4 sections
 │   │   ├── Collections.jsx         # ✅ Complete — hero, filter, grid
-│   │   ├── CustomFragrance.jsx     # Phase 4: Custom perfume builder UI
+│   │   ├── CustomFragrance.jsx     # ✅ Complete — 5-step builder
 │   │   ├── About.jsx               # Phase 5: Brand story
 │   │   └── Contact.jsx             # Phase 6: Contact form
 │   ├── styles/
@@ -370,16 +380,14 @@ Mobile-first always. Never desktop-first media queries.
 
 ## 13. Next Planned Phase
 
-**PHASE 4 — Custom Fragrance Page**
+**PHASE 5 — About Page**
 
-Multi-step bespoke fragrance builder UI:
-- Step 1: Choose fragrance family (Oud / Floral / Musk / Fresh)
-- Step 2: Pick top / middle / base notes (visual selector)
-- Step 3: Choose intensity (slider)
-- Step 4: Name your fragrance + bottle preview
-- Step 5: Enquiry submission (name, email, WhatsApp)
-- Progress indicator (step tracker)
-- GSAP + FM animations between steps
+Brand story page:
+- Brand heritage section (attar tradition, Indian roots)
+- Founder / artisan section
+- Values / process timeline
+- "Why us" differentiators
+- GSAP scroll reveals
 
 Wait for user message: **"NEXT START"**
 
