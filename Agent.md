@@ -19,6 +19,7 @@
 
 **PHASE 1 — COMPLETE**
 **PHASE 2 — COMPLETE**
+**PHASE 3 — COMPLETE**
 
 - [x] React + Vite scaffold (manual, not `create-vite` due to existing .git)
 - [x] Tailwind CSS v4 via `@tailwindcss/vite` plugin
@@ -34,6 +35,11 @@
 - [x] FeaturedSection — 3 fragrance cards, GSAP ScrollTrigger stagger
 - [x] BrandEthos — 2-col layout, GSAP slide-in, rotating ornament
 - [x] useGSAPReveal + useGSAPStaggerReveal hooks
+- [x] CollectionsHero — 60vh, arabesque SVG divider, breadcrumb, FM stagger
+- [x] FilterTabs — sticky glass, layoutId underline slide, count badges
+- [x] ProductGrid — AnimatePresence popLayout filter transitions, result count
+- [x] ProductCard — 12 products, badges, hover lift+glow, enquiry CTA
+- [x] products.js data — 12 products across 4 categories
 - [x] Reusable Button component (3 variants)
 - [x] 5 placeholder pages (Home, Collections, CustomFragrance, About, Contact)
 - [x] Agent.md initialized
@@ -133,9 +139,11 @@ Zyrah/
 │   ├── hooks/
 │   │   ├── useScrollPosition.js    # scrollY + isScrolled (threshold 50px)
 │   │   └── useGSAPReveal.js        # useGSAPReveal + useGSAPStaggerReveal
+│   ├── data/
+│   │   └── products.js             # 12 products, 4 categories, CATEGORIES array
 │   ├── pages/
 │   │   ├── Home.jsx                # ✅ Complete — 4 sections
-│   │   ├── Collections.jsx         # Phase 3: Product grid
+│   │   ├── Collections.jsx         # ✅ Complete — hero, filter, grid
 │   │   ├── CustomFragrance.jsx     # Phase 4: Custom perfume builder UI
 │   │   ├── About.jsx               # Phase 5: Brand story
 │   │   └── Contact.jsx             # Phase 6: Contact form
@@ -362,15 +370,16 @@ Mobile-first always. Never desktop-first media queries.
 
 ## 13. Next Planned Phase
 
-**PHASE 3 — Collections Page**
+**PHASE 4 — Custom Fragrance Page**
 
-Build full collections/product grid page:
-- Page hero banner (smaller than home hero)
-- Filter tabs by fragrance family (Oud / Floral / Musk / Fresh)
-- Product grid — luxury cards with hover effects
-- Card: image placeholder, name, price (optional), notes, CTA
-- GSAP ScrollTrigger stagger on grid
-- "No products" empty state
+Multi-step bespoke fragrance builder UI:
+- Step 1: Choose fragrance family (Oud / Floral / Musk / Fresh)
+- Step 2: Pick top / middle / base notes (visual selector)
+- Step 3: Choose intensity (slider)
+- Step 4: Name your fragrance + bottle preview
+- Step 5: Enquiry submission (name, email, WhatsApp)
+- Progress indicator (step tracker)
+- GSAP + FM animations between steps
 
 Wait for user message: **"NEXT START"**
 

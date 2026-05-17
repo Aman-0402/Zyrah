@@ -1,21 +1,43 @@
+import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import CollectionsHero from '../components/collections/CollectionsHero'
+import FilterTabs from '../components/collections/FilterTabs'
+import ProductGrid from '../components/collections/ProductGrid'
 
 export default function Collections() {
+  const [activeFilter, setActiveFilter] = useState('all')
+  const [tabsSticky, setTabsSticky] = useState(false)
+  const heroRef = useRef(null)
+
+  /* Detect when hero scrolls out of view → make tabs sticky-glass */
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setTabsSticky(!entry.isIntersecting),
+      { threshold: 0, rootMargin: '-80px 0px 0px 0px' }
+    )
+    if (heroRef.current) observer.observe(heroRef.current)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <div className="page-wrapper flex items-center justify-center min-h-screen">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-        className="text-center"
-      >
-        <p className="text-[10px] tracking-[0.4em] uppercase text-gold-400/60 mb-6">
-          Phase 2 — Coming Soon
-        </p>
-        <h1 className="font-heading text-6xl md:text-8xl text-ivory/10 tracking-wider">
-          Collections
-        </h1>
-      </motion.div>
-    </div>
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      className="min-h-screen bg-black"
+    >
+      <div ref={heroRef}>
+        <CollectionsHero />
+      </div>
+
+      <FilterTabs
+        active={activeFilter}
+        onChange={setActiveFilter}
+        isSticky={tabsSticky}
+      />
+
+      <ProductGrid activeFilter={activeFilter} />
+    </motion.main>
   )
 }
