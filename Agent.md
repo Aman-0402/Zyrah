@@ -23,6 +23,7 @@
 **PHASE 4 — COMPLETE**
 **PHASE 5 — COMPLETE**
 **PHASE 6 — COMPLETE**
+**PHASE 7 — COMPLETE ✦ ALL PHASES DONE**
 
 - [x] React + Vite scaffold (manual, not `create-vite` due to existing .git)
 - [x] Tailwind CSS v4 via `@tailwindcss/vite` plugin
@@ -62,6 +63,12 @@
 - [x] ContactForm — subject chips, WhatsApp submit, success state, validation
 - [x] ContactInfo — 3 info cards, delivery badge, Instagram link, GSAP stagger
 - [x] Contact.jsx — 2-col layout, BottomCTA strip
+- [x] Footer.jsx — 3-col, arabesque wave, nav links, social icons, bottom bar
+- [x] ScrollToTop.jsx — fixed button, FM scale in/out, appears at scrollY > 400
+- [x] NotFound.jsx — 404 page, giant watermark, CTA buttons
+- [x] App.jsx — Footer + ScrollToTop + 404 route wired
+- [x] vite.config.js — manual chunks (react/motion/gsap/ui split), no size warnings
+- [x] index.html — OG tags, theme-color, twitter card meta
 - [x] Reusable Button component (3 variants)
 - [x] 5 placeholder pages (Home, Collections, CustomFragrance, About, Contact)
 - [x] Agent.md initialized
