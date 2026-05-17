@@ -21,6 +21,7 @@
 **PHASE 2 — COMPLETE**
 **PHASE 3 — COMPLETE**
 **PHASE 4 — COMPLETE**
+**PHASE 5 — COMPLETE**
 
 - [x] React + Vite scaffold (manual, not `create-vite` due to existing .git)
 - [x] Tailwind CSS v4 via `@tailwindcss/vite` plugin
@@ -50,6 +51,12 @@
 - [x] Step4Name — luxury input, live bottle label, ornament animations
 - [x] Step5Enquiry — summary pills, form, WhatsApp deep link, success state
 - [x] notes.js — all note options + FAMILIES + INTENSITY_LEVELS data
+- [x] AboutHero — 55vh, warm glow, breadcrumb, FM stagger
+- [x] HeritageBand — full-width clipPath GSAP reveal, warm brown bg
+- [x] OurStory — 3 alternating blocks, GSAP side-slide, CSS ornaments (ring/arabesque/diamond)
+- [x] ProcessTimeline — 4 steps, horizontal desktop / vertical mobile, Arabic numerals
+- [x] ValuesGrid — 3 cards, GSAP stagger, hover bottom-line reveal
+- [x] FounderNote — word-by-word FM quote reveal, WhatsApp/CTA
 - [x] Reusable Button component (3 variants)
 - [x] 5 placeholder pages (Home, Collections, CustomFragrance, About, Contact)
 - [x] Agent.md initialized
