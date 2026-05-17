@@ -22,6 +22,7 @@
 **PHASE 3 — COMPLETE**
 **PHASE 4 — COMPLETE**
 **PHASE 5 — COMPLETE**
+**PHASE 6 — COMPLETE**
 
 - [x] React + Vite scaffold (manual, not `create-vite` due to existing .git)
 - [x] Tailwind CSS v4 via `@tailwindcss/vite` plugin
@@ -57,6 +58,10 @@
 - [x] ProcessTimeline — 4 steps, horizontal desktop / vertical mobile, Arabic numerals
 - [x] ValuesGrid — 3 cards, GSAP stagger, hover bottom-line reveal
 - [x] FounderNote — word-by-word FM quote reveal, WhatsApp/CTA
+- [x] ContactHero — 50vh, FM stagger, breadcrumb
+- [x] ContactForm — subject chips, WhatsApp submit, success state, validation
+- [x] ContactInfo — 3 info cards, delivery badge, Instagram link, GSAP stagger
+- [x] Contact.jsx — 2-col layout, BottomCTA strip
 - [x] Reusable Button component (3 variants)
 - [x] 5 placeholder pages (Home, Collections, CustomFragrance, About, Contact)
 - [x] Agent.md initialized
