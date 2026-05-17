@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { Instagram, MessageCircle, Mail } from 'lucide-react'
 import Button from '../ui/Button'
 
-const WA_NUMBER = '919999999999'
+const WA_NUMBER = '919724586101'
 
 const NAV_LINKS = [
   { label: 'Home',              to: '/' },
@@ -70,7 +70,7 @@ export default function Footer() {
                 m_m_attarwala
               </span>
               <span className="text-[8px] tracking-[0.35em] text-ivory/30 uppercase mt-0.5 ml-0.5">
-                Luxury Fragrances · Est. India
+                जनत का एहसास · Vadodara, India
               </span>
             </Link>
 
@@ -146,18 +146,18 @@ export default function Footer() {
             >
               <MessageCircle size={13} strokeWidth={1.5} className="text-gold-400/40 group-hover:text-gold-400 transition-colors duration-300" />
               <span className="text-xs font-light text-ivory/45 group-hover:text-ivory transition-colors duration-300">
-                +91 99999 99999
+                +91 97245 86101
               </span>
             </a>
 
             {/* Email */}
             <a
-              href="mailto:hello@mmattarwala.com"
+              href="mailto:mmattarwala2008@rediff.com"
               className="flex items-center gap-2.5 group w-fit"
             >
               <Mail size={13} strokeWidth={1.5} className="text-gold-400/40 group-hover:text-gold-400 transition-colors duration-300" />
               <span className="text-xs font-light text-ivory/45 group-hover:text-ivory transition-colors duration-300">
-                hello@mmattarwala.com
+                mmattarwala2008@rediff.com
               </span>
             </a>
 
@@ -186,7 +186,7 @@ export default function Footer() {
         {/* ── Bottom bar ──────────────────────────────────────────────────── */}
         <div className="border-t border-gold-400/8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[9px] tracking-[0.3em] uppercase text-ivory/20">
-            © {year} m_m_attarwala. All rights reserved.
+            © {year} M. M. Attarwala. All rights reserved.
           </p>
           <p className="text-[9px] tracking-[0.3em] uppercase text-ivory/15">
             Made with love in India ♥

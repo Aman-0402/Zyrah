@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useGSAPReveal } from '../../hooks/useGSAPReveal'
 import Button from '../ui/Button'
 
-const QUOTE = "We started m_m_attarwala with one belief — that everyone deserves a fragrance crafted for them alone."
+const QUOTE = "We started M. M. Attarwala with one belief — that everyone deserves a fragrance crafted for them alone."
 const WORDS = QUOTE.split(' ')
 
 const wordContainer = {
@@ -73,7 +73,7 @@ export default function FounderNote() {
         <div className="flex flex-col items-center gap-2">
           <div className="h-px w-12 bg-gold-400/30" />
           <p className="text-[10px] tracking-[0.45em] uppercase text-gold-400/50">
-            — The Founder, m_m_attarwala
+            — The Founder, M. M. Attarwala
           </p>
         </div>
 

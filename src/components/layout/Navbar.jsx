@@ -81,7 +81,7 @@ export default function Navbar() {
               m_m_attarwala
             </motion.span>
             <span className="text-[9px] tracking-[0.35em] text-ivory/40 uppercase mt-0.5 ml-0.5">
-              Luxury Fragrances
+              जनत का एहसास
             </span>
           </NavLink>
 

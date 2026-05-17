@@ -4,7 +4,7 @@ import { MessageCircle, Check } from 'lucide-react'
 import { useGSAPReveal } from '../../hooks/useGSAPReveal'
 import Button from '../ui/Button'
 
-const WA_NUMBER = '919999999999'
+const WA_NUMBER = '919724586101'
 
 const SUBJECTS = ['Custom Order', 'General Enquiry', 'Feedback', 'Other']
 
@@ -44,7 +44,7 @@ export default function ContactForm() {
     e.preventDefault()
     if (!canSubmit) return
     const text = encodeURIComponent(
-      `Hi m_m_attarwala! 🌸\n\nName: ${form.name}\nPhone: ${form.phone}${form.email ? `\nEmail: ${form.email}` : ''}\nSubject: ${form.subject}\n\nMessage: ${form.message}\n\n— Sent via mmattarwala.com`
+      `Hi M. M. Attarwala! 🌸\n\nName: ${form.name}\nPhone: ${form.phone}${form.email ? `\nEmail: ${form.email}` : ''}\nSubject: ${form.subject}\n\nMessage: ${form.message}`
     )
     window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, '_blank')
     setSubmitted(true)

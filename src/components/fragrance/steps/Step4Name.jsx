@@ -100,7 +100,7 @@ export default function Step4Name({ selections, update }) {
               </p>
               {fam && (
                 <p className="text-[9px] tracking-[0.3em] uppercase text-ivory/20 mt-1">
-                  {fam.label} · m_m_attarwala
+                  {fam.label} · M. M. Attarwala
                 </p>
               )}
             </motion.div>

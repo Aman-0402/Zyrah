@@ -4,7 +4,7 @@ import { Check, MessageCircle, Mail } from 'lucide-react'
 import { FAMILIES, INTENSITY_LEVELS } from '../../../data/notes'
 import Button from '../../ui/Button'
 
-const WA_NUMBER = '919999999999' // placeholder — replace with real number
+const WA_NUMBER = '919724586101'
 
 function buildWhatsAppText(selections) {
   const { family, topNotes, middleNotes, baseNotes, intensity, name, customerName, phone, message } = selections
@@ -12,7 +12,7 @@ function buildWhatsAppText(selections) {
   const level = INTENSITY_LEVELS.find((l) => l.value === intensity)
 
   const lines = [
-    `🌟 Custom Fragrance Enquiry — m_m_attarwala`,
+    `🌟 Custom Fragrance Enquiry — M. M. Attarwala`,
     ``,
     `👤 Name: ${customerName || 'Not provided'}`,
     `📱 Phone: ${phone || 'Not provided'}`,
@@ -25,7 +25,7 @@ function buildWhatsAppText(selections) {
     `💪 Intensity: ${level?.label || '—'} (${intensity}/5)`,
     message ? `\n📝 Message: ${message}` : '',
     ``,
-    `Crafted with love by m_m_attarwala ✨`,
+    `Crafted with love by M. M. Attarwala ✨`,
   ]
 
   return encodeURIComponent(lines.filter(Boolean).join('\n'))
@@ -187,7 +187,7 @@ export default function Step5Enquiry({ selections, update }) {
           </Button>
 
           <a
-            href={`mailto:hello@mmattarwala.com?subject=Custom Fragrance Enquiry${name ? ` — ${name}` : ''}&body=Name: ${customerName}%0APhone: ${phone}%0AFamily: ${fam?.label}%0ANotes: ${[...topNotes, ...middleNotes, ...baseNotes].join(', ')}`}
+            href={`mailto:mmattarwala2008@rediff.com?subject=Custom Fragrance Enquiry${name ? ` — ${name}` : ''}&body=Name: ${customerName}%0APhone: ${phone}%0AFamily: ${fam?.label}%0ANotes: ${[...topNotes, ...middleNotes, ...baseNotes].join(', ')}`}
             className="flex items-center justify-center gap-2 text-[10px] tracking-[0.3em] uppercase text-ivory/30 hover:text-ivory/50 transition-colors duration-300 py-2"
           >
             <Mail size={13} strokeWidth={1.5} />

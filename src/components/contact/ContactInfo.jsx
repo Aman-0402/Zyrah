@@ -1,23 +1,56 @@
-import { MessageCircle, Mail, Package, Instagram } from 'lucide-react'
+import { MessageCircle, Mail, Package, Instagram, MapPin, Clock, Phone } from 'lucide-react'
 import { useGSAPStaggerReveal } from '../../hooks/useGSAPReveal'
 
-const WA_NUMBER = '919999999999'
+const WA_ROEESH   = '919724586101'
+const WA_MUNAVVAR = '919016361538'
 
 const INFO_CARDS = [
   {
     icon: MessageCircle,
-    label: 'WhatsApp',
-    value: '+91 99999 99999',
-    sub: 'Chat with us directly',
-    href: `https://wa.me/${WA_NUMBER}`,
+    label: 'WhatsApp — M. Roeesh',
+    value: '+91 97245 86101',
+    sub: 'Primary contact',
+    href: `https://wa.me/${WA_ROEESH}`,
+    accent: '#C9A84C',
+  },
+  {
+    icon: Phone,
+    label: 'Call — M. Munavvar',
+    value: '+91 90163 61538',
+    sub: 'Alternate contact',
+    href: `tel:+919016361538`,
     accent: '#C9A84C',
   },
   {
     icon: Mail,
     label: 'Email',
-    value: 'hello@mmattarwala.com',
+    value: 'mmattarwala2008@rediff.com',
     sub: 'For detailed enquiries',
-    href: 'mailto:hello@mmattarwala.com',
+    href: 'mailto:mmattarwala2008@rediff.com',
+    accent: '#E2C27D',
+  },
+  {
+    icon: MapPin,
+    label: 'Store 1 — Nazarbaug',
+    value: 'GF 154/155, Nazarbaug Palace',
+    sub: 'Vadodara — 390 001',
+    href: null,
+    accent: '#F5F0E8',
+  },
+  {
+    icon: MapPin,
+    label: 'Store 2 — Fortune Point',
+    value: 'Shop No. 3, Fortune Point',
+    sub: 'Mandvi, Vadodara — 390 017',
+    href: null,
+    accent: '#F5F0E8',
+  },
+  {
+    icon: Clock,
+    label: 'Hours',
+    value: '10:00 am – 8:00 pm',
+    sub: 'Mon: closed at Namaz time · Fri: closed 12:45–2:45 pm',
+    href: null,
     accent: '#E2C27D',
   },
   {

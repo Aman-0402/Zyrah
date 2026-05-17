@@ -87,7 +87,7 @@ export default function NotFound() {
         </motion.div>
 
         <motion.p variants={item} className="mt-8 text-[9px] tracking-[0.4em] uppercase text-ivory/15">
-          m_m_attarwala · Free delivery across India
+          M. M. Attarwala · Free delivery across India
         </motion.p>
       </motion.div>
     </motion.main>

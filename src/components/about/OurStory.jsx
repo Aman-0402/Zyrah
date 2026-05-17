@@ -8,7 +8,7 @@ const BLOCKS = [
     side: 'left',
     body: [
       'It started simply — a love for attars collected from markets in old Delhi, Lucknow, and the lanes of Hyderabad. Each bottle held a memory, a mood, a moment.',
-      'What began as a personal obsession grew into a question: why can\'t everyone have a fragrance made just for them? That question became m_m_attarwala.',
+      'What began as a personal obsession grew into a question: why can\'t everyone have a fragrance made just for them? That question became M. M. Attarwala.',
     ],
     ornament: 'ring',
   },
@@ -27,7 +27,7 @@ const BLOCKS = [
     title: 'The Promise',
     side: 'left',
     body: [
-      'Every bottle of m_m_attarwala is made fresh for you — not sitting on a shelf, not batch-produced. Your vision, our craft, delivered free across India.',
+      'Every bottle of M. M. Attarwala is made fresh for you — not sitting on a shelf, not batch-produced. Your vision, our craft, delivered free across India.',
       'We believe luxury fragrance shouldn\'t be a privilege. It should be personal. That\'s the promise we make with every order.',
     ],
     ornament: 'diamond',

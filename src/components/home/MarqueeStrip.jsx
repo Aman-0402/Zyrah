@@ -5,7 +5,7 @@ const ITEMS = [
   'Crafted For You',
   'Arabic Oudh',
   'Pure Essence',
-  'Luxury Fragrances',
+  'Indian Attar',
   'Bespoke Blends',
 ]
 

@@ -187,7 +187,7 @@ export default function BrandEthos() {
             className="flex flex-col gap-4"
           >
             <motion.p variants={textItem} className="text-ivory/55 text-sm md:text-base leading-relaxed font-light max-w-lg">
-              At m_m_attarwala, we believe fragrance is deeply personal.
+              At M. M. Attarwala, we believe fragrance is deeply personal.
               Every bottle we craft is a conversation between you and
               your senses — blended fresh, just for you.
             </motion.p>
