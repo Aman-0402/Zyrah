@@ -43,7 +43,7 @@ export default function Contact() {
       <ContactHero />
 
       {/* Main 2-col layout */}
-      <div className="max-w-7xl mx-auto px-6 py-16 md:py-24">
+      <div className="cx py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_420px] gap-14 lg:gap-24">
           <ContactForm />
           <ContactInfo />
@@ -51,7 +51,7 @@ export default function Contact() {
       </div>
 
       {/* Bottom CTA strip */}
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="cx">
         <BottomCTA />
       </div>
     </motion.main>

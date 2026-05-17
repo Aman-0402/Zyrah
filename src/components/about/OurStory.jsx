@@ -161,7 +161,7 @@ export default function OurStory() {
   const headRef = useGSAPReveal({ from: { opacity: 0, y: 30 }, to: { opacity: 1, y: 0 } })
 
   return (
-    <section className="py-24 md:py-36 px-6 max-w-6xl mx-auto">
+    <section className="py-24 md:py-36"><div className="cx">
       <div ref={headRef} className="mb-16 md:mb-24">
         <p className="text-[10px] tracking-[0.5em] uppercase text-gold-400/50 mb-3">Our Journey</p>
         <h2 className="font-heading text-4xl md:text-6xl text-ivory">The Story Behind</h2>
@@ -174,6 +174,6 @@ export default function OurStory() {
           </div>
         ))}
       </div>
-    </section>
+    </div></section>
   )
 }

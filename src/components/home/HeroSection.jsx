@@ -318,13 +318,12 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll indicator — left-aligned to match text column */}
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.4, duration: 0.8 }}
-        className="absolute bottom-8 flex flex-col items-start gap-2 text-ivory/30"
-        style={{ left: 'clamp(24px, calc(50% - 640px + 48px), 48px)' }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-ivory/30"
       >
         <span className="text-[9px] tracking-[0.4em] uppercase">Scroll</span>
         <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}>

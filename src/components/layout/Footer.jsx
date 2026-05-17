@@ -59,7 +59,7 @@ export default function Footer() {
       />
 
       {/* Main content */}
-      <div className="max-w-7xl mx-auto px-6 pt-14 pb-8">
+      <div className="cx pt-14 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 lg:gap-16 mb-12">
 
           {/* ── Brand col ───────────────────────────────────────────────── */}

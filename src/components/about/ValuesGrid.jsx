@@ -35,7 +35,7 @@ export default function ValuesGrid() {
   })
 
   return (
-    <section className="py-24 md:py-32 px-6 max-w-6xl mx-auto">
+    <section className="py-24 md:py-32"><div className="cx">
 
       <div ref={headRef} className="text-center mb-14">
         <p className="text-[10px] tracking-[0.5em] uppercase text-gold-400/50 mb-3">Our Principles</p>
@@ -85,6 +85,6 @@ export default function ValuesGrid() {
           </div>
         ))}
       </div>
-    </section>
+    </div></section>
   )
 }

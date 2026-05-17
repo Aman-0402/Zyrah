@@ -17,7 +17,7 @@ export default function FilterTabs({ active, onChange, isSticky }) {
       ].join(' ')}
       style={{ top: '80px' }}
     >
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="cx">
         <div className="flex items-center gap-0 overflow-x-auto scrollbar-hide py-1">
           {CATEGORIES.map(({ id, label }) => {
             const isActive = active === id

@@ -101,7 +101,7 @@ export default function CustomFragrance() {
       <StepIndicator currentStep={step} isSticky={tabsSticky} />
 
       {/* Main builder area */}
-      <div className="max-w-7xl mx-auto px-6 py-14 md:py-20">
+      <div className="cx py-14 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_380px] gap-12 lg:gap-20 items-start">
 
           {/* ── Left: Step content ───────────────────────────────────────── */}

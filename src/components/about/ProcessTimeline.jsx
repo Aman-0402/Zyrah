@@ -39,7 +39,7 @@ export default function ProcessTimeline() {
       style={{ background: 'linear-gradient(180deg, #0A0A0A 0%, #0d0805 50%, #0A0A0A 100%)' }}
     >
       {/* Section container */}
-      <div className="max-w-6xl mx-auto">
+      <div className="cx">
 
         {/* Header */}
         <div ref={headRef} className="text-center mb-16 md:mb-20">

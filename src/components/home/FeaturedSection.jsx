@@ -137,7 +137,7 @@ export default function FeaturedSection() {
   const gridRef   = useGSAPStaggerReveal({ selector: '[data-reveal]', stagger: 0.18, start: 'top 80%' })
 
   return (
-    <section className="py-24 md:py-32 px-6 max-w-7xl mx-auto">
+    <section className="py-24 md:py-32"><div className="cx">
 
       {/* Header */}
       <div ref={headingRef} className="w-full text-center mb-16">
@@ -167,6 +167,6 @@ export default function FeaturedSection() {
           <Button variant="outline" size="lg">View All Collections</Button>
         </Link>
       </div>
-    </section>
+    </div></section>
   )
 }

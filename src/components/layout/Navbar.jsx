@@ -66,7 +66,7 @@ export default function Navbar() {
             : 'bg-transparent py-5',
         ].join(' ')}
       >
-        <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <nav className="cx flex items-center justify-between">
 
           {/* Logo */}
           <NavLink
