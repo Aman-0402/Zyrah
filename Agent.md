@@ -18,6 +18,7 @@
 ## 2. Current Progress
 
 **PHASE 1 — COMPLETE**
+**PHASE 2 — COMPLETE**
 
 - [x] React + Vite scaffold (manual, not `create-vite` due to existing .git)
 - [x] Tailwind CSS v4 via `@tailwindcss/vite` plugin
@@ -28,6 +29,11 @@
 - [x] Floating Navbar (transparent → blur on scroll)
 - [x] Mobile menu (full-screen overlay, Framer Motion)
 - [x] React Router v6 with AnimatePresence page transitions
+- [x] HeroSection — cinematic full-screen, GSAP orbs, Framer Motion stagger
+- [x] MarqueeStrip — infinite CSS ticker, hover-pause
+- [x] FeaturedSection — 3 fragrance cards, GSAP ScrollTrigger stagger
+- [x] BrandEthos — 2-col layout, GSAP slide-in, rotating ornament
+- [x] useGSAPReveal + useGSAPStaggerReveal hooks
 - [x] Reusable Button component (3 variants)
 - [x] 5 placeholder pages (Home, Collections, CustomFragrance, About, Contact)
 - [x] Agent.md initialized
@@ -35,6 +41,48 @@
 ---
 
 ## 3. Completed Features
+
+### Home Page — Phase 2
+
+#### HeroSection (`src/components/home/HeroSection.jsx`)
+- Full viewport height, `bg-black`
+- 3 GSAP floating ambient orbs (gold radial gradients, infinite yoyo float)
+- Inline SVG arabesque corners (top-left / top-right), opacity 6%
+- Animated gold border lines (top + bottom), `scaleX` reveal on mount
+- Framer Motion stagger container: `delayChildren: 0.5`, `staggerChildren: 0.15`
+- Headline: `Crafted` (ivory, italic) + `For You.` (gold gradient) — `clipPath inset(0 100% 0 0)` → `inset(0 0% 0 0)` reveal
+- Gold divider: `width 0→120px` on mount, delay 1.2s
+- Body copy + dual CTA buttons (primary + outline)
+- Scroll indicator: bouncing ChevronDown, appears at delay 2s
+- Bottom fade gradient to black
+
+#### MarqueeStrip (`src/components/home/MarqueeStrip.jsx`)
+- CSS `@keyframes marquee` using `translate` property (compositor-only)
+- 3× content duplication for seamless loop (`-33.333%` translate)
+- `will-change: translate` on animated element
+- Hover pauses via `hover:[animation-play-state:paused]`
+- Left/right fade overlays (gradient masks)
+- Items: Custom Made · Free Delivery · Premium Attars · Crafted For You · Arabic Oudh · Pure Essence · Luxury Fragrances · Bespoke Blends
+
+#### FeaturedSection (`src/components/home/FeaturedSection.jsx`)
+- GSAP ScrollTrigger heading reveal (`useGSAPReveal`)
+- GSAP stagger on 3 cards via `useGSAPStaggerReveal` with `[data-reveal]` selector
+- Cards: `#111` bg, `border-gold-400/10` → `border-gold-400/40` on hover
+- Card image area: atmospheric CSS gradient (unique per card), Arabic name watermark
+- Hover: `whileHover y:-8px` spring, gold border glow, line reveals from bottom
+- Note tags: mini pill borders
+- 3 fragrances: Oud Al Layl, Rose Shamama, Misk Malaki
+
+#### BrandEthos (`src/components/home/BrandEthos.jsx`)
+- 2-col grid (stacked mobile → side-by-side md+)
+- Left: giant Arabic `م` text outline + nested concentric circles + Framer Motion infinite rotation ring
+- Right: label, heading with italic gold accent, 2 body paragraphs, 3 pillar pills
+- GSAP: ornament fades+scales in, content slides from right (delay 0.2s)
+
+#### useGSAPReveal hook (`src/hooks/useGSAPReveal.js`)
+- `useGSAPReveal(options)` — single element reveal with ScrollTrigger
+- `useGSAPStaggerReveal(options)` — staggered children reveal via `querySelectorAll(selector)`
+- Both return refs; use `gsap.context()` for cleanup
 
 ### Navbar
 - Fixed position, z-50
@@ -71,22 +119,28 @@ Zyrah/
 ├── public/
 │   └── favicon.svg                 # Arabic م on black bg
 ├── src/
-│   ├── assets/                     # (empty — Phase 2+: images, videos)
+│   ├── assets/                     # (empty — Phase 3+: images, videos)
 │   ├── components/
+│   │   ├── home/
+│   │   │   ├── HeroSection.jsx     # Full-screen cinematic hero
+│   │   │   ├── MarqueeStrip.jsx    # Infinite scrolling USP ticker
+│   │   │   ├── FeaturedSection.jsx # 3 fragrance cards + GSAP stagger
+│   │   │   └── BrandEthos.jsx      # Philosophy section, 2-col layout
 │   │   ├── ui/
 │   │   │   └── Button.jsx          # Reusable button (primary/outline/ghost)
 │   │   └── layout/
 │   │       └── Navbar.jsx          # Main floating navbar + mobile menu
 │   ├── hooks/
-│   │   └── useScrollPosition.js    # scrollY + isScrolled (threshold 50px)
+│   │   ├── useScrollPosition.js    # scrollY + isScrolled (threshold 50px)
+│   │   └── useGSAPReveal.js        # useGSAPReveal + useGSAPStaggerReveal
 │   ├── pages/
-│   │   ├── Home.jsx                # Phase 2: Hero section
-│   │   ├── Collections.jsx         # Phase 2: Product grid
-│   │   ├── CustomFragrance.jsx     # Phase 2: Custom perfume builder UI
-│   │   ├── About.jsx               # Phase 2: Brand story
-│   │   └── Contact.jsx             # Phase 2: Contact form
+│   │   ├── Home.jsx                # ✅ Complete — 4 sections
+│   │   ├── Collections.jsx         # Phase 3: Product grid
+│   │   ├── CustomFragrance.jsx     # Phase 4: Custom perfume builder UI
+│   │   ├── About.jsx               # Phase 5: Brand story
+│   │   └── Contact.jsx             # Phase 6: Contact form
 │   ├── styles/
-│   │   └── globals.css             # Tailwind v4 @theme tokens + base styles
+│   │   └── globals.css             # Tailwind v4 @theme tokens + base + marquee
 │   ├── App.jsx                     # Router + AnimatePresence page transitions
 │   └── main.jsx                    # React root + BrowserRouter
 ├── Agent.md                        # THIS FILE — project memory
@@ -253,11 +307,17 @@ Mobile-first always. Never desktop-first media queries.
 |-----------|------|-------|
 | `Button` | `src/components/ui/Button.jsx` | `variant`, `size`, `onClick`, `type`, `disabled`, `className` |
 | `Navbar` | `src/components/layout/Navbar.jsx` | (none — self-contained) |
+| `HeroSection` | `src/components/home/HeroSection.jsx` | (none — self-contained) |
+| `MarqueeStrip` | `src/components/home/MarqueeStrip.jsx` | (none — self-contained) |
+| `FeaturedSection` | `src/components/home/FeaturedSection.jsx` | (none — self-contained) |
+| `BrandEthos` | `src/components/home/BrandEthos.jsx` | (none — self-contained) |
 
 **Hooks:**
 | Hook | Path | Returns |
 |------|------|---------|
 | `useScrollPosition` | `src/hooks/useScrollPosition.js` | `{ scrollY, isScrolled }` |
+| `useGSAPReveal` | `src/hooks/useGSAPReveal.js` | `ref` — attach to element for ScrollTrigger reveal |
+| `useGSAPStaggerReveal` | `src/hooks/useGSAPReveal.js` | `containerRef` — stagger all `[data-reveal]` children |
 
 ---
 
@@ -302,14 +362,15 @@ Mobile-first always. Never desktop-first media queries.
 
 ## 13. Next Planned Phase
 
-**PHASE 2 — Home Hero Section**
+**PHASE 3 — Collections Page**
 
-Build the full cinematic homepage:
-- Full-screen hero with luxury headline
-- GSAP + Framer Motion scroll reveals
-- Ambient video or rich background
-- Featured collections teaser
-- USP strip (Free delivery, Custom crafted, etc.)
+Build full collections/product grid page:
+- Page hero banner (smaller than home hero)
+- Filter tabs by fragrance family (Oud / Floral / Musk / Fresh)
+- Product grid — luxury cards with hover effects
+- Card: image placeholder, name, price (optional), notes, CTA
+- GSAP ScrollTrigger stagger on grid
+- "No products" empty state
 
 Wait for user message: **"NEXT START"**
 
