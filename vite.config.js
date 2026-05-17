@@ -8,6 +8,7 @@ export default defineConfig({
     tailwindcss(),
   ],
   build: {
+    chunkSizeWarningLimit: 800,
     rollupOptions: {
       output: {
         manualChunks: {
@@ -15,6 +16,9 @@ export default defineConfig({
           'vendor-motion': ['framer-motion'],
           'vendor-gsap':   ['gsap'],
           'vendor-ui':     ['lucide-react'],
+          'vendor-three':  ['three'],
+          'vendor-r3f':    ['@react-three/fiber', '@react-three/drei'],
+          'vendor-r3f-fx': ['@react-three/postprocessing'],
         },
       },
     },

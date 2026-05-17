@@ -1,9 +1,11 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState, lazy, Suspense } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import Button from '../ui/Button'
+
+const Bottle3DCanvas = lazy(() => import('../hero/Bottle3DCanvas'))
 
 const container = {
   hidden: {},
@@ -206,6 +208,15 @@ export default function HeroSection() {
   const orb1Ref = useRef(null)
   const orb2Ref = useRef(null)
   const orb3Ref = useRef(null)
+  const bottle3DMouseRef = useRef({ x: 0, y: 0 })
+  const [isDesktop, setIsDesktop] = useState(false)
+
+  useEffect(() => {
+    setIsDesktop(window.innerWidth >= 1024)
+    const onResize = () => setIsDesktop(window.innerWidth >= 1024)
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
 
   useEffect(() => {
     const orbs = [orb1Ref.current, orb2Ref.current, orb3Ref.current]
@@ -230,6 +241,11 @@ export default function HeroSection() {
         xTo[i]?.((e.clientX - cx) * f)
         yTo[i]?.((e.clientY - cy) * f)
       })
+      // Normalized -1..1 for 3D bottle parallax
+      bottle3DMouseRef.current = {
+        x: (e.clientX / window.innerWidth  - 0.5) * 2,
+        y: (e.clientY / window.innerHeight - 0.5) * 2,
+      }
     }
     window.addEventListener('mousemove', onMove, { passive: true })
     return () => window.removeEventListener('mousemove', onMove)
@@ -311,10 +327,20 @@ export default function HeroSection() {
           </motion.div>
         </motion.div>
 
-        {/* RIGHT: Bottle visual */}
-        <div className="hidden lg:flex items-center justify-center relative">
-          <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 55% 65% at 50% 50%, rgba(201,168,76,0.04) 0%, transparent 70%)' }} />
-          <PerfumeBottle />
+        {/* RIGHT: 3D bottle (desktop) / SVG fallback (mobile) */}
+        <div className="hidden lg:flex items-center justify-center relative" style={{ minHeight: 500 }}>
+          {/* Ambient glow behind canvas */}
+          <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 55% 65% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%)' }} />
+
+          {isDesktop ? (
+            <div className="w-full h-full absolute inset-0">
+              <Suspense fallback={<PerfumeBottle />}>
+                <Bottle3DCanvas mouseRef={bottle3DMouseRef} />
+              </Suspense>
+            </div>
+          ) : (
+            <PerfumeBottle />
+          )}
         </div>
       </div>
 
