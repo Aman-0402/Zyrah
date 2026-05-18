@@ -64,8 +64,8 @@ export default function Navbar() {
           'fixed top-0 left-0 right-0 z-50',
           'transition-all duration-500 ease-out',
           isScrolled
-            ? 'border-b border-gold-400/8 py-5'
-            : 'py-6',
+            ? 'border-b border-gold-400/8 py-3'
+            : 'py-4',
         ].join(' ')}
         style={isScrolled
           ? { background: 'linear-gradient(to bottom, rgba(5,5,5,0.96) 0%, rgba(5,5,5,0.75) 100%)', backdropFilter: 'blur(12px)' }
@@ -80,10 +80,10 @@ export default function Navbar() {
               src={`${BASE}logoakatar.png`}
               alt="M. M. Attarwala"
               draggable={false}
-              className="h-10 md:h-12 w-auto object-contain"
+              className="h-16 md:h-20 w-auto object-contain"
               whileHover={{ scale: 1.04 }}
               transition={{ duration: 0.35, ease: 'easeOut' }}
-              style={{ filter: 'drop-shadow(0 0 8px rgba(201,168,76,0.15))' }}
+              style={{ filter: 'drop-shadow(0 0 12px rgba(201,168,76,0.25))' }}
             />
           </NavLink>
 

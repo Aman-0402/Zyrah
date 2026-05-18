@@ -4,12 +4,19 @@ import MarqueeStrip from '../components/home/MarqueeStrip'
 import FeaturedSection from '../components/home/FeaturedSection'
 import BrandEthos from '../components/home/BrandEthos'
 
-function SectionDivider({ fromColor = 'rgba(201,168,76,0.0)', toColor = 'rgba(201,168,76,0.0)', accent = false }) {
+function AtmosphericBridge({ warm = false, height = 32 }) {
   return (
-    <div className="relative h-px overflow-visible pointer-events-none">
-      <div className="absolute left-0 right-0 h-px" style={{ background: `linear-gradient(90deg, transparent, rgba(201,168,76,${accent ? '0.2' : '0.08'}), transparent)` }} />
-      {accent && (
-        <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rotate-45 border border-gold-400/40 bg-black" />
+    <div
+      className="relative pointer-events-none overflow-hidden"
+      style={{ height }}
+    >
+      {/* Horizontal gold thread */}
+      <div className="absolute inset-x-0 top-1/2 h-px" style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(201,168,76,0.12) 30%, rgba(201,168,76,0.22) 50%, rgba(201,168,76,0.12) 70%, transparent 100%)' }} />
+      {/* Diamond center accent */}
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rotate-45 border border-gold-400/35" style={{ background: '#050505' }} />
+      {/* Warm color bleed */}
+      {warm && (
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(120,58,0,0.06) 0%, transparent 70%)' }} />
       )}
     </div>
   )
@@ -21,20 +28,25 @@ export default function Home() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.6 }}
     >
       <HeroSection />
+
+      {/* Hero → Marquee: fade out hero atmosphere */}
+      <div className="h-12 pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(5,5,5,0.6) 100%)' }} />
+
       <MarqueeStrip />
 
-      {/* Atmospheric gradient between marquee and cards */}
-      <div className="h-20 pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(15,8,5,0) 0%, rgba(15,8,5,0.3) 50%, rgba(10,10,10,0) 100%)' }} />
+      {/* Marquee → Featured: warm atmospheric bridge */}
+      <div className="h-16 pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(5,5,5,0.6) 0%, rgba(30,14,4,0.08) 50%, rgba(5,5,5,0) 100%)' }} />
 
       <FeaturedSection />
 
-      <SectionDivider accent />
+      {/* Featured → Philosophy: cinematic divider */}
+      <AtmosphericBridge warm height={48} />
 
-      {/* Atmospheric bridge */}
-      <div className="h-8 pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(15,8,5,0.5) 100%)' }} />
+      {/* Warm glow bleed into philosophy */}
+      <div className="h-12 pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(5,5,5,0) 0%, rgba(15,8,3,0.25) 100%)' }} />
 
       <BrandEthos />
     </motion.main>

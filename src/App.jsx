@@ -15,6 +15,10 @@ export default function App() {
 
   return (
     <>
+      {/* Global atmospheric overlays */}
+      <div className="page-grain" aria-hidden="true" />
+      <div className="page-vignette" aria-hidden="true" />
+
       <Navbar />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
