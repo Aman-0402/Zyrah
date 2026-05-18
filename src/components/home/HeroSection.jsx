@@ -33,7 +33,7 @@ function ArabesqueCorner({ flip = false }) {
 
 function BottleSVG() {
   return (
-    <svg width="220" height="370" viewBox="0 0 140 235" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="260" height="430" viewBox="0 0 140 235" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="hcapGrad" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%"   stopColor="#E2C27D" stopOpacity="0.95" />
@@ -130,15 +130,15 @@ function CinematicBottle({ springX, springY }) {
   }, [])
 
   return (
-    <div className="relative w-full h-full min-h-[500px] flex items-center justify-center select-none">
+    <div className="relative w-full h-full min-h-[520px] flex items-center justify-center select-none">
 
       {/* L1: breathing ambient glow — parallax scale */}
       <motion.div
         className="absolute pointer-events-none"
         style={{
-          width: 480, height: 480,
+          width: 560, height: 560,
           top: '50%', left: '50%', x: '-50%', y: '-50%',
-          background: 'radial-gradient(ellipse, rgba(201,168,76,0.09) 0%, transparent 65%)',
+          background: 'radial-gradient(ellipse, rgba(201,168,76,0.11) 0%, transparent 65%)',
           filter: 'blur(50px)',
           scale: glowScale,
         }}
@@ -148,10 +148,18 @@ function CinematicBottle({ springX, springY }) {
 
       {/* L2: warm deep glow */}
       <div className="absolute pointer-events-none" style={{
-        width: 300, height: 400,
+        width: 380, height: 480,
         top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
-        background: 'radial-gradient(ellipse, rgba(59,31,15,0.4) 0%, transparent 70%)',
+        background: 'radial-gradient(ellipse, rgba(59,31,15,0.5) 0%, transparent 70%)',
         filter: 'blur(60px)',
+      }} />
+
+      {/* Visual bridge — glow bleeds toward left text */}
+      <div className="absolute pointer-events-none" style={{
+        width: 300, height: 200,
+        top: '50%', left: '-10%', transform: 'translateY(-50%)',
+        background: 'radial-gradient(ellipse at 100% 50%, rgba(120,70,20,0.1) 0%, transparent 80%)',
+        filter: 'blur(40px)',
       }} />
 
       {/* L3: smoke wisps */}
@@ -259,9 +267,11 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex justify-center items-center overflow-hidden bg-black">
 
       {/* Ambient orbs */}
-      <div ref={orb1Ref} className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%)', filter: 'blur(40px)' }} />
-      <div ref={orb2Ref} className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(59,31,15,0.5) 0%, transparent 70%)', filter: 'blur(60px)' }} />
-      <div ref={orb3Ref} className="absolute top-2/3 left-1/2 w-[300px] h-[300px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%)', filter: 'blur(50px)' }} />
+      <div ref={orb1Ref} className="absolute top-1/4 left-1/4 w-[560px] h-[560px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(201,168,76,0.09) 0%, transparent 70%)', filter: 'blur(40px)' }} />
+      <div ref={orb2Ref} className="absolute bottom-1/3 right-1/4 w-[480px] h-[480px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(59,31,15,0.6) 0%, transparent 70%)', filter: 'blur(60px)' }} />
+      <div ref={orb3Ref} className="absolute top-2/3 left-1/2 w-[360px] h-[360px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%)', filter: 'blur(50px)' }} />
+      {/* Deep amber sweep behind bottle */}
+      <div className="absolute top-0 right-0 w-[700px] h-full pointer-events-none" style={{ background: 'radial-gradient(ellipse at 80% 50%, rgba(120,70,20,0.12) 0%, transparent 60%)', filter: 'blur(80px)' }} />
 
       {/* Arabesque corners */}
       <div className="absolute top-20 left-6 md:left-10 pointer-events-none"><ArabesqueCorner /></div>
@@ -308,19 +318,19 @@ export default function HeroSection() {
             className="h-px bg-gold-400/60"
           />
 
-          <motion.p variants={item} className="text-ivory/50 text-sm md:text-base font-light max-w-sm leading-relaxed tracking-wide">
+          <motion.p variants={item} className="text-ivory/55 text-sm md:text-base font-light leading-[1.9] tracking-wide" style={{ maxWidth: 420 }}>
             Custom-made fragrances, blended from the finest attars.
             <br />
-            <span className="text-gold-400/70">Free delivery across India.</span>
+            <span className="text-gold-400/75">Free delivery across India.</span>
           </motion.p>
 
           {/* Premium CTAs */}
           <motion.div variants={item} className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
             <Link to="/collections">
               <motion.span
-                className="inline-flex items-center gap-3 px-8 py-4 cursor-pointer select-none"
-                style={{ background: 'rgba(176,141,87,0.92)', color: '#0A0A0A' }}
-                whileHover={{ background: 'rgba(201,168,76,1)', boxShadow: '0 0 32px rgba(201,168,76,0.28)' }}
+                className="inline-flex items-center gap-3 cursor-pointer select-none"
+                style={{ background: 'rgba(176,141,87,0.92)', color: '#0A0A0A', padding: '13px 28px', border: '1px solid rgba(176,141,87,0.25)' }}
+                whileHover={{ background: 'rgba(201,168,76,1)', boxShadow: '0 0 36px rgba(201,168,76,0.3)', y: -2 }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ duration: 0.3 }}
               >
@@ -331,9 +341,9 @@ export default function HeroSection() {
 
             <Link to="/custom-fragrance">
               <motion.span
-                className="inline-flex items-center gap-3 px-8 py-4 cursor-pointer select-none"
-                style={{ border: '1px solid rgba(176,141,87,0.4)', color: 'rgba(176,141,87,0.8)' }}
-                whileHover={{ borderColor: 'rgba(201,168,76,0.8)', color: 'rgba(201,168,76,1)', boxShadow: '0 0 20px rgba(201,168,76,0.12)' }}
+                className="inline-flex items-center gap-3 cursor-pointer select-none"
+                style={{ border: '1px solid rgba(176,141,87,0.25)', color: 'rgba(176,141,87,0.8)', padding: '13px 28px', background: 'rgba(176,141,87,0.04)' }}
+                whileHover={{ borderColor: 'rgba(201,168,76,0.7)', color: 'rgba(201,168,76,1)', boxShadow: '0 0 22px rgba(201,168,76,0.12)', background: 'rgba(201,168,76,0.08)', y: -2 }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ duration: 0.3 }}
               >
@@ -343,11 +353,16 @@ export default function HeroSection() {
           </motion.div>
 
           {/* Stats */}
-          <motion.div variants={item} className="flex gap-8 pt-6 border-t border-gold-400/10 mt-1 justify-center lg:justify-start">
-            {[['500+', 'Blends Created'], ['100%', 'Custom Made'], ['Free', 'Delivery India']].map(([num, label]) => (
-              <div key={label}>
-                <p className="font-heading text-xl md:text-2xl text-gold-300">{num}</p>
-                <p className="text-[9px] tracking-[0.3em] uppercase text-ivory/30 mt-1">{label}</p>
+          <motion.div variants={item} className="flex gap-0 pt-6 border-t border-gold-400/10 mt-1 justify-center lg:justify-start">
+            {[['500+', 'Blends Created'], ['100%', 'Custom Made'], ['Free', 'Delivery India']].map(([num, label], i, arr) => (
+              <div key={label} className="flex items-stretch">
+                <div className="px-7 first:pl-0 flex flex-col gap-1">
+                  <p className="font-heading text-2xl md:text-[28px] text-gold-300 leading-none">{num}</p>
+                  <p className="text-[9px] tracking-[0.3em] uppercase text-ivory/35 mt-1">{label}</p>
+                </div>
+                {i < arr.length - 1 && (
+                  <div className="w-px self-stretch" style={{ background: 'linear-gradient(to bottom, transparent, rgba(201,168,76,0.2), transparent)' }} />
+                )}
               </div>
             ))}
           </motion.div>
@@ -362,12 +377,13 @@ export default function HeroSection() {
       {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2.4, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-ivory/30"
+        animate={{ opacity: 0.4 }}
+        transition={{ delay: 2.4, duration: 1.0 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        style={{ color: 'rgba(245,240,232,0.5)' }}
       >
-        <span className="text-[9px] tracking-[0.4em] uppercase">Scroll</span>
-        <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}>
+        <span className="text-[9px] tracking-[0.5em] uppercase">Scroll</span>
+        <motion.div animate={{ y: [0, 7, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}>
           <ChevronDown size={16} strokeWidth={1} />
         </motion.div>
       </motion.div>

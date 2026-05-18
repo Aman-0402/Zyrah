@@ -74,7 +74,7 @@ const FRAGRANCES = [
     desc: 'Ocean-fresh lemon and green apple with a clean aquatic heart.',
     notes: ['Lemon', 'Green Apple', 'Aqua'],
     gradient: 'linear-gradient(160deg, #0A0A0A 0%, #050d14 50%, #081520 100%)',
-    accentColor: '#7ECFDB',
+    accentColor: '#5B9DAF',
     featured: false,
     bgImage: `${BASE}Collection/HEAVEN%20AQUA%20FIZZ%201.png`,
     image: `${BASE}Collection/HEAVEN%20AQUA%20FIZZ%202.png`,
@@ -114,8 +114,8 @@ function FragranceCard({ fragrance, index }) {
       className={[
         'group relative flex flex-col border transition-colors duration-700 cursor-pointer',
         featured
-          ? 'border-gold-400/20 hover:border-gold-400/40'
-          : 'border-gold-400/10 hover:border-gold-400/20',
+          ? 'border-gold-400/15 hover:border-gold-400/35'
+          : 'border-gold-400/8 hover:border-gold-400/18',
       ].join(' ')}
       style={{
         background: featured ? 'rgba(20,10,4,0.9)' : '#111111',
@@ -189,7 +189,7 @@ function FragranceCard({ fragrance, index }) {
       {/* ── END IMAGE AREA ─── */}
 
       {/* ── CARD BODY: flat, no tilt, border-aligned ───────────────── */}
-      <div className="p-7 flex flex-col gap-4 flex-1 pb-8">
+      <div className="p-7 flex flex-col gap-4 flex-1 pb-10">
         <div className="flex items-center justify-between gap-3">
           <h3 className="luxury-card-title text-2xl md:text-3xl text-ivory group-hover:text-gold-300 transition-colors duration-300">
             {name}
@@ -197,9 +197,9 @@ function FragranceCard({ fragrance, index }) {
           <ArrowRight size={14} strokeWidth={1} className="text-gold-400/25 group-hover:text-gold-400 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0" />
         </div>
 
-        <p className="luxury-body" style={{ maxWidth: '90%', color: 'rgba(245,240,232,0.68)' }}>{desc}</p>
+        <p className="luxury-body" style={{ maxWidth: '90%', color: 'rgba(245,240,232,0.76)' }}>{desc}</p>
 
-        <div className="flex flex-wrap gap-2 mt-auto pt-2">
+        <div className="flex flex-wrap gap-2 mt-auto pt-3">
           {notes.map((note) => (
             <span key={note} className="text-[9px] tracking-[0.25em] uppercase px-3 py-1.5 border text-gold-400/55 group-hover:text-gold-400/75 transition-all duration-300 rounded-full" style={{ borderColor: `${accentColor}28`, background: `${accentColor}06` }}>
               {note}

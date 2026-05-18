@@ -63,7 +63,7 @@ export default function Footer() {
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
           <span
             className="font-heading font-light text-ivory select-none whitespace-nowrap"
-            style={{ fontSize: 'clamp(56px,9vw,110px)', letterSpacing: '0.5em', opacity: 0.016 }}
+            style={{ fontSize: 'clamp(56px,9vw,110px)', letterSpacing: '0.5em', opacity: 0.032 }}
           >
             M. M. ATTARWALA
           </span>
@@ -232,11 +232,11 @@ export default function Footer() {
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-3"
             style={{ borderTop: '1px solid rgba(201,168,76,0.06)' }}>
             <p className="text-[9px] tracking-[0.35em] uppercase font-light"
-              style={{ color: 'rgba(245,240,232,0.16)' }}>
+              style={{ color: 'rgba(245,240,232,0.40)' }}>
               © {year} M. M. Attarwala. All rights reserved.
             </p>
             <p className="text-[9px] tracking-[0.35em] uppercase font-light"
-              style={{ color: 'rgba(245,240,232,0.11)' }}>
+              style={{ color: 'rgba(245,240,232,0.28)' }}>
               Made with love in India ♥
             </p>
           </div>

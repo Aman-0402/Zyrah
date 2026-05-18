@@ -64,8 +64,8 @@ export default function Navbar() {
           'fixed top-0 left-0 right-0 z-50',
           'transition-all duration-500 ease-out',
           isScrolled
-            ? 'border-b border-gold-400/8 py-3'
-            : 'py-4',
+            ? 'border-b border-gold-400/8 py-4'
+            : 'py-5',
         ].join(' ')}
         style={isScrolled
           ? { background: 'linear-gradient(to bottom, rgba(5,5,5,0.96) 0%, rgba(5,5,5,0.75) 100%)', backdropFilter: 'blur(12px)' }
@@ -125,7 +125,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-4">
             <NavLink
               to="/custom-fragrance"
-              className="text-[11px] tracking-[0.3em] uppercase font-light transition-all duration-400 px-6 py-3"
+              className="text-[11px] tracking-[0.3em] uppercase font-light transition-all duration-400 px-8 py-3.5"
               style={{ border: '1px solid rgba(176,141,87,0.45)', color: 'rgba(176,141,87,0.85)' }}
               onMouseEnter={e => {
                 e.currentTarget.style.borderColor = 'rgba(176,141,87,0.85)'

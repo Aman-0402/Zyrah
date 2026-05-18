@@ -192,17 +192,20 @@ export default function BrandEthos() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, margin: '-80px' }}
-            className="flex flex-col gap-4"
+            className="flex flex-col gap-6"
           >
-            <motion.p variants={textItem} className="luxury-body max-w-lg" style={{ color: 'rgba(245,240,232,0.70)' }}>
+            <motion.p variants={textItem} className="luxury-body max-w-lg" style={{ color: 'rgba(245,240,232,0.76)' }}>
               At M. M. Attarwala, we believe fragrance is deeply personal.
               Every bottle we craft is a conversation between you and
               your senses — blended fresh, just for you.
             </motion.p>
-            <motion.p variants={textItem} className="luxury-body max-w-md" style={{ color: 'rgba(245,240,232,0.42)' }}>
+            <motion.p variants={textItem} className="luxury-body max-w-md" style={{ color: 'rgba(245,240,232,0.50)' }}>
               Rooted in the rich tradition of Indian and Arabic attar-making,
               we source the finest raw ingredients and blend them with care.
-              No mass production. No shortcuts.
+              No mass production. No shortcuts. No compromise.
+            </motion.p>
+            <motion.p variants={textItem} className="text-[10px] tracking-[0.4em] uppercase italic font-heading" style={{ color: 'rgba(201,168,76,0.35)' }}>
+              जनत का एहसास — The Feeling of Paradise
             </motion.p>
           </motion.div>
 
