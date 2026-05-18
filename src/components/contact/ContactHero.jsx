@@ -67,7 +67,10 @@ export default function ContactHero() {
         />
 
         <motion.p variants={item} className="font-heading italic text-ivory/30 text-base md:text-lg">
-          Custom orders, questions, or just a hello.
+          Custom orders, questions, or just a hello —
+        </motion.p>
+        <motion.p variants={item} className="text-[10px] tracking-[0.4em] uppercase mt-2" style={{ color: 'rgba(201,168,76,0.28)' }}>
+          Mandvi, Vadodara · Two Locations
         </motion.p>
       </motion.div>
 

@@ -31,25 +31,25 @@ const INFO_CARDS = [
   },
   {
     icon: MapPin,
-    label: 'Store 1 — Nazarbaug',
+    label: 'Store 1 — Nazarbaug Palace',
     value: 'GF 154/155, Nazarbaug Palace',
-    sub: 'Vadodara — 390 001',
-    href: null,
+    sub: 'Opp. Jamnabai Hospital, Mandvi, Vadodara – 390 017',
+    href: 'https://maps.google.com/?q=Nazarbaug+Palace+Mandvi+Vadodara',
     accent: '#F5F0E8',
   },
   {
     icon: MapPin,
     label: 'Store 2 — Fortune Point',
     value: 'Shop No. 3, Fortune Point',
-    sub: 'Mandvi, Vadodara — 390 017',
-    href: null,
+    sub: 'Opp. Jumma Masjid, Mandvi, Vadodara – 390 017',
+    href: 'https://maps.google.com/?q=Fortune+Point+Mandvi+Vadodara',
     accent: '#F5F0E8',
   },
   {
     icon: Clock,
     label: 'Hours',
     value: '10:00 am – 8:00 pm',
-    sub: 'Mon: closed at Namaz time · Fri: closed 12:45–2:45 pm',
+    sub: 'Monday: Closed · Friday: Closed 12:45–2:45 pm (Namaz)',
     href: null,
     accent: '#E2C27D',
   },
@@ -145,6 +145,19 @@ export default function ContactInfo() {
           Free Delivery Across India
         </span>
         <span className="text-gold-400/50 text-xs">✦</span>
+      </div>
+
+      {/* Products */}
+      <div data-reveal className="flex flex-col gap-2 pt-1">
+        <p className="text-[9px] tracking-[0.35em] uppercase" style={{ color: 'rgba(201,168,76,0.35)' }}>Our Products</p>
+        <div className="flex flex-wrap gap-2">
+          {['Indian Attar', 'Perfume Spray', 'Deodorant Spray', 'Room Freshener', 'Car Spray', 'Agarbatti'].map(p => (
+            <span key={p} className="text-[9px] tracking-[0.2em] uppercase px-3 py-1.5 border border-gold-400/12"
+              style={{ color: 'rgba(245,240,232,0.30)', background: 'rgba(201,168,76,0.03)' }}>
+              {p}
+            </span>
+          ))}
+        </div>
       </div>
 
       {/* Instagram link */}
