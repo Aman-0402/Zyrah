@@ -4,6 +4,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
+// Luxury cinematic easing — sharp start, long slow settle
+const LUXURY_EASE = 'power2.out'
+
 export function useGSAPReveal(options = {}) {
   const ref = useRef(null)
 
@@ -12,11 +15,11 @@ export function useGSAPReveal(options = {}) {
     if (!el) return
 
     const {
-      from = { opacity: 0, y: 40 },
+      from = { opacity: 0, y: 28 },
       to = { opacity: 1, y: 0 },
-      duration = 0.9,
-      ease = 'power3.out',
-      start = 'top 85%',
+      duration = 1.4,
+      ease = LUXURY_EASE,
+      start = 'top 82%',
       delay = 0,
     } = options
 
@@ -48,12 +51,12 @@ export function useGSAPStaggerReveal(options = {}) {
 
     const {
       selector = '[data-reveal]',
-      from = { opacity: 0, y: 50 },
+      from = { opacity: 0, y: 30 },
       to = { opacity: 1, y: 0 },
-      duration = 0.8,
-      stagger = 0.15,
-      ease = 'power3.out',
-      start = 'top 80%',
+      duration = 1.2,
+      stagger = 0.20,
+      ease = LUXURY_EASE,
+      start = 'top 82%',
     } = options
 
     const els = container.querySelectorAll(selector)

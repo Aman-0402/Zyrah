@@ -4,17 +4,19 @@ import { ChevronDown, ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 
+const LUXURY = [0.22, 1, 0.36, 1]
+
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.15, delayChildren: 0.4 } },
+  show: { transition: { staggerChildren: 0.18, delayChildren: 0.5 } },
 }
 const item = {
-  hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.9, ease: [0.76, 0, 0.24, 1] } },
+  hidden: { opacity: 0, y: 28 },
+  show: { opacity: 1, y: 0, transition: { duration: 1.3, ease: LUXURY } },
 }
 const lineReveal = {
   hidden: { clipPath: 'inset(0 100% 0 0)' },
-  show: { clipPath: 'inset(0 0% 0 0)', transition: { duration: 1.1, ease: [0.76, 0, 0.24, 1] } },
+  show: { clipPath: 'inset(0 0% 0 0)', transition: { duration: 1.4, ease: LUXURY } },
 }
 
 function ArabesqueCorner({ flip = false }) {
@@ -302,7 +304,7 @@ export default function HeroSection() {
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: 80 }}
-            transition={{ duration: 1, delay: 1.2, ease: [0.76, 0, 0.24, 1] }}
+            transition={{ duration: 1.4, delay: 1.4, ease: LUXURY }}
             className="h-px bg-gold-400/60"
           />
 

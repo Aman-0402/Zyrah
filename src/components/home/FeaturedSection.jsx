@@ -81,15 +81,24 @@ const FRAGRANCES = [
   },
 ]
 
-// Only bottle pops — image layer tilts, text+border stay flat
-const imageTiltVariants = {
-  rest:  { rotateX: 0, rotateY: 0 },
-  hover: { rotateX: -3, rotateY: 3 },
+const LUXURY_EASE = [0.22, 1, 0.36, 1]
+
+// Card floats up — no tilt (luxury restraint)
+const articleVariants = {
+  rest:  { y: 0 },
+  hover: { y: -6 },
 }
 
+// Image: very subtle tilt, almost imperceptible
+const imageTiltVariants = {
+  rest:  { rotateX: 0, rotateY: 0 },
+  hover: { rotateX: -1.5, rotateY: 1.5 },
+}
+
+// Bottle: gentle lift, doesn't dominate
 const bottleVariants = {
-  rest:  { scale: 0.90, y: 0   },
-  hover: { scale: 1.10, y: -16 },
+  rest:  { scale: 0.92, y: 0  },
+  hover: { scale: 1.05, y: -8 },
 }
 
 function FragranceCard({ fragrance, index }) {
@@ -98,17 +107,18 @@ function FragranceCard({ fragrance, index }) {
   return (
     <motion.article
       data-reveal
+      variants={articleVariants}
       initial="rest"
       whileHover="hover"
+      transition={{ duration: 0.6, ease: LUXURY_EASE }}
       className={[
-        'group relative flex flex-col border transition-colors duration-500 cursor-pointer',
+        'group relative flex flex-col border transition-colors duration-700 cursor-pointer',
         featured
-          ? 'border-gold-400/20 hover:border-gold-400/45'
-          : 'border-gold-400/10 hover:border-gold-400/22',
+          ? 'border-gold-400/20 hover:border-gold-400/40'
+          : 'border-gold-400/10 hover:border-gold-400/20',
       ].join(' ')}
       style={{
         background: featured ? 'rgba(20,10,4,0.9)' : '#111111',
-        // High perspective = cinematic depth, not cardboard
         perspective: '1400px',
       }}
     >
@@ -116,7 +126,7 @@ function FragranceCard({ fragrance, index }) {
       {/* ── IMAGE AREA: tilts on hover ─────────────────────────────── */}
       <motion.div
         variants={imageTiltVariants}
-        transition={{ type: 'spring', stiffness: 180, damping: 30 }}
+        transition={{ duration: 0.8, ease: LUXURY_EASE }}
         style={{ transformStyle: 'preserve-3d', transformOrigin: 'center center' }}
         className="relative h-64"
       >
@@ -148,7 +158,7 @@ function FragranceCard({ fragrance, index }) {
         {image && (
           <motion.div
             variants={bottleVariants}
-            transition={{ type: 'spring', stiffness: 180, damping: 30 }}
+            transition={{ duration: 0.9, ease: LUXURY_EASE }}
             className="absolute inset-0 flex items-end justify-center pointer-events-none"
             style={{ zIndex: 20, transformOrigin: 'bottom center' }}
           >
