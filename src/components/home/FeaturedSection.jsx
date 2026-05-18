@@ -34,13 +34,15 @@ const FRAGRANCES = [
   },
   {
     id: 3,
-    name: 'Misk Malaki',
-    arabic: 'مسك ملكي',
-    desc: 'Royal white musk — clean, celestial, and unforgettable.',
-    notes: ['White Musk', 'Jasmine', 'Cedarwood'],
-    gradient: 'linear-gradient(160deg, #0A0A0A 0%, #0d0d12 50%, #141424 100%)',
-    accentColor: '#F5F0E8',
+    name: 'Classic MM Pour Homme',
+    arabic: 'كلاسيك للرجال',
+    desc: 'Mountain-fresh neroli and cedar — clean confidence wrapped in sunset gold.',
+    notes: ['Neroli', 'Cedarwood', 'Lemon'],
+    gradient: 'linear-gradient(160deg, #0A0A0A 0%, #0a1208 50%, #111a0d 100%)',
+    accentColor: '#C9A84C',
     featured: false,
+    bgImage: `${BASE}Collection/CLASSIC%20MM%20POUR%20HOMME%205.1.png`,
+    image: `${BASE}Collection/CLASSIC%20MM%20POUR%20HOMME%205.2.png`,
   },
 ]
 
