@@ -219,7 +219,22 @@ export default function FeaturedSection() {
   const gridRef   = useGSAPStaggerReveal({ selector: '[data-reveal]', stagger: 0.18, start: 'top 80%' })
 
   return (
-    <section className="py-24 md:py-32"><div className="cx">
+    <section className="py-24 md:py-32 relative overflow-hidden">
+
+      {/* Atmospheric glow zone behind heading */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(120,58,0,0.09) 0%, transparent 65%)' }}
+      />
+      {/* Warm amber glow — bottom left */}
+      <div className="absolute bottom-0 left-0 w-[500px] h-[400px] pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at 0% 100%, rgba(80,35,0,0.06) 0%, transparent 65%)' }}
+      />
+      {/* Cool right accent */}
+      <div className="absolute top-1/2 right-0 w-[400px] h-[600px] pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse at 100% 50%, rgba(10,10,20,0.15) 0%, transparent 70%)' }}
+      />
+
+    <div className="cx relative z-10">
 
       {/* Header */}
       <div ref={headingRef} className="w-full text-center mb-20">
@@ -285,6 +300,7 @@ export default function FeaturedSection() {
           </motion.span>
         </Link>
       </div>
-    </div></section>
+    </div>
+    </section>
   )
 }

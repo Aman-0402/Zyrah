@@ -4,6 +4,14 @@ import MarqueeStrip from '../components/home/MarqueeStrip'
 import FeaturedSection from '../components/home/FeaturedSection'
 import BrandEthos from '../components/home/BrandEthos'
 
+// Very slow ambient drifters — cross-section atmosphere
+const DRIFTERS = [
+  { w: 700, h: 700, top: '12%',  left: '-8%',  color: 'rgba(120,58,0,0.055)', dur: 28, dx: [0,45,0],  dy: [0,-30,0],  del: 0  },
+  { w: 600, h: 600, top: '38%',  right: '-6%', color: 'rgba(80,35,0,0.045)',  dur: 35, dx: [0,-35,0], dy: [0,40,0],   del: 8  },
+  { w: 800, h: 500, top: '68%',  left: '15%',  color: 'rgba(100,45,0,0.04)', dur: 40, dx: [0,25,-15,0],dy: [0,-20,15,0],del:16},
+  { w: 500, h: 500, top: '85%',  right: '10%', color: 'rgba(60,25,0,0.035)', dur: 32, dx: [0,-20,0],  dy: [0,-35,0],  del: 5  },
+]
+
 function AtmosphericBridge({ warm = false, height = 32 }) {
   return (
     <div
@@ -29,7 +37,23 @@ export default function Home() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.6 }}
+      className="relative"
     >
+      {/* Global ambient atmosphere — slow drifters spanning all sections */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        {DRIFTERS.map(({ w, h, top, left, right, color, dur, dx, dy, del }, i) => (
+          <motion.div
+            key={i}
+            className="absolute rounded-full"
+            style={{ width: w, height: h, top, left, right,
+              background: `radial-gradient(circle, ${color} 0%, transparent 65%)`,
+            }}
+            animate={{ x: dx, y: dy }}
+            transition={{ duration: dur, repeat: Infinity, ease: 'easeInOut', delay: del }}
+          />
+        ))}
+      </div>
+
       <HeroSection />
 
       {/* Hero → Marquee: fade out hero atmosphere */}
