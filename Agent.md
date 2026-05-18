@@ -412,7 +412,59 @@ Wait for user message: **"NEXT START"**
 
 ---
 
-## 14. Important Notes for Future AI Agents
+## 14. ★ CollectionCard — Premium 3D Hover (Latest Addition)
+
+**File:** `src/components/collections/CollectionCard.jsx`
+**Replaces:** `ProductCard.jsx` in `ProductGrid.jsx`
+
+### Real Business Details (updated throughout site)
+| Field | Value |
+|---|---|
+| Primary WA | 919724586101 (M. Roeesh) |
+| Alternate | 919016361538 (M. Munavvar) |
+| Email | mmattarwala2008@rediff.com |
+| Store 1 | GF 154/155 Nazarbaug Palace, Vadodara |
+| Store 2 | Shop No. 3 Fortune Point, Mandvi, Vadodara-17 |
+| Hours | 10am–8pm · Mon: closed at Namaz · Fri: 12:45–2:45 closed |
+
+### Layer Stack (z-order, all inside 268px image div)
+
+| Z | Layer | Motion |
+|---|---|---|
+| 0 | BG gradient (inset -8%) | `bgX/bgY` spring — moves opposite cursor |
+| 1 | Arabic watermark | Same `bgX/bgY` — dimmer on hover |
+| 2 | Bottle (outer: float, inner: cursor) | Idle: `y:[0,-11,0]` repeat. Hover: cursor `bottleX/Y` |
+| 3 | Dynamic cursor glow | `glowLeft/glowTop` motion string values → CSS left/top |
+| 5 | Gold particles (×7) | `opacity/scale/y` infinite loop |
+| 20 | Glass shine sweep | `shineKey` increment → AnimatePresence remount → `left:-38%→138%` |
+
+### Key Motion Values
+```js
+rawX, rawY         // onMouseMove → normalized -0.5 to +0.5
+rotateX, rotateY   // useSpring(useTransform(rawX/Y)) — card tilt
+bgX, bgY           // opposite cursor × 7 — parallax depth
+bottleX, bottleY   // same as cursor × 13/9 — layer separation
+glowLeft, glowTop  // string '15%'→'85%' — glow follows cursor
+cardShadow         // combined [rawX,rawY] transform → box-shadow string
+```
+
+### Spring: `{ stiffness: 180, damping: 28, mass: 0.8 }`
+Increase stiffness → snappier. Increase damping → slower settle.
+
+### Shine sweep: `shineKey` state increments on each `mouseEnter`.
+AnimatePresence keyed on `shineKey` remounts shine div → fresh initial→animate fires.
+
+### Reduced motion: `useReducedMotion()` → disables tilt, float, particles.
+
+### Adding real bottle images to cards:
+1. Put PNG in `public/` (any subfolder)
+2. Import at top of `products.js`: `import img from '../../public/...png'`
+3. Add `image: img` to product object
+4. CollectionCard checks `image` prop → renders `<img>` or `<BottlePlaceholder>`
+
+---
+
+## 15. Important Notes for Future AI Agents
 
 1. **Tailwind v4**: Config is entirely in `src/styles/globals.css` via `@theme {}`. No `tailwind.config.js`. Color tokens use `--color-*` prefix, font tokens use `--font-*` prefix.
 

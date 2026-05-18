@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { PRODUCTS } from '../../data/products'
-import ProductCard from './ProductCard'
+import CollectionCard from './CollectionCard'
 
 /* Empty state */
 function EmptyState() {
@@ -45,7 +45,7 @@ export default function ProductGrid({ activeFilter }) {
             <EmptyState key="empty" />
           ) : (
             filtered.map((product, i) => (
-              <ProductCard key={product.id} product={product} index={i} />
+              <CollectionCard key={product.id} product={product} index={i} />
             ))
           )}
         </AnimatePresence>
