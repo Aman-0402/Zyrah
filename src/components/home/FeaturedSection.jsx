@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useGSAPReveal, useGSAPStaggerReveal } from '../../hooks/useGSAPReveal'
 import Button from '../ui/Button'
+import heavenTouchImg from '../../../public/Sqaure Perfume Images/Heaven Touch perfume allure.png'
 
 const FRAGRANCES = [
   {
@@ -15,6 +16,7 @@ const FRAGRANCES = [
     accentColor: '#C9A84C',
     featured: false,
     imageH: 'h-64',
+    image: heavenTouchImg,
   },
   {
     id: 2,
@@ -41,7 +43,7 @@ const FRAGRANCES = [
 ]
 
 function FragranceCard({ fragrance, index }) {
-  const { featured, accentColor, gradient, arabic, name, desc, notes, imageH } = fragrance
+  const { featured, accentColor, gradient, arabic, name, desc, notes, imageH, image } = fragrance
 
   return (
     <motion.article
@@ -76,11 +78,33 @@ function FragranceCard({ fragrance, index }) {
         <div className="absolute inset-0 flex items-center justify-center">
           <span
             className="text-6xl md:text-7xl font-light transition-transform duration-700 group-hover:scale-110"
-            style={{ color: accentColor, opacity: 0.09, fontFamily: 'Georgia, serif' }}
+            style={{ color: accentColor, opacity: image ? 0.03 : 0.09, fontFamily: 'Georgia, serif' }}
           >
             {arabic}
           </span>
         </div>
+
+        {/* Swaying bottle image */}
+        {image && (
+          <div
+            className="absolute inset-0 flex items-end justify-center pointer-events-none"
+            style={{ perspective: '700px' }}
+          >
+            <motion.img
+              src={image}
+              alt={name}
+              animate={{ rotateY: [-12, 12, -12] }}
+              transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
+              className="object-contain relative z-10"
+              style={{
+                height: '92%',
+                width: 'auto',
+                filter: 'drop-shadow(-6px 18px 18px rgba(0,0,0,0.8)) drop-shadow(6px 0px 12px rgba(201,168,76,0.08))',
+                transformOrigin: 'bottom center',
+              }}
+            />
+          </div>
+        )}
 
         {/* Index */}
         <div className="absolute top-4 left-4">
