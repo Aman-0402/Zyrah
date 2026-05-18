@@ -44,6 +44,36 @@ const FRAGRANCES = [
     bgImage: `${BASE}Collection/CLASSIC%20MM%20POUR%20HOMME%205.1.png`,
     image: `${BASE}Collection/CLASSIC%20MM%20POUR%20HOMME%205.2.png`,
   },
+  {
+    id: 4,
+    name: 'Coming Soon',
+    arabic: 'قريباً',
+    desc: 'A new chapter in luxury fragrance. Stay tuned.',
+    notes: ['—'],
+    gradient: 'linear-gradient(160deg, #0A0A0A 0%, #100a00 50%, #1a1200 100%)',
+    accentColor: '#C9A84C',
+    featured: false,
+  },
+  {
+    id: 5,
+    name: 'Coming Soon',
+    arabic: 'قريباً',
+    desc: 'A new chapter in luxury fragrance. Stay tuned.',
+    notes: ['—'],
+    gradient: 'linear-gradient(160deg, #0A0A0A 0%, #0a0a10 50%, #10101a 100%)',
+    accentColor: '#C9A84C',
+    featured: false,
+  },
+  {
+    id: 6,
+    name: 'Coming Soon',
+    arabic: 'قريباً',
+    desc: 'A new chapter in luxury fragrance. Stay tuned.',
+    notes: ['—'],
+    gradient: 'linear-gradient(160deg, #0A0A0A 0%, #0a1008 50%, #0e1a0c 100%)',
+    accentColor: '#C9A84C',
+    featured: false,
+  },
 ]
 
 // Only bottle pops — image layer tilts, text+border stay flat
@@ -155,7 +185,7 @@ function FragranceCard({ fragrance, index }) {
           </div>
         )}
         <div className="absolute top-4 left-4 z-30">
-          <span className="text-[9px] tracking-[0.4em] uppercase text-gold-400/30">No. 0{index + 1}</span>
+          <span className="text-[9px] tracking-[0.4em] uppercase text-gold-400/30">No. {String(index + 1).padStart(2, '0')}</span>
         </div>
       </motion.div>
       {/* ── END IMAGE AREA ─── */}
@@ -202,11 +232,14 @@ export default function FeaturedSection() {
         </p>
       </div>
 
-      {/* Equal 3-col grid */}
+      {/* 2-row 3-col grid */}
       <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-14">
         <FragranceCard fragrance={FRAGRANCES[0]} index={0} />
         <FragranceCard fragrance={FRAGRANCES[1]} index={1} />
         <FragranceCard fragrance={FRAGRANCES[2]} index={2} />
+        <FragranceCard fragrance={FRAGRANCES[3]} index={3} />
+        <FragranceCard fragrance={FRAGRANCES[4]} index={4} />
+        <FragranceCard fragrance={FRAGRANCES[5]} index={5} />
       </div>
 
       {/* CTA */}
