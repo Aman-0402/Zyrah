@@ -164,7 +164,7 @@ export default function BrandEthos() {
           </motion.p>
 
           <div ref={headRef} className="w-full">
-            <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-ivory leading-tight">
+            <h2 className="luxury-heading text-4xl md:text-5xl lg:text-6xl text-ivory">
               Every Scent
               <br />
               <span className="italic text-gold-300">Tells A Story</span>
@@ -186,12 +186,12 @@ export default function BrandEthos() {
             viewport={{ once: true, margin: '-80px' }}
             className="flex flex-col gap-4"
           >
-            <motion.p variants={textItem} className="text-ivory/55 text-sm md:text-base leading-relaxed font-light max-w-lg">
+            <motion.p variants={textItem} className="luxury-body max-w-lg" style={{ color: 'rgba(245,240,232,0.70)' }}>
               At M. M. Attarwala, we believe fragrance is deeply personal.
               Every bottle we craft is a conversation between you and
               your senses — blended fresh, just for you.
             </motion.p>
-            <motion.p variants={textItem} className="text-ivory/30 text-sm leading-relaxed font-light max-w-md">
+            <motion.p variants={textItem} className="luxury-body max-w-md" style={{ color: 'rgba(245,240,232,0.42)' }}>
               Rooted in the rich tradition of Indian and Arabic attar-making,
               we source the finest raw ingredients and blend them with care.
               No mass production. No shortcuts.

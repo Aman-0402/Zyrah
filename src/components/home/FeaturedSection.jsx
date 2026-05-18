@@ -181,13 +181,13 @@ function FragranceCard({ fragrance, index }) {
       {/* ── CARD BODY: flat, no tilt, border-aligned ───────────────── */}
       <div className="p-7 flex flex-col gap-4 flex-1 pb-8">
         <div className="flex items-center justify-between gap-3">
-          <h3 className="font-heading text-2xl text-ivory group-hover:text-gold-300 transition-colors duration-300 leading-tight">
+          <h3 className="luxury-card-title text-2xl md:text-3xl text-ivory group-hover:text-gold-300 transition-colors duration-300">
             {name}
           </h3>
           <ArrowRight size={14} strokeWidth={1} className="text-gold-400/25 group-hover:text-gold-400 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0" />
         </div>
 
-        <p className="text-ivory/65 font-light text-sm" style={{ lineHeight: 1.7, maxWidth: '90%' }}>{desc}</p>
+        <p className="luxury-body" style={{ maxWidth: '90%', color: 'rgba(245,240,232,0.68)' }}>{desc}</p>
 
         <div className="flex flex-wrap gap-2 mt-auto pt-2">
           {notes.map((note) => (
@@ -214,7 +214,7 @@ export default function FeaturedSection() {
       {/* Header */}
       <div ref={headingRef} className="w-full text-center mb-20">
         <p className="text-[11px] tracking-[0.6em] uppercase text-gold-400/65 mb-8">Our Craft</p>
-        <h2 className="font-heading text-5xl md:text-7xl font-light text-ivory mb-8 text-center tracking-tight" style={{ lineHeight: 0.95 }}>Signature Scents</h2>
+        <h2 className="luxury-heading text-5xl md:text-7xl text-ivory mb-8 text-center">Signature Scents</h2>
         <p className="font-heading italic text-ivory/55 text-lg md:text-xl max-w-sm mx-auto text-center leading-relaxed">
           Each fragrance tells a story, each drop holds a world.
         </p>

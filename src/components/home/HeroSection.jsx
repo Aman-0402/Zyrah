@@ -283,8 +283,7 @@ export default function HeroSection() {
             <div className="overflow-hidden">
               <motion.h1
                 variants={lineReveal}
-                className="font-heading italic text-[64px] md:text-[88px] lg:text-[96px] xl:text-[116px] text-ivory tracking-tight"
-                style={{ fontWeight: 300, lineHeight: 0.92 }}
+                className="luxury-hero italic text-[64px] md:text-[88px] lg:text-[96px] xl:text-[120px] text-ivory"
               >
                 Crafted
               </motion.h1>
@@ -292,8 +291,8 @@ export default function HeroSection() {
             <div className="overflow-hidden">
               <motion.h1
                 variants={lineReveal}
-                className="font-heading text-[64px] md:text-[88px] lg:text-[96px] xl:text-[116px] tracking-tight text-gold-gradient"
-                style={{ fontWeight: 400, lineHeight: 0.92 }}
+                className="luxury-hero text-[64px] md:text-[88px] lg:text-[96px] xl:text-[120px] text-gold-gradient"
+                style={{ fontWeight: 400 }}
               >
                 For You.
               </motion.h1>

@@ -80,8 +80,47 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: 0.02em;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+/* Luxury typography utilities */
+.luxury-hero {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  line-height: 0.88;
+  letter-spacing: -0.04em;
+  text-shadow: 0 2px 30px rgba(255,255,255,0.04);
+}
+
+.luxury-heading {
+  font-family: var(--font-heading);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+}
+
+.luxury-card-title {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.luxury-body {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  font-weight: 300;
+  color: rgba(245,240,232,0.72);
+}
+
+.luxury-label {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  letter-spacing: 0.3em;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
 /* ─── Selection ───────────────────────────────────────────────────────────── */
