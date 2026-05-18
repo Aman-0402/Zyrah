@@ -3,7 +3,9 @@ import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useGSAPReveal, useGSAPStaggerReveal } from '../../hooks/useGSAPReveal'
 import Button from '../ui/Button'
-import heavenTouchImg from '../../../public/Sqaure Perfume Images/Heaven Touch perfume allure.png'
+
+// import.meta.env.BASE_URL = '/' in dev, '/Zyrah/' in production
+const BASE = import.meta.env.BASE_URL
 
 const FRAGRANCES = [
   {
@@ -16,7 +18,8 @@ const FRAGRANCES = [
     accentColor: '#C9A84C',
     featured: false,
     imageH: 'h-64',
-    image: heavenTouchImg,
+    bgImage: `${BASE}Collection/Citrusandamberonmarble.png`,
+    image: `${BASE}Collection/Luxurious%20amber%20fragrance%20in%20golden%20bottle.png`,
   },
   {
     id: 2,
@@ -43,7 +46,7 @@ const FRAGRANCES = [
 ]
 
 function FragranceCard({ fragrance, index }) {
-  const { featured, accentColor, gradient, arabic, name, desc, notes, imageH, image } = fragrance
+  const { featured, accentColor, gradient, arabic, name, desc, notes, imageH, image, bgImage } = fragrance
 
   return (
     <motion.article
@@ -68,7 +71,22 @@ function FragranceCard({ fragrance, index }) {
       )}
 
       {/* Image */}
-      <div className={`relative overflow-hidden ${imageH}`} style={{ background: gradient }}>
+      <div
+        className={`relative overflow-hidden ${imageH}`}
+        style={
+          bgImage
+            ? { backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }
+            : { background: gradient }
+        }
+      >
+        {/* Dark overlay for bgImage cards — keeps bottle + text legible */}
+        {bgImage && (
+          <div
+            className="absolute inset-0"
+            style={{ background: 'linear-gradient(180deg, rgba(10,10,10,0.35) 0%, rgba(10,10,10,0.55) 100%)' }}
+          />
+        )}
+
         <div
           className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
           style={{ background: `linear-gradient(135deg, ${accentColor}0D 0%, transparent 60%)` }}
