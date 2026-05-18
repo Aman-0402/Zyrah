@@ -42,15 +42,15 @@ const FRAGRANCES = [
   },
 ]
 
-/* Variant sets — propagate from article → tilt wrapper → bottle */
-const tiltVariants = {
-  rest:  { rotateX: 0,  rotateY: 0,  scale: 1    },
-  hover: { rotateX: -4, rotateY: 6,  scale: 1.03 },
+// Only bottle pops — image layer tilts, text+border stay flat
+const imageTiltVariants = {
+  rest:  { rotateX: 0, rotateY: 0 },
+  hover: { rotateX: -3, rotateY: 3 },
 }
 
 const bottleVariants = {
-  rest:  { scale: 0.92, y: 0   },
-  hover: { scale: 1.28, y: -32 },
+  rest:  { scale: 0.90, y: 0   },
+  hover: { scale: 1.10, y: -16 },
 }
 
 function FragranceCard({ fragrance, index }) {
@@ -62,125 +62,119 @@ function FragranceCard({ fragrance, index }) {
       initial="rest"
       whileHover="hover"
       className={[
+        // Border on article — never tilts, always aligned
         'group relative flex flex-col border transition-colors duration-500 cursor-pointer',
         featured
-          ? 'border-gold-400/30 hover:border-gold-400/60'
-          : 'border-gold-400/10 hover:border-gold-400/35',
+          ? 'border-gold-400/30 hover:border-gold-400/55'
+          : 'border-gold-400/12 hover:border-gold-400/30',
       ].join(' ')}
-      style={{ background: featured ? 'rgba(20,10,4,0.9)' : '#111111', perspective: '900px' }}
+      style={{
+        background: featured ? 'rgba(20,10,4,0.9)' : '#111111',
+        // High perspective = cinematic depth, not cardboard
+        perspective: '1400px',
+      }}
     >
-      {/* Tilt wrapper — whole card rotates as one unit */}
+
+      {/* ── IMAGE AREA: tilts on hover ─────────────────────────────── */}
       <motion.div
-        variants={tiltVariants}
-        transition={{ type: 'spring', stiffness: 260, damping: 22 }}
-        style={{ transformStyle: 'preserve-3d', transformOrigin: 'center bottom' }}
-        className="flex flex-col flex-1"
+        variants={imageTiltVariants}
+        transition={{ type: 'spring', stiffness: 180, damping: 30 }}
+        style={{ transformStyle: 'preserve-3d', transformOrigin: 'center center' }}
+        className="relative h-64"
       >
-
-        {/* Image area — NO overflow-hidden here so bottle can pop out */}
-        <div className="relative h-64">
-
-          {/* Background layer — has its own overflow-hidden */}
-          <div
-            className="absolute inset-0 overflow-hidden"
-            style={
-              bgImage
-                ? { backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }
-                : { background: gradient }
-            }
-          >
-            {bgImage && (
-              <div
-                className="absolute inset-0"
-                style={{ background: 'linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.58) 100%)' }}
-              />
-            )}
+        {/* Background — own overflow-hidden so it clips cleanly */}
+        <div
+          className="absolute inset-0 overflow-hidden"
+          style={
+            bgImage
+              ? { backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }
+              : { background: gradient }
+          }
+        >
+          {bgImage && (
             <div
-              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-              style={{ background: `linear-gradient(135deg, ${accentColor}0D 0%, transparent 60%)` }}
+              className="absolute inset-0"
+              style={{ background: 'linear-gradient(180deg, rgba(10,10,10,0.25) 0%, rgba(10,10,10,0.55) 100%)' }}
             />
-            {/* Arabic watermark */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span
-                className="text-6xl md:text-7xl font-light select-none"
-                style={{ color: accentColor, opacity: image ? 0.03 : 0.09, fontFamily: 'Georgia, serif' }}
-              >
-                {arabic}
-              </span>
-            </div>
-            {/* Corner gold lines */}
-            <div className="absolute top-0 right-0 w-12 h-px transition-all duration-500 group-hover:w-20" style={{ background: `linear-gradient(to left, ${accentColor}60, transparent)` }} />
-            <div className="absolute top-0 right-0 w-px h-12 transition-all duration-500 group-hover:h-20" style={{ background: `linear-gradient(to bottom, ${accentColor}60, transparent)` }} />
-            {featured && (
-              <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 100%, rgba(226,194,125,0.06) 0%, transparent 70%)' }} />
-            )}
-          </div>
-
-          {/* Arabic italic — inside bg div but separate so it stays clipped */}
-          <div className="absolute bottom-4 left-4 right-4 z-10 pointer-events-none overflow-hidden">
-            <p className="font-heading text-2xl text-ivory/80 group-hover:text-ivory transition-colors duration-300" style={{ fontStyle: 'italic', fontWeight: 300 }}>
-              {arabic}
-            </p>
-          </div>
-
-          {/* Bottle — OUTSIDE overflow-hidden, scales up + floats out on hover */}
-          {image && (
-            <motion.div
-              variants={bottleVariants}
-              transition={{ type: 'spring', stiffness: 240, damping: 20 }}
-              className="absolute inset-0 flex items-end justify-center pointer-events-none"
-              style={{ zIndex: 20, transformOrigin: 'bottom center' }}
+          )}
+          <div
+            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+            style={{ background: `linear-gradient(135deg, ${accentColor}0A 0%, transparent 60%)` }}
+          />
+          {/* Arabic watermark */}
+          <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none">
+            <span
+              className="text-6xl md:text-7xl font-light"
+              style={{ color: accentColor, opacity: image ? 0.03 : 0.09, fontFamily: 'Georgia, serif' }}
             >
-              <img
-                src={image}
-                alt={name}
-                draggable={false}
-                className="h-full w-auto object-contain"
-                style={{
-                  filter: 'drop-shadow(-4px 16px 22px rgba(0,0,0,0.85)) drop-shadow(0 0 22px rgba(201,168,76,0.18))',
-                }}
-              />
-            </motion.div>
-          )}
-
-          {/* Badges + index — always on top */}
-          {featured && (
-            <div className="absolute top-4 right-4 z-30">
-              <span className="text-[8px] tracking-[0.35em] uppercase px-3 py-1 border border-gold-400/40 text-gold-400/80 bg-black/60">
-                Bestseller
-              </span>
-            </div>
-          )}
-          <div className="absolute top-4 left-4 z-30">
-            <span className="text-[9px] tracking-[0.4em] uppercase text-gold-400/30">No. 0{index + 1}</span>
+              {arabic}
+            </span>
           </div>
+          {/* Corner gold accents — inside overflow-hidden so they clip */}
+          <div className="absolute top-0 right-0 w-10 h-px transition-all duration-500 group-hover:w-16" style={{ background: `linear-gradient(to left, ${accentColor}55, transparent)` }} />
+          <div className="absolute top-0 right-0 w-px h-10 transition-all duration-500 group-hover:h-16" style={{ background: `linear-gradient(to bottom, ${accentColor}55, transparent)` }} />
         </div>
 
-        {/* Card body */}
-        <div className="p-6 flex flex-col gap-3 flex-1">
-          <div className="flex items-start justify-between">
-            <h3 className="font-heading text-xl text-ivory group-hover:text-gold-300 transition-colors duration-300">
-              {name}
-            </h3>
-            <motion.div className="text-gold-400/40 group-hover:text-gold-400 transition-colors duration-300 mt-1" whileHover={{ x: 3 }}>
-              <ArrowRight size={16} strokeWidth={1.5} />
-            </motion.div>
+        {/* Arabic italic bottom-left — clipped to image area */}
+        <div className="absolute bottom-4 left-4 right-4 z-10 pointer-events-none">
+          <p className="font-heading text-2xl text-ivory/75 group-hover:text-ivory/95 transition-colors duration-500" style={{ fontStyle: 'italic', fontWeight: 300 }}>
+            {arabic}
+          </p>
+        </div>
+
+        {/* Bottle — sits on top of image, can overflow upward */}
+        {image && (
+          <motion.div
+            variants={bottleVariants}
+            transition={{ type: 'spring', stiffness: 180, damping: 30 }}
+            className="absolute inset-0 flex items-end justify-center pointer-events-none"
+            style={{ zIndex: 20, transformOrigin: 'bottom center' }}
+          >
+            <img
+              src={image}
+              alt={name}
+              draggable={false}
+              className="h-full w-auto object-contain"
+              style={{
+                filter: 'drop-shadow(-3px 14px 20px rgba(0,0,0,0.8)) drop-shadow(0 0 16px rgba(201,168,76,0.14))',
+              }}
+            />
+          </motion.div>
+        )}
+
+        {/* Badges + index — z-top */}
+        {featured && (
+          <div className="absolute top-4 right-4 z-30">
+            <span className="text-[8px] tracking-[0.35em] uppercase px-3 py-1 border border-gold-400/40 text-gold-400/80 bg-black/60">
+              Bestseller
+            </span>
           </div>
+        )}
+        <div className="absolute top-4 left-4 z-30">
+          <span className="text-[9px] tracking-[0.4em] uppercase text-gold-400/30">No. 0{index + 1}</span>
+        </div>
+      </motion.div>
+      {/* ── END IMAGE AREA ─── */}
+
+      {/* ── CARD BODY: flat, no tilt, border-aligned ───────────────── */}
+      <div className="p-6 flex flex-col gap-3 flex-1">
+        <div className="flex items-center justify-between">
+          <h3 className="font-heading text-xl text-ivory group-hover:text-gold-300 transition-colors duration-300">
+            {name}
+          </h3>
+          <ArrowRight size={15} strokeWidth={1.5} className="text-gold-400/35 group-hover:text-gold-400 transition-colors duration-300 flex-shrink-0" />
+        </div>
 
         <p className="text-ivory/40 font-light leading-relaxed text-sm">{desc}</p>
 
-          <div className="flex flex-wrap gap-2 mt-auto pt-2">
-            {notes.map((note) => (
-              <span key={note} className="text-[9px] tracking-[0.3em] uppercase px-3 py-1 border border-gold-400/15 text-gold-400/50 group-hover:border-gold-400/30 group-hover:text-gold-400/70 transition-all duration-300">
-                {note}
-              </span>
-            ))}
-          </div>
+        <div className="flex flex-wrap gap-2 mt-auto pt-2">
+          {notes.map((note) => (
+            <span key={note} className="text-[9px] tracking-[0.3em] uppercase px-3 py-1 border border-gold-400/15 text-gold-400/50 group-hover:border-gold-400/28 group-hover:text-gold-400/65 transition-all duration-300">
+              {note}
+            </span>
+          ))}
         </div>
-        {/* ── end card body ── */}
-
-      </motion.div>
-      {/* ── end tilt wrapper ── */}
+      </div>
 
       {/* Bottom gold line on hover */}
       <div className="absolute bottom-0 left-0 h-px w-0 group-hover:w-full transition-all duration-500" style={{ background: `linear-gradient(to right, transparent, ${accentColor}60, transparent)` }} />
