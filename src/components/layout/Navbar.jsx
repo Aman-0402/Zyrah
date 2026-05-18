@@ -64,9 +64,13 @@ export default function Navbar() {
           'fixed top-0 left-0 right-0 z-50',
           'transition-all duration-500 ease-out',
           isScrolled
-            ? 'glass border-b border-gold-400/10 py-3'
-            : 'bg-transparent py-5',
+            ? 'border-b border-gold-400/8 py-5'
+            : 'py-6',
         ].join(' ')}
+        style={isScrolled
+          ? { background: 'linear-gradient(to bottom, rgba(5,5,5,0.96) 0%, rgba(5,5,5,0.75) 100%)', backdropFilter: 'blur(12px)' }
+          : { background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, transparent 100%)' }
+        }
       >
         <nav className="cx flex items-center justify-between">
 
@@ -84,7 +88,7 @@ export default function Navbar() {
           </NavLink>
 
           {/* Desktop Links */}
-          <ul className="hidden md:flex items-center gap-8">
+          <ul className="hidden md:flex items-center gap-10">
             {NAV_LINKS.map(({ label, to }) => (
               <li key={to}>
                 <NavLink
@@ -92,10 +96,10 @@ export default function Navbar() {
                   end={to === '/'}
                   className={({ isActive }) =>
                     [
-                      'relative text-[11px] tracking-[0.25em] uppercase font-medium',
-                      'transition-colors duration-300',
-                      'group flex flex-col items-center gap-1',
-                      isActive ? 'text-gold-400' : 'text-ivory/70 hover:text-ivory',
+                      'relative text-[12px] tracking-[0.22em] uppercase font-light',
+                      'transition-colors duration-400',
+                      'group flex flex-col items-center gap-1.5',
+                      isActive ? 'text-gold-400/90' : 'text-ivory/60 hover:text-ivory/90',
                     ].join(' ')
                   }
                 >
@@ -103,12 +107,12 @@ export default function Navbar() {
                     <>
                       {label}
                       <motion.span
-                        className="h-px bg-gold-400"
+                        className="h-px"
                         initial={false}
-                        animate={{ width: isActive ? '100%' : '0%' }}
-                        whileHover={{ width: '100%' }}
-                        transition={{ duration: 0.3, ease: 'easeOut' }}
-                        style={{ display: 'block' }}
+                        animate={{ width: isActive ? '60%' : '0%', opacity: isActive ? 0.65 : 0 }}
+                        whileHover={{ width: '60%', opacity: 0.5 }}
+                        transition={{ duration: 0.4, ease: 'easeOut' }}
+                        style={{ display: 'block', background: '#C9A84C' }}
                       />
                     </>
                   )}
@@ -121,7 +125,18 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-4">
             <NavLink
               to="/custom-fragrance"
-              className="text-[10px] tracking-[0.3em] uppercase text-black bg-gold-400 hover:bg-gold-300 px-5 py-2.5 transition-all duration-300 hover:shadow-[0_0_20px_rgba(201,168,76,0.4)]"
+              className="text-[11px] tracking-[0.3em] uppercase font-light transition-all duration-400 px-6 py-3"
+              style={{ border: '1px solid rgba(176,141,87,0.45)', color: 'rgba(176,141,87,0.85)' }}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = 'rgba(176,141,87,0.85)'
+                e.currentTarget.style.color = 'rgba(176,141,87,1)'
+                e.currentTarget.style.boxShadow = '0 0 20px rgba(176,141,87,0.15)'
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = 'rgba(176,141,87,0.45)'
+                e.currentTarget.style.color = 'rgba(176,141,87,0.85)'
+                e.currentTarget.style.boxShadow = 'none'
+              }}
             >
               Craft Yours
             </NavLink>
