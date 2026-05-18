@@ -1,3 +1,5 @@
+const BASE = import.meta.env.BASE_URL
+
 export const PRODUCTS = [
   /* ── Oud ─────────────────────────────────────────────────────────────── */
   {
@@ -12,19 +14,21 @@ export const PRODUCTS = [
     price: 'From ₹799',
     isNew: false,
     isBestseller: true,
+    image: `${BASE}Perfume/Luxury%20oud%20fragrance%20in%20misty%20woods.png`,
   },
   {
     id: 2,
     name: 'Oud Sultani',
     arabicName: 'عود سلطاني',
     category: 'oud',
-    desc: 'Regal and rich — the sultan\'s personal blend of aged Hindi oud.',
+    desc: "Regal and rich — the sultan's personal blend of aged Hindi oud.",
     notes: ['Hindi Oud', 'Saffron', 'Sandalwood'],
     gradient: 'linear-gradient(160deg, #0A0A0A 0%, #1f1205 50%, #3a2208 100%)',
     accentColor: '#E2C27D',
     price: 'From ₹1,199',
     isNew: true,
     isBestseller: false,
+    image: `${BASE}Perfume/Classic%20fragrance%20collection%20in%20luxury%20ambiance.png`,
   },
   {
     id: 3,
@@ -38,6 +42,7 @@ export const PRODUCTS = [
     price: 'From ₹649',
     isNew: false,
     isBestseller: false,
+    image: `${BASE}Perfume/Classic%20round%20up%20fragrance.png`,
   },
 
   /* ── Floral ───────────────────────────────────────────────────────────── */
@@ -53,6 +58,7 @@ export const PRODUCTS = [
     price: 'From ₹499',
     isNew: false,
     isBestseller: true,
+    image: `${BASE}Perfume/Classic%20florals%20in%20luxury%20perfumes.png`,
   },
   {
     id: 5,
@@ -66,6 +72,7 @@ export const PRODUCTS = [
     price: 'From ₹549',
     isNew: true,
     isBestseller: false,
+    image: `${BASE}Perfume/Royal%20Stream%20fragrance%20elegance.png`,
   },
   {
     id: 6,
@@ -79,6 +86,7 @@ export const PRODUCTS = [
     price: 'From ₹449',
     isNew: false,
     isBestseller: false,
+    image: `${BASE}Perfume/Natural%20freshness%20in%20luxury%20fragrance.png`,
   },
 
   /* ── Musk ─────────────────────────────────────────────────────────────── */
@@ -94,6 +102,7 @@ export const PRODUCTS = [
     price: 'From ₹599',
     isNew: false,
     isBestseller: true,
+    image: `${BASE}Perfume/Royal%20White%20Mountain%20fragrance.png`,
   },
   {
     id: 8,
@@ -107,6 +116,7 @@ export const PRODUCTS = [
     price: 'From ₹499',
     isNew: false,
     isBestseller: false,
+    image: `${BASE}Perfume/Heaven%20-%20Aqua%20Fizz%20perfume%20ad.png`,
   },
   {
     id: 9,
@@ -120,6 +130,7 @@ export const PRODUCTS = [
     price: 'From ₹649',
     isNew: true,
     isBestseller: false,
+    image: `${BASE}Perfume/Royal%20Tonka%20de%20Arabia%20perfume.png`,
   },
 
   /* ── Fresh ────────────────────────────────────────────────────────────── */
@@ -135,6 +146,7 @@ export const PRODUCTS = [
     price: 'From ₹449',
     isNew: false,
     isBestseller: false,
+    image: `${BASE}Perfume/Classic%20energy%20perfume%20ad%20with%20citrus.png`,
   },
   {
     id: 11,
@@ -148,6 +160,7 @@ export const PRODUCTS = [
     price: 'From ₹499',
     isNew: true,
     isBestseller: false,
+    image: `${BASE}Perfume/Moon%20Water%20fragrance%20by%20the%20sea.png`,
   },
   {
     id: 12,
@@ -161,6 +174,7 @@ export const PRODUCTS = [
     price: 'From ₹549',
     isNew: false,
     isBestseller: true,
+    image: `${BASE}Perfume/Classic%20Oyster%20oceanic%20elegance%20in%20a%20bottle.png`,
   },
 ]
 

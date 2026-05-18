@@ -205,16 +205,19 @@ export default function CollectionCard({ product, index }) {
             style={{ x: bottleX, y: bottleY }}
           >
             {image ? (
-              <img
-                src={image}
-                alt={name}
-                draggable={false}
-                className="absolute inset-0 w-full h-full object-contain"
-                style={{
-                  transform: 'scale(0.86)',
-                  filter: `drop-shadow(0 22px 32px rgba(0,0,0,0.72)) drop-shadow(0 0 18px ${accentColor}18)`,
-                }}
-              />
+              <>
+                <img
+                  src={image}
+                  alt={name}
+                  draggable={false}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  style={{ filter: 'brightness(0.75) saturate(0.9)' }}
+                />
+                {/* Darkening overlay so text stays readable */}
+                <div className="absolute inset-0" style={{
+                  background: 'linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.52) 100%)',
+                }} />
+              </>
             ) : (
               <BottlePlaceholder accentColor={accentColor} arabicName={arabicName} />
             )}
@@ -362,14 +365,14 @@ export default function CollectionCard({ product, index }) {
         </div>
 
         {/* Description */}
-        <p className="text-ivory/35 text-xs leading-relaxed font-light">{desc}</p>
+        <p className="text-ivory/60 text-xs leading-relaxed font-light">{desc}</p>
 
         {/* Note chips */}
         <div className="flex flex-wrap gap-1.5 mt-auto">
           {notes.map((note) => (
             <span
               key={note}
-              className="text-[8px] tracking-[0.25em] uppercase px-2.5 py-1 border transition-all duration-300"
+              className="text-[9px] tracking-[0.22em] uppercase px-2.5 py-1 border transition-all duration-300"
               style={{
                 borderColor: hovered ? `${accentColor}28` : `${accentColor}12`,
                 color:       hovered ? `${accentColor}72` : `${accentColor}40`,

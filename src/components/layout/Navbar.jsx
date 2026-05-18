@@ -5,27 +5,19 @@ import { Menu, X } from 'lucide-react'
 import { useScrollPosition } from '../../hooks/useScrollPosition'
 
 const BASE = import.meta.env.BASE_URL
+const LUXURY = [0.22, 1, 0.36, 1]
 
 const NAV_LINKS = [
-  { label: 'Home', to: '/' },
-  { label: 'Collections', to: '/collections' },
+  { label: 'Home',             to: '/' },
+  { label: 'Collections',      to: '/collections' },
   { label: 'Custom Fragrance', to: '/custom-fragrance' },
-  { label: 'About', to: '/about' },
-  { label: 'Contact', to: '/contact' },
+  { label: 'About',            to: '/about' },
+  { label: 'Contact',          to: '/contact' },
 ]
 
-/* Mobile menu animation variants */
 const menuVariants = {
-  closed: {
-    opacity: 0,
-    clipPath: 'inset(0 0 100% 0)',
-    transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] },
-  },
-  open: {
-    opacity: 1,
-    clipPath: 'inset(0 0 0% 0)',
-    transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] },
-  },
+  closed: { opacity: 0, clipPath: 'inset(0 0 100% 0)', transition: { duration: 0.4, ease: [0.76, 0, 0.24, 1] } },
+  open:   { opacity: 1, clipPath: 'inset(0 0 0% 0)',   transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] } },
 }
 
 const linkVariants = {
@@ -37,17 +29,60 @@ const linkVariants = {
   }),
 }
 
+function NavItem({ label, to }) {
+  return (
+    <li>
+      <NavLink
+        to={to}
+        end={to === '/'}
+        className="relative group flex flex-col items-center gap-0 select-none"
+      >
+        {({ isActive }) => (
+          <>
+            <span
+              className="text-[11px] tracking-[0.32em] uppercase font-light transition-all duration-500"
+              style={{
+                color: isActive ? 'rgba(176,141,87,0.95)' : 'rgba(245,240,232,0.45)',
+                textShadow: isActive ? '0 0 20px rgba(176,141,87,0.3)' : 'none',
+              }}
+              onMouseEnter={e => { if (!isActive) e.currentTarget.style.color = 'rgba(245,240,232,0.85)' }}
+              onMouseLeave={e => { if (!isActive) e.currentTarget.style.color = 'rgba(245,240,232,0.45)' }}
+            >
+              {label}
+            </span>
+
+            {/* Glow underline — expands from center */}
+            <motion.span
+              className="block mt-1.5"
+              initial={false}
+              animate={{
+                scaleX: isActive ? 1 : 0,
+                opacity: isActive ? 1 : 0,
+              }}
+              whileHover={{ scaleX: 1, opacity: 0.45 }}
+              transition={{ duration: 0.45, ease: LUXURY }}
+              style={{
+                height: '1px',
+                width: '100%',
+                background: 'linear-gradient(to right, transparent, rgba(176,141,87,0.8), transparent)',
+                transformOrigin: 'center',
+                filter: 'blur(0.5px)',
+              }}
+            />
+          </>
+        )}
+      </NavLink>
+    </li>
+  )
+}
+
 export default function Navbar() {
   const { isScrolled } = useScrollPosition()
   const [menuOpen, setMenuOpen] = useState(false)
   const location = useLocation()
 
-  /* Close mobile menu on route change */
-  useEffect(() => {
-    setMenuOpen(false)
-  }, [location.pathname])
+  useEffect(() => { setMenuOpen(false) }, [location.pathname])
 
-  /* Lock body scroll when menu open */
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
@@ -55,120 +90,137 @@ export default function Navbar() {
 
   return (
     <>
-      {/* ── Main Navbar Bar ───────────────────────────────────────────────── */}
       <motion.header
-        initial={{ y: -80, opacity: 0 }}
+        initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
-        className={[
-          'fixed top-0 left-0 right-0 z-50',
-          'transition-all duration-500 ease-out',
-          isScrolled
-            ? 'border-b border-gold-400/8 py-4'
-            : 'py-5',
-        ].join(' ')}
+        transition={{ duration: 1.4, ease: LUXURY, delay: 0.1 }}
+        className="fixed top-0 left-0 right-0 z-50 transition-all duration-700"
         style={isScrolled
-          ? { background: 'linear-gradient(to bottom, rgba(5,5,5,0.96) 0%, rgba(5,5,5,0.75) 100%)', backdropFilter: 'blur(12px)' }
-          : { background: 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, transparent 100%)' }
+          ? {
+              background: 'linear-gradient(to bottom, rgba(4,3,2,0.97) 0%, rgba(4,3,2,0.82) 100%)',
+              backdropFilter: 'blur(14px)',
+              WebkitBackdropFilter: 'blur(14px)',
+              borderBottom: '1px solid rgba(176,141,87,0.07)',
+              paddingTop: '14px',
+              paddingBottom: '14px',
+            }
+          : {
+              background: 'linear-gradient(to bottom, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.22) 70%, transparent 100%)',
+              backdropFilter: 'blur(4px)',
+              WebkitBackdropFilter: 'blur(4px)',
+              paddingTop: '22px',
+              paddingBottom: '22px',
+            }
         }
       >
-        <nav className="cx flex items-center justify-between">
+        {/* Atmospheric warm glow behind navbar — cinematic depth */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse 60% 100% at 50% -30%, rgba(80,40,10,0.15) 0%, transparent 100%)',
+          }}
+        />
 
-          {/* Logo */}
-          <NavLink to="/" className="relative group flex items-center select-none">
+        {/* Bottom gold divider — always present, stronger when scrolled */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-px pointer-events-none transition-opacity duration-700"
+          style={{
+            background: 'linear-gradient(to right, transparent 5%, rgba(176,141,87,0.22) 40%, rgba(176,141,87,0.32) 50%, rgba(176,141,87,0.22) 60%, transparent 95%)',
+            opacity: isScrolled ? 1 : 0.4,
+          }}
+        />
+
+        <nav className="cx relative z-10 flex items-center justify-between">
+
+          {/* ── Logo ── */}
+          <NavLink to="/" className="relative flex items-center select-none group">
+            {/* Soft ambient glow behind logo */}
+            <motion.div
+              className="absolute -inset-2 pointer-events-none rounded-full"
+              animate={{ opacity: [0.3, 0.6, 0.3] }}
+              transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+              style={{ background: 'radial-gradient(ellipse, rgba(176,141,87,0.12) 0%, transparent 70%)' }}
+            />
             <motion.img
               src={`${BASE}logoakatar.png`}
               alt="M. M. Attarwala"
               draggable={false}
-              className="h-16 md:h-20 w-auto object-contain"
+              className="relative h-16 md:h-[82px] w-auto object-contain"
               whileHover={{ scale: 1.04 }}
-              transition={{ duration: 0.35, ease: 'easeOut' }}
-              style={{ filter: 'drop-shadow(0 0 12px rgba(201,168,76,0.25))' }}
+              transition={{ duration: 0.45, ease: 'easeOut' }}
+              style={{ filter: 'drop-shadow(0 0 16px rgba(176,141,87,0.35))' }}
             />
           </NavLink>
 
-          {/* Desktop Links */}
-          <ul className="hidden md:flex items-center gap-10">
+          {/* ── Desktop Links ── */}
+          <ul className="hidden md:flex items-center gap-10 lg:gap-12">
             {NAV_LINKS.map(({ label, to }) => (
-              <li key={to}>
-                <NavLink
-                  to={to}
-                  end={to === '/'}
-                  className={({ isActive }) =>
-                    [
-                      'relative text-[12px] tracking-[0.22em] uppercase font-light',
-                      'transition-colors duration-400',
-                      'group flex flex-col items-center gap-1.5',
-                      isActive ? 'text-gold-400/90' : 'text-ivory/60 hover:text-ivory/90',
-                    ].join(' ')
-                  }
-                >
-                  {({ isActive }) => (
-                    <>
-                      {label}
-                      <motion.span
-                        className="h-px"
-                        initial={false}
-                        animate={{ width: isActive ? '60%' : '0%', opacity: isActive ? 0.65 : 0 }}
-                        whileHover={{ width: '60%', opacity: 0.5 }}
-                        transition={{ duration: 0.4, ease: 'easeOut' }}
-                        style={{ display: 'block', background: '#C9A84C' }}
-                      />
-                    </>
-                  )}
-                </NavLink>
-              </li>
+              <NavItem key={to} label={label} to={to} />
             ))}
           </ul>
 
-          {/* CTA — desktop */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* ── CTA — desktop ── */}
+          <div className="hidden md:flex items-center">
             <NavLink
               to="/custom-fragrance"
-              className="text-[11px] tracking-[0.3em] uppercase font-light transition-all duration-400 px-8 py-3.5"
-              style={{ border: '1px solid rgba(176,141,87,0.45)', color: 'rgba(176,141,87,0.85)' }}
+              className="relative group overflow-hidden select-none transition-all duration-500"
+              style={{
+                border: '1px solid rgba(176,141,87,0.28)',
+                color: 'rgba(176,141,87,0.80)',
+                background: 'rgba(176,141,87,0.04)',
+                padding: '11px 24px',
+                fontSize: '10px',
+                letterSpacing: '0.32em',
+                textTransform: 'uppercase',
+                fontWeight: 400,
+              }}
               onMouseEnter={e => {
-                e.currentTarget.style.borderColor = 'rgba(176,141,87,0.85)'
-                e.currentTarget.style.color = 'rgba(176,141,87,1)'
-                e.currentTarget.style.boxShadow = '0 0 20px rgba(176,141,87,0.15)'
+                e.currentTarget.style.borderColor = 'rgba(176,141,87,0.65)'
+                e.currentTarget.style.color = 'rgba(201,168,76,1)'
+                e.currentTarget.style.background = 'rgba(176,141,87,0.10)'
+                e.currentTarget.style.boxShadow = '0 0 24px rgba(176,141,87,0.18), inset 0 0 12px rgba(176,141,87,0.04)'
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.borderColor = 'rgba(176,141,87,0.45)'
-                e.currentTarget.style.color = 'rgba(176,141,87,0.85)'
+                e.currentTarget.style.borderColor = 'rgba(176,141,87,0.28)'
+                e.currentTarget.style.color = 'rgba(176,141,87,0.80)'
+                e.currentTarget.style.background = 'rgba(176,141,87,0.04)'
                 e.currentTarget.style.boxShadow = 'none'
               }}
             >
-              Craft Yours
+              {/* Shimmer sweep on hover */}
+              <span className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                style={{ background: 'linear-gradient(105deg, transparent 30%, rgba(201,168,76,0.06) 50%, transparent 70%)' }}
+              />
+              <span className="relative">Craft Yours</span>
             </NavLink>
           </div>
 
-          {/* Hamburger — mobile */}
+          {/* ── Hamburger — mobile ── */}
           <motion.button
             onClick={() => setMenuOpen((v) => !v)}
-            className="md:hidden text-ivory/80 hover:text-gold-400 transition-colors duration-300 p-1"
-            whileTap={{ scale: 0.9 }}
+            className="md:hidden p-2 transition-colors duration-300"
+            style={{ color: 'rgba(245,240,232,0.7)' }}
+            whileTap={{ scale: 0.88 }}
             aria-label="Toggle menu"
           >
             <AnimatePresence mode="wait" initial={false}>
               {menuOpen ? (
-                <motion.span
-                  key="close"
+                <motion.span key="close"
                   initial={{ rotate: -90, opacity: 0 }}
                   animate={{ rotate: 0, opacity: 1 }}
                   exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
+                  transition={{ duration: 0.22 }}
                 >
-                  <X size={22} />
+                  <X size={20} strokeWidth={1.5} />
                 </motion.span>
               ) : (
-                <motion.span
-                  key="open"
+                <motion.span key="open"
                   initial={{ rotate: 90, opacity: 0 }}
                   animate={{ rotate: 0, opacity: 1 }}
                   exit={{ rotate: -90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
+                  transition={{ duration: 0.22 }}
                 >
-                  <Menu size={22} />
+                  <Menu size={20} strokeWidth={1.5} />
                 </motion.span>
               )}
             </AnimatePresence>
@@ -176,7 +228,7 @@ export default function Navbar() {
         </nav>
       </motion.header>
 
-      {/* ── Mobile Menu Overlay ────────────────────────────────────────────── */}
+      {/* ── Mobile Menu Overlay ── */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
@@ -186,78 +238,64 @@ export default function Navbar() {
             animate="open"
             exit="closed"
             className="fixed inset-0 z-40 md:hidden"
-            style={{ background: 'rgba(10,10,10,0.97)' }}
+            style={{ background: 'rgba(4,3,2,0.98)', backdropFilter: 'blur(20px)' }}
           >
-            {/* Gold top border accent */}
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-400/60 to-transparent" />
+            {/* Gold accent lines */}
+            <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(to right, transparent, rgba(176,141,87,0.5), transparent)' }} />
+            <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(to right, transparent, rgba(176,141,87,0.2), transparent)' }} />
 
-            <div className="flex flex-col items-center justify-center h-full gap-2">
-              {/* Brand repeat in menu */}
-              <motion.div
-                custom={-1}
-                variants={linkVariants}
-                initial="closed"
-                animate="open"
-                className="mb-10"
-              >
-                <img
-                  src={`${BASE}logoakatar.png`}
-                  alt="M. M. Attarwala"
-                  draggable={false}
-                  className="h-14 w-auto object-contain opacity-40"
-                />
+            {/* Atmospheric glow */}
+            <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 30%, rgba(80,40,10,0.12) 0%, transparent 70%)' }} />
+
+            <div className="relative flex flex-col items-center justify-center h-full gap-1.5">
+
+              {/* Logo */}
+              <motion.div custom={-1} variants={linkVariants} initial="closed" animate="open" className="mb-12">
+                <img src={`${BASE}logoakatar.png`} alt="M. M. Attarwala" draggable={false}
+                  className="h-14 w-auto object-contain" style={{ opacity: 0.35, filter: 'drop-shadow(0 0 8px rgba(176,141,87,0.2))' }} />
               </motion.div>
 
               {NAV_LINKS.map(({ label, to }, i) => (
-                <motion.div
-                  key={to}
-                  custom={i}
-                  variants={linkVariants}
-                  initial="closed"
-                  animate="open"
-                >
+                <motion.div key={to} custom={i} variants={linkVariants} initial="closed" animate="open">
                   <NavLink
                     to={to}
                     end={to === '/'}
-                    className={({ isActive }) =>
-                      [
-                        'font-heading text-4xl sm:text-5xl font-light tracking-wider',
-                        'transition-colors duration-300 block py-2 text-center',
-                        isActive ? 'text-gold-400' : 'text-ivory/70 hover:text-gold-300',
-                      ].join(' ')
-                    }
+                    className="block py-3 text-center transition-all duration-300"
                   >
-                    {label}
+                    {({ isActive }) => (
+                      <span
+                        className="font-heading text-4xl sm:text-5xl font-light tracking-wider transition-all duration-300"
+                        style={{
+                          color: isActive ? 'rgba(176,141,87,0.95)' : 'rgba(245,240,232,0.65)',
+                          textShadow: isActive ? '0 0 30px rgba(176,141,87,0.25)' : 'none',
+                        }}
+                      >
+                        {label}
+                      </span>
+                    )}
                   </NavLink>
                 </motion.div>
               ))}
 
               {/* Mobile CTA */}
-              <motion.div
-                custom={NAV_LINKS.length + 1}
-                variants={linkVariants}
-                initial="closed"
-                animate="open"
-                className="mt-10"
-              >
+              <motion.div custom={NAV_LINKS.length + 1} variants={linkVariants} initial="closed" animate="open" className="mt-10">
                 <NavLink
                   to="/custom-fragrance"
-                  className="text-[10px] tracking-[0.4em] uppercase text-black bg-gold-400 hover:bg-gold-300 px-8 py-3 transition-all duration-300"
+                  className="text-[10px] tracking-[0.45em] uppercase transition-all duration-300"
+                  style={{ color: '#0A0A0A', background: 'rgba(176,141,87,0.92)', padding: '14px 36px', display: 'block' }}
                 >
                   Craft Your Fragrance
                 </NavLink>
               </motion.div>
 
               {/* Tagline */}
-              <motion.p
-                custom={NAV_LINKS.length + 2}
-                variants={linkVariants}
-                initial="closed"
-                animate="open"
-                className="absolute bottom-10 text-[10px] tracking-[0.3em] uppercase text-ivory/20"
-              >
-                Free delivery across India
-              </motion.p>
+              <motion.div custom={NAV_LINKS.length + 2} variants={linkVariants} initial="closed" animate="open"
+                className="absolute bottom-10 flex flex-col items-center gap-2">
+                <div className="w-8 h-px" style={{ background: 'rgba(176,141,87,0.3)' }} />
+                <p className="text-[9px] tracking-[0.4em] uppercase" style={{ color: 'rgba(245,240,232,0.22)' }}>
+                  Mandvi, Vadodara · Since India
+                </p>
+              </motion.div>
             </div>
           </motion.div>
         )}
