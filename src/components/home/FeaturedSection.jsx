@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { useGSAPReveal, useGSAPStaggerReveal } from '../../hooks/useGSAPReveal'
-import Button from '../ui/Button'
 
 // import.meta.env.BASE_URL = '/' in dev, '/Zyrah/' in production
 const BASE = import.meta.env.BASE_URL
@@ -46,33 +45,39 @@ const FRAGRANCES = [
   },
   {
     id: 4,
-    name: 'Coming Soon',
-    arabic: 'قريباً',
-    desc: 'A new chapter in luxury fragrance. Stay tuned.',
-    notes: ['—'],
-    gradient: 'linear-gradient(160deg, #0A0A0A 0%, #100a00 50%, #1a1200 100%)',
+    name: 'Heaven Touch',
+    arabic: 'لمسة الجنة',
+    desc: 'Citrus bloom meets dark amber resin — a sensual evening luxury.',
+    notes: ['Grapefruit', 'Jasmine', 'Amber'],
+    gradient: 'linear-gradient(160deg, #0A0A0A 0%, #1a0e05 50%, #2a1508 100%)',
     accentColor: '#C9A84C',
     featured: false,
+    bgImage: `${BASE}Collection/HEAVEN%20TOUCH%206.1.png`,
+    image: `${BASE}Collection/HEAVEN%20TOUCH%206.2.png`,
   },
   {
     id: 5,
-    name: 'Coming Soon',
-    arabic: 'قريباً',
-    desc: 'A new chapter in luxury fragrance. Stay tuned.',
-    notes: ['—'],
-    gradient: 'linear-gradient(160deg, #0A0A0A 0%, #0a0a10 50%, #10101a 100%)',
+    name: 'Royal Tonka De Arabia',
+    arabic: 'رويال طونكا العربية',
+    desc: 'Saffron and rose meet oud and tonka — dark Arabian royalty in a bottle.',
+    notes: ['Saffron', 'Rose', 'Tonka', 'Oud'],
+    gradient: 'linear-gradient(160deg, #0A0A0A 0%, #1a0508 50%, #2a080e 100%)',
     accentColor: '#C9A84C',
     featured: false,
+    bgImage: `${BASE}Collection/ROYAL%20TONKA%20DE%20ARABIA%201.png`,
+    image: `${BASE}Collection/ROYAL%20TONKA%20DE%20ARABIA%202.png`,
   },
   {
     id: 6,
-    name: 'Coming Soon',
-    arabic: 'قريباً',
-    desc: 'A new chapter in luxury fragrance. Stay tuned.',
-    notes: ['—'],
-    gradient: 'linear-gradient(160deg, #0A0A0A 0%, #0a1008 50%, #0e1a0c 100%)',
-    accentColor: '#C9A84C',
+    name: 'Heaven Aqua Fizz',
+    arabic: 'هيفن أكوا فيز',
+    desc: 'Ocean-fresh lemon and green apple with a clean aquatic heart.',
+    notes: ['Lemon', 'Green Apple', 'Aqua'],
+    gradient: 'linear-gradient(160deg, #0A0A0A 0%, #050d14 50%, #081520 100%)',
+    accentColor: '#7ECFDB',
     featured: false,
+    bgImage: `${BASE}Collection/HEAVEN%20AQUA%20FIZZ%201.png`,
+    image: `${BASE}Collection/HEAVEN%20AQUA%20FIZZ%202.png`,
   },
 ]
 
@@ -88,7 +93,7 @@ const bottleVariants = {
 }
 
 function FragranceCard({ fragrance, index }) {
-  const { featured, accentColor, gradient, arabic, name, desc, notes, image, bgImage } = fragrance
+  const { featured, accentColor, gradient, name, desc, notes, image, bgImage } = fragrance
 
   return (
     <motion.article
@@ -96,11 +101,10 @@ function FragranceCard({ fragrance, index }) {
       initial="rest"
       whileHover="hover"
       className={[
-        // Border on article — never tilts, always aligned
         'group relative flex flex-col border transition-colors duration-500 cursor-pointer',
         featured
-          ? 'border-gold-400/30 hover:border-gold-400/55'
-          : 'border-gold-400/12 hover:border-gold-400/30',
+          ? 'border-gold-400/20 hover:border-gold-400/45'
+          : 'border-gold-400/10 hover:border-gold-400/22',
       ].join(' ')}
       style={{
         background: featured ? 'rgba(20,10,4,0.9)' : '#111111',
@@ -135,25 +139,9 @@ function FragranceCard({ fragrance, index }) {
             className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
             style={{ background: `linear-gradient(135deg, ${accentColor}0A 0%, transparent 60%)` }}
           />
-          {/* Arabic watermark */}
-          <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none">
-            <span
-              className="text-6xl md:text-7xl font-light"
-              style={{ color: accentColor, opacity: image ? 0.03 : 0.09, fontFamily: 'Georgia, serif' }}
-            >
-              {arabic}
-            </span>
-          </div>
           {/* Corner gold accents — inside overflow-hidden so they clip */}
           <div className="absolute top-0 right-0 w-10 h-px transition-all duration-500 group-hover:w-16" style={{ background: `linear-gradient(to left, ${accentColor}55, transparent)` }} />
           <div className="absolute top-0 right-0 w-px h-10 transition-all duration-500 group-hover:h-16" style={{ background: `linear-gradient(to bottom, ${accentColor}55, transparent)` }} />
-        </div>
-
-        {/* Arabic italic bottom-left — clipped to image area */}
-        <div className="absolute bottom-4 left-4 right-4 z-10 pointer-events-none">
-          <p className="font-heading text-2xl text-ivory/75 group-hover:text-ivory/95 transition-colors duration-500" style={{ fontStyle: 'italic', fontWeight: 300 }}>
-            {arabic}
-          </p>
         </div>
 
         {/* Bottle — sits on top of image, can overflow upward */}
@@ -191,19 +179,19 @@ function FragranceCard({ fragrance, index }) {
       {/* ── END IMAGE AREA ─── */}
 
       {/* ── CARD BODY: flat, no tilt, border-aligned ───────────────── */}
-      <div className="p-6 flex flex-col gap-3 flex-1">
-        <div className="flex items-center justify-between">
-          <h3 className="font-heading text-xl text-ivory group-hover:text-gold-300 transition-colors duration-300">
+      <div className="p-7 flex flex-col gap-4 flex-1 pb-8">
+        <div className="flex items-center justify-between gap-3">
+          <h3 className="font-heading text-2xl text-ivory group-hover:text-gold-300 transition-colors duration-300 leading-tight">
             {name}
           </h3>
-          <ArrowRight size={15} strokeWidth={1.5} className="text-gold-400/35 group-hover:text-gold-400 transition-colors duration-300 flex-shrink-0" />
+          <ArrowRight size={14} strokeWidth={1} className="text-gold-400/25 group-hover:text-gold-400 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0" />
         </div>
 
-        <p className="text-ivory/40 font-light leading-relaxed text-sm">{desc}</p>
+        <p className="text-ivory/65 font-light text-sm" style={{ lineHeight: 1.7, maxWidth: '90%' }}>{desc}</p>
 
         <div className="flex flex-wrap gap-2 mt-auto pt-2">
           {notes.map((note) => (
-            <span key={note} className="text-[9px] tracking-[0.3em] uppercase px-3 py-1 border border-gold-400/15 text-gold-400/50 group-hover:border-gold-400/28 group-hover:text-gold-400/65 transition-all duration-300">
+            <span key={note} className="text-[9px] tracking-[0.25em] uppercase px-3 py-1.5 border text-gold-400/55 group-hover:text-gold-400/75 transition-all duration-300 rounded-full" style={{ borderColor: `${accentColor}28`, background: `${accentColor}06` }}>
               {note}
             </span>
           ))}
@@ -224,10 +212,10 @@ export default function FeaturedSection() {
     <section className="py-24 md:py-32"><div className="cx">
 
       {/* Header */}
-      <div ref={headingRef} className="w-full text-center mb-16">
-        <p className="text-[10px] tracking-[0.5em] uppercase text-gold-400/50 mb-4">Our Craft</p>
-        <h2 className="font-heading text-4xl md:text-6xl text-ivory mb-4 text-center">Signature Scents</h2>
-        <p className="font-heading italic text-ivory/40 text-lg md:text-xl max-w-md mx-auto text-center">
+      <div ref={headingRef} className="w-full text-center mb-20">
+        <p className="text-[11px] tracking-[0.6em] uppercase text-gold-400/65 mb-8">Our Craft</p>
+        <h2 className="font-heading text-5xl md:text-7xl font-light text-ivory mb-8 text-center tracking-tight" style={{ lineHeight: 0.95 }}>Signature Scents</h2>
+        <p className="font-heading italic text-ivory/55 text-lg md:text-xl max-w-sm mx-auto text-center leading-relaxed">
           Each fragrance tells a story, each drop holds a world.
         </p>
       </div>
@@ -245,7 +233,46 @@ export default function FeaturedSection() {
       {/* CTA */}
       <div className="text-center">
         <Link to="/collections">
-          <Button variant="outline" size="lg">View All Collections</Button>
+          <motion.span
+            className="group inline-flex items-center gap-4 cursor-pointer select-none"
+            initial="rest"
+            whileHover="hover"
+          >
+            {/* Left line */}
+            <motion.span
+              variants={{ rest: { width: 24, opacity: 0.25 }, hover: { width: 48, opacity: 0.7 } }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
+              className="h-px bg-gold-400 block"
+            />
+
+            {/* Button box */}
+            <motion.span
+              variants={{
+                rest: { borderColor: 'rgba(201,168,76,0.4)', color: 'rgba(201,168,76,0.85)', boxShadow: '0 0 0px rgba(201,168,76,0)' },
+                hover: { borderColor: 'rgba(201,168,76,0.9)', color: 'rgba(201,168,76,1)',   boxShadow: '0 0 36px rgba(201,168,76,0.22)' },
+              }}
+              transition={{ duration: 0.35 }}
+              className="inline-flex items-center gap-4 border px-14 py-5"
+              style={{ fontFamily: 'inherit' }}
+            >
+              <span className="text-sm tracking-[0.45em] uppercase font-semibold">
+                View All Collections
+              </span>
+              <motion.span
+                variants={{ rest: { x: 0, opacity: 0.6 }, hover: { x: 5, opacity: 1 } }}
+                transition={{ duration: 0.3 }}
+              >
+                <ArrowRight size={15} strokeWidth={1.5} />
+              </motion.span>
+            </motion.span>
+
+            {/* Right line */}
+            <motion.span
+              variants={{ rest: { width: 24, opacity: 0.25 }, hover: { width: 48, opacity: 0.7 } }}
+              transition={{ duration: 0.4, ease: 'easeOut' }}
+              className="h-px bg-gold-400 block"
+            />
+          </motion.span>
         </Link>
       </div>
     </div></section>

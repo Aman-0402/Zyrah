@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { useScrollPosition } from '../../hooks/useScrollPosition'
 
+const BASE = import.meta.env.BASE_URL
+
 const NAV_LINKS = [
   { label: 'Home', to: '/' },
   { label: 'Collections', to: '/collections' },
@@ -69,20 +71,16 @@ export default function Navbar() {
         <nav className="cx flex items-center justify-between">
 
           {/* Logo */}
-          <NavLink
-            to="/"
-            className="relative group flex flex-col leading-none select-none"
-          >
-            <motion.span
-              className="font-heading text-xl md:text-2xl text-gold-400 tracking-[0.15em] font-light"
-              whileHover={{ letterSpacing: '0.22em' }}
-              transition={{ duration: 0.4 }}
-            >
-              m_m_attarwala
-            </motion.span>
-            <span className="text-[9px] tracking-[0.35em] text-ivory/40 uppercase mt-0.5 ml-0.5">
-              जनत का एहसास
-            </span>
+          <NavLink to="/" className="relative group flex items-center select-none">
+            <motion.img
+              src={`${BASE}logoakatar.png`}
+              alt="M. M. Attarwala"
+              draggable={false}
+              className="h-10 md:h-12 w-auto object-contain"
+              whileHover={{ scale: 1.04 }}
+              transition={{ duration: 0.35, ease: 'easeOut' }}
+              style={{ filter: 'drop-shadow(0 0 8px rgba(201,168,76,0.15))' }}
+            />
           </NavLink>
 
           {/* Desktop Links */}
@@ -180,15 +178,20 @@ export default function Navbar() {
 
             <div className="flex flex-col items-center justify-center h-full gap-2">
               {/* Brand repeat in menu */}
-              <motion.p
+              <motion.div
                 custom={-1}
                 variants={linkVariants}
                 initial="closed"
                 animate="open"
-                className="font-heading text-gold-400/30 text-4xl tracking-[0.2em] mb-10"
+                className="mb-10"
               >
-                m_m
-              </motion.p>
+                <img
+                  src={`${BASE}logoakatar.png`}
+                  alt="M. M. Attarwala"
+                  draggable={false}
+                  className="h-14 w-auto object-contain opacity-40"
+                />
+              </motion.div>
 
               {NAV_LINKS.map(({ label, to }, i) => (
                 <motion.div
