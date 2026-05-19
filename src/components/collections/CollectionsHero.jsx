@@ -57,7 +57,7 @@ function ArabesqueDivider() {
 
 export default function CollectionsHero() {
   return (
-    <section className="relative flex items-center justify-center overflow-hidden" style={{ minHeight: '52vh', background: '#050403' }}>
+    <section className="relative flex items-center justify-center overflow-hidden" style={{ minHeight: '56vh', paddingTop: '90px', background: '#050403' }}>
 
       {/* Deep cinematic glow layers */}
       <div className="absolute inset-0 pointer-events-none" style={{
@@ -135,10 +135,10 @@ export default function CollectionsHero() {
         {/* Headline */}
         <motion.div variants={item} className="overflow-hidden mb-3">
           <h1 className="font-heading leading-none" style={{ fontWeight: 300 }}>
-            <span className="block text-5xl md:text-6xl lg:text-7xl" style={{ color: 'rgba(245,240,232,0.92)' }}>
+            <span className="block text-5xl md:text-7xl lg:text-[5.5rem]" style={{ color: 'rgba(245,240,232,0.92)' }}>
               The
             </span>
-            <span className="block text-5xl md:text-6xl lg:text-7xl italic text-gold-gradient" style={{ fontWeight: 400, lineHeight: 0.92 }}>
+            <span className="block text-5xl md:text-7xl lg:text-[5.5rem] italic text-gold-gradient" style={{ fontWeight: 400, lineHeight: 0.92 }}>
               Collection
             </span>
           </h1>
