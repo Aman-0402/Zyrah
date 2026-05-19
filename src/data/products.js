@@ -1,5 +1,5 @@
 const BASE = import.meta.env.BASE_URL
-const IMG = (file) => `${BASE}4%20ratio%203/${encodeURIComponent(file)}`
+const IMG = (file) => `${BASE}4r3/${encodeURIComponent(file)}`
 
 export const PRODUCTS = [
   /* ── Oud ─────────────────────────────────────────────────────────────── */
@@ -87,7 +87,7 @@ export const PRODUCTS = [
     price: '₹ 449',
     isNew: false,
     isBestseller: false,
-    image: IMG("Nature's freshness in every spray.png"),
+    image: IMG('Gubali Attar essence of luxury.png'),
   },
 
   /* ── Musk ─────────────────────────────────────────────────────────────── */
