@@ -264,7 +264,7 @@ export default function HeroSection() {
   }, [rawX, rawY])
 
   return (
-    <section className="relative min-h-screen flex justify-center items-center overflow-hidden luxury-page">
+    <section className="relative min-h-screen flex justify-center items-center overflow-hidden luxury-page" style={{ paddingTop: 'clamp(96px, 10vw, 130px)' }}>
 
       {/* Ambient orbs */}
       <div ref={orb1Ref} className="absolute top-1/4 left-1/4 w-[560px] h-[560px] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(201,168,76,0.13) 0%, transparent 68%)', filter: 'blur(44px)' }} />
@@ -274,15 +274,15 @@ export default function HeroSection() {
       <div className="absolute top-0 right-0 w-[760px] h-full pointer-events-none" style={{ background: 'radial-gradient(ellipse at 80% 50%, rgba(170,98,28,0.16) 0%, rgba(64,20,35,0.10) 42%, transparent 66%)', filter: 'blur(82px)' }} />
 
       {/* Arabesque corners */}
-      <div className="absolute top-20 left-6 md:left-10 pointer-events-none"><ArabesqueCorner /></div>
-      <div className="absolute top-20 right-6 md:right-10 pointer-events-none"><ArabesqueCorner flip /></div>
+      <div className="absolute left-6 md:left-10 pointer-events-none" style={{ top: 'clamp(100px, 11vw, 136px)' }}><ArabesqueCorner /></div>
+      <div className="absolute right-6 md:right-10 pointer-events-none" style={{ top: 'clamp(100px, 11vw, 136px)' }}><ArabesqueCorner flip /></div>
 
       {/* Horizontal gold lines */}
-      <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 1.5, delay: 0.2, ease: [0.76, 0, 0.24, 1] }} className="absolute top-20 left-0 right-0 h-px origin-left pointer-events-none" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent)' }} />
+      <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 1.5, delay: 0.2, ease: [0.76, 0, 0.24, 1] }} className="absolute left-0 right-0 h-px origin-left pointer-events-none" style={{ top: 'clamp(100px, 11vw, 136px)', background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent)' }} />
       <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 1.5, delay: 0.4, ease: [0.76, 0, 0.24, 1] }} className="absolute bottom-24 left-0 right-0 h-px origin-right pointer-events-none" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.2), transparent)' }} />
 
       {/* Layout */}
-      <div className="cx relative z-10 grid grid-cols-1 lg:grid-cols-[55%_45%] items-center min-h-screen pt-40 md:pt-48 pb-20 gap-8 lg:gap-4 lg:translate-y-8 2xl:translate-y-0">
+      <div className="cx relative z-10 grid grid-cols-1 lg:grid-cols-[55%_45%] items-center min-h-[80vh] pt-12 md:pt-16 pb-20 gap-8 lg:gap-4">
 
         {/* LEFT */}
         <motion.div variants={container} initial="hidden" animate="show" className="flex flex-col gap-7 lg:gap-8 items-center lg:items-start text-center lg:text-left">
