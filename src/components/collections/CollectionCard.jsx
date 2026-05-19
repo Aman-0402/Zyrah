@@ -67,7 +67,7 @@ export const cardVariants = {
 }
 
 export default function CollectionCard({ product, index, featured = false }) {
-  const { id, name, arabicName, desc, notes, gradient, accentColor, price, isNew, isBestseller, isComingSoon, image } = product
+  const { id, name, arabicName, desc, notes, gradient, accentColor, price, size, isNew, isBestseller, isComingSoon, image } = product
 
   const cardRef         = useRef(null)
   const [hovered, setHovered]   = useState(false)
@@ -399,23 +399,34 @@ export default function CollectionCard({ product, index, featured = false }) {
 
         {/* Price + enquire */}
         <div
-          className="flex items-center justify-between pt-2 sm:pt-3 border-t transition-colors duration-400 mt-auto"
+          className="flex flex-col gap-1 pt-2 sm:pt-3 border-t transition-colors duration-400 mt-auto"
           style={{ borderColor: isActive ? `${accentColor}15` : `${accentColor}06` }}
         >
-          <span className="font-heading font-light transition-colors duration-400"
-            style={{ fontSize: featured ? '1.3rem' : '1.15rem', letterSpacing: '0.1em', color: isComingSoon ? `${accentColor}30` : isActive ? accentColor : `${accentColor}BB` }}>
-            {isComingSoon ? 'Notify Me' : price}
-          </span>
+          {/* Keyword label */}
           {!isComingSoon && (
-            <motion.span
-              className="text-[9px] tracking-[0.35em] uppercase"
-              animate={{ opacity: isActive ? 1 : 0, x: isActive ? 0 : -8 }}
-              transition={{ duration: 0.35 }}
-              style={{ color: 'rgba(255,252,245,0.72)' }}
-            >
-              Enquire
-            </motion.span>
+            <span className="text-[8px] tracking-[0.35em] uppercase"
+              style={{ color: isActive ? `${accentColor}CC` : `${accentColor}80`, transition: 'color 0.4s' }}>
+              Handcrafted · Free Delivery
+            </span>
           )}
+          {/* Price row */}
+          <div className="flex items-center justify-between">
+            <span className="font-heading font-bold transition-colors duration-400"
+              style={{ fontSize: featured ? '1.25rem' : '1.1rem', letterSpacing: '0.06em',
+                color: isComingSoon ? `${accentColor}45` : accentColor }}>
+              {isComingSoon ? 'Coming Soon' : `${price.replace('₹ ', '₹')} for ${size}`}
+            </span>
+            {!isComingSoon && (
+              <motion.span
+                className="text-[9px] tracking-[0.35em] uppercase"
+                animate={{ opacity: isActive ? 1 : 0, x: isActive ? 0 : -8 }}
+                transition={{ duration: 0.35 }}
+                style={{ color: 'rgba(255,252,245,0.72)' }}
+              >
+                Enquire
+              </motion.span>
+            )}
+          </div>
         </div>
       </div>
 
