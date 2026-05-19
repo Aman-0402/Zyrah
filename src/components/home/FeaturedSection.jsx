@@ -128,7 +128,7 @@ function FragranceCard({ fragrance, index }) {
         variants={imageTiltVariants}
         transition={{ duration: 0.8, ease: LUXURY_EASE }}
         style={{ transformStyle: 'preserve-3d', transformOrigin: 'center center' }}
-        className="relative h-80"
+        className="relative h-56 sm:h-72 md:h-80"
       >
         {/* Background — own overflow-hidden so it clips cleanly */}
         <div
@@ -239,7 +239,7 @@ export default function FeaturedSection() {
       {/* Header */}
       <div ref={headingRef} className="w-full text-center mb-20">
         <p className="text-[11px] tracking-[0.6em] uppercase text-gold-400/85 mb-8">Our Craft</p>
-        <h2 className="luxury-heading text-5xl md:text-7xl text-ivory mb-8 text-center">Signature Scents</h2>
+        <h2 className="luxury-heading text-4xl sm:text-5xl md:text-7xl text-ivory mb-8 text-center">Signature Scents</h2>
         <p className="font-heading italic text-ivory/85 text-lg md:text-xl max-w-sm mx-auto text-center leading-relaxed">
           Each fragrance tells a story, each drop holds a world.
         </p>
@@ -263,11 +263,11 @@ export default function FeaturedSection() {
             initial="rest"
             whileHover="hover"
           >
-            {/* Left line */}
+            {/* Left line — hidden on mobile */}
             <motion.span
               variants={{ rest: { width: 24, opacity: 0.25 }, hover: { width: 48, opacity: 0.7 } }}
               transition={{ duration: 0.4, ease: 'easeOut' }}
-              className="h-px bg-gold-400 block"
+              className="hidden sm:block h-px bg-gold-400"
             />
 
             {/* Button box */}
@@ -277,25 +277,25 @@ export default function FeaturedSection() {
                 hover: { borderColor: 'rgba(201,168,76,0.9)', color: 'rgba(201,168,76,1)',   boxShadow: '0 0 36px rgba(201,168,76,0.22)' },
               }}
               transition={{ duration: 0.35 }}
-              className="inline-flex items-center gap-4 border px-14 py-5"
+              className="inline-flex items-center gap-3 border px-6 sm:px-14 py-4 sm:py-5"
               style={{ fontFamily: 'inherit' }}
             >
-              <span className="text-sm tracking-[0.45em] uppercase font-semibold">
+              <span className="text-xs sm:text-sm tracking-[0.3em] sm:tracking-[0.45em] uppercase font-semibold">
                 View All Collections
               </span>
               <motion.span
                 variants={{ rest: { x: 0, opacity: 0.6 }, hover: { x: 5, opacity: 1 } }}
                 transition={{ duration: 0.3 }}
               >
-                <ArrowRight size={15} strokeWidth={1.5} />
+                <ArrowRight size={14} strokeWidth={1.5} />
               </motion.span>
             </motion.span>
 
-            {/* Right line */}
+            {/* Right line — hidden on mobile */}
             <motion.span
               variants={{ rest: { width: 24, opacity: 0.25 }, hover: { width: 48, opacity: 0.7 } }}
               transition={{ duration: 0.4, ease: 'easeOut' }}
-              className="h-px bg-gold-400 block"
+              className="hidden sm:block h-px bg-gold-400"
             />
           </motion.span>
         </Link>

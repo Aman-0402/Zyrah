@@ -233,8 +233,10 @@ export default function BrandEthos() {
           </div>
         </div>
 
-        {/* RIGHT: Ornamental visual */}
-        <OrnamentPanel />
+        {/* RIGHT: Ornamental visual — hidden on mobile */}
+        <div className="hidden lg:block">
+          <OrnamentPanel />
+        </div>
       </div>
     </section>
   )
