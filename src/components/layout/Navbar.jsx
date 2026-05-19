@@ -117,7 +117,7 @@ export default function Navbar() {
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'radial-gradient(ellipse 60% 100% at 50% -30%, rgba(80,40,10,0.15) 0%, transparent 100%)',
+            background: 'radial-gradient(ellipse 70% 120% at 50% -20%, rgba(100,50,12,0.22) 0%, transparent 100%)',
           }}
         />
 

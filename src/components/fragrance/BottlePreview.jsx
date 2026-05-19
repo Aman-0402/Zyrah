@@ -275,15 +275,19 @@ export default function BottlePreview({ selections, compact = false }) {
           ))}
         </AnimatePresence>
 
-        {/* Bottle SVG */}
-        <div className="relative z-10">
+        {/* Bottle SVG — gentle breathing animation */}
+        <motion.div
+          animate={{ y: [0, -3, 0], scale: [1, 1.006, 1] }}
+          transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+          className="relative z-10"
+        >
           <BottleSVG
             fillColor={fillColor}
             fillOpacity={fillOpacity}
             fillHeight={fillHeight}
             glowColor={fam?.glowColor}
           />
-        </div>
+        </motion.div>
       </div>
 
       {/* Family label */}
