@@ -18,13 +18,13 @@ export default function NotFound() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="relative min-h-screen bg-black flex items-center justify-center px-6 overflow-hidden"
+      className="relative min-h-screen luxury-page flex items-center justify-center px-6 overflow-hidden"
     >
       {/* Ambient glow */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse 50% 50% at 50% 50%, rgba(59,31,15,0.3) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse 50% 50% at 50% 50%, rgba(150,78,27,0.18) 0%, rgba(82,24,42,0.12) 42%, transparent 70%)',
         }}
       />
 

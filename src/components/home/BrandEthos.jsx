@@ -132,17 +132,17 @@ export default function BrandEthos() {
   const pillarsRef = useGSAPStaggerReveal({ selector: '[data-reveal]', from: { opacity: 0, y: 20, scale: 0.96 }, to: { opacity: 1, y: 0, scale: 1 }, stagger: 0.13, start: 'top 80%' })
 
   return (
-    <section className="py-28 md:py-40 relative overflow-hidden">
+    <section className="py-28 md:py-40 luxury-section luxury-section-alt luxury-divider-glow relative overflow-hidden">
 
       {/* Background */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(180deg, #080605 0%, #0f0805 40%, #0c0703 70%, #080605 100%)' }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(15,9,8,0.88) 0%, rgba(30,14,15,0.82) 44%, rgba(15,8,7,0.92) 100%)' }} />
       {/* Cinematic glow behind emblem */}
       <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[500px] pointer-events-none"
-        style={{ background: 'radial-gradient(circle, rgba(120,58,0,0.08) 0%, transparent 65%)' }}
+        style={{ background: 'radial-gradient(circle, rgba(201,168,76,0.11) 0%, rgba(95,28,45,0.08) 38%, transparent 68%)' }}
       />
       {/* Heading glow */}
       <div className="absolute top-1/4 left-0 w-[600px] h-[400px] pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 0% 50%, rgba(80,35,0,0.07) 0%, transparent 65%)' }}
+        style={{ background: 'radial-gradient(ellipse at 0% 50%, rgba(143,71,25,0.12) 0%, transparent 65%)' }}
       />
 
       {/* Subtle grid texture */}

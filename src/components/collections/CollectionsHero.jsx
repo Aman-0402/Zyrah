@@ -59,11 +59,11 @@ export default function CollectionsHero() {
 
       {/* Localized dark veil behind text center only */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(ellipse 65% 80% at 50% 52%, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.30) 50%, transparent 75%)',
+        background: 'radial-gradient(ellipse 65% 80% at 50% 52%, rgba(10,6,5,0.42) 0%, rgba(31,13,17,0.24) 52%, transparent 76%)',
       }} />
       {/* Bottom fade into page */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'linear-gradient(180deg, rgba(0,0,0,0.10) 0%, transparent 30%, transparent 65%, rgba(5,4,3,0.70) 100%)',
+        background: 'linear-gradient(180deg, rgba(18,10,8,0.08) 0%, transparent 30%, transparent 65%, rgba(16,9,8,0.76) 100%)',
       }} />
 
       {/* Gold dust particles */}
@@ -116,10 +116,10 @@ export default function CollectionsHero() {
         {/* Headline */}
         <motion.div variants={item} className="overflow-hidden mb-3">
           <h1 className="font-heading leading-none" style={{ fontWeight: 300 }}>
-            <span className="block text-5xl md:text-7xl lg:text-[5.5rem]" style={{ color: 'rgba(255,252,245,0.97)', textShadow: '0 2px 30px rgba(0,0,0,0.9), 0 0 60px rgba(0,0,0,0.6)' }}>
+            <span className="block text-5xl md:text-7xl lg:text-[5.5rem]" style={{ color: 'rgba(255,252,245,0.98)', textShadow: '0 2px 30px rgba(0,0,0,0.72), 0 0 60px rgba(201,168,76,0.08)' }}>
               The
             </span>
-            <span className="block text-5xl md:text-7xl lg:text-[5.5rem] italic text-gold-gradient" style={{ fontWeight: 400, lineHeight: 0.92, textShadow: '0 2px 30px rgba(0,0,0,0.8), 0 0 60px rgba(0,0,0,0.5)' }}>
+            <span className="block text-5xl md:text-7xl lg:text-[5.5rem] italic text-gold-gradient" style={{ fontWeight: 400, lineHeight: 0.92, textShadow: '0 2px 30px rgba(0,0,0,0.68), 0 0 60px rgba(201,168,76,0.16)' }}>
               Collection
             </span>
           </h1>
@@ -153,7 +153,7 @@ export default function CollectionsHero() {
 
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
-        style={{ background: 'linear-gradient(to top, #050403, transparent)' }} />
+        style={{ background: 'linear-gradient(to top, #100908, transparent)' }} />
 
       <ArabesqueDivider />
     </section>

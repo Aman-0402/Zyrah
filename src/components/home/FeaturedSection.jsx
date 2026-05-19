@@ -13,7 +13,7 @@ const FRAGRANCES = [
     arabic: 'عود الليل',
     desc: 'A deep, smoky oud journey through ancient Arabian nights.',
     notes: ['Oud', 'Amber', 'Musk'],
-    gradient: 'linear-gradient(160deg, #0A0A0A 0%, #1a0a05 50%, #2d1507 100%)',
+    gradient: 'linear-gradient(160deg, #120b08 0%, #28100b 48%, #432011 100%)',
     accentColor: '#C9A84C',
     featured: false,
     bgImage: `${BASE}Collection/Citrusandamberonmarble.png`,
@@ -25,7 +25,7 @@ const FRAGRANCES = [
     arabic: 'دهن العود',
     desc: 'Sacred oud oil from ancient forests — smoky, resinous, hauntingly royal.',
     notes: ['Oud', 'Amber Resin', 'Smoke'],
-    gradient: 'linear-gradient(160deg, #0A0A0A 0%, #1a0e05 50%, #2e1a08 100%)',
+    gradient: 'linear-gradient(160deg, #120b08 0%, #271407 48%, #44260d 100%)',
     accentColor: '#C9A84C',
     featured: true,
     bgImage: `${BASE}Collection/DEHNUL%20OUDH%203.1.png`,
@@ -37,7 +37,7 @@ const FRAGRANCES = [
     arabic: 'كلاسيك للرجال',
     desc: 'Mountain-fresh neroli and cedar — clean confidence wrapped in sunset gold.',
     notes: ['Neroli', 'Cedarwood', 'Lemon'],
-    gradient: 'linear-gradient(160deg, #0A0A0A 0%, #0a1208 50%, #111a0d 100%)',
+    gradient: 'linear-gradient(160deg, #0f0b08 0%, #101b11 50%, #1d2917 100%)',
     accentColor: '#C9A84C',
     featured: false,
     bgImage: `${BASE}Collection/CLASSIC%20MM%20POUR%20HOMME%205.1.png`,
@@ -49,7 +49,7 @@ const FRAGRANCES = [
     arabic: 'لمسة الجنة',
     desc: 'Citrus bloom meets dark amber resin — a sensual evening luxury.',
     notes: ['Grapefruit', 'Jasmine', 'Amber'],
-    gradient: 'linear-gradient(160deg, #0A0A0A 0%, #1a0e05 50%, #2a1508 100%)',
+    gradient: 'linear-gradient(160deg, #120b08 0%, #281507 50%, #3f210e 100%)',
     accentColor: '#C9A84C',
     featured: false,
     bgImage: `${BASE}Collection/HEAVEN%20TOUCH%206.1.png`,
@@ -61,7 +61,7 @@ const FRAGRANCES = [
     arabic: 'رويال طونكا العربية',
     desc: 'Saffron and rose meet oud and tonka — dark Arabian royalty in a bottle.',
     notes: ['Saffron', 'Rose', 'Tonka', 'Oud'],
-    gradient: 'linear-gradient(160deg, #0A0A0A 0%, #1a0508 50%, #2a080e 100%)',
+    gradient: 'linear-gradient(160deg, #12090a 0%, #2a0b12 50%, #43121c 100%)',
     accentColor: '#C9A84C',
     featured: false,
     bgImage: `${BASE}Collection/ROYAL%20TONKA%20DE%20ARABIA%201.png`,
@@ -73,7 +73,7 @@ const FRAGRANCES = [
     arabic: 'هيفن أكوا فيز',
     desc: 'Ocean-fresh lemon and green apple with a clean aquatic heart.',
     notes: ['Lemon', 'Green Apple', 'Aqua'],
-    gradient: 'linear-gradient(160deg, #0A0A0A 0%, #050d14 50%, #081520 100%)',
+    gradient: 'linear-gradient(160deg, #0d0b0a 0%, #071723 50%, #0d2633 100%)',
     accentColor: '#5B9DAF',
     featured: false,
     bgImage: `${BASE}Collection/HEAVEN%20AQUA%20FIZZ%201.png`,
@@ -118,8 +118,13 @@ function FragranceCard({ fragrance, index }) {
           : 'border-gold-400/8 hover:border-gold-400/18',
       ].join(' ')}
       style={{
-        background: featured ? 'rgba(20,10,4,0.9)' : '#111111',
+        background: featured
+          ? 'linear-gradient(155deg, rgba(44,22,12,0.94) 0%, rgba(18,11,9,0.96) 58%, rgba(47,15,23,0.86) 100%)'
+          : 'linear-gradient(155deg, rgba(24,15,12,0.94) 0%, rgba(16,11,10,0.97) 58%, rgba(29,13,18,0.82) 100%)',
         perspective: '1400px',
+        boxShadow: featured
+          ? '0 30px 90px rgba(0,0,0,0.38), 0 0 70px rgba(201,168,76,0.10), inset 0 1px 0 rgba(255,255,255,0.035)'
+          : '0 24px 70px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.025)',
       }}
     >
 
@@ -142,7 +147,7 @@ function FragranceCard({ fragrance, index }) {
           {bgImage && (
             <div
               className="absolute inset-0"
-              style={{ background: 'linear-gradient(180deg, rgba(10,10,10,0.25) 0%, rgba(10,10,10,0.55) 100%)' }}
+              style={{ background: 'linear-gradient(180deg, rgba(18,10,8,0.12) 0%, rgba(10,7,6,0.42) 100%)' }}
             />
           )}
           <div
@@ -177,7 +182,7 @@ function FragranceCard({ fragrance, index }) {
         {/* Badges + index — z-top */}
         {featured && (
           <div className="absolute top-4 right-4 z-30">
-            <span className="text-[8px] tracking-[0.35em] uppercase px-3 py-1 border border-gold-400/40 text-gold-400/80 bg-black/60">
+            <span className="text-[8px] tracking-[0.35em] uppercase px-3 py-1 border border-gold-400/40 text-gold-300/90" style={{ background: 'rgba(21,11,8,0.68)', boxShadow: '0 0 20px rgba(201,168,76,0.12)' }}>
               Bestseller
             </span>
           </div>
@@ -219,19 +224,19 @@ export default function FeaturedSection() {
   const gridRef   = useGSAPStaggerReveal({ selector: '[data-reveal]', stagger: 0.18, start: 'top 80%' })
 
   return (
-    <section className="py-24 md:py-32 relative">
+    <section className="py-24 md:py-32 luxury-section luxury-divider-glow relative">
 
       {/* Atmospheric glow zone behind heading */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(120,58,0,0.09) 0%, transparent 65%)' }}
+        style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(170,96,31,0.14) 0%, transparent 65%)' }}
       />
       {/* Warm amber glow — bottom left */}
       <div className="absolute bottom-0 left-0 w-[500px] h-[400px] pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 0% 100%, rgba(80,35,0,0.06) 0%, transparent 65%)' }}
+        style={{ background: 'radial-gradient(ellipse at 0% 100%, rgba(110,46,23,0.11) 0%, transparent 65%)' }}
       />
       {/* Cool right accent */}
       <div className="absolute top-1/2 right-0 w-[400px] h-[600px] pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse at 100% 50%, rgba(10,10,20,0.15) 0%, transparent 70%)' }}
+        style={{ background: 'radial-gradient(ellipse at 100% 50%, rgba(78,22,42,0.16) 0%, transparent 70%)' }}
       />
 
     <div className="cx relative z-10">

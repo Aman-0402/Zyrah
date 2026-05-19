@@ -126,10 +126,9 @@ export default function FounderNote() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden"
+      className="relative overflow-hidden luxury-section luxury-section-alt luxury-divider-glow"
       style={{
         padding: 'clamp(6rem, 12vw, 10rem) 1.5rem',
-        background: 'linear-gradient(180deg, #050403 0%, rgba(59,31,15,0.20) 40%, rgba(59,31,15,0.30) 60%, #050403 100%)',
       }}
     >
       {/* Top + bottom gold lines */}
@@ -140,7 +139,7 @@ export default function FounderNote() {
 
       {/* Atmospheric glow */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(ellipse 70% 55% at 50% 50%, rgba(110,60,12,0.08) 0%, transparent 70%)',
+        background: 'radial-gradient(ellipse 70% 55% at 50% 50%, rgba(164,86,28,0.13) 0%, rgba(82,24,42,0.09) 42%, transparent 72%)',
       }} />
 
       {/* Floating particles */}

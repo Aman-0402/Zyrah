@@ -97,7 +97,7 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-700"
         style={isScrolled
           ? {
-              background: 'linear-gradient(to bottom, rgba(4,3,2,0.97) 0%, rgba(4,3,2,0.82) 100%)',
+              background: 'linear-gradient(to bottom, rgba(13,8,7,0.96) 0%, rgba(22,12,10,0.84) 72%, rgba(22,12,10,0.42) 100%)',
               backdropFilter: 'blur(14px)',
               WebkitBackdropFilter: 'blur(14px)',
               borderBottom: '1px solid rgba(176,141,87,0.07)',
@@ -105,7 +105,7 @@ export default function Navbar() {
               paddingBottom: '6px',
             }
           : {
-              background: 'linear-gradient(to bottom, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.22) 70%, transparent 100%)',
+              background: 'linear-gradient(to bottom, rgba(12,8,7,0.74) 0%, rgba(27,13,12,0.34) 70%, transparent 100%)',
               backdropFilter: 'blur(4px)',
               WebkitBackdropFilter: 'blur(4px)',
               paddingTop: '22px',
@@ -117,7 +117,7 @@ export default function Navbar() {
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: 'radial-gradient(ellipse 70% 120% at 50% -20%, rgba(100,50,12,0.22) 0%, transparent 100%)',
+            background: 'radial-gradient(ellipse 70% 120% at 50% -20%, rgba(170,98,28,0.24) 0%, rgba(80,23,41,0.11) 45%, transparent 100%)',
           }}
         />
 

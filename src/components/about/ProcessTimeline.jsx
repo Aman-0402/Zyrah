@@ -35,8 +35,7 @@ export default function ProcessTimeline() {
 
   return (
     <section
-      className="py-24 md:py-32 px-6 relative overflow-hidden"
-      style={{ background: 'linear-gradient(180deg, #050403 0%, #0a0603 50%, #050403 100%)' }}
+      className="py-24 md:py-32 px-6 luxury-section luxury-divider-glow relative overflow-hidden"
     >
       {/* Section container */}
       <div className="cx">
@@ -63,7 +62,7 @@ export default function ProcessTimeline() {
                 <div
                   className="relative w-16 h-16 rounded-full border flex items-center justify-center z-10"
                   style={{
-                    background: '#050403',
+                    background: 'linear-gradient(145deg, #1b100c, #0e0908)',
                     borderColor: 'rgba(201,168,76,0.3)',
                     boxShadow: '0 0 20px rgba(201,168,76,0.08)',
                   }}
@@ -103,7 +102,7 @@ export default function ProcessTimeline() {
               <div className="flex-shrink-0">
                 <div
                   className="w-12 h-12 rounded-full border flex items-center justify-center"
-                  style={{ borderColor: 'rgba(201,168,76,0.3)', background: '#050403' }}
+                  style={{ borderColor: 'rgba(201,168,76,0.3)', background: 'linear-gradient(145deg, #1b100c, #0e0908)' }}
                 >
                   <span className="font-heading text-lg text-gold-400/70">{step.num}</span>
                 </div>

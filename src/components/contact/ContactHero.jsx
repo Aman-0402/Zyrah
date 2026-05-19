@@ -48,12 +48,12 @@ function ArabesqueDivider() {
 export default function ContactHero() {
   return (
     <section
-      className="relative flex items-center justify-center overflow-hidden"
-      style={{ minHeight: '56vh', paddingTop: '90px', background: '#050403' }}
+      className="relative flex items-center justify-center overflow-hidden luxury-section"
+      style={{ minHeight: '56vh', paddingTop: '90px' }}
     >
       {/* Deep cinematic glow */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(ellipse 80% 70% at 50% 60%, rgba(120,70,20,0.12) 0%, rgba(59,31,15,0.20) 45%, transparent 75%)',
+        background: 'radial-gradient(ellipse 80% 70% at 50% 60%, rgba(156,88,28,0.16) 0%, rgba(84,25,42,0.16) 45%, transparent 75%)',
       }} />
       <div className="absolute top-0 left-1/3 w-[600px] h-[400px] pointer-events-none" style={{
         background: 'radial-gradient(ellipse 80% 80% at 33% 20%, rgba(80,40,10,0.11) 0%, transparent 70%)',
@@ -169,7 +169,7 @@ export default function ContactHero() {
       {/* Bottom fade */}
       <div
         className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
-        style={{ background: 'linear-gradient(to top, #050403, transparent)' }}
+        style={{ background: 'linear-gradient(to top, #100908, transparent)' }}
       />
       <ArabesqueDivider />
     </section>

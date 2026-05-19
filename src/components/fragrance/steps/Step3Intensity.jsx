@@ -114,7 +114,7 @@ export default function Step3Intensity({ selections, update }) {
             <div
               className="w-5 h-5 rounded-full border-2 flex items-center justify-center"
               style={{
-                background: '#050403',
+                background: 'linear-gradient(145deg, #1b100c, #0e0908)',
                 borderColor: accentColor,
                 boxShadow: `0 0 16px ${accentColor}70, 0 0 6px ${accentColor}40`,
               }}

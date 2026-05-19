@@ -30,7 +30,10 @@ export default function ProductCard({ product, index }) {
       whileHover={{ y: -10 }}
       transition={{ type: 'spring', stiffness: 280, damping: 22 }}
       className="group relative flex flex-col border border-gold-400/10 hover:border-gold-400/35 transition-colors duration-500 cursor-pointer rounded-xl overflow-hidden"
-      style={{ background: '#111111' }}
+      style={{
+        background: 'linear-gradient(155deg, rgba(27,16,12,0.94) 0%, rgba(14,10,9,0.97) 58%, rgba(31,13,20,0.82) 100%)',
+        boxShadow: '0 22px 68px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.025)',
+      }}
     >
       {/* ── Image area ─────────────────────────────────────────────────────── */}
       <div className="relative overflow-hidden" style={{ height: '220px', background: gradient }}>
@@ -108,7 +111,7 @@ export default function ProductCard({ product, index }) {
         </div>
 
         {/* Desc */}
-        <p className="text-ivory/35 text-xs leading-relaxed font-light">{desc}</p>
+        <p className="text-ivory/70 text-xs leading-relaxed font-light">{desc}</p>
 
         {/* Notes */}
         <div className="flex flex-wrap gap-1.5 mt-auto">
@@ -125,7 +128,7 @@ export default function ProductCard({ product, index }) {
         {/* Price + CTA row */}
         <div className="flex items-center justify-between pt-2 border-t border-gold-400/8 group-hover:border-gold-400/18 transition-colors duration-300">
           <span className="text-gold-400 text-sm font-medium tracking-wide">{price}</span>
-          <span className="text-[9px] tracking-[0.3em] uppercase text-ivory/0 group-hover:text-ivory/40 transition-all duration-300">
+          <span className="text-[9px] tracking-[0.3em] uppercase text-ivory/0 group-hover:text-ivory/62 transition-all duration-300">
             Enquire →
           </span>
         </div>

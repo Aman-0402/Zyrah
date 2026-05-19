@@ -122,8 +122,7 @@ export default function CustomFragrance() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen relative"
-      style={{ background: '#050403' }}
+      className="min-h-screen relative luxury-page"
     >
       {/* ── Warm amber atmospheric glow — single soft centered layer ── */}
       <AnimatePresence>
@@ -138,11 +137,11 @@ export default function CustomFragrance() {
         >
           <div style={{
             position: 'absolute', inset: 0,
-            background: `radial-gradient(ellipse 85% 70% at 25% 50%, rgba(${atm.glow},${glowOpacity}) 0%, transparent 70%)`,
+            background: `radial-gradient(ellipse 85% 70% at 25% 50%, rgba(${atm.glow},${glowOpacity + 0.035}) 0%, transparent 70%)`,
           }} />
           <div style={{
             position: 'absolute', inset: 0,
-            background: `radial-gradient(ellipse 60% 55% at 78% 42%, rgba(${atm.glow},${glowOpacity * 0.50}) 0%, transparent 70%)`,
+            background: `radial-gradient(ellipse 60% 55% at 78% 42%, rgba(90,24,44,${glowOpacity * 0.72 + 0.035}) 0%, transparent 70%)`,
           }} />
         </motion.div>
       </AnimatePresence>
@@ -274,7 +273,7 @@ export default function CustomFragrance() {
                   className="relative overflow-hidden"
                   style={{
                     border: '1px solid rgba(176,141,87,0.07)',
-                    background: 'rgba(6,5,3,0.82)',
+                    background: 'linear-gradient(155deg, rgba(28,16,12,0.88), rgba(11,8,7,0.90) 56%, rgba(32,12,19,0.78))',
                     backdropFilter: 'blur(8px)',
                     WebkitBackdropFilter: 'blur(8px)',
                   }}
@@ -325,7 +324,7 @@ export default function CustomFragrance() {
 
         {/* Atmospheric bridge to footer */}
         <div className="h-24 pointer-events-none" style={{
-          background: 'linear-gradient(to bottom, transparent 0%, rgba(5,4,3,0.65) 60%, rgba(5,4,3,0.98) 100%)',
+          background: 'linear-gradient(to bottom, transparent 0%, rgba(18,10,8,0.65) 60%, rgba(10,6,6,0.98) 100%)',
         }} />
       </div>
     </motion.main>

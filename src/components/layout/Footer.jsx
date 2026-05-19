@@ -45,18 +45,18 @@ export default function Footer() {
     <>
       {/* Cinematic transition into footer */}
       <div className="h-32 pointer-events-none" style={{
-        background: 'linear-gradient(to bottom, transparent 0%, rgba(5,4,3,0.65) 55%, rgba(5,4,3,0.96) 100%)',
+        background: 'linear-gradient(to bottom, transparent 0%, rgba(20,11,9,0.66) 55%, rgba(10,6,6,0.96) 100%)',
       }} />
 
-      <footer className="relative overflow-hidden" style={{ background: '#050403' }}>
+      <footer className="relative overflow-hidden luxury-section luxury-section-alt luxury-divider-glow">
 
         {/* Atmospheric glow */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px]"
-            style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(120,58,0,0.08) 0%, transparent 65%)' }}
+            style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(180,104,32,0.13) 0%, transparent 65%)' }}
           />
           <div className="absolute bottom-0 left-0 w-[500px] h-[300px]"
-            style={{ background: 'radial-gradient(ellipse at 0% 100%, rgba(80,35,0,0.05) 0%, transparent 65%)' }}
+            style={{ background: 'radial-gradient(ellipse at 0% 100%, rgba(85,24,42,0.11) 0%, transparent 65%)' }}
           />
         </div>
 

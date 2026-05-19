@@ -23,7 +23,7 @@ function BottomCTA() {
       className="border-t py-16 md:py-20 px-6 text-center"
       style={{
         borderColor: 'rgba(201,168,76,0.12)',
-        background: 'linear-gradient(180deg, rgba(59,31,15,0.10) 0%, transparent 100%)',
+        background: 'linear-gradient(180deg, rgba(72,24,38,0.14) 0%, rgba(59,31,15,0.08) 100%)',
       }}
     >
       <p className="text-[10px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,168,76,0.82)' }}>Explore More</p>
@@ -49,8 +49,7 @@ export default function Contact() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen relative"
-      style={{ background: '#050403' }}
+      className="min-h-screen relative luxury-page"
     >
       {/* Ambient particles across entire page */}
       {PARTICLES.map((p, i) => (
@@ -69,13 +68,13 @@ export default function Contact() {
           position: 'absolute',
           top: '30%', left: '15%',
           width: '500px', height: '600px',
-          background: 'radial-gradient(ellipse 70% 70% at 20% 35%, rgba(110,58,12,0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse 70% 70% at 20% 35%, rgba(150,78,27,0.12) 0%, transparent 70%)',
         }} />
         <div style={{
           position: 'absolute',
           top: '40%', right: '10%',
           width: '400px', height: '500px',
-          background: 'radial-gradient(ellipse 70% 70% at 80% 45%, rgba(90,48,10,0.06) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse 70% 70% at 80% 45%, rgba(86,25,44,0.11) 0%, transparent 70%)',
         }} />
       </div>
 
