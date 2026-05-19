@@ -264,7 +264,7 @@ export default function Navbar() {
                   >
                     {({ isActive }) => (
                       <span
-                        className="font-heading text-4xl sm:text-5xl font-light tracking-wider transition-all duration-300"
+                        className="font-heading text-3xl sm:text-4xl font-light tracking-wide transition-all duration-300"
                         style={{
                           color: isActive ? 'rgba(176,141,87,0.95)' : 'rgba(255,252,245,0.88)',
                           textShadow: isActive ? '0 0 30px rgba(176,141,87,0.25)' : 'none',
