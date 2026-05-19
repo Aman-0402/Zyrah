@@ -282,7 +282,7 @@ export default function HeroSection() {
       <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 1.5, delay: 0.4, ease: [0.76, 0, 0.24, 1] }} className="absolute bottom-24 left-0 right-0 h-px origin-right pointer-events-none" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.2), transparent)' }} />
 
       {/* Layout */}
-      <div className="cx relative z-10 grid grid-cols-1 lg:grid-cols-[55%_45%] items-center min-h-screen pt-28 md:pt-36 pb-20 gap-8 lg:gap-4">
+      <div className="cx relative z-10 grid grid-cols-1 lg:grid-cols-[55%_45%] items-center min-h-screen pt-40 md:pt-48 pb-20 gap-8 lg:gap-4 lg:translate-y-8 2xl:translate-y-0">
 
         {/* LEFT */}
         <motion.div variants={container} initial="hidden" animate="show" className="flex flex-col gap-6 lg:gap-7 items-center lg:items-start text-center lg:text-left">
@@ -353,18 +353,16 @@ export default function HeroSection() {
           </motion.div>
 
           {/* Stats */}
-          <motion.div variants={item} className="flex gap-0 pt-6 border-t border-gold-400/10 mt-1 justify-center lg:justify-start">
-            {[['500+', 'Blends Created'], ['100%', 'Custom Made']].map(([num, label], i, arr) => (
-              <div key={label} className="flex items-stretch">
-                <div className="px-7 first:pl-0 flex flex-col gap-1">
-                  <p className="font-heading text-2xl md:text-[28px] text-gold-300 leading-none">{num}</p>
-                  <p className="text-[9px] tracking-[0.3em] uppercase text-ivory/65 mt-1">{label}</p>
-                </div>
-                {i < arr.length - 1 && (
-                  <div className="w-px self-stretch" style={{ background: 'linear-gradient(to bottom, transparent, rgba(201,168,76,0.2), transparent)' }} />
-                )}
-              </div>
-            ))}
+          <motion.div variants={item} className="relative grid w-full max-w-[380px] grid-cols-2 gap-x-8 border-t border-gold-400/10 pt-6 mt-1 sm:w-auto sm:min-w-[360px] sm:gap-x-12">
+            <div className="flex min-w-0 flex-col items-center gap-2 px-2 lg:items-start">
+              <p className="font-heading text-[26px] md:text-[30px] text-gold-300 leading-none">500+</p>
+              <p className="text-center text-[9px] tracking-[0.2em] sm:tracking-[0.26em] uppercase text-ivory/65 leading-relaxed lg:text-left">Blends Created</p>
+            </div>
+            <div className="absolute bottom-1 top-6 left-1/2 w-px -translate-x-1/2" style={{ background: 'linear-gradient(to bottom, transparent, rgba(201,168,76,0.24), transparent)' }} />
+            <div className="flex min-w-0 flex-col items-center gap-2 px-2 lg:items-start">
+              <p className="font-heading text-[26px] md:text-[30px] text-gold-300 leading-none">100%</p>
+              <p className="text-center text-[9px] tracking-[0.2em] sm:tracking-[0.26em] uppercase text-ivory/65 leading-relaxed lg:text-left">Custom Made</p>
+            </div>
           </motion.div>
         </motion.div>
 
