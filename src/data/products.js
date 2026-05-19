@@ -1,4 +1,5 @@
 const BASE = import.meta.env.BASE_URL
+const IMG = (file) => `${BASE}4%20ratio%203/${encodeURIComponent(file)}`
 
 export const PRODUCTS = [
   /* ── Oud ─────────────────────────────────────────────────────────────── */
@@ -14,7 +15,7 @@ export const PRODUCTS = [
     price: '₹ 799',
     isNew: false,
     isBestseller: true,
-    image: `${BASE}Perfume/Luxury%20oud%20fragrance%20in%20misty%20woods.png`,
+    image: IMG('Luxurious oud fragrance.png'),
   },
   {
     id: 2,
@@ -28,7 +29,7 @@ export const PRODUCTS = [
     price: '₹ 1,199',
     isNew: true,
     isBestseller: false,
-    image: `${BASE}Perfume/Classic%20fragrance%20collection%20in%20luxury%20ambiance.png`,
+    image: IMG('Luxury royal oud perfume.png'),
   },
   {
     id: 3,
@@ -42,7 +43,7 @@ export const PRODUCTS = [
     price: '₹ 649',
     isNew: false,
     isBestseller: false,
-    image: `${BASE}Perfume/Classic%20round%20up%20fragrance.png`,
+    image: IMG('Classic fragrance collection.png'),
   },
 
   /* ── Floral ───────────────────────────────────────────────────────────── */
@@ -58,7 +59,7 @@ export const PRODUCTS = [
     price: '₹ 499',
     isNew: false,
     isBestseller: true,
-    image: `${BASE}Perfume/Classic%20florals%20in%20luxury%20perfumes.png`,
+    image: IMG('Heaven Touch luxury fragrance.png'),
   },
   {
     id: 5,
@@ -72,7 +73,7 @@ export const PRODUCTS = [
     price: '₹ 549',
     isNew: true,
     isBestseller: false,
-    image: `${BASE}Perfume/Royal%20Stream%20fragrance%20elegance.png`,
+    image: IMG('Royal Stream perfume elegance.png'),
   },
   {
     id: 6,
@@ -86,7 +87,7 @@ export const PRODUCTS = [
     price: '₹ 449',
     isNew: false,
     isBestseller: false,
-    image: `${BASE}Perfume/Natural%20freshness%20in%20luxury%20fragrance.png`,
+    image: IMG("Nature's freshness in every spray.png"),
   },
 
   /* ── Musk ─────────────────────────────────────────────────────────────── */
@@ -102,7 +103,7 @@ export const PRODUCTS = [
     price: '₹ 599',
     isNew: false,
     isBestseller: true,
-    image: `${BASE}Perfume/Royal%20White%20Mountain%20fragrance.png`,
+    image: IMG('Royal White Mountain fragrance.png'),
   },
   {
     id: 8,
@@ -116,7 +117,7 @@ export const PRODUCTS = [
     price: '₹ 499',
     isNew: false,
     isBestseller: false,
-    image: `${BASE}Perfume/Heaven%20-%20Aqua%20Fizz%20perfume%20ad.png`,
+    image: IMG('Heaven - Aqua Fizz perfume.png'),
   },
   {
     id: 9,
@@ -130,7 +131,7 @@ export const PRODUCTS = [
     price: '₹ 649',
     isNew: true,
     isBestseller: false,
-    image: `${BASE}Perfume/Royal%20Tonka%20de%20Arabia%20perfume.png`,
+    image: IMG('Royal Tonka de Arabia fragrance.png'),
   },
 
   /* ── Fresh ────────────────────────────────────────────────────────────── */
@@ -146,7 +147,7 @@ export const PRODUCTS = [
     price: '₹ 449',
     isNew: false,
     isBestseller: false,
-    image: `${BASE}Perfume/Classic%20energy%20perfume%20ad%20with%20citrus.png`,
+    image: IMG('Luxury citrus fragrance with golden spark.png'),
   },
   {
     id: 11,
@@ -160,7 +161,7 @@ export const PRODUCTS = [
     price: '₹ 499',
     isNew: true,
     isBestseller: false,
-    image: `${BASE}Perfume/Moon%20Water%20fragrance%20by%20the%20sea.png`,
+    image: IMG('Moon Water perfume at paradise resort.png'),
   },
   {
     id: 12,
@@ -174,7 +175,54 @@ export const PRODUCTS = [
     price: '₹ 549',
     isNew: false,
     isBestseller: true,
-    image: `${BASE}Perfume/Classic%20Oyster%20oceanic%20elegance%20in%20a%20bottle.png`,
+    image: IMG('Classic Oyster marine elegance in a bottle.png'),
+  },
+
+  /* ── Coming Soon ──────────────────────────────────────────────────────── */
+  {
+    id: 13,
+    name: 'Oud Maliki',
+    arabicName: 'عود ملكي',
+    category: 'oud',
+    desc: 'A regal oud expression — deep, sovereign, and timeless.',
+    notes: ['Oud', 'Rose', 'Amber'],
+    gradient: 'linear-gradient(160deg, #060402 0%, #1a0a04 45%, #2d1506 100%)',
+    accentColor: '#C9A84C',
+    price: '₹ —',
+    isNew: false,
+    isBestseller: false,
+    isComingSoon: true,
+    image: null,
+  },
+  {
+    id: 14,
+    name: 'Zahra Intense',
+    arabicName: 'زهرة إنتنس',
+    category: 'floral',
+    desc: 'An intensified bloom — floral layers that linger from dusk to dawn.',
+    notes: ['Jasmine', 'Iris', 'Patchouli'],
+    gradient: 'linear-gradient(160deg, #060402 0%, #1a0612 45%, #2e0d20 100%)',
+    accentColor: '#E2C27D',
+    price: '₹ —',
+    isNew: false,
+    isBestseller: false,
+    isComingSoon: true,
+    image: null,
+  },
+  {
+    id: 15,
+    name: 'Nafas Al Bahr',
+    arabicName: 'نفس البحر',
+    category: 'fresh',
+    desc: 'The breath of the sea — crystalline, vast, alive with salt and sun.',
+    notes: ['Sea Mist', 'Neroli', 'Ambrette'],
+    gradient: 'linear-gradient(160deg, #060402 0%, #060d14 45%, #0a1622 100%)',
+    accentColor: '#F5F0E8',
+    price: '₹ —',
+    isNew: false,
+    isBestseller: false,
+    isComingSoon: true,
+    image: null,
   },
 ]
 
