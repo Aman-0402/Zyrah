@@ -86,7 +86,7 @@ export default function StepIndicator({ currentStep, isSticky }) {
                         : 'rgba(5,4,3,0.8)',
                       borderColor: isComplete || isActive
                         ? 'rgba(176,141,87,0.75)'
-                        : 'rgba(245,240,232,0.10)',
+                        : 'rgba(236,230,220,0.46)',
                       boxShadow: isActive
                         ? '0 0 20px rgba(176,141,87,0.25), inset 0 0 12px rgba(176,141,87,0.06)'
                         : isComplete
@@ -98,9 +98,9 @@ export default function StepIndicator({ currentStep, isSticky }) {
                       <Check size={13} strokeWidth={2.5} className="text-black" />
                     ) : (
                       <span
-                        className="text-[11px] font-light tabular-nums"
+                        className="text-[12px] font-medium tabular-nums"
                         style={{
-                          color: isActive ? 'rgba(176,141,87,0.95)' : 'rgba(245,240,232,0.18)',
+                          color: isActive ? 'rgba(226,194,125,0.96)' : 'rgba(236,230,220,0.58)',
                         }}
                       >
                         {n}
@@ -111,13 +111,13 @@ export default function StepIndicator({ currentStep, isSticky }) {
 
                 {/* Label */}
                 <span
-                  className="text-[8px] tracking-[0.28em] uppercase transition-colors duration-400 hidden sm:block"
+                  className="text-[10px] tracking-[0.18em] uppercase font-medium transition-colors duration-400 hidden sm:block"
                   style={{
                     color: isActive
                       ? 'rgba(176,141,87,0.90)'
                       : isComplete
                       ? 'rgba(176,141,87,0.40)'
-                      : 'rgba(245,240,232,0.18)',
+                      : 'rgba(236,230,220,0.58)',
                   }}
                 >
                   {label}

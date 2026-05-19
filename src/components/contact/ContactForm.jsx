@@ -12,7 +12,7 @@ function LuxuryInput({ label, type = 'text', value, onChange, placeholder, requi
   return (
     <div className="flex flex-col gap-2">
       <label
-        className="text-[9px] tracking-[0.38em] uppercase"
+        className="text-[10px] tracking-[0.22em] uppercase font-semibold"
         style={{ color: focused ? 'rgba(201,168,76,0.72)' : 'rgba(255,252,245,0.82)', transition: 'color 0.35s' }}
       >
         {label}{required && <span style={{ color: 'rgba(201,168,76,0.72)', marginLeft: '4px' }}>*</span>}
@@ -24,7 +24,7 @@ function LuxuryInput({ label, type = 'text', value, onChange, placeholder, requi
         placeholder={placeholder}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
-        className="text-sm outline-none font-light transition-all duration-350"
+        className="text-[15px] outline-none font-normal transition-all duration-350"
         style={{
           background: focused ? 'rgba(201,168,76,0.04)' : 'rgba(255,255,255,0.022)',
           border: `1px solid ${focused ? 'rgba(201,168,76,0.60)' : 'rgba(201,168,76,0.16)'}`,
@@ -91,7 +91,7 @@ export default function ContactForm() {
             </div>
             <button
               onClick={() => { setSubmitted(false); setForm({ name: '', phone: '', email: '', subject: 'Custom Order', message: '' }) }}
-              className="text-[9px] tracking-[0.35em] uppercase text-ivory/25 hover:text-ivory/50 transition-colors duration-300 underline underline-offset-4"
+              className="text-[10px] tracking-[0.22em] uppercase text-ivory/55 hover:text-ivory/80 transition-colors duration-300 underline underline-offset-4"
             >
               Send another message
             </button>
@@ -113,7 +113,7 @@ export default function ContactForm() {
 
             {/* Subject chips */}
             <div className="flex flex-col gap-3">
-              <label className="text-[9px] tracking-[0.38em] uppercase" style={{ color: 'rgba(255,252,245,0.80)' }}>Subject</label>
+              <label className="text-[10px] tracking-[0.22em] uppercase font-semibold" style={{ color: 'rgba(236,230,220,0.88)' }}>Subject</label>
               <div className="flex flex-wrap gap-2.5">
                 {SUBJECTS.map((s) => {
                   const active = form.subject === s
@@ -171,7 +171,7 @@ export default function ContactForm() {
 
             {/* Message */}
             <div className="flex flex-col gap-1.5">
-              <label className="text-[9px] tracking-[0.38em] uppercase" style={{ color: 'rgba(255,252,245,0.80)' }}>
+              <label className="text-[10px] tracking-[0.22em] uppercase font-semibold" style={{ color: 'rgba(236,230,220,0.88)' }}>
                 Message <span style={{ color: 'rgba(201,168,76,0.65)' }}>*</span>
               </label>
               <textarea
@@ -179,7 +179,7 @@ export default function ContactForm() {
                 onChange={(e) => set('message')(e.target.value)}
                 placeholder="Tell us about your enquiry, custom fragrance vision, or anything else..."
                 rows={5}
-                className="text-sm outline-none font-light resize-none transition-all duration-350"
+                className="text-[15px] outline-none font-normal resize-none transition-all duration-350"
                 style={{
                   background: 'rgba(255,255,255,0.022)',
                   border: '1px solid rgba(201,168,76,0.16)',
@@ -226,7 +226,7 @@ export default function ContactForm() {
                 <MessageCircle size={15} strokeWidth={1.5} />
                 Send via WhatsApp
               </motion.button>
-              <p className="text-center mt-3 text-[8px] tracking-[0.3em] uppercase" style={{ color: 'rgba(255,252,245,0.65)' }}>
+              <p className="text-center mt-3 text-[10px] tracking-[0.2em] uppercase" style={{ color: 'rgba(236,230,220,0.76)' }}>
                 Opens WhatsApp with your message pre-filled
               </p>
             </div>

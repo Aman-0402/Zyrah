@@ -14,11 +14,11 @@ export default function Step4Name({ selections, update }) {
   return (
     <div className="flex flex-col gap-10">
       <div>
-        <p className="text-[10px] tracking-[0.5em] uppercase text-gold-400/80 mb-2">Step 4 of 5</p>
+        <p className="editorial-label mb-2">Step 4 of 5</p>
         <h2 className="font-heading text-3xl md:text-4xl text-ivory mb-2">
           Name Your <span className="italic text-gold-300">Fragrance</span>
         </h2>
-        <p className="text-ivory/70 text-sm font-light">
+        <p className="text-ivory/84 text-[15px] font-normal leading-[1.85]">
           Give your creation an identity. Make it yours.
         </p>
       </div>
@@ -59,7 +59,7 @@ export default function Step4Name({ selections, update }) {
               'placeholder:text-ivory/15',
             ].join(' ')}
             style={{
-              color: name ? accentColor : 'rgba(245,240,232,0.6)',
+              color: name ? accentColor : 'rgba(236,230,220,0.78)',
               borderColor: focused
                 ? accentColor
                 : name
@@ -74,7 +74,7 @@ export default function Step4Name({ selections, update }) {
             <span />
             <span
               className="text-[9px] tracking-[0.25em] transition-colors duration-300"
-              style={{ color: remaining < 5 ? '#E57373' : 'rgba(245,240,232,0.2)' }}
+              style={{ color: remaining < 5 ? '#E57373' : 'rgba(236,230,220,0.58)' }}
             >
               {remaining}
             </span>
@@ -91,7 +91,7 @@ export default function Step4Name({ selections, update }) {
               exit={{ opacity: 0, y: -10 }}
               className="text-center"
             >
-              <p className="text-[9px] tracking-[0.4em] uppercase text-ivory/20 mb-2">Your fragrance</p>
+              <p className="text-[10px] tracking-[0.2em] uppercase text-ivory/62 font-medium mb-2">Your fragrance</p>
               <p
                 className="font-heading italic text-4xl"
                 style={{ color: accentColor, opacity: 0.7 }}
@@ -99,7 +99,7 @@ export default function Step4Name({ selections, update }) {
                 {name}
               </p>
               {fam && (
-                <p className="text-[9px] tracking-[0.3em] uppercase text-ivory/20 mt-1">
+                <p className="text-[10px] tracking-[0.2em] uppercase text-ivory/58 mt-1">
                   {fam.label} · M. M. Attarwala
                 </p>
               )}
@@ -110,7 +110,7 @@ export default function Step4Name({ selections, update }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="text-[10px] tracking-[0.3em] uppercase text-ivory/15 text-center"
+              className="text-[10px] tracking-[0.2em] uppercase text-ivory/58 text-center"
             >
               What will you call it?
             </motion.p>
@@ -122,7 +122,7 @@ export default function Step4Name({ selections, update }) {
       <div className="text-center">
         <button
           onClick={() => update({ name: '' })}
-          className="text-[9px] tracking-[0.3em] uppercase text-ivory/20 hover:text-ivory/40 transition-colors duration-300 underline underline-offset-4"
+          className="text-[10px] tracking-[0.2em] uppercase text-ivory/58 hover:text-ivory/78 transition-colors duration-300 underline underline-offset-4"
         >
           Skip — we'll name it together
         </button>

@@ -92,7 +92,7 @@ export default function ContactHero() {
         <motion.nav variants={item} className="flex items-center justify-center gap-1.5 mb-10">
           <Link
             to="/"
-            className="text-[9px] tracking-[0.4em] uppercase transition-colors duration-300"
+            className="text-[10px] tracking-[0.24em] uppercase font-semibold transition-colors duration-300"
             style={{ color: 'rgba(176,141,87,0.65)' }}
             onMouseEnter={e => e.currentTarget.style.color = 'rgba(176,141,87,0.90)'}
             onMouseLeave={e => e.currentTarget.style.color = 'rgba(176,141,87,0.65)'}
@@ -100,7 +100,7 @@ export default function ContactHero() {
             Home
           </Link>
           <ChevronRight size={9} style={{ color: 'rgba(176,141,87,0.45)' }} />
-          <span className="text-[9px] tracking-[0.4em] uppercase" style={{ color: 'rgba(176,141,87,0.88)' }}>
+          <span className="text-[10px] tracking-[0.24em] uppercase font-semibold" style={{ color: 'rgba(200,169,107,0.90)' }}>
             Contact
           </span>
         </motion.nav>
@@ -108,8 +108,7 @@ export default function ContactHero() {
         {/* Eyebrow */}
         <motion.p
           variants={item}
-          className="text-[10px] tracking-[0.6em] uppercase mb-6"
-          style={{ color: 'rgba(176,141,87,0.82)' }}
+          className="editorial-label mb-6"
         >
           We'd Love To Hear From You
         </motion.p>
@@ -117,7 +116,7 @@ export default function ContactHero() {
         {/* Headline */}
         <motion.div variants={item} className="overflow-hidden mb-3">
           <h1 className="font-heading leading-none" style={{ fontWeight: 300 }}>
-            <span className="block text-5xl md:text-7xl lg:text-[5.5rem]" style={{ color: 'rgba(245,240,232,0.92)' }}>
+            <span className="block text-5xl md:text-7xl lg:text-[5.5rem]" style={{ color: 'rgba(245,241,234,0.98)' }}>
               Get In
             </span>
             <span

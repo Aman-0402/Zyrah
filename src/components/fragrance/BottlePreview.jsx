@@ -127,11 +127,11 @@ export default function BottlePreview({ selections, compact = false }) {
             <p className="font-heading text-sm italic truncate"
               style={{ color: 'rgba(201,168,76,0.85)' }}>{name}</p>
           ) : (
-            <p className="text-[9px] tracking-[0.3em] uppercase"
-              style={{ color: 'rgba(245,240,232,0.18)' }}>Your Fragrance</p>
+            <p className="text-[10px] tracking-[0.2em] uppercase font-medium"
+              style={{ color: 'rgba(236,230,220,0.62)' }}>Your Fragrance</p>
           )}
           {fam && (
-            <p className="text-[8px] tracking-[0.2em] uppercase"
+            <p className="text-[9px] tracking-[0.18em] uppercase font-medium"
               style={{ color: 'rgba(201,168,76,0.75)' }}>{fam.label}</p>
           )}
         </div>
@@ -161,8 +161,8 @@ export default function BottlePreview({ selections, compact = false }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="text-[9px] tracking-[0.4em] uppercase"
-              style={{ color: 'rgba(245,240,232,0.13)' }}
+              className="text-[10px] tracking-[0.2em] uppercase font-medium"
+              style={{ color: 'rgba(236,230,220,0.58)' }}
             >
               Your Fragrance
             </motion.p>
@@ -301,8 +301,8 @@ export default function BottlePreview({ selections, compact = false }) {
             transition={{ duration: 0.4 }}
             className="text-center"
           >
-            <p className="text-[9px] tracking-[0.4em] uppercase"
-              style={{ color: fam.accentColor, opacity: 0.65 }}>
+            <p className="text-[10px] tracking-[0.2em] uppercase font-semibold"
+              style={{ color: fam.accentColor, opacity: 0.86 }}>
               {fam.label}
             </p>
             <p className="font-heading text-2xl mt-0.5 italic"
@@ -315,8 +315,8 @@ export default function BottlePreview({ selections, compact = false }) {
             key="no-family"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-[9px] tracking-[0.35em] uppercase"
-            style={{ color: 'rgba(245,240,232,0.13)' }}
+            className="text-[10px] tracking-[0.2em] uppercase font-medium"
+            style={{ color: 'rgba(236,230,220,0.58)' }}
           >
             Select a family
           </motion.p>
@@ -337,8 +337,8 @@ export default function BottlePreview({ selections, compact = false }) {
               style={{ width: '4px', borderRadius: '2px' }}
             />
           ))}
-          <span className="text-[8px] tracking-[0.22em] uppercase ml-2"
-            style={{ color: 'rgba(245,240,232,0.25)' }}>
+          <span className="text-[9px] tracking-[0.16em] uppercase ml-2 font-medium"
+            style={{ color: 'rgba(236,230,220,0.62)' }}>
             {intensityLevel.label}
           </span>
         </motion.div>

@@ -40,13 +40,13 @@ function NavItem({ label, to }) {
         {({ isActive }) => (
           <>
             <span
-              className="text-[11px] tracking-[0.32em] uppercase font-medium transition-all duration-400"
+              className="text-[12px] tracking-[0.28em] uppercase font-semibold transition-all duration-400"
               style={{
-                color: isActive ? 'rgba(224,188,100,1)' : 'rgba(255,252,245,0.88)',
-                textShadow: isActive ? '0 0 20px rgba(201,168,76,0.4)' : 'none',
+                color: isActive ? 'rgba(226,194,125,1)' : 'rgba(245,241,234,0.92)',
+                textShadow: isActive ? '0 0 20px rgba(201,168,76,0.42)' : '0 0 16px rgba(0,0,0,0.28)',
               }}
               onMouseEnter={e => { if (!isActive) { e.currentTarget.style.color = 'rgba(224,188,100,1)'; e.currentTarget.style.textShadow = '0 0 16px rgba(201,168,76,0.35)' } }}
-              onMouseLeave={e => { if (!isActive) { e.currentTarget.style.color = 'rgba(255,252,245,0.88)'; e.currentTarget.style.textShadow = 'none' } }}
+              onMouseLeave={e => { if (!isActive) { e.currentTarget.style.color = 'rgba(245,241,234,0.92)'; e.currentTarget.style.textShadow = '0 0 16px rgba(0,0,0,0.28)' } }}
             >
               {label}
             </span>
@@ -153,7 +153,7 @@ export default function Navbar() {
           </NavLink>
 
           {/* ── Desktop Links ── */}
-          <ul className="hidden md:flex items-center gap-10 lg:gap-12">
+          <ul className="hidden md:flex items-center gap-11 lg:gap-14">
             {NAV_LINKS.map(({ label, to }) => (
               <NavItem key={to} label={label} to={to} />
             ))}
@@ -169,8 +169,8 @@ export default function Navbar() {
                 color: 'rgba(176,141,87,0.80)',
                 background: 'rgba(176,141,87,0.04)',
                 padding: '11px 24px',
-                fontSize: '10px',
-                letterSpacing: '0.32em',
+                fontSize: '11px',
+                letterSpacing: '0.28em',
                 textTransform: 'uppercase',
                 fontWeight: 400,
               }}

@@ -80,7 +80,7 @@ export default function ContactInfo() {
         <h2 className="font-heading text-3xl md:text-4xl mb-2" style={{ color: 'rgba(255,248,240,0.92)' }}>
           We're <span className="italic" style={{ color: 'rgba(226,194,125,0.90)' }}>Here</span>
         </h2>
-        <p className="text-sm font-light mb-8" style={{ color: 'rgba(255,252,245,0.82)' }}>
+        <p className="text-[15px] font-normal leading-[1.85] mb-8" style={{ color: 'rgba(236,230,220,0.88)' }}>
           Every message is read personally. No bots, no auto-replies.
         </p>
       </div>
@@ -105,13 +105,13 @@ export default function ContactInfo() {
             </div>
 
             <div className="flex flex-col gap-0.5 min-w-0">
-              <p className="text-[9px] tracking-[0.35em] uppercase" style={{ color: `${accent}50` }}>
+              <p className="text-[10px] tracking-[0.2em] uppercase font-semibold" style={{ color: `${accent}CC` }}>
                 {label}
               </p>
-              <p className="text-sm font-light transition-colors duration-300 truncate" style={{ color: 'rgba(255,248,240,0.82)' }}>
+              <p className="text-[15px] font-normal transition-colors duration-300 truncate" style={{ color: 'rgba(245,241,234,0.90)' }}>
                 {value}
               </p>
-              <p className="text-xs font-light" style={{ color: 'rgba(255,252,245,0.80)' }}>{sub}</p>
+              <p className="text-[13px] font-normal" style={{ color: 'rgba(236,230,220,0.82)' }}>{sub}</p>
             </div>
 
             {/* Bottom accent */}
@@ -138,11 +138,11 @@ export default function ContactInfo() {
 
       {/* Products */}
       <div data-reveal className="flex flex-col gap-2 pt-1">
-        <p className="text-[9px] tracking-[0.35em] uppercase" style={{ color: 'rgba(201,168,76,0.72)' }}>Our Products</p>
+        <p className="editorial-label">Our Products</p>
         <div className="flex flex-wrap gap-2">
           {['Indian Attar', 'Perfume Spray', 'Deodorant Spray', 'Room Freshener', 'Car Spray', 'Agarbatti'].map(p => (
-            <span key={p} className="text-[9px] tracking-[0.2em] uppercase px-3 py-1.5 border border-gold-400/15"
-              style={{ color: 'rgba(255,252,245,0.80)', background: 'rgba(201,168,76,0.04)' }}>
+            <span key={p} className="text-[10px] tracking-[0.16em] uppercase px-3 py-1.5 border border-gold-400/20"
+              style={{ color: 'rgba(236,230,220,0.88)', background: 'rgba(201,168,76,0.05)' }}>
               {p}
             </span>
           ))}
@@ -162,7 +162,7 @@ export default function ContactInfo() {
         >
           <Instagram size={14} strokeWidth={1.5} className="text-ivory/30 group-hover:text-gold-400/70 transition-colors duration-300" />
         </div>
-        <span className="text-[10px] tracking-[0.3em] uppercase transition-colors duration-300" style={{ color: 'rgba(255,252,245,0.76)' }}
+        <span className="text-[11px] tracking-[0.22em] uppercase font-medium transition-colors duration-300" style={{ color: 'rgba(236,230,220,0.84)' }}
           onMouseEnter={e => e.currentTarget.style.color = 'rgba(255,252,245,0.90)'}
           onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,252,245,0.76)'}
         >

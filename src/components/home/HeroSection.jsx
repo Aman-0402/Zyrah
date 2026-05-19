@@ -285,9 +285,9 @@ export default function HeroSection() {
       <div className="cx relative z-10 grid grid-cols-1 lg:grid-cols-[55%_45%] items-center min-h-screen pt-40 md:pt-48 pb-20 gap-8 lg:gap-4 lg:translate-y-8 2xl:translate-y-0">
 
         {/* LEFT */}
-        <motion.div variants={container} initial="hidden" animate="show" className="flex flex-col gap-6 lg:gap-7 items-center lg:items-start text-center lg:text-left">
+        <motion.div variants={container} initial="hidden" animate="show" className="flex flex-col gap-7 lg:gap-8 items-center lg:items-start text-center lg:text-left">
 
-          <motion.p variants={item} className="text-[10px] md:text-[11px] tracking-[0.25em] sm:tracking-[0.5em] uppercase text-gold-400/82">
+          <motion.p variants={item} className="editorial-label text-[10px] md:text-[11px] tracking-[0.22em] sm:tracking-[0.34em]">
             Est. in India &nbsp;·&nbsp; Crafted With Love
           </motion.p>
 
@@ -295,7 +295,7 @@ export default function HeroSection() {
             <div className="overflow-hidden">
               <motion.h1
                 variants={lineReveal}
-                className="luxury-hero italic text-[46px] sm:text-[64px] md:text-[88px] lg:text-[96px] xl:text-[120px] text-ivory"
+                className="luxury-hero italic text-[52px] sm:text-[72px] md:text-[96px] lg:text-[106px] xl:text-[130px] text-ivory"
               >
                 Crafted
               </motion.h1>
@@ -303,7 +303,7 @@ export default function HeroSection() {
             <div className="overflow-hidden">
               <motion.h1
                 variants={lineReveal}
-                className="luxury-hero text-[46px] sm:text-[64px] md:text-[88px] lg:text-[96px] xl:text-[120px] text-gold-gradient"
+                className="luxury-hero text-[52px] sm:text-[72px] md:text-[96px] lg:text-[106px] xl:text-[130px] text-gold-gradient"
                 style={{ fontWeight: 400 }}
               >
                 For You.
@@ -318,10 +318,10 @@ export default function HeroSection() {
             className="h-px bg-gold-400/60"
           />
 
-          <motion.p variants={item} className="text-ivory/85 text-sm md:text-base font-light leading-[1.9] tracking-wide" style={{ maxWidth: 420 }}>
+          <motion.p variants={item} className="editorial-copy tracking-[0.01em]" style={{ maxWidth: 460 }}>
             Custom-made fragrances, blended from the finest attars.
             <br />
-            <span className="text-gold-400/75">Blended fresh, crafted only for you.</span>
+            <span className="gold-soft">Blended fresh, crafted only for you.</span>
           </motion.p>
 
           {/* Premium CTAs */}
@@ -334,7 +334,7 @@ export default function HeroSection() {
                 whileTap={{ scale: 0.97 }}
                 transition={{ duration: 0.3 }}
               >
-                <span className="text-[11px] tracking-[0.4em] uppercase font-semibold">Explore Collection</span>
+                <span className="text-[11px] tracking-[0.3em] uppercase font-semibold">Explore Collection</span>
                 <ArrowRight size={13} strokeWidth={1.5} />
               </motion.span>
             </Link>
@@ -347,7 +347,7 @@ export default function HeroSection() {
                 whileTap={{ scale: 0.97 }}
                 transition={{ duration: 0.3 }}
               >
-                <span className="text-[11px] tracking-[0.4em] uppercase font-light">Craft Yours</span>
+                <span className="text-[11px] tracking-[0.3em] uppercase font-medium">Craft Yours</span>
               </motion.span>
             </Link>
           </motion.div>
@@ -356,12 +356,12 @@ export default function HeroSection() {
           <motion.div variants={item} className="relative grid w-full max-w-[380px] grid-cols-2 gap-x-8 border-t border-gold-400/10 pt-6 mt-1 sm:w-auto sm:min-w-[360px] sm:gap-x-12">
             <div className="flex min-w-0 flex-col items-center gap-2 px-2 lg:items-start">
               <p className="font-heading text-[26px] md:text-[30px] text-gold-300 leading-none">500+</p>
-              <p className="text-center text-[9px] tracking-[0.2em] sm:tracking-[0.26em] uppercase text-ivory/65 leading-relaxed lg:text-left">Blends Created</p>
+              <p className="editorial-label text-center !text-[10px] tracking-[0.18em] sm:tracking-[0.22em] leading-relaxed lg:text-left">Blends Created</p>
             </div>
             <div className="absolute bottom-1 top-6 left-1/2 w-px -translate-x-1/2" style={{ background: 'linear-gradient(to bottom, transparent, rgba(201,168,76,0.24), transparent)' }} />
             <div className="flex min-w-0 flex-col items-center gap-2 px-2 lg:items-start">
               <p className="font-heading text-[26px] md:text-[30px] text-gold-300 leading-none">100%</p>
-              <p className="text-center text-[9px] tracking-[0.2em] sm:tracking-[0.26em] uppercase text-ivory/65 leading-relaxed lg:text-left">Custom Made</p>
+              <p className="editorial-label text-center !text-[10px] tracking-[0.18em] sm:tracking-[0.22em] leading-relaxed lg:text-left">Custom Made</p>
             </div>
           </motion.div>
         </motion.div>

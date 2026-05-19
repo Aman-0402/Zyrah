@@ -18,7 +18,7 @@ function EmptyState() {
       >
         ◈
       </div>
-      <p className="text-[11px] tracking-[0.4em] uppercase text-ivory/25">
+      <p className="text-[11px] tracking-[0.22em] uppercase text-ivory/62 font-medium">
         No fragrances found
       </p>
     </motion.div>
@@ -75,8 +75,8 @@ export default function ProductGrid({ activeFilter }) {
         key={activeFilter}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="text-center mt-12 text-[9px] tracking-[0.4em] uppercase"
-        style={{ color: 'rgba(255,252,245,0.65)' }}
+        className="text-center mt-12 text-[10px] tracking-[0.22em] uppercase font-medium"
+        style={{ color: 'rgba(236,230,220,0.76)' }}
       >
         {filtered.length} {filtered.length === 1 ? 'fragrance' : 'fragrances'}
       </motion.p>

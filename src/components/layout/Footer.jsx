@@ -9,12 +9,12 @@ const LUXURY = [0.22, 1, 0.36, 1]
 /* Warm ivory text scale — luxury ≠ low contrast */
 const T = {
   quote:   'rgba(255,252,245,0.97)',
-  body:    'rgba(255,252,245,0.88)',
-  contact: 'rgba(255,252,245,0.84)',
-  address: 'rgba(255,252,245,0.80)',
-  faint:   'rgba(255,252,245,0.72)',
-  gold:    'rgba(201,168,76,0.90)',
-  goldDim: 'rgba(201,168,76,0.72)',
+  body:    'rgba(245,241,234,0.92)',
+  contact: 'rgba(236,230,220,0.90)',
+  address: 'rgba(236,230,220,0.86)',
+  faint:   'rgba(236,230,220,0.78)',
+  gold:    'rgba(226,194,125,0.95)',
+  goldDim: 'rgba(200,169,107,0.86)',
 }
 
 const NAV_LINKS = [
@@ -88,7 +88,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: LUXURY }}
-            className="font-heading italic text-center text-3xl md:text-4xl mb-20"
+            className="font-heading italic text-center text-4xl md:text-5xl mb-20"
             style={{ color: T.quote, letterSpacing: '0.01em', fontWeight: 300 }}
           >
             Crafted to linger beyond memory.
@@ -109,7 +109,7 @@ export default function Footer() {
                 />
               </Link>
 
-              <p className="text-[13px] font-light leading-[1.85] max-w-[200px]"
+              <p className="text-sm font-normal leading-[1.85] max-w-[230px]"
                 style={{ color: T.body }}>
                 Custom-made attars blended for you alone. Crafted fresh, just for you.
               </p>
@@ -160,7 +160,7 @@ export default function Footer() {
                   key={to}
                   to={to}
                   end={to === '/'}
-                  className="text-[11px] tracking-[0.22em] uppercase font-light transition-colors duration-500 w-fit"
+                  className="text-[12px] tracking-[0.18em] uppercase font-medium transition-colors duration-500 w-fit"
                   style={({ isActive }) => ({
                     color: isActive ? T.gold : T.address,
                   })}
@@ -180,9 +180,9 @@ export default function Footer() {
                 className="flex items-start gap-3 group w-fit">
                 <MessageCircle size={13} strokeWidth={1} className="mt-0.5 flex-shrink-0" style={{ color: T.goldDim }} />
                 <div className="flex flex-col gap-0.5">
-                  <span className="text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(201,168,76,0.70)' }}>WhatsApp · M. Roeesh</span>
+                  <span className="text-[10px] tracking-[0.18em] uppercase font-semibold" style={{ color: T.goldDim }}>WhatsApp · M. Roeesh</span>
                   <span
-                    className="text-[11px] font-light tracking-wide transition-colors duration-500"
+                    className="text-[12px] font-normal tracking-wide transition-colors duration-500"
                     style={{ color: T.contact }}
                     onMouseEnter={e => e.currentTarget.style.color = T.body}
                     onMouseLeave={e => e.currentTarget.style.color = T.contact}
@@ -193,9 +193,9 @@ export default function Footer() {
               <a href="tel:+919016361538" className="flex items-start gap-3 group w-fit">
                 <Phone size={13} strokeWidth={1} className="mt-0.5 flex-shrink-0" style={{ color: T.goldDim }} />
                 <div className="flex flex-col gap-0.5">
-                  <span className="text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(201,168,76,0.70)' }}>Call · M. Munavvar</span>
+                  <span className="text-[10px] tracking-[0.18em] uppercase font-semibold" style={{ color: T.goldDim }}>Call · M. Munavvar</span>
                   <span
-                    className="text-[11px] font-light tracking-wide transition-colors duration-500"
+                    className="text-[12px] font-normal tracking-wide transition-colors duration-500"
                     style={{ color: T.contact }}
                     onMouseEnter={e => e.currentTarget.style.color = T.body}
                     onMouseLeave={e => e.currentTarget.style.color = T.contact}
@@ -206,7 +206,7 @@ export default function Footer() {
               <a href="mailto:mmattarwala2008@rediff.com" className="flex items-start gap-3 group w-fit">
                 <Mail size={13} strokeWidth={1} className="mt-0.5 flex-shrink-0" style={{ color: T.goldDim }} />
                 <span
-                  className="text-[11px] font-light tracking-wide transition-colors duration-500"
+                  className="text-[12px] font-normal tracking-wide transition-colors duration-500"
                   style={{ color: T.contact }}
                   onMouseEnter={e => e.currentTarget.style.color = T.body}
                   onMouseLeave={e => e.currentTarget.style.color = T.contact}
@@ -216,8 +216,8 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <MapPin size={13} strokeWidth={1} className="mt-0.5 flex-shrink-0" style={{ color: T.goldDim }} />
                 <div className="flex flex-col gap-0.5">
-                  <span className="text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(201,168,76,0.70)' }}>Nazarbaug · Fortune Point</span>
-                  <span className="text-[11px] font-light leading-relaxed" style={{ color: T.address }}>
+                  <span className="text-[10px] tracking-[0.18em] uppercase font-semibold" style={{ color: T.goldDim }}>Nazarbaug · Fortune Point</span>
+                  <span className="text-[12px] font-normal leading-relaxed" style={{ color: T.address }}>
                     Mandvi, Vadodara – 390 017
                   </span>
                 </div>
@@ -226,8 +226,8 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <Clock size={13} strokeWidth={1} className="mt-0.5 flex-shrink-0" style={{ color: T.goldDim }} />
                 <div className="flex flex-col gap-0.5">
-                  <span className="text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(201,168,76,0.70)' }}>Open Hours</span>
-                  <span className="text-[11px] font-light leading-relaxed" style={{ color: T.address }}>
+                  <span className="text-[10px] tracking-[0.18em] uppercase font-semibold" style={{ color: T.goldDim }}>Open Hours</span>
+                  <span className="text-[12px] font-normal leading-relaxed" style={{ color: T.address }}>
                     10 am – 8 pm · Mon closed<br />Fri closed 12:45–2:45 pm
                   </span>
                 </div>
@@ -240,7 +240,7 @@ export default function Footer() {
                   whileHover={{ borderColor: 'rgba(201,168,76,0.55)', color: 'rgba(201,168,76,0.90)', boxShadow: '0 0 16px rgba(201,168,76,0.07)' }}
                   transition={{ duration: 0.45, ease: LUXURY }}
                 >
-                  <span className="text-[9px] tracking-[0.45em] uppercase font-light">Craft Yours</span>
+                  <span className="text-[10px] tracking-[0.28em] uppercase font-medium">Craft Yours</span>
                   <ArrowRight size={11} strokeWidth={1} />
                 </motion.span>
               </Link>
@@ -250,10 +250,10 @@ export default function Footer() {
           {/* Bottom bar */}
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-3"
             style={{ borderTop: '1px solid rgba(201,168,76,0.07)' }}>
-            <p className="text-[9px] tracking-[0.35em] uppercase font-light" style={{ color: T.faint }}>
+            <p className="text-[10px] tracking-[0.22em] uppercase font-normal" style={{ color: T.faint }}>
               © {year} M. M. Attarwala. All rights reserved.
             </p>
-            <p className="text-[9px] tracking-[0.35em] uppercase font-light" style={{ color: 'rgba(255,252,245,0.68)' }}>
+            <p className="text-[10px] tracking-[0.22em] uppercase font-normal" style={{ color: 'rgba(236,230,220,0.76)' }}>
               Made with love in India ♥
             </p>
           </div>

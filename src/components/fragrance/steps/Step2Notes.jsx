@@ -17,7 +17,7 @@ function NoteChip({ note, selected, onToggle, disabled }) {
           ? 'bg-gold-400 text-black border-gold-400'
           : disabled
           ? 'border-gold-400/8 text-ivory/15 cursor-not-allowed'
-          : 'border-gold-400/20 text-ivory/50 hover:border-gold-400/50 hover:text-ivory/80',
+          : 'border-gold-400/25 text-ivory/72 hover:border-gold-400/55 hover:text-ivory/95',
       ].join(' ')}
     >
       {note}
@@ -32,7 +32,7 @@ function NoteLayer({ label, sublabel, notes, selected, onToggle }) {
     <div className="flex flex-col gap-3">
       <div className="flex items-baseline gap-3">
         <h3 className="font-heading text-lg text-ivory">{label}</h3>
-        <span className="text-[9px] tracking-[0.3em] uppercase text-ivory/60">{sublabel}</span>
+        <span className="text-[10px] tracking-[0.18em] uppercase text-ivory/78 font-medium">{sublabel}</span>
         <span className="text-[9px] tracking-[0.25em] uppercase text-gold-400/72 ml-auto">
           {selected.length}/{MAX}
         </span>
@@ -70,11 +70,11 @@ export default function Step2Notes({ selections, update }) {
   return (
     <div className="flex flex-col gap-8">
       <div>
-        <p className="text-[10px] tracking-[0.5em] uppercase text-gold-400/80 mb-2">Step 2 of 5</p>
+        <p className="editorial-label mb-2">Step 2 of 5</p>
         <h2 className="font-heading text-3xl md:text-4xl text-ivory mb-2">
           Choose Your <span className="italic text-gold-300">Notes</span>
         </h2>
-        <p className="text-ivory/70 text-sm font-light">
+        <p className="text-ivory/84 text-[15px] font-normal leading-[1.85]">
           Pick up to 2 per layer — or skip and leave it to us.
         </p>
       </div>
@@ -86,12 +86,12 @@ export default function Step2Notes({ selections, update }) {
         className="flex flex-col gap-8"
       >
         {/* Note layer guide */}
-        <div className="flex gap-4 text-[9px] tracking-[0.25em] uppercase">
+        <div className="flex gap-4 text-[10px] tracking-[0.16em] uppercase font-medium">
           <span className="text-gold-400/72">Top ↑ First impression</span>
           <span className="text-ivory/15">·</span>
-          <span className="text-ivory/60">Middle ↕ Heart</span>
+          <span className="text-ivory/78">Middle ↕ Heart</span>
           <span className="text-ivory/30">·</span>
-          <span className="text-ivory/55">Base ↓ Lasting depth</span>
+          <span className="text-ivory/76">Base ↓ Lasting depth</span>
         </div>
 
         <div className="h-px bg-gold-400/8" />
@@ -126,7 +126,7 @@ export default function Step2Notes({ selections, update }) {
       </motion.div>
 
       {/* Skip hint */}
-      <p className="text-[9px] tracking-[0.3em] uppercase text-ivory/20 text-center">
+      <p className="text-[10px] tracking-[0.2em] uppercase text-ivory/58 text-center">
         Skipping a layer? Our perfumers will choose for you ✦
       </p>
     </div>

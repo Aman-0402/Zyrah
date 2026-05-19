@@ -94,7 +94,7 @@ export default function CollectionsHero() {
       >
         {/* Breadcrumb */}
         <motion.nav variants={item} className="flex items-center justify-center gap-1.5 mb-10">
-          <Link to="/" className="text-[9px] tracking-[0.4em] uppercase transition-colors duration-300"
+          <Link to="/" className="text-[10px] tracking-[0.24em] uppercase font-semibold transition-colors duration-300"
             style={{ color: 'rgba(176,141,87,0.65)' }}
             onMouseEnter={e => e.currentTarget.style.color = 'rgba(176,141,87,0.90)'}
             onMouseLeave={e => e.currentTarget.style.color = 'rgba(176,141,87,0.65)'}
@@ -102,14 +102,13 @@ export default function CollectionsHero() {
             Home
           </Link>
           <ChevronRight size={9} style={{ color: 'rgba(176,141,87,0.45)' }} />
-          <span className="text-[9px] tracking-[0.4em] uppercase" style={{ color: 'rgba(176,141,87,0.88)' }}>
+          <span className="text-[10px] tracking-[0.24em] uppercase font-semibold" style={{ color: 'rgba(200,169,107,0.90)' }}>
             Collections
           </span>
         </motion.nav>
 
         {/* Eyebrow */}
-        <motion.p variants={item} className="text-[10px] tracking-[0.6em] uppercase mb-6"
-          style={{ color: 'rgba(176,141,87,0.82)' }}>
+        <motion.p variants={item} className="editorial-label mb-6">
           Our Catalogue
         </motion.p>
 

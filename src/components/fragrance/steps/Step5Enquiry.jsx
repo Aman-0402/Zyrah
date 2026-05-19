@@ -36,8 +36,8 @@ function SummaryPill({ label, value }) {
   if (!value) return null
   return (
     <div className="flex flex-col gap-0.5 px-3 py-2 border border-gold-400/15" style={{ background: 'rgba(201,168,76,0.03)' }}>
-      <span className="text-[8px] tracking-[0.3em] uppercase text-gold-400/72">{label}</span>
-      <span className="text-xs text-ivory/60 font-light">{value}</span>
+      <span className="text-[9px] tracking-[0.2em] uppercase text-gold-300/86 font-semibold">{label}</span>
+      <span className="text-[13px] text-ivory/78 font-normal">{value}</span>
     </div>
   )
 }
@@ -47,7 +47,7 @@ function LuxuryInput({ label, type = 'text', value, onChange, placeholder, requi
   const [focused, setFocused] = useState(false)
   return (
     <div className="flex flex-col gap-1.5">
-      <label className="text-[9px] tracking-[0.35em] uppercase text-ivory/65">
+      <label className="text-[10px] tracking-[0.2em] uppercase text-ivory/78 font-semibold">
         {label}{required && <span className="text-gold-400/60 ml-1">*</span>}
       </label>
       <input
@@ -58,7 +58,7 @@ function LuxuryInput({ label, type = 'text', value, onChange, placeholder, requi
         required={required}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
-        className="bg-transparent border-b py-2 text-sm text-ivory/80 outline-none transition-colors duration-300 placeholder:text-ivory/15 font-light"
+        className="bg-transparent border-b py-2 text-[15px] text-ivory/88 outline-none transition-colors duration-300 placeholder:text-ivory/30 font-normal"
         style={{ borderColor: focused ? 'rgba(201,168,76,0.6)' : 'rgba(201,168,76,0.12)' }}
       />
     </div>
@@ -98,7 +98,7 @@ export default function Step5Enquiry({ selections, update }) {
         </motion.div>
         <div>
           <h3 className="font-heading text-3xl text-ivory mb-2">Enquiry Sent ✦</h3>
-          <p className="text-ivory/75 text-sm font-light max-w-xs">
+          <p className="text-ivory/86 text-[15px] font-normal max-w-sm leading-[1.75]">
             We'll be in touch within 24 hours to craft your signature fragrance.
           </p>
         </div>
@@ -112,18 +112,18 @@ export default function Step5Enquiry({ selections, update }) {
   return (
     <div className="flex flex-col gap-8">
       <div>
-        <p className="text-[10px] tracking-[0.5em] uppercase text-gold-400/80 mb-2">Step 5 of 5</p>
+        <p className="editorial-label mb-2">Step 5 of 5</p>
         <h2 className="font-heading text-3xl md:text-4xl text-ivory mb-2">
           Your <span className="italic text-gold-300">Enquiry</span>
         </h2>
-        <p className="text-ivory/70 text-sm font-light">
+        <p className="text-ivory/84 text-[15px] font-normal leading-[1.85]">
           Review your creation and send it to us.
         </p>
       </div>
 
       {/* Summary */}
       <div className="flex flex-col gap-2">
-        <p className="text-[9px] tracking-[0.35em] uppercase text-ivory/60 mb-1">Your Selections</p>
+        <p className="text-[10px] tracking-[0.2em] uppercase text-ivory/76 font-semibold mb-1">Your Selections</p>
         <div className="grid grid-cols-2 gap-2">
           <SummaryPill label="Family" value={fam?.label} />
           <SummaryPill label="Intensity" value={level?.label} />
@@ -161,7 +161,7 @@ export default function Step5Enquiry({ selections, update }) {
           placeholder="your@email.com"
         />
         <div className="flex flex-col gap-1.5">
-          <label className="text-[9px] tracking-[0.35em] uppercase text-ivory/65">
+          <label className="text-[10px] tracking-[0.2em] uppercase text-ivory/78 font-semibold">
             Additional Notes (optional)
           </label>
           <textarea
@@ -169,7 +169,7 @@ export default function Step5Enquiry({ selections, update }) {
             onChange={(e) => update({ message: e.target.value })}
             placeholder="Occasion, preferences, skin type..."
             rows={3}
-            className="bg-transparent border-b border-gold-400/12 py-2 text-sm text-ivory/80 outline-none transition-colors duration-300 placeholder:text-ivory/15 font-light resize-none focus:border-gold-400/60"
+            className="bg-transparent border-b border-gold-400/18 py-2 text-[15px] text-ivory/88 outline-none transition-colors duration-300 placeholder:text-ivory/30 font-normal resize-none focus:border-gold-400/60"
           />
         </div>
 
@@ -188,14 +188,14 @@ export default function Step5Enquiry({ selections, update }) {
 
           <a
             href={`mailto:mmattarwala2008@rediff.com?subject=Custom Fragrance Enquiry${name ? ` — ${name}` : ''}&body=Name: ${customerName}%0APhone: ${phone}%0AFamily: ${fam?.label}%0ANotes: ${[...topNotes, ...middleNotes, ...baseNotes].join(', ')}`}
-            className="flex items-center justify-center gap-2 text-[10px] tracking-[0.3em] uppercase text-ivory/60 hover:text-ivory/80 transition-colors duration-300 py-2"
+            className="flex items-center justify-center gap-2 text-[10px] tracking-[0.2em] uppercase text-ivory/76 hover:text-ivory/92 transition-colors duration-300 py-2"
           >
             <Mail size={13} strokeWidth={1.5} />
             Or email us instead
           </a>
         </div>
 
-        <p className="text-[8px] tracking-[0.25em] uppercase text-ivory/15 text-center">
+        <p className="text-[9px] tracking-[0.18em] uppercase text-ivory/48 text-center">
           Free delivery · Handcrafted · Ships within 7 days
         </p>
       </form>

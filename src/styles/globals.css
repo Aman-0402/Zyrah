@@ -42,7 +42,7 @@ body {
     linear-gradient(180deg, #0c0807 0%, #120b08 42%, #0b0706 100%);
   color: var(--color-ivory);
   font-family: var(--font-body);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -90,46 +90,89 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 400;
   line-height: 1.1;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.005em;
+  color: #F5F1EA;
+}
+
+p,
+li,
+a,
+button,
+input,
+textarea,
+label,
+span {
+  text-rendering: geometricPrecision;
 }
 
 /* Luxury typography utilities */
 .luxury-hero {
   font-family: var(--font-heading);
   font-weight: 300;
-  line-height: 0.88;
-  letter-spacing: -0.04em;
-  text-shadow: 0 2px 30px rgba(255,255,255,0.07), 0 0 54px rgba(201,168,76,0.10);
+  line-height: 0.9;
+  letter-spacing: -0.025em;
+  color: #F5F1EA;
+  text-shadow: 0 2px 30px rgba(255,255,255,0.08), 0 0 58px rgba(201,168,76,0.14);
 }
 
 .luxury-heading {
   font-family: var(--font-heading);
   font-weight: 300;
-  line-height: 0.95;
-  letter-spacing: -0.025em;
+  line-height: 0.98;
+  letter-spacing: -0.012em;
+  color: #F5F1EA;
 }
 
 .luxury-card-title {
   font-family: var(--font-heading);
   font-weight: 400;
-  line-height: 1;
-  letter-spacing: -0.02em;
+  line-height: 1.04;
+  letter-spacing: -0.006em;
+  color: #F5F1EA;
 }
 
 .luxury-body {
   font-family: var(--font-body);
-  font-size: 0.9375rem;
-  line-height: 1.9;
-  font-weight: 300;
-  color: rgba(255,250,242,0.86);
+  font-size: 0.975rem;
+  line-height: 1.88;
+  font-weight: 400;
+  color: rgba(245,241,234,0.90);
 }
 
 .luxury-label {
   font-family: var(--font-body);
-  font-size: 0.6875rem;
-  letter-spacing: 0.3em;
-  font-weight: 500;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  font-weight: 600;
   text-transform: uppercase;
+  color: rgba(200,169,107,0.88);
+}
+
+.editorial-label {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  line-height: 1.5;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: rgba(200,169,107,0.86);
+}
+
+.editorial-copy {
+  font-family: var(--font-body);
+  font-size: clamp(0.94rem, 0.9rem + 0.16vw, 1.06rem);
+  line-height: 1.88;
+  font-weight: 400;
+  color: rgba(245,241,234,0.90);
+}
+
+.editorial-muted {
+  color: rgba(236,230,220,0.78);
+}
+
+.gold-soft {
+  color: #C8A96B;
+  text-shadow: 0 0 24px rgba(200,169,107,0.12);
 }
 
 /* ─── Selection ───────────────────────────────────────────────────────────── */

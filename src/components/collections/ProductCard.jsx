@@ -71,12 +71,12 @@ export default function ProductCard({ product, index }) {
         {/* Badges */}
         <div className="absolute top-3 left-3 flex flex-col gap-1.5">
           {isNew && (
-            <span className="text-[8px] tracking-[0.3em] uppercase px-2.5 py-1 bg-gold-400 text-black font-medium">
+            <span className="text-[9px] tracking-[0.22em] uppercase px-2.5 py-1 bg-gold-400 text-black font-semibold">
               New
             </span>
           )}
           {isBestseller && (
-            <span className="text-[8px] tracking-[0.3em] uppercase px-2.5 py-1 border border-gold-400/50 text-gold-400">
+            <span className="text-[9px] tracking-[0.22em] uppercase px-2.5 py-1 border border-gold-400/55 text-gold-300">
               Bestseller
             </span>
           )}
@@ -84,7 +84,7 @@ export default function ProductCard({ product, index }) {
 
         {/* Number */}
         <div className="absolute bottom-3 right-3">
-          <span className="text-[9px] tracking-[0.3em] text-gold-400/58">
+          <span className="editorial-label !text-[9px] tracking-[0.22em]">
             No.{String(product.id).padStart(2, '0')}
           </span>
         </div>
@@ -96,10 +96,10 @@ export default function ProductCard({ product, index }) {
         {/* Name row */}
         <div className="flex items-start justify-between gap-2">
           <div>
-            <h3 className="font-heading text-lg text-ivory group-hover:text-gold-300 transition-colors duration-300 leading-tight">
+            <h3 className="font-heading text-[1.35rem] text-[#F5F1EA] group-hover:text-gold-300 transition-colors duration-300 leading-tight">
               {name}
             </h3>
-            <p className="text-[10px] tracking-wider text-gold-400/65 mt-0.5">{arabicName}</p>
+            <p className="text-[11px] tracking-[0.12em] text-gold-300/82 mt-1">{arabicName}</p>
           </div>
           <motion.div
             className="text-ivory/20 group-hover:text-gold-400 transition-colors duration-300 mt-1 flex-shrink-0"
@@ -111,14 +111,14 @@ export default function ProductCard({ product, index }) {
         </div>
 
         {/* Desc */}
-        <p className="text-ivory/70 text-xs leading-relaxed font-light">{desc}</p>
+        <p className="text-[13px] leading-[1.75] font-normal" style={{ color: 'rgba(236,230,220,0.84)' }}>{desc}</p>
 
         {/* Notes */}
         <div className="flex flex-wrap gap-1.5 mt-auto">
           {notes.map((note) => (
             <span
               key={note}
-              className="text-[8px] tracking-[0.25em] uppercase px-2.5 py-1 border border-gold-400/20 text-gold-400/70 group-hover:border-gold-400/45 group-hover:text-gold-400/90 transition-all duration-300"
+              className="text-[9px] tracking-[0.18em] uppercase px-2.5 py-1 border border-gold-400/25 text-gold-300/82 group-hover:border-gold-400/50 group-hover:text-gold-300 transition-all duration-300"
             >
               {note}
             </span>
@@ -128,7 +128,7 @@ export default function ProductCard({ product, index }) {
         {/* Price + CTA row */}
         <div className="flex items-center justify-between pt-2 border-t border-gold-400/8 group-hover:border-gold-400/18 transition-colors duration-300">
           <span className="text-gold-400 text-sm font-medium tracking-wide">{price}</span>
-          <span className="text-[9px] tracking-[0.3em] uppercase text-ivory/0 group-hover:text-ivory/62 transition-all duration-300">
+          <span className="text-[10px] tracking-[0.22em] uppercase text-ivory/0 group-hover:text-ivory/72 transition-all duration-300">
             Enquire →
           </span>
         </div>

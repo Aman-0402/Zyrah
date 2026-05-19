@@ -47,7 +47,7 @@ export default function Step1Family({ selections, update }) {
   return (
     <div className="flex flex-col gap-7">
       <div>
-        <p className="text-[10px] tracking-[0.5em] uppercase mb-2"
+        <p className="editorial-label mb-2"
           style={{ color: 'rgba(176,141,87,0.82)' }}>
           Step 1 of 5
         </p>
@@ -57,7 +57,7 @@ export default function Step1Family({ selections, update }) {
         >
           Choose Your <span className="italic" style={{ color: 'rgba(201,168,76,0.90)' }}>Family</span>
         </h2>
-        <p className="text-sm font-light" style={{ color: 'rgba(255,252,245,0.72)' }}>
+        <p className="text-[15px] font-normal leading-[1.85]" style={{ color: 'rgba(236,230,220,0.86)' }}>
           The fragrance family sets the soul of your blend.
         </p>
       </div>
@@ -191,8 +191,8 @@ export default function Step1Family({ selections, update }) {
               </h3>
 
               <p
-                className="text-[12px] leading-[1.75] font-light"
-                style={{ color: isSelected ? 'rgba(255,252,245,0.82)' : 'rgba(255,252,245,0.68)' }}
+                className="text-[13px] leading-[1.75] font-normal"
+                style={{ color: isSelected ? 'rgba(245,241,234,0.90)' : 'rgba(236,230,220,0.82)' }}
               >
                 {fam.desc}
               </p>

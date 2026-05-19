@@ -351,7 +351,7 @@ export default function CollectionCard({ product, index, featured = false }) {
         {featured && (
           <div className="flex items-center gap-2 mb-1">
             <div className="h-px flex-1" style={{ background: `linear-gradient(to right, ${accentColor}40, transparent)` }} />
-            <span className="text-[8px] tracking-[0.5em] uppercase" style={{ color: `${accentColor}65` }}>Signature</span>
+            <span className="text-[9px] tracking-[0.24em] uppercase font-semibold" style={{ color: `${accentColor}CC` }}>Signature</span>
             <div className="h-px flex-1" style={{ background: `linear-gradient(to left, ${accentColor}40, transparent)` }} />
           </div>
         )}
@@ -359,7 +359,7 @@ export default function CollectionCard({ product, index, featured = false }) {
         {/* Name row */}
         <div className="flex items-start justify-between gap-2">
           <div>
-            <h3 className={`font-heading ${featured ? 'text-base sm:text-2xl' : 'text-sm sm:text-xl'} transition-colors duration-400 leading-tight`}
+            <h3 className={`font-heading ${featured ? 'text-lg sm:text-[1.7rem]' : 'text-base sm:text-[1.45rem]'} transition-colors duration-400 leading-tight`}
               style={{ color: isActive ? 'rgba(232,200,132,1)' : 'rgba(255,252,245,0.97)' }}>
               {name}
             </h3>
@@ -375,8 +375,8 @@ export default function CollectionCard({ product, index, featured = false }) {
         </div>
 
         {/* Description — hidden on mobile 2-col */}
-        <p className="hidden sm:block font-light leading-[1.8]"
-          style={{ fontSize: '0.8125rem', color: isActive ? 'rgba(255,252,245,0.92)' : 'rgba(255,248,235,0.78)', transition: 'color 0.4s' }}>
+        <p className="hidden sm:block font-normal leading-[1.75]"
+          style={{ fontSize: '0.875rem', color: isActive ? 'rgba(245,241,234,0.94)' : 'rgba(236,230,220,0.84)', transition: 'color 0.4s' }}>
           {desc}
         </p>
 
@@ -385,10 +385,10 @@ export default function CollectionCard({ product, index, featured = false }) {
           {notes.map((note) => (
             <span
               key={note}
-              className="text-[9px] tracking-[0.22em] uppercase px-2.5 py-1.5 border transition-all duration-400"
+              className="text-[9px] tracking-[0.18em] uppercase px-2.5 py-1.5 border transition-all duration-400"
               style={{
                 borderColor: isActive ? `${accentColor}45` : `${accentColor}28`,
-                color:       isActive ? `${accentColor}92` : `${accentColor}65`,
+                color:       isActive ? `${accentColor}` : `${accentColor}AA`,
                 background:  isActive ? `${accentColor}05` : 'transparent',
               }}
             >
@@ -404,8 +404,8 @@ export default function CollectionCard({ product, index, featured = false }) {
         >
           {/* Keyword label */}
           {!isComingSoon && (
-            <span className="hidden sm:block text-[8px] tracking-[0.35em] uppercase"
-              style={{ color: isActive ? `${accentColor}CC` : `${accentColor}80`, transition: 'color 0.4s' }}>
+            <span className="hidden sm:block text-[9px] tracking-[0.22em] uppercase font-semibold"
+              style={{ color: isActive ? `${accentColor}E6` : `${accentColor}B3`, transition: 'color 0.4s' }}>
               Handcrafted · Pure Essence
             </span>
           )}
@@ -418,7 +418,7 @@ export default function CollectionCard({ product, index, featured = false }) {
             </span>
             {!isComingSoon && (
               <motion.span
-                className="text-[9px] tracking-[0.35em] uppercase"
+                className="text-[10px] tracking-[0.22em] uppercase font-semibold"
                 animate={{ opacity: isActive ? 1 : 0, x: isActive ? 0 : -8 }}
                 transition={{ duration: 0.35 }}
                 style={{ color: 'rgba(255,252,245,0.72)' }}
