@@ -1,6 +1,5 @@
 const ITEMS = [
   'Custom Made',
-  'Free Delivery',
   'Premium Attars',
   'Crafted For You',
   'Arabic Oudh',

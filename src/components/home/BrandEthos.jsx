@@ -4,7 +4,6 @@ import { useGSAPReveal, useGSAPStaggerReveal } from '../../hooks/useGSAPReveal'
 const PILLARS = [
   { label: 'Pure Ingredients', icon: '◈' },
   { label: 'Custom Blended',   icon: '◇' },
-  { label: 'Free Delivery',    icon: '✦' },
 ]
 
 const textContainer = {

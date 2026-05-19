@@ -15,13 +15,6 @@ const VALUES = [
     desc: 'Never mass produced. Every fragrance is blended fresh to order — a one-of-a-kind creation made for you alone.',
     accent: '#E2C27D',
   },
-  {
-    symbol: '✦',
-    title: 'Free Delivery',
-    arabicLabel: 'توصيل مجاني',
-    desc: 'Luxury should be accessible. Every order ships free across India, hand-packed with care and delivered to your door.',
-    accent: '#F5F0E8',
-  },
 ]
 
 export default function ValuesGrid() {

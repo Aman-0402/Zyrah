@@ -135,21 +135,6 @@ export default function ContactInfo() {
         )
       })}
 
-      {/* Free delivery badge */}
-      <div
-        data-reveal
-        className="flex items-center justify-center gap-3 py-3 px-6 border border-gold-400/20 mt-2"
-        style={{
-          background: 'rgba(201,168,76,0.04)',
-          boxShadow: '0 0 20px rgba(201,168,76,0.06)',
-        }}
-      >
-        <span className="text-gold-400/78 text-xs">✦</span>
-        <span className="text-[10px] tracking-[0.4em] uppercase text-gold-400/82">
-          Free Delivery Across India
-        </span>
-        <span className="text-gold-400/78 text-xs">✦</span>
-      </div>
 
       {/* Products */}
       <div data-reveal className="flex flex-col gap-2 pt-1">

@@ -233,13 +233,6 @@ export default function Footer() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 mt-1">
-                <span style={{ color: 'rgba(201,168,76,0.68)', fontSize: '9px' }}>✦</span>
-                <span className="text-[9px] tracking-[0.3em] uppercase" style={{ color: T.faint }}>
-                  Free Delivery India
-                </span>
-              </div>
-
               <Link to="/custom-fragrance" className="mt-2">
                 <motion.span
                   className="inline-flex items-center gap-3 cursor-pointer select-none"

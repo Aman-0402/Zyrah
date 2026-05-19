@@ -95,10 +95,10 @@ const imageTiltVariants = {
   hover: { rotateX: -1.5, rotateY: 1.5 },
 }
 
-// Bottle: gentle lift, doesn't dominate
+// Bottle: lifts out of frame on hover
 const bottleVariants = {
-  rest:  { scale: 0.92, y: 0  },
-  hover: { scale: 1.05, y: -8 },
+  rest:  { scale: 0.75, y: 10  },
+  hover: { scale: 1.10, y: -22 },
 }
 
 function FragranceCard({ fragrance, index }) {
@@ -112,7 +112,7 @@ function FragranceCard({ fragrance, index }) {
       whileHover="hover"
       transition={{ duration: 0.6, ease: LUXURY_EASE }}
       className={[
-        'group relative flex flex-col border transition-colors duration-700 cursor-pointer rounded-xl overflow-hidden',
+        'group relative flex flex-col border transition-colors duration-700 cursor-pointer rounded-xl z-0 hover:z-10',
         featured
           ? 'border-gold-400/15 hover:border-gold-400/35'
           : 'border-gold-400/8 hover:border-gold-400/18',
@@ -128,7 +128,7 @@ function FragranceCard({ fragrance, index }) {
         variants={imageTiltVariants}
         transition={{ duration: 0.8, ease: LUXURY_EASE }}
         style={{ transformStyle: 'preserve-3d', transformOrigin: 'center center' }}
-        className="relative h-64"
+        className="relative h-80"
       >
         {/* Background — own overflow-hidden so it clips cleanly */}
         <div
@@ -159,8 +159,8 @@ function FragranceCard({ fragrance, index }) {
           <motion.div
             variants={bottleVariants}
             transition={{ duration: 0.9, ease: LUXURY_EASE }}
-            className="absolute inset-0 flex items-end justify-center pointer-events-none"
-            style={{ zIndex: 20, transformOrigin: 'bottom center' }}
+            className="absolute left-0 right-0 bottom-0 flex items-end justify-center pointer-events-none"
+            style={{ height: '130%', zIndex: 20, transformOrigin: 'bottom center' }}
           >
             <img
               src={image}
@@ -168,7 +168,7 @@ function FragranceCard({ fragrance, index }) {
               draggable={false}
               className="h-full w-auto object-contain"
               style={{
-                filter: 'drop-shadow(-3px 14px 20px rgba(0,0,0,0.8)) drop-shadow(0 0 16px rgba(201,168,76,0.14))',
+                filter: 'drop-shadow(-4px 20px 28px rgba(0,0,0,0.9)) drop-shadow(0 0 24px rgba(201,168,76,0.22))',
               }}
             />
           </motion.div>
@@ -219,7 +219,7 @@ export default function FeaturedSection() {
   const gridRef   = useGSAPStaggerReveal({ selector: '[data-reveal]', stagger: 0.18, start: 'top 80%' })
 
   return (
-    <section className="py-24 md:py-32 relative overflow-hidden">
+    <section className="py-24 md:py-32 relative">
 
       {/* Atmospheric glow zone behind heading */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] pointer-events-none"

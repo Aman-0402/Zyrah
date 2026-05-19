@@ -229,7 +229,7 @@ export default function FounderNote() {
               className="flex items-center gap-4 pt-6"
               style={{ borderTop: '1px solid rgba(201,168,76,0.09)' }}
             >
-              {['Free Delivery', 'Handcrafted', 'Made For You'].map((item, i) => (
+              {['Handcrafted', 'Made For You'].map((item, i) => (
                 <span key={item} className="flex items-center gap-4">
                   {i > 0 && (
                     <span style={{ color: 'rgba(201,168,76,0.55)', fontSize: '6px' }}>◆</span>
