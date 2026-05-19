@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
@@ -101,15 +102,18 @@ const bottleVariants = {
   hover: { scale: 1.10, y: -22 },
 }
 
-function FragranceCard({ fragrance, index }) {
-  const { featured, accentColor, gradient, name, desc, notes, image, bgImage } = fragrance
+function FragranceCard({ fragrance, index, activeId, onTap }) {
+  const { id, featured, accentColor, gradient, name, desc, notes, image, bgImage } = fragrance
+  const isTapped = activeId === id
 
   return (
     <motion.article
       data-reveal
       variants={articleVariants}
       initial="rest"
+      animate={isTapped ? 'hover' : 'rest'}
       whileHover="hover"
+      onClick={() => onTap(id)}
       transition={{ duration: 0.6, ease: LUXURY_EASE }}
       className={[
         'group relative flex flex-col border transition-colors duration-700 cursor-pointer rounded-xl z-0 hover:z-10',
@@ -220,6 +224,9 @@ function FragranceCard({ fragrance, index }) {
 }
 
 export default function FeaturedSection() {
+  const [activeId, setActiveId] = useState(null)
+  const handleTap = (id) => setActiveId((prev) => (prev === id ? null : id))
+
   const headingRef = useGSAPReveal({ from: { opacity: 0, y: 30 }, to: { opacity: 1, y: 0 } })
   const gridRef   = useGSAPStaggerReveal({ selector: '[data-reveal]', stagger: 0.18, start: 'top 80%' })
 
@@ -252,12 +259,12 @@ export default function FeaturedSection() {
 
       {/* 2-row 3-col grid */}
       <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-10 md:gap-x-8 md:gap-y-14 mb-14">
-        <FragranceCard fragrance={FRAGRANCES[0]} index={0} />
-        <FragranceCard fragrance={FRAGRANCES[1]} index={1} />
-        <FragranceCard fragrance={FRAGRANCES[2]} index={2} />
-        <FragranceCard fragrance={FRAGRANCES[3]} index={3} />
-        <FragranceCard fragrance={FRAGRANCES[4]} index={4} />
-        <FragranceCard fragrance={FRAGRANCES[5]} index={5} />
+        <FragranceCard fragrance={FRAGRANCES[0]} index={0} activeId={activeId} onTap={handleTap} />
+        <FragranceCard fragrance={FRAGRANCES[1]} index={1} activeId={activeId} onTap={handleTap} />
+        <FragranceCard fragrance={FRAGRANCES[2]} index={2} activeId={activeId} onTap={handleTap} />
+        <FragranceCard fragrance={FRAGRANCES[3]} index={3} activeId={activeId} onTap={handleTap} />
+        <FragranceCard fragrance={FRAGRANCES[4]} index={4} activeId={activeId} onTap={handleTap} />
+        <FragranceCard fragrance={FRAGRANCES[5]} index={5} activeId={activeId} onTap={handleTap} />
       </div>
 
       {/* CTA */}
