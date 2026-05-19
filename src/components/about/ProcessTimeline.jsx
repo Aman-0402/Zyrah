@@ -45,7 +45,7 @@ export default function ProcessTimeline() {
         <div ref={headRef} className="text-center mb-16 md:mb-20">
           <p className="text-[10px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(201,168,76,0.50)' }}>The Process</p>
           <h2 className="font-heading text-4xl md:text-6xl mb-3" style={{ color: 'rgba(255,248,240,0.92)' }}>How We Craft</h2>
-          <p className="font-heading italic text-lg" style={{ color: 'rgba(255,248,240,0.45)' }}>From vision to vial.</p>
+          <p className="font-heading italic text-lg" style={{ color: 'rgba(255,252,245,0.78)' }}>From vision to vial.</p>
         </div>
 
         {/* Desktop: horizontal timeline */}
@@ -78,7 +78,7 @@ export default function ProcessTimeline() {
                   </p>
                   <h4 className="font-heading text-xl" style={{ color: 'rgba(255,248,240,0.90)' }}>{step.label}</h4>
                   <div className="h-px w-8" style={{ background: 'rgba(201,168,76,0.22)' }} />
-                  <p className="text-xs leading-relaxed font-light max-w-[180px]" style={{ color: 'rgba(255,248,240,0.58)' }}>
+                  <p className="text-xs leading-relaxed font-light max-w-[180px]" style={{ color: 'rgba(255,252,245,0.82)' }}>
                     {step.desc}
                   </p>
                 </div>
@@ -115,7 +115,7 @@ export default function ProcessTimeline() {
                   Step {String(i + 1).padStart(2, '0')}
                 </p>
                 <h4 className="font-heading text-xl mb-2" style={{ color: 'rgba(255,248,240,0.90)' }}>{step.label}</h4>
-                <p className="text-sm leading-relaxed font-light" style={{ color: 'rgba(255,248,240,0.58)' }}>{step.desc}</p>
+                <p className="text-sm leading-relaxed font-light" style={{ color: 'rgba(255,252,245,0.82)' }}>{step.desc}</p>
               </div>
             </div>
           ))}

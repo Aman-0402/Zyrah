@@ -152,7 +152,7 @@ export default function AboutHero() {
         <motion.p
           variants={item}
           className="font-heading italic text-lg md:text-xl"
-          style={{ color: 'rgba(245,240,232,0.55)', letterSpacing: '0.01em' }}
+          style={{ color: 'rgba(255,252,245,0.82)', letterSpacing: '0.01em' }}
         >
           Born from a passion for pure fragrance.
         </motion.p>

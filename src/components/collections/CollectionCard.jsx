@@ -368,7 +368,7 @@ export default function CollectionCard({ product, index, featured = false }) {
             className="flex-shrink-0 mt-1 transition-colors duration-400"
             animate={{ x: isActive ? 4 : 0, opacity: isActive ? 1 : 0.2 }}
             transition={{ duration: 0.35 }}
-            style={{ color: isActive ? accentColor : 'rgba(245,240,232,0.25)' }}
+            style={{ color: isActive ? accentColor : 'rgba(255,252,245,0.55)' }}
           >
             <ArrowRight size={14} strokeWidth={1.2} />
           </motion.div>
@@ -411,7 +411,7 @@ export default function CollectionCard({ product, index, featured = false }) {
               className="text-[9px] tracking-[0.35em] uppercase"
               animate={{ opacity: isActive ? 1 : 0, x: isActive ? 0 : -8 }}
               transition={{ duration: 0.35 }}
-              style={{ color: 'rgba(245,240,232,0.45)' }}
+              style={{ color: 'rgba(255,252,245,0.72)' }}
             >
               Enquire
             </motion.span>

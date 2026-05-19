@@ -266,7 +266,7 @@ export default function Navbar() {
                       <span
                         className="font-heading text-4xl sm:text-5xl font-light tracking-wider transition-all duration-300"
                         style={{
-                          color: isActive ? 'rgba(176,141,87,0.95)' : 'rgba(245,240,232,0.65)',
+                          color: isActive ? 'rgba(176,141,87,0.95)' : 'rgba(255,252,245,0.88)',
                           textShadow: isActive ? '0 0 30px rgba(176,141,87,0.25)' : 'none',
                         }}
                       >
@@ -292,7 +292,7 @@ export default function Navbar() {
               <motion.div custom={NAV_LINKS.length + 2} variants={linkVariants} initial="closed" animate="open"
                 className="absolute bottom-10 flex flex-col items-center gap-2">
                 <div className="w-8 h-px" style={{ background: 'rgba(176,141,87,0.3)' }} />
-                <p className="text-[9px] tracking-[0.4em] uppercase" style={{ color: 'rgba(245,240,232,0.22)' }}>
+                <p className="text-[9px] tracking-[0.4em] uppercase" style={{ color: 'rgba(255,252,245,0.55)' }}>
                   Mandvi, Vadodara · Since India
                 </p>
               </motion.div>

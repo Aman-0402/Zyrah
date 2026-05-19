@@ -80,7 +80,7 @@ export default function ContactInfo() {
         <h2 className="font-heading text-3xl md:text-4xl mb-2" style={{ color: 'rgba(255,248,240,0.92)' }}>
           We're <span className="italic" style={{ color: 'rgba(226,194,125,0.90)' }}>Here</span>
         </h2>
-        <p className="text-sm font-light mb-8" style={{ color: 'rgba(255,248,240,0.55)' }}>
+        <p className="text-sm font-light mb-8" style={{ color: 'rgba(255,252,245,0.82)' }}>
           Every message is read personally. No bots, no auto-replies.
         </p>
       </div>
@@ -111,7 +111,7 @@ export default function ContactInfo() {
               <p className="text-sm font-light transition-colors duration-300 truncate" style={{ color: 'rgba(255,248,240,0.82)' }}>
                 {value}
               </p>
-              <p className="text-xs font-light" style={{ color: 'rgba(255,248,240,0.50)' }}>{sub}</p>
+              <p className="text-xs font-light" style={{ color: 'rgba(255,252,245,0.80)' }}>{sub}</p>
             </div>
 
             {/* Bottom accent */}
@@ -157,7 +157,7 @@ export default function ContactInfo() {
         <div className="flex flex-wrap gap-2">
           {['Indian Attar', 'Perfume Spray', 'Deodorant Spray', 'Room Freshener', 'Car Spray', 'Agarbatti'].map(p => (
             <span key={p} className="text-[9px] tracking-[0.2em] uppercase px-3 py-1.5 border border-gold-400/15"
-              style={{ color: 'rgba(255,248,240,0.50)', background: 'rgba(201,168,76,0.04)' }}>
+              style={{ color: 'rgba(255,252,245,0.80)', background: 'rgba(201,168,76,0.04)' }}>
               {p}
             </span>
           ))}
@@ -177,9 +177,9 @@ export default function ContactInfo() {
         >
           <Instagram size={14} strokeWidth={1.5} className="text-ivory/30 group-hover:text-gold-400/70 transition-colors duration-300" />
         </div>
-        <span className="text-[10px] tracking-[0.3em] uppercase transition-colors duration-300" style={{ color: 'rgba(255,248,240,0.42)' }}
-          onMouseEnter={e => e.currentTarget.style.color = 'rgba(255,248,240,0.68)'}
-          onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,248,240,0.42)'}
+        <span className="text-[10px] tracking-[0.3em] uppercase transition-colors duration-300" style={{ color: 'rgba(255,252,245,0.76)' }}
+          onMouseEnter={e => e.currentTarget.style.color = 'rgba(255,252,245,0.90)'}
+          onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,252,245,0.76)'}
         >
           Follow Our Journey
         </span>

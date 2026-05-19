@@ -1,6 +1,6 @@
 import { NavLink, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Instagram, MessageCircle, Mail, ArrowRight, MapPin, Clock, Phone } from 'lucide-react'
+import { Instagram, Facebook, MessageCircle, Mail, ArrowRight, MapPin, Clock, Phone } from 'lucide-react'
 
 const BASE = import.meta.env.BASE_URL
 const WA_NUMBER = '919724586101'
@@ -8,13 +8,13 @@ const LUXURY = [0.22, 1, 0.36, 1]
 
 /* Warm ivory text scale — luxury ≠ low contrast */
 const T = {
-  quote:   'rgba(255,248,240,0.88)',
-  body:    'rgba(255,248,240,0.74)',
-  contact: 'rgba(255,248,240,0.64)',
-  address: 'rgba(255,248,240,0.58)',
-  faint:   'rgba(255,248,240,0.42)',
-  gold:    'rgba(201,168,76,0.85)',
-  goldDim: 'rgba(201,168,76,0.32)',
+  quote:   'rgba(255,252,245,0.97)',
+  body:    'rgba(255,252,245,0.88)',
+  contact: 'rgba(255,252,245,0.84)',
+  address: 'rgba(255,252,245,0.80)',
+  faint:   'rgba(255,252,245,0.72)',
+  gold:    'rgba(201,168,76,0.90)',
+  goldDim: 'rgba(201,168,76,0.45)',
 }
 
 const NAV_LINKS = [
@@ -114,25 +114,41 @@ export default function Footer() {
                 Custom-made attars blended for you alone. Free delivery across India.
               </p>
 
-              <div className="flex items-center gap-5">
-                <a href="https://instagram.com/mm_attarwala" target="_blank" rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  className="transition-colors duration-500"
-                  style={{ color: 'rgba(201,168,76,0.32)' }}
-                  onMouseEnter={e => e.currentTarget.style.color = 'rgba(201,168,76,0.75)'}
-                  onMouseLeave={e => e.currentTarget.style.color = 'rgba(201,168,76,0.32)'}
-                >
-                  <Instagram size={15} strokeWidth={1} />
-                </a>
-                <a href={`https://wa.me/${WA_NUMBER}`} target="_blank" rel="noopener noreferrer"
-                  aria-label="WhatsApp"
-                  className="transition-colors duration-500"
-                  style={{ color: 'rgba(201,168,76,0.32)' }}
-                  onMouseEnter={e => e.currentTarget.style.color = 'rgba(201,168,76,0.75)'}
-                  onMouseLeave={e => e.currentTarget.style.color = 'rgba(201,168,76,0.32)'}
-                >
-                  <MessageCircle size={15} strokeWidth={1} />
-                </a>
+              <div className="flex items-center gap-4 mt-1">
+                {[
+                  { href: 'https://instagram.com/mm_attarwala', icon: Instagram, label: 'Instagram' },
+                  { href: 'https://facebook.com/mmattarwala', icon: Facebook, label: 'Facebook' },
+                  { href: `https://wa.me/${WA_NUMBER}`, icon: MessageCircle, label: 'WhatsApp' },
+                  { href: 'mailto:mmattarwala2008@rediff.com', icon: Mail, label: 'Email' },
+                ].map(({ href, icon: Icon, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target={href.startsWith('mailto') ? undefined : '_blank'}
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-400"
+                    style={{
+                      borderColor: 'rgba(201,168,76,0.55)',
+                      color: 'rgba(255,252,245,0.92)',
+                      background: 'rgba(201,168,76,0.12)',
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.borderColor = 'rgba(201,168,76,1)'
+                      e.currentTarget.style.color = '#0a0603'
+                      e.currentTarget.style.background = 'rgba(201,168,76,1)'
+                      e.currentTarget.style.boxShadow = '0 0 20px rgba(201,168,76,0.35)'
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.borderColor = 'rgba(201,168,76,0.55)'
+                      e.currentTarget.style.color = 'rgba(255,252,245,0.92)'
+                      e.currentTarget.style.background = 'rgba(201,168,76,0.12)'
+                      e.currentTarget.style.boxShadow = 'none'
+                    }}
+                  >
+                    <Icon size={14} strokeWidth={1.5} />
+                  </a>
+                ))}
               </div>
             </div>
 
@@ -244,7 +260,7 @@ export default function Footer() {
             <p className="text-[9px] tracking-[0.35em] uppercase font-light" style={{ color: T.faint }}>
               © {year} M. M. Attarwala. All rights reserved.
             </p>
-            <p className="text-[9px] tracking-[0.35em] uppercase font-light" style={{ color: 'rgba(255,248,240,0.32)' }}>
+            <p className="text-[9px] tracking-[0.35em] uppercase font-light" style={{ color: 'rgba(255,252,245,0.68)' }}>
               Made with love in India ♥
             </p>
           </div>

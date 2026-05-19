@@ -63,7 +63,7 @@ export default function HeritageBand() {
       <div className="overflow-hidden px-6 md:px-12 text-center">
         <p
           ref={textRef}
-          className="font-heading text-ivory/55 leading-tight select-none"
+          className="font-heading text-ivory/88 leading-tight select-none"
           style={{
             fontSize: 'clamp(2rem, 6vw, 6.5rem)',
             fontWeight: 300,

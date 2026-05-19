@@ -13,7 +13,7 @@ function LuxuryInput({ label, type = 'text', value, onChange, placeholder, requi
     <div className="flex flex-col gap-2">
       <label
         className="text-[9px] tracking-[0.38em] uppercase"
-        style={{ color: focused ? 'rgba(201,168,76,0.72)' : 'rgba(255,248,240,0.55)', transition: 'color 0.35s' }}
+        style={{ color: focused ? 'rgba(201,168,76,0.72)' : 'rgba(255,252,245,0.82)', transition: 'color 0.35s' }}
       >
         {label}{required && <span style={{ color: 'rgba(201,168,76,0.72)', marginLeft: '4px' }}>*</span>}
       </label>
@@ -85,7 +85,7 @@ export default function ContactForm() {
             </motion.div>
             <div>
               <h3 className="font-heading text-2xl text-ivory mb-2">Message Sent ✦</h3>
-              <p className="text-sm font-light max-w-xs" style={{ color: 'rgba(255,248,240,0.58)' }}>
+              <p className="text-sm font-light max-w-xs" style={{ color: 'rgba(255,252,245,0.82)' }}>
                 We'll reply within 24 hours. Thank you for reaching out.
               </p>
             </div>
@@ -113,7 +113,7 @@ export default function ContactForm() {
 
             {/* Subject chips */}
             <div className="flex flex-col gap-3">
-              <label className="text-[9px] tracking-[0.38em] uppercase" style={{ color: 'rgba(255,248,240,0.52)' }}>Subject</label>
+              <label className="text-[9px] tracking-[0.38em] uppercase" style={{ color: 'rgba(255,252,245,0.80)' }}>Subject</label>
               <div className="flex flex-wrap gap-2.5">
                 {SUBJECTS.map((s) => {
                   const active = form.subject === s
@@ -140,7 +140,7 @@ export default function ContactForm() {
                           : 'rgba(255,255,255,0.018)',
                         color: active
                           ? 'rgba(10,6,3,0.92)'
-                          : 'rgba(255,248,240,0.52)',
+                          : 'rgba(255,252,245,0.80)',
                         boxShadow: active
                           ? '0 0 22px rgba(201,168,76,0.22), inset 0 1px 0 rgba(255,255,255,0.14)'
                           : 'inset 0 1px 0 rgba(255,255,255,0.03)',
@@ -157,7 +157,7 @@ export default function ContactForm() {
                       onMouseLeave={e => {
                         if (!active) {
                           e.currentTarget.style.borderColor = 'rgba(201,168,76,0.20)'
-                          e.currentTarget.style.color = 'rgba(255,248,240,0.52)'
+                          e.currentTarget.style.color = 'rgba(255,252,245,0.80)'
                           e.currentTarget.style.background = 'rgba(255,255,255,0.018)'
                         }
                       }}
@@ -171,7 +171,7 @@ export default function ContactForm() {
 
             {/* Message */}
             <div className="flex flex-col gap-1.5">
-              <label className="text-[9px] tracking-[0.38em] uppercase" style={{ color: 'rgba(255,248,240,0.52)' }}>
+              <label className="text-[9px] tracking-[0.38em] uppercase" style={{ color: 'rgba(255,252,245,0.80)' }}>
                 Message <span style={{ color: 'rgba(201,168,76,0.65)' }}>*</span>
               </label>
               <textarea
@@ -226,7 +226,7 @@ export default function ContactForm() {
                 <MessageCircle size={15} strokeWidth={1.5} />
                 Send via WhatsApp
               </motion.button>
-              <p className="text-center mt-3 text-[8px] tracking-[0.3em] uppercase" style={{ color: 'rgba(255,248,240,0.32)' }}>
+              <p className="text-center mt-3 text-[8px] tracking-[0.3em] uppercase" style={{ color: 'rgba(255,252,245,0.65)' }}>
                 Opens WhatsApp with your message pre-filled
               </p>
             </div>

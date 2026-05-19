@@ -21,7 +21,7 @@ export default function Step3Intensity({ selections, update }) {
           style={{ color: 'rgba(245,240,232,0.92)', fontWeight: 300 }}>
           Set the <span className="italic" style={{ color: 'rgba(201,168,76,0.90)' }}>Intensity</span>
         </h2>
-        <p className="text-sm font-light" style={{ color: 'rgba(245,240,232,0.35)' }}>
+        <p className="text-sm font-light" style={{ color: 'rgba(255,252,245,0.72)' }}>
           How loud should your fragrance speak?
         </p>
       </div>
@@ -69,7 +69,7 @@ export default function Step3Intensity({ selections, update }) {
             </div>
 
             <p className="text-[11px] font-light leading-relaxed max-w-[260px] text-center mt-1"
-              style={{ color: 'rgba(245,240,232,0.35)' }}>
+              style={{ color: 'rgba(255,252,245,0.72)' }}>
               {level?.desc}
             </p>
           </motion.div>
@@ -150,7 +150,7 @@ export default function Step3Intensity({ selections, update }) {
                     ? accentColor
                     : value < intensity
                     ? `${accentColor}55`
-                    : 'rgba(245,240,232,0.22)',
+                    : 'rgba(255,252,245,0.55)',
                   opacity: value === intensity ? 1 : 0.65,
                 }}
               >
@@ -181,7 +181,7 @@ export default function Step3Intensity({ selections, update }) {
               Sillage
             </p>
             <p className="text-[12px] font-light leading-[1.75]"
-              style={{ color: 'rgba(245,240,232,0.38)' }}>
+              style={{ color: 'rgba(255,252,245,0.72)' }}>
               {intensity <= 2
                 ? 'Intimate trail — only noticed when close. Perfect for personal wear and office.'
                 : intensity === 3

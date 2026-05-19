@@ -138,7 +138,7 @@ function StoryBlock({ block, index }) {
             <h3 className="font-heading text-3xl md:text-4xl mb-6" style={{ color: 'rgba(255,248,240,0.92)' }}>{block.title}</h3>
             <div className="h-px w-12 mb-6" style={{ background: 'rgba(201,168,76,0.28)' }} />
             {block.body.map((para, i) => (
-              <p key={i} className="text-sm md:text-base leading-relaxed font-light mb-4 last:mb-0" style={{ color: 'rgba(255,248,240,0.65)' }}>
+              <p key={i} className="text-sm md:text-base leading-relaxed font-light mb-4 last:mb-0" style={{ color: 'rgba(255,252,245,0.85)' }}>
                 {para}
               </p>
             ))}

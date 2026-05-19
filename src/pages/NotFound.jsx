@@ -70,7 +70,7 @@ export default function NotFound() {
           className="h-px bg-gold-400/40 mx-auto mb-6"
         />
 
-        <motion.p variants={item} className="font-heading italic text-ivory/30 text-base md:text-lg mb-10">
+        <motion.p variants={item} className="font-heading italic text-ivory/75 text-base md:text-lg mb-10">
           This page doesn't exist, but your perfect fragrance does.
         </motion.p>
 

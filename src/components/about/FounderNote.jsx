@@ -236,7 +236,7 @@ export default function FounderNote() {
                   )}
                   <span
                     className="text-[9px] tracking-[0.38em] uppercase"
-                    style={{ color: 'rgba(255,248,240,0.38)' }}
+                    style={{ color: 'rgba(255,252,245,0.72)' }}
                   >
                     {item}
                   </span>

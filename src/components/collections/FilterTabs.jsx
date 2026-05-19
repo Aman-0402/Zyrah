@@ -68,7 +68,7 @@ export default function FilterTabs({ active, onChange, isSticky }) {
                 <span
                   className="text-[10px] tracking-[0.35em] uppercase font-light transition-all duration-400"
                   style={{
-                    color: isActive ? 'rgba(224,188,100,1)' : 'rgba(255,248,235,0.62)',
+                    color: isActive ? 'rgba(224,188,100,1)' : 'rgba(255,252,245,0.85)',
                     textShadow: isActive ? '0 0 16px rgba(176,141,87,0.3)' : 'none',
                   }}
                 >
@@ -78,7 +78,7 @@ export default function FilterTabs({ active, onChange, isSticky }) {
                 <span
                   className="text-[8px] tabular-nums transition-all duration-400"
                   style={{
-                    color: isActive ? 'rgba(201,168,76,0.70)' : 'rgba(255,248,235,0.35)',
+                    color: isActive ? 'rgba(201,168,76,0.70)' : 'rgba(255,252,245,0.65)',
                   }}
                 >
                   {count}

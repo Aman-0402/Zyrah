@@ -18,7 +18,7 @@ export default function Step4Name({ selections, update }) {
         <h2 className="font-heading text-3xl md:text-4xl text-ivory mb-2">
           Name Your <span className="italic text-gold-300">Fragrance</span>
         </h2>
-        <p className="text-ivory/35 text-sm font-light">
+        <p className="text-ivory/70 text-sm font-light">
           Give your creation an identity. Make it yours.
         </p>
       </div>

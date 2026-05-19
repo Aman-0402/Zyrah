@@ -194,12 +194,12 @@ export default function BrandEthos() {
             viewport={{ once: true, margin: '-80px' }}
             className="flex flex-col gap-6"
           >
-            <motion.p variants={textItem} className="luxury-body max-w-lg" style={{ color: 'rgba(245,240,232,0.76)' }}>
+            <motion.p variants={textItem} className="luxury-body max-w-lg" style={{ color: 'rgba(255,252,245,0.88)' }}>
               At M. M. Attarwala, we believe fragrance is deeply personal.
               Every bottle we craft is a conversation between you and
               your senses — blended fresh, just for you.
             </motion.p>
-            <motion.p variants={textItem} className="luxury-body max-w-md" style={{ color: 'rgba(245,240,232,0.50)' }}>
+            <motion.p variants={textItem} className="luxury-body max-w-md" style={{ color: 'rgba(255,252,245,0.82)' }}>
               Rooted in the rich tradition of Indian and Arabic attar-making,
               we source the finest raw ingredients and blend them with care.
               No mass production. No shortcuts. No compromise.
@@ -226,7 +226,7 @@ export default function BrandEthos() {
                 >
                   {icon}
                 </motion.span>
-                <span className="text-[10px] tracking-[0.25em] uppercase text-ivory/50 group-hover:text-ivory/80 transition-colors duration-300 whitespace-nowrap">
+                <span className="text-[10px] tracking-[0.25em] uppercase text-ivory/80 group-hover:text-ivory transition-colors duration-300 whitespace-nowrap">
                   {label}
                 </span>
               </motion.div>

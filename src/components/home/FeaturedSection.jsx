@@ -197,7 +197,7 @@ function FragranceCard({ fragrance, index }) {
           <ArrowRight size={14} strokeWidth={1} className="text-gold-400/25 group-hover:text-gold-400 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0" />
         </div>
 
-        <p className="luxury-body" style={{ maxWidth: '90%', color: 'rgba(245,240,232,0.76)' }}>{desc}</p>
+        <p className="luxury-body" style={{ maxWidth: '90%', color: 'rgba(255,252,245,0.88)' }}>{desc}</p>
 
         <div className="flex flex-wrap gap-2 mt-auto pt-3">
           {notes.map((note) => (
@@ -240,7 +240,7 @@ export default function FeaturedSection() {
       <div ref={headingRef} className="w-full text-center mb-20">
         <p className="text-[11px] tracking-[0.6em] uppercase text-gold-400/65 mb-8">Our Craft</p>
         <h2 className="luxury-heading text-5xl md:text-7xl text-ivory mb-8 text-center">Signature Scents</h2>
-        <p className="font-heading italic text-ivory/55 text-lg md:text-xl max-w-sm mx-auto text-center leading-relaxed">
+        <p className="font-heading italic text-ivory/85 text-lg md:text-xl max-w-sm mx-auto text-center leading-relaxed">
           Each fragrance tells a story, each drop holds a world.
         </p>
       </div>

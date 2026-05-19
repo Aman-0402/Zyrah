@@ -76,7 +76,7 @@ export default function ProductGrid({ activeFilter }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         className="text-center mt-12 text-[9px] tracking-[0.4em] uppercase"
-        style={{ color: 'rgba(255,248,240,0.32)' }}
+        style={{ color: 'rgba(255,252,245,0.65)' }}
       >
         {filtered.length} {filtered.length === 1 ? 'fragrance' : 'fragrances'}
       </motion.p>

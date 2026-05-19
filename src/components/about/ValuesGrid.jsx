@@ -77,7 +77,7 @@ export default function ValuesGrid() {
             <div className="h-px w-10 transition-all duration-500 group-hover:w-16" style={{ background: `${val.accent}40` }} />
 
             {/* Desc */}
-            <p className="text-sm leading-relaxed font-light" style={{ color: 'rgba(255,248,240,0.62)' }}>{val.desc}</p>
+            <p className="text-sm leading-relaxed font-light" style={{ color: 'rgba(255,252,245,0.84)' }}>{val.desc}</p>
 
             {/* Bottom accent */}
             <div

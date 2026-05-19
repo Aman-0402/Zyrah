@@ -318,7 +318,7 @@ export default function HeroSection() {
             className="h-px bg-gold-400/60"
           />
 
-          <motion.p variants={item} className="text-ivory/55 text-sm md:text-base font-light leading-[1.9] tracking-wide" style={{ maxWidth: 420 }}>
+          <motion.p variants={item} className="text-ivory/85 text-sm md:text-base font-light leading-[1.9] tracking-wide" style={{ maxWidth: 420 }}>
             Custom-made fragrances, blended from the finest attars.
             <br />
             <span className="text-gold-400/75">Free delivery across India.</span>
@@ -358,7 +358,7 @@ export default function HeroSection() {
               <div key={label} className="flex items-stretch">
                 <div className="px-7 first:pl-0 flex flex-col gap-1">
                   <p className="font-heading text-2xl md:text-[28px] text-gold-300 leading-none">{num}</p>
-                  <p className="text-[9px] tracking-[0.3em] uppercase text-ivory/35 mt-1">{label}</p>
+                  <p className="text-[9px] tracking-[0.3em] uppercase text-ivory/65 mt-1">{label}</p>
                 </div>
                 {i < arr.length - 1 && (
                   <div className="w-px self-stretch" style={{ background: 'linear-gradient(to bottom, transparent, rgba(201,168,76,0.2), transparent)' }} />
@@ -380,7 +380,7 @@ export default function HeroSection() {
         animate={{ opacity: 0.4 }}
         transition={{ delay: 2.4, duration: 1.0 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        style={{ color: 'rgba(245,240,232,0.5)' }}
+        style={{ color: 'rgba(255,252,245,0.75)' }}
       >
         <span className="text-[9px] tracking-[0.5em] uppercase">Scroll</span>
         <motion.div animate={{ y: [0, 7, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}>

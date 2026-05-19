@@ -47,7 +47,7 @@ function LuxuryInput({ label, type = 'text', value, onChange, placeholder, requi
   const [focused, setFocused] = useState(false)
   return (
     <div className="flex flex-col gap-1.5">
-      <label className="text-[9px] tracking-[0.35em] uppercase text-ivory/30">
+      <label className="text-[9px] tracking-[0.35em] uppercase text-ivory/65">
         {label}{required && <span className="text-gold-400/60 ml-1">*</span>}
       </label>
       <input
@@ -98,7 +98,7 @@ export default function Step5Enquiry({ selections, update }) {
         </motion.div>
         <div>
           <h3 className="font-heading text-3xl text-ivory mb-2">Enquiry Sent ✦</h3>
-          <p className="text-ivory/40 text-sm font-light max-w-xs">
+          <p className="text-ivory/75 text-sm font-light max-w-xs">
             We'll be in touch within 24 hours to craft your signature fragrance.
           </p>
         </div>
@@ -116,14 +116,14 @@ export default function Step5Enquiry({ selections, update }) {
         <h2 className="font-heading text-3xl md:text-4xl text-ivory mb-2">
           Your <span className="italic text-gold-300">Enquiry</span>
         </h2>
-        <p className="text-ivory/35 text-sm font-light">
+        <p className="text-ivory/70 text-sm font-light">
           Review your creation and send it to us.
         </p>
       </div>
 
       {/* Summary */}
       <div className="flex flex-col gap-2">
-        <p className="text-[9px] tracking-[0.35em] uppercase text-ivory/25 mb-1">Your Selections</p>
+        <p className="text-[9px] tracking-[0.35em] uppercase text-ivory/60 mb-1">Your Selections</p>
         <div className="grid grid-cols-2 gap-2">
           <SummaryPill label="Family" value={fam?.label} />
           <SummaryPill label="Intensity" value={level?.label} />
@@ -161,7 +161,7 @@ export default function Step5Enquiry({ selections, update }) {
           placeholder="your@email.com"
         />
         <div className="flex flex-col gap-1.5">
-          <label className="text-[9px] tracking-[0.35em] uppercase text-ivory/30">
+          <label className="text-[9px] tracking-[0.35em] uppercase text-ivory/65">
             Additional Notes (optional)
           </label>
           <textarea
@@ -188,7 +188,7 @@ export default function Step5Enquiry({ selections, update }) {
 
           <a
             href={`mailto:mmattarwala2008@rediff.com?subject=Custom Fragrance Enquiry${name ? ` — ${name}` : ''}&body=Name: ${customerName}%0APhone: ${phone}%0AFamily: ${fam?.label}%0ANotes: ${[...topNotes, ...middleNotes, ...baseNotes].join(', ')}`}
-            className="flex items-center justify-center gap-2 text-[10px] tracking-[0.3em] uppercase text-ivory/30 hover:text-ivory/50 transition-colors duration-300 py-2"
+            className="flex items-center justify-center gap-2 text-[10px] tracking-[0.3em] uppercase text-ivory/60 hover:text-ivory/80 transition-colors duration-300 py-2"
           >
             <Mail size={13} strokeWidth={1.5} />
             Or email us instead

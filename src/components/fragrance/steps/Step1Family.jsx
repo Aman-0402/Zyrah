@@ -57,7 +57,7 @@ export default function Step1Family({ selections, update }) {
         >
           Choose Your <span className="italic" style={{ color: 'rgba(201,168,76,0.90)' }}>Family</span>
         </h2>
-        <p className="text-sm font-light" style={{ color: 'rgba(245,240,232,0.32)' }}>
+        <p className="text-sm font-light" style={{ color: 'rgba(255,252,245,0.72)' }}>
           The fragrance family sets the soul of your blend.
         </p>
       </div>
@@ -192,7 +192,7 @@ export default function Step1Family({ selections, update }) {
 
               <p
                 className="text-[12px] leading-[1.75] font-light"
-                style={{ color: isSelected ? 'rgba(245,240,232,0.52)' : 'rgba(245,240,232,0.26)' }}
+                style={{ color: isSelected ? 'rgba(255,252,245,0.82)' : 'rgba(255,252,245,0.68)' }}
               >
                 {fam.desc}
               </p>
