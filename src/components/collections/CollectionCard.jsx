@@ -216,12 +216,12 @@ export default function CollectionCard({ product, index, featured = false }) {
                   alt={name}
                   draggable={false}
                   className="absolute inset-0 w-full h-full object-cover"
-                  animate={{ scale: isActive ? 1.06 : 1, filter: isActive ? 'brightness(1.04) saturate(1.08)' : 'brightness(0.96) saturate(0.97)' }}
+                  animate={{ scale: isActive ? 1.06 : 1, filter: isActive ? 'brightness(1.06) saturate(1.08)' : 'brightness(1.0) saturate(1.0)' }}
                   transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 />
-                {/* Vignette overlay */}
-                <div className="absolute inset-0 pointer-events-none" style={{
-                  background: 'linear-gradient(180deg, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.22) 55%, rgba(0,0,0,0.52) 100%)',
+                {/* Minimal bottom fade — only to separate image from content text */}
+                <div className="absolute inset-x-0 bottom-0 h-12 pointer-events-none" style={{
+                  background: 'linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 100%)',
                 }} />
                 {/* Accent color tint on hover */}
                 <div className="absolute inset-0 pointer-events-none transition-opacity duration-700"

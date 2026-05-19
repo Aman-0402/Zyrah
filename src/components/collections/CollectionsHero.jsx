@@ -57,14 +57,13 @@ export default function CollectionsHero() {
         backgroundRepeat: 'no-repeat',
       }} />
 
-      {/* Dark overlay — keeps text readable + luxury depth */}
-      <div className="absolute inset-0" style={{
-        background: 'linear-gradient(180deg, rgba(5,4,3,0.62) 0%, rgba(8,5,2,0.55) 50%, rgba(5,4,3,0.82) 100%)',
-      }} />
-
-      {/* Warm cinematic center glow */}
+      {/* Localized dark veil behind text center only */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(ellipse 70% 60% at 50% 55%, rgba(120,70,20,0.18) 0%, transparent 70%)',
+        background: 'radial-gradient(ellipse 65% 80% at 50% 52%, rgba(0,0,0,0.58) 0%, rgba(0,0,0,0.30) 50%, transparent 75%)',
+      }} />
+      {/* Bottom fade into page */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: 'linear-gradient(180deg, rgba(0,0,0,0.10) 0%, transparent 30%, transparent 65%, rgba(5,4,3,0.70) 100%)',
       }} />
 
       {/* Gold dust particles */}
@@ -117,10 +116,10 @@ export default function CollectionsHero() {
         {/* Headline */}
         <motion.div variants={item} className="overflow-hidden mb-3">
           <h1 className="font-heading leading-none" style={{ fontWeight: 300 }}>
-            <span className="block text-5xl md:text-7xl lg:text-[5.5rem]" style={{ color: 'rgba(245,240,232,0.92)' }}>
+            <span className="block text-5xl md:text-7xl lg:text-[5.5rem]" style={{ color: 'rgba(255,252,245,0.97)', textShadow: '0 2px 30px rgba(0,0,0,0.9), 0 0 60px rgba(0,0,0,0.6)' }}>
               The
             </span>
-            <span className="block text-5xl md:text-7xl lg:text-[5.5rem] italic text-gold-gradient" style={{ fontWeight: 400, lineHeight: 0.92 }}>
+            <span className="block text-5xl md:text-7xl lg:text-[5.5rem] italic text-gold-gradient" style={{ fontWeight: 400, lineHeight: 0.92, textShadow: '0 2px 30px rgba(0,0,0,0.8), 0 0 60px rgba(0,0,0,0.5)' }}>
               Collection
             </span>
           </h1>
@@ -147,7 +146,7 @@ export default function CollectionsHero() {
 
         {/* Subtext */}
         <motion.p variants={item} className="font-heading italic text-lg md:text-xl"
-          style={{ color: 'rgba(245,240,232,0.55)', letterSpacing: '0.01em' }}>
+          style={{ color: 'rgba(255,248,232,0.80)', letterSpacing: '0.01em', textShadow: '0 1px 20px rgba(0,0,0,0.8)' }}>
           Twelve signatures. Countless stories.
         </motion.p>
       </motion.div>
