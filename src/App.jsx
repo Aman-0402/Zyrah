@@ -8,6 +8,7 @@ import CustomFragrance from './pages/CustomFragrance'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
+import RouteScrollToTop from './components/layout/RouteScrollToTop'
 
 export default function App() {
   const location = useLocation()
@@ -18,6 +19,7 @@ export default function App() {
       <div className="page-grain" aria-hidden="true" />
       <div className="page-vignette" aria-hidden="true" />
 
+      <RouteScrollToTop />
       <Navbar />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
