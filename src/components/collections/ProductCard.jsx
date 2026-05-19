@@ -29,7 +29,7 @@ export default function ProductCard({ product, index }) {
       exit="exit"
       whileHover={{ y: -10 }}
       transition={{ type: 'spring', stiffness: 280, damping: 22 }}
-      className="group relative flex flex-col border border-gold-400/10 hover:border-gold-400/35 transition-colors duration-500 cursor-pointer"
+      className="group relative flex flex-col border border-gold-400/10 hover:border-gold-400/35 transition-colors duration-500 cursor-pointer rounded-xl overflow-hidden"
       style={{ background: '#111111' }}
     >
       {/* ── Image area ─────────────────────────────────────────────────────── */}

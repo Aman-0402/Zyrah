@@ -66,7 +66,7 @@ export default function Step1Family({ selections, update }) {
         variants={container}
         initial="hidden"
         animate="show"
-        className="grid grid-cols-1 sm:grid-cols-2 gap-3"
+        className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-5"
       >
         {FAMILIES.map((fam) => {
           const isSelected = selected === fam.id
@@ -78,7 +78,7 @@ export default function Step1Family({ selections, update }) {
               onClick={() => update({ family: fam.id, topNotes: [], middleNotes: [], baseNotes: [] })}
               whileHover={{ scale: isSelected ? 1 : 1.012, y: isSelected ? 0 : -2 }}
               whileTap={{ scale: 0.97 }}
-              className="relative flex flex-col items-start text-left cursor-pointer outline-none overflow-hidden"
+              className="relative flex flex-col items-start text-left cursor-pointer outline-none overflow-hidden rounded-xl"
               style={{
                 padding: '26px 22px 22px',
                 minHeight: '175px',

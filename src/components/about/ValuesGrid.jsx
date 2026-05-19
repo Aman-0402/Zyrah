@@ -42,12 +42,12 @@ export default function ValuesGrid() {
         <h2 className="font-heading text-4xl md:text-6xl" style={{ color: 'rgba(255,248,240,0.92)' }}>What We Stand For</h2>
       </div>
 
-      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-10 md:gap-x-8 md:gap-y-14">
         {VALUES.map((val) => (
           <div
             key={val.title}
             data-reveal
-            className="relative flex flex-col gap-5 p-8 border border-gold-400/10 hover:border-gold-400/28 transition-all duration-500 group overflow-hidden"
+            className="relative flex flex-col gap-5 p-8 border border-gold-400/10 hover:border-gold-400/28 transition-all duration-500 group overflow-hidden rounded-xl"
             style={{ background: 'rgba(201,168,76,0.015)' }}
             onMouseEnter={e => e.currentTarget.style.background = 'rgba(201,168,76,0.032)'}
             onMouseLeave={e => e.currentTarget.style.background = 'rgba(201,168,76,0.015)'}

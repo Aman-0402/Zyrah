@@ -112,7 +112,7 @@ function FragranceCard({ fragrance, index }) {
       whileHover="hover"
       transition={{ duration: 0.6, ease: LUXURY_EASE }}
       className={[
-        'group relative flex flex-col border transition-colors duration-700 cursor-pointer',
+        'group relative flex flex-col border transition-colors duration-700 cursor-pointer rounded-xl overflow-hidden',
         featured
           ? 'border-gold-400/15 hover:border-gold-400/35'
           : 'border-gold-400/8 hover:border-gold-400/18',
@@ -246,7 +246,7 @@ export default function FeaturedSection() {
       </div>
 
       {/* 2-row 3-col grid */}
-      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-14">
+      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-10 md:gap-x-8 md:gap-y-14 mb-14">
         <FragranceCard fragrance={FRAGRANCES[0]} index={0} />
         <FragranceCard fragrance={FRAGRANCES[1]} index={1} />
         <FragranceCard fragrance={FRAGRANCES[2]} index={2} />

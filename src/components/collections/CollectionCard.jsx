@@ -158,7 +158,7 @@ export default function CollectionCard({ product, index, featured = false }) {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       onClick={onTap}
-      className={`group relative flex flex-col select-none h-full ${isComingSoon ? 'cursor-default' : 'cursor-pointer'}`}
+      className={`group relative flex flex-col select-none h-full overflow-hidden rounded-xl ${isComingSoon ? 'cursor-default' : 'cursor-pointer'}`}
       style={{
         perspective: '900px',
         boxShadow: cardShadow,
