@@ -12,17 +12,6 @@ import { ArrowRight } from 'lucide-react'
 /* ─── Spring config: premium feel — responsive but not snappy ─── */
 const SPRING = { stiffness: 180, damping: 28, mass: 0.8 }
 
-/* ─── Particle layout: deterministic (no random = no re-render jitter) ─── */
-const PARTICLES = [
-  { left: '14%', top: '22%', size: 2.5, dur: 3.2, del: 0.0 },
-  { left: '82%', top: '18%', size: 1.5, dur: 2.7, del: 0.7 },
-  { left: '72%', top: '72%', size: 2.0, dur: 3.5, del: 1.3 },
-  { left: '18%', top: '68%', size: 1.5, dur: 2.4, del: 0.4 },
-  { left: '50%', top:  '8%', size: 1.5, dur: 3.0, del: 1.0 },
-  { left: '88%', top: '48%', size: 1.0, dur: 2.6, del: 0.2 },
-  { left:  '8%', top: '45%', size: 1.0, dur: 2.9, del: 1.6 },
-]
-
 /* ─── CSS bottle silhouette used when no image prop is provided ─── */
 function BottlePlaceholder({ accentColor, arabicName }) {
   return (
@@ -169,7 +158,7 @@ export default function CollectionCard({ product, index, featured = false }) {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       onClick={onTap}
-      className={`group relative flex flex-col cursor-pointer select-none${featured ? ' md:col-span-2' : ''}`}
+      className="group relative flex flex-col cursor-pointer select-none h-full"
       style={{ perspective: '900px', boxShadow: cardShadow, border: `1px solid ${isActive ? accentColor + '32' : accentColor + '18'}`, transition: 'border-color 0.5s', willChange: 'transform' }}
     >
 
@@ -206,23 +195,8 @@ export default function CollectionCard({ product, index, featured = false }) {
           </motion.span>
         </motion.div>
 
-        {/* ── L3: Bottle — ambient float (outer) + cursor tracking (inner) ── */}
-        {/* Outer div: idle float animation, pauses when hovered */}
-        <motion.div
-          className="absolute inset-0 pointer-events-none"
-          style={{ zIndex: 2 }}
-          animate={
-            !isActive && !prefersReduced
-              ? { y: [0, -11, 0] }
-              : { y: 0 }
-          }
-          transition={
-            !isActive && !prefersReduced
-              ? { duration: 3.2, repeat: Infinity, ease: 'easeInOut', repeatType: 'mirror' }
-              : { duration: 0.5, ease: 'easeOut' }
-          }
-        >
-          {/* Inner div: cursor parallax — stacks with float */}
+        {/* ── L3: Bottle + cursor tracking ── */}
+        <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 2 }}>
           <motion.div
             className="absolute inset-0"
             style={{ x: bottleX, y: bottleY }}
@@ -249,7 +223,7 @@ export default function CollectionCard({ product, index, featured = false }) {
               <BottlePlaceholder accentColor={accentColor} arabicName={arabicName} />
             )}
           </motion.div>
-        </motion.div>
+        </div>
 
         {/* ── L4: Dynamic cursor glow ── */}
         <motion.div
@@ -291,29 +265,6 @@ export default function CollectionCard({ product, index, featured = false }) {
             </motion.div>
           )}
         </AnimatePresence>
-
-        {/* ── L6: Ambient gold particles — desktop only ── */}
-        {!prefersReduced && !isMobile && PARTICLES.map((p, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full pointer-events-none"
-            style={{
-              left: p.left, top: p.top,
-              width: p.size, height: p.size,
-              background: accentColor,
-              zIndex: 5,
-            }}
-            animate={{
-              opacity: [0.06, isActive ? 0.45 : 0.18, 0.06],
-              y: [0, -(p.size * 4.5), 0],
-              scale: [1, 1.7, 1],
-            }}
-            transition={{
-              duration: p.dur, repeat: Infinity,
-              delay: p.del, ease: 'easeInOut',
-            }}
-          />
-        ))}
 
         {/* ── Badges ── */}
         <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
@@ -368,11 +319,11 @@ export default function CollectionCard({ product, index, featured = false }) {
           CONTENT AREA — flat (no 3D tilt)
           ════════════════════════════════════════════════════════════ */}
       <div
-        className="p-3 sm:p-6 flex flex-col gap-2 sm:gap-4 flex-1 border border-t-0 transition-all duration-500"
+        className="p-3 sm:p-5 flex flex-col gap-2 sm:gap-3 flex-1 border border-t-0 transition-all duration-500"
         style={{
           background: isActive ? 'rgba(16,11,4,0.99)' : 'rgba(13,9,4,0.97)',
           borderColor: isActive ? `${accentColor}22` : `${accentColor}08`,
-          paddingBottom: '28px',
+          paddingBottom: '16px',
         }}
       >
         {/* Featured signature label */}
@@ -404,7 +355,7 @@ export default function CollectionCard({ product, index, featured = false }) {
 
         {/* Description — hidden on mobile 2-col */}
         <p className="hidden sm:block font-light leading-[1.8]"
-          style={{ fontSize: '0.8125rem', color: isActive ? 'rgba(255,248,240,0.82)' : 'rgba(255,248,240,0.64)', transition: 'color 0.4s' }}>
+          style={{ fontSize: '0.8125rem', color: isActive ? 'rgba(255,248,240,0.88)' : 'rgba(255,248,240,0.72)', transition: 'color 0.4s' }}>
           {desc}
         </p>
 
@@ -415,8 +366,8 @@ export default function CollectionCard({ product, index, featured = false }) {
               key={note}
               className="text-[9px] tracking-[0.22em] uppercase px-2.5 py-1.5 border transition-all duration-400"
               style={{
-                borderColor: isActive ? `${accentColor}30` : `${accentColor}10`,
-                color:       isActive ? `${accentColor}80` : `${accentColor}38`,
+                borderColor: isActive ? `${accentColor}38` : `${accentColor}18`,
+                color:       isActive ? `${accentColor}88` : `${accentColor}52`,
                 background:  isActive ? `${accentColor}05` : 'transparent',
               }}
             >

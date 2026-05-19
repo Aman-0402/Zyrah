@@ -44,9 +44,28 @@ export default function ProductGrid({ activeFilter }) {
           {filtered.length === 0 ? (
             <EmptyState key="empty" />
           ) : (
-            filtered.map((product, i) => (
-              <CollectionCard key={product.id} product={product} index={i} featured={product.id === 1} />
-            ))
+            filtered.map((product, i) => {
+              const isFeatured = product.id === 1
+              // Editorial stagger: 3-col waterfall on desktop, 2-col on mobile
+              // Use CSS classes to keep responsive
+              const staggerClass = isFeatured
+                ? ''
+                : i % 3 === 1
+                  ? 'lg:pt-10'
+                  : i % 3 === 2
+                    ? 'lg:pt-5'
+                    : ''
+              const mobileStagger = !isFeatured && i % 2 === 1 ? 'pt-5 lg:pt-0' : ''
+
+              return (
+                <div
+                  key={product.id}
+                  className={`${isFeatured ? 'md:col-span-2' : ''} ${mobileStagger} ${staggerClass}`.trim()}
+                >
+                  <CollectionCard product={product} index={i} featured={isFeatured} />
+                </div>
+              )
+            })
           )}
         </AnimatePresence>
       </motion.div>
