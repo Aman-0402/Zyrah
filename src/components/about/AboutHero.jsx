@@ -1,65 +1,36 @@
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
-import { ChevronRight } from 'lucide-react'
 
 const LUXURY = [0.22, 1, 0.36, 1]
-
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.14, delayChildren: 0.3 } },
-}
-const item = {
-  hidden: { opacity: 0, y: 28 },
-  show: { opacity: 1, y: 0, transition: { duration: 1.0, ease: [0.76, 0, 0.24, 1] } },
-}
 
 const PARTICLES = [
   { left: '9%',  top: '28%', dur: 7,  del: 0,   size: 1.5 },
   { left: '87%', top: '22%', dur: 9,  del: 1.3, size: 1 },
   { left: '14%', top: '68%', dur: 8,  del: 2.6, size: 2 },
   { left: '80%', top: '63%', dur: 6,  del: 0.9, size: 1.5 },
+  { left: '55%', top: '45%', dur: 11, del: 1.8, size: 1 },
+  { left: '72%', top: '78%', dur: 8,  del: 3.2, size: 1.5 },
 ]
-
-function ArabesqueDivider() {
-  return (
-    <svg
-      className="absolute bottom-0 left-0 right-0 w-full"
-      height="28"
-      viewBox="0 0 1440 28"
-      preserveAspectRatio="none"
-      fill="none"
-    >
-      <path
-        d="M0 14 Q180 0 360 14 Q540 28 720 14 Q900 0 1080 14 Q1260 28 1440 14"
-        stroke="rgba(176,141,87,0.18)"
-        strokeWidth="0.7"
-        fill="none"
-      />
-      {[360, 720, 1080].map((cx) => (
-        <circle key={cx} cx={cx} cy="14" r="2" fill="rgba(176,141,87,0.35)" />
-      ))}
-      {[180, 540, 900, 1260].map((cx) => (
-        <circle key={cx} cx={cx} cy="4" r="1.2" fill="rgba(176,141,87,0.2)" />
-      ))}
-    </svg>
-  )
-}
 
 export default function AboutHero() {
   return (
     <section
-      className="relative flex items-center justify-center overflow-hidden luxury-section"
-      style={{ minHeight: '56vh', paddingTop: '90px' }}
+      className="relative flex flex-col justify-center overflow-hidden luxury-section"
+      style={{
+        minHeight: '75vh',
+        paddingTop: 'clamp(100px, 11vw, 140px)',
+        paddingBottom: '5vh',
+        background: 'linear-gradient(160deg, #0c0806 0%, #180d09 40%, #100808 70%, #080505 100%)',
+      }}
     >
-      {/* Deep cinematic glow */}
+      {/* Atmospheric glows */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(ellipse 80% 70% at 50% 60%, rgba(156,88,28,0.16) 0%, rgba(84,25,42,0.16) 45%, transparent 75%)',
+        background: 'radial-gradient(ellipse 60% 55% at 75% 40%, rgba(156,88,28,0.18) 0%, transparent 65%)',
       }} />
-      <div className="absolute top-0 left-1/4 w-[600px] h-[400px] pointer-events-none" style={{
-        background: 'radial-gradient(ellipse 80% 80% at 30% 20%, rgba(80,40,10,0.11) 0%, transparent 70%)',
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: 'radial-gradient(ellipse 50% 45% at 15% 70%, rgba(84,25,42,0.14) 0%, transparent 65%)',
       }} />
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[300px] pointer-events-none" style={{
-        background: 'radial-gradient(ellipse 80% 80% at 70% 80%, rgba(60,30,8,0.09) 0%, transparent 70%)',
+      <div className="absolute top-0 right-0 w-[800px] h-[500px] pointer-events-none" style={{
+        background: 'radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.07) 0%, transparent 60%)',
       }} />
 
       {/* Gold dust */}
@@ -67,102 +38,144 @@ export default function AboutHero() {
         <motion.div
           key={i}
           className="absolute rounded-full pointer-events-none"
-          style={{ left: p.left, top: p.top, width: p.size, height: p.size, background: 'rgba(176,141,87,0.7)' }}
-          animate={{ y: [0, -18, 0], opacity: [0, 0.35, 0], scale: [1, 1.8, 1] }}
+          style={{ left: p.left, top: p.top, width: p.size, height: p.size, background: 'rgba(176,141,87,0.75)' }}
+          animate={{ y: [0, -22, 0], opacity: [0, 0.40, 0], scale: [1, 2, 1] }}
           transition={{ duration: p.dur, repeat: Infinity, delay: p.del, ease: 'easeInOut' }}
         />
       ))}
 
-      {/* Top border line */}
+
+      {/* Vertical gold rule — right side accent */}
       <motion.div
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ duration: 1.4, delay: 0.1, ease: LUXURY }}
-        className="absolute top-20 left-0 right-0 h-px origin-left"
-        style={{ background: 'linear-gradient(90deg, transparent, rgba(176,141,87,0.25), transparent)' }}
+        initial={{ scaleY: 0, opacity: 0 }}
+        animate={{ scaleY: 1, opacity: 1 }}
+        transition={{ duration: 1.6, delay: 0.6, ease: LUXURY }}
+        className="absolute right-12 md:right-20 top-1/4 bottom-1/4 w-px pointer-events-none hidden md:block"
+        style={{
+          background: 'linear-gradient(to bottom, transparent, rgba(201,168,76,0.35) 30%, rgba(226,194,125,0.50) 50%, rgba(201,168,76,0.35) 70%, transparent)',
+          transformOrigin: 'top',
+        }}
       />
 
+      {/* EST label — vertical right side */}
       <motion.div
-        variants={container}
-        initial="hidden"
-        animate="show"
-        className="relative z-10 text-center px-6 max-w-3xl mx-auto"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.0, delay: 1.2 }}
+        className="absolute right-6 md:right-8 top-1/2 -translate-y-1/2 hidden md:flex flex-col items-center gap-4 pointer-events-none"
       >
-        {/* Breadcrumb */}
-        <motion.nav variants={item} className="flex items-center justify-center gap-1.5 mb-10">
-          <Link
-            to="/"
-            className="text-[10px] tracking-[0.24em] uppercase font-semibold transition-colors duration-300"
-            style={{ color: 'rgba(176,141,87,0.65)' }}
-            onMouseEnter={e => e.currentTarget.style.color = 'rgba(176,141,87,0.90)'}
-            onMouseLeave={e => e.currentTarget.style.color = 'rgba(176,141,87,0.65)'}
-          >
-            Home
-          </Link>
-          <ChevronRight size={9} style={{ color: 'rgba(176,141,87,0.45)' }} />
-          <span className="text-[10px] tracking-[0.24em] uppercase font-semibold" style={{ color: 'rgba(200,169,107,0.90)' }}>
-            About
-          </span>
-        </motion.nav>
+        <span
+          className="tracking-[0.4em] uppercase font-semibold"
+          style={{
+            fontSize: '9px',
+            color: 'rgba(176,141,87,0.50)',
+            writingMode: 'vertical-rl',
+            textOrientation: 'mixed',
+            letterSpacing: '0.4em',
+          }}
+        >
+          Est. in India
+        </span>
+      </motion.div>
+
+      {/* Main content — bottom aligned, left */}
+      <div className="cx relative z-10">
 
         {/* Eyebrow */}
         <motion.p
-          variants={item}
-          className="editorial-label mb-6"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.3, ease: LUXURY }}
+          className="text-[10px] md:text-[11px] tracking-[0.5em] uppercase font-semibold mb-8 md:mb-10"
+          style={{ color: 'rgba(176,141,87,0.60)' }}
         >
-          Est. In India
+          Est. In India &nbsp;·&nbsp; Since Generations
         </motion.p>
 
-        {/* Headline */}
-        <motion.div variants={item} className="overflow-hidden mb-3">
-          <h1 className="font-heading leading-none" style={{ fontWeight: 300 }}>
-            <span className="block text-5xl md:text-7xl lg:text-[5.5rem]" style={{ color: 'rgba(245,241,234,0.98)' }}>
-              Our
-            </span>
-            <span
-              className="block text-5xl md:text-7xl lg:text-[5.5rem] italic text-gold-gradient"
-              style={{ fontWeight: 400, lineHeight: 0.92 }}
-            >
-              Story
-            </span>
-          </h1>
-        </motion.div>
+        {/* MASSIVE one-line headline */}
+        <div className="overflow-hidden mb-8 md:mb-10">
+          <motion.h1
+            initial={{ y: '110%', opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1.2, delay: 0.45, ease: LUXURY }}
+            className="font-heading leading-none whitespace-nowrap"
+            style={{
+              fontSize: 'clamp(56px, 11vw, 180px)',
+              fontWeight: 300,
+              letterSpacing: '-0.025em',
+              lineHeight: 0.90,
+            }}
+          >
+            <span style={{ color: 'rgba(245,241,234,0.97)', fontStyle: 'italic' }}>Our&nbsp;</span>
+            <span style={{
+              background: 'linear-gradient(135deg, #E2C27D 0%, #C9A84C 38%, #A8862E 65%, #C9A84C 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              fontStyle: 'normal',
+            }}>Story.</span>
+          </motion.h1>
+        </div>
 
-        {/* Animated gold divider */}
-        <motion.div className="flex items-center justify-center gap-3 my-7" variants={item}>
-          <motion.div
-            initial={{ width: 0, opacity: 0 }}
-            animate={{ width: 60, opacity: 1 }}
-            transition={{ duration: 1.0, delay: 1.0, ease: LUXURY }}
-            className="h-px"
-            style={{ background: 'linear-gradient(to right, transparent, rgba(176,141,87,0.6))' }}
-          />
-          <span style={{ color: 'rgba(176,141,87,0.75)', fontSize: '8px' }}>✦</span>
-          <motion.div
-            initial={{ width: 0, opacity: 0 }}
-            animate={{ width: 60, opacity: 1 }}
-            transition={{ duration: 1.0, delay: 1.0, ease: LUXURY }}
-            className="h-px"
-            style={{ background: 'linear-gradient(to left, transparent, rgba(176,141,87,0.6))' }}
-          />
-        </motion.div>
+        {/* Gold rule */}
+        <motion.div
+          initial={{ width: 0, opacity: 0 }}
+          animate={{ width: 120, opacity: 1 }}
+          transition={{ duration: 1.4, delay: 1.0, ease: LUXURY }}
+          className="h-px mb-8"
+          style={{ background: 'linear-gradient(to right, rgba(201,168,76,0.80), rgba(201,168,76,0.20), transparent)' }}
+        />
 
-        {/* Subtext */}
-        <motion.p
-          variants={item}
-          className="font-heading italic text-lg md:text-xl"
-          style={{ color: 'rgba(236,230,220,0.90)', letterSpacing: '0.01em' }}
-        >
-          Born from a passion for pure fragrance.
-        </motion.p>
-      </motion.div>
+        {/* Subtext + stat row */}
+        <div className="flex flex-col sm:flex-row sm:items-end gap-8 sm:gap-16">
+          <motion.p
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.0, delay: 1.1, ease: LUXURY }}
+            className="font-heading italic max-w-sm"
+            style={{
+              fontSize: 'clamp(17px, 1.8vw, 24px)',
+              color: 'rgba(236,230,220,0.82)',
+              letterSpacing: '0.005em',
+              lineHeight: 1.4,
+            }}
+          >
+            Born from a passion for pure fragrance.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.0, delay: 1.25, ease: LUXURY }}
+            className="flex items-center gap-8"
+          >
+            <div className="flex flex-col gap-1">
+              <span className="font-heading text-3xl md:text-4xl leading-none" style={{ color: 'rgba(201,168,76,0.95)' }}>500+</span>
+              <span className="text-[9px] tracking-[0.32em] uppercase" style={{ color: 'rgba(176,141,87,0.55)' }}>Blends Crafted</span>
+            </div>
+            <div className="w-px h-10" style={{ background: 'rgba(201,168,76,0.20)' }} />
+            <div className="flex flex-col gap-1">
+              <span className="font-heading text-3xl md:text-4xl leading-none" style={{ color: 'rgba(201,168,76,0.95)' }}>100%</span>
+              <span className="text-[9px] tracking-[0.32em] uppercase" style={{ color: 'rgba(176,141,87,0.55)' }}>Custom Made</span>
+            </div>
+          </motion.div>
+        </div>
+      </div>
 
       {/* Bottom fade */}
       <div
-        className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
-        style={{ background: 'linear-gradient(to top, #100908, transparent)' }}
+        className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
+        style={{ background: 'linear-gradient(to top, #0c0806, transparent)' }}
       />
-      <ArabesqueDivider />
+
+      {/* Bottom gold line */}
+      <motion.div
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 1.8, delay: 0.3, ease: LUXURY }}
+        className="absolute bottom-0 left-0 right-0 h-px origin-left pointer-events-none"
+        style={{ background: 'linear-gradient(90deg, rgba(201,168,76,0.40) 0%, rgba(226,194,125,0.55) 30%, transparent 80%)' }}
+      />
     </section>
   )
 }
