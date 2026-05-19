@@ -56,32 +56,30 @@ export default function Contact() {
       {PARTICLES.map((p, i) => (
         <motion.div
           key={i}
-          className="fixed rounded-full pointer-events-none"
-          style={{ left: p.left, top: p.top, width: p.size, height: p.size, background: 'rgba(176,141,87,0.55)', zIndex: 1 }}
+          className="absolute rounded-full pointer-events-none"
+          style={{ left: p.left, top: p.top, width: p.size, height: p.size, background: 'rgba(176,141,87,0.55)' }}
           animate={{ y: [0, -20, 0], opacity: [0, 0.25, 0] }}
           transition={{ duration: p.dur, repeat: Infinity, delay: p.del, ease: 'easeInOut' }}
         />
       ))}
 
-      {/* Page-level warm glow — left toward form, right toward info */}
-      <div className="fixed inset-0 pointer-events-none" style={{ zIndex: 0 }}>
+      {/* Page-level warm glow */}
+      <div className="absolute inset-0 pointer-events-none">
         <div style={{
           position: 'absolute',
           top: '30%', left: '15%',
           width: '500px', height: '600px',
-          background: 'radial-gradient(ellipse, rgba(110,58,12,0.06) 0%, transparent 68%)',
-          filter: 'blur(60px)',
+          background: 'radial-gradient(ellipse 70% 70% at 20% 35%, rgba(110,58,12,0.08) 0%, transparent 70%)',
         }} />
         <div style={{
           position: 'absolute',
           top: '40%', right: '10%',
           width: '400px', height: '500px',
-          background: 'radial-gradient(ellipse, rgba(90,48,10,0.05) 0%, transparent 68%)',
-          filter: 'blur(60px)',
+          background: 'radial-gradient(ellipse 70% 70% at 80% 45%, rgba(90,48,10,0.06) 0%, transparent 70%)',
         }} />
       </div>
 
-      <div className="relative" style={{ zIndex: 2 }}>
+      <div className="relative">
         <ContactHero />
 
         {/* Main 2-col layout */}

@@ -18,16 +18,6 @@ const PARTICLES = [
   { left: '87%', top: '22%', dur: 9,  del: 1.3, size: 1 },
   { left: '14%', top: '68%', dur: 8,  del: 2.6, size: 2 },
   { left: '80%', top: '63%', dur: 6,  del: 0.9, size: 1.5 },
-  { left: '46%', top: '12%', dur: 10, del: 1.7, size: 1 },
-  { left: '91%', top: '46%', dur: 7,  del: 3.1, size: 1 },
-  { left: '5%',  top: '52%', dur: 9,  del: 0.5, size: 1.5 },
-  { left: '62%', top: '82%', dur: 8,  del: 2.1, size: 1 },
-]
-
-const WISPS = [
-  { left: '18%', del: 0 },
-  { left: '50%', del: 5 },
-  { left: '80%', del: 10 },
 ]
 
 function ArabesqueDivider() {
@@ -66,26 +56,11 @@ export default function AboutHero() {
         background: 'radial-gradient(ellipse 80% 70% at 50% 60%, rgba(120,70,20,0.12) 0%, rgba(59,31,15,0.20) 45%, transparent 75%)',
       }} />
       <div className="absolute top-0 left-1/4 w-[600px] h-[400px] pointer-events-none" style={{
-        background: 'radial-gradient(ellipse, rgba(80,40,10,0.09) 0%, transparent 65%)',
-        filter: 'blur(60px)',
+        background: 'radial-gradient(ellipse 80% 80% at 30% 20%, rgba(80,40,10,0.11) 0%, transparent 70%)',
       }} />
       <div className="absolute bottom-0 right-1/4 w-[500px] h-[300px] pointer-events-none" style={{
-        background: 'radial-gradient(ellipse, rgba(60,30,8,0.07) 0%, transparent 65%)',
-        filter: 'blur(60px)',
+        background: 'radial-gradient(ellipse 80% 80% at 70% 80%, rgba(60,30,8,0.09) 0%, transparent 70%)',
       }} />
-
-      {/* Smoke wisps */}
-      {WISPS.map(({ left, del }, i) => (
-        <motion.div
-          key={i}
-          className="absolute bottom-0 pointer-events-none"
-          style={{ left, width: 200, height: 300 }}
-          animate={{ y: [0, -80], opacity: [0, 0.06, 0], scale: [0.8, 1.5] }}
-          transition={{ duration: 12, repeat: Infinity, delay: del, ease: 'easeOut' }}
-        >
-          <div style={{ width: '100%', height: '100%', background: 'radial-gradient(ellipse, rgba(176,141,87,0.2) 0%, transparent 70%)', filter: 'blur(30px)' }} />
-        </motion.div>
-      ))}
 
       {/* Gold dust */}
       {PARTICLES.map((p, i) => (

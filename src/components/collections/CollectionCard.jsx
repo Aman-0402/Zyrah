@@ -127,11 +127,11 @@ export default function CollectionCard({ product, index, featured = false }) {
 
   /* ── Event handlers ── */
   const onMouseMove = useCallback((e) => {
-    if (!cardRef.current || prefersReduced) return
+    if (!cardRef.current || prefersReduced || isMobile) return
     const r = cardRef.current.getBoundingClientRect()
     rawX.set((e.clientX - r.left) / r.width  - 0.5)
     rawY.set((e.clientY - r.top)  / r.height - 0.5)
-  }, [rawX, rawY, prefersReduced])
+  }, [rawX, rawY, prefersReduced, isMobile])
 
   const onMouseEnter = useCallback(() => {
     setHovered(true)
@@ -153,8 +153,8 @@ export default function CollectionCard({ product, index, featured = false }) {
     }
   }, [isMobile])
 
-  /* ── Disable 3D when user prefers reduced motion ── */
-  const tiltStyle = prefersReduced ? {} : { rotateX, rotateY }
+  /* ── Disable 3D on mobile or reduced motion ── */
+  const tiltStyle = (prefersReduced || isMobile) ? {} : { rotateX, rotateY }
 
   return (
     <motion.article
@@ -170,7 +170,7 @@ export default function CollectionCard({ product, index, featured = false }) {
       onMouseLeave={onMouseLeave}
       onClick={onTap}
       className={`group relative flex flex-col cursor-pointer select-none${featured ? ' md:col-span-2' : ''}`}
-      style={{ perspective: '900px', boxShadow: cardShadow, border: `1px solid ${isActive ? accentColor + '32' : accentColor + '18'}`, transition: 'border-color 0.5s' }}
+      style={{ perspective: '900px', boxShadow: cardShadow, border: `1px solid ${isActive ? accentColor + '32' : accentColor + '18'}`, transition: 'border-color 0.5s', willChange: 'transform' }}
     >
 
       {/* ════════════════════════════════════════════════════════════
@@ -292,8 +292,8 @@ export default function CollectionCard({ product, index, featured = false }) {
           )}
         </AnimatePresence>
 
-        {/* ── L6: Ambient gold particles ── */}
-        {!prefersReduced && PARTICLES.map((p, i) => (
+        {/* ── L6: Ambient gold particles — desktop only ── */}
+        {!prefersReduced && !isMobile && PARTICLES.map((p, i) => (
           <motion.div
             key={i}
             className="absolute rounded-full pointer-events-none"

@@ -18,16 +18,6 @@ const PARTICLES = [
   { left: '86%', top: '24%', dur: 9,  del: 1.2, size: 1 },
   { left: '16%', top: '68%', dur: 8,  del: 2.5, size: 2 },
   { left: '76%', top: '62%', dur: 6,  del: 0.8, size: 1.5 },
-  { left: '44%', top: '14%', dur: 10, del: 1.8, size: 1 },
-  { left: '91%', top: '50%', dur: 7,  del: 3.0, size: 1 },
-  { left: '4%',  top: '52%', dur: 9,  del: 0.4, size: 1.5 },
-  { left: '58%', top: '78%', dur: 8,  del: 2.0, size: 1 },
-]
-
-const WISPS = [
-  { left: '20%', del: 0 },
-  { left: '52%', del: 5 },
-  { left: '80%', del: 10 },
 ]
 
 function ArabesqueDivider() {
@@ -66,26 +56,11 @@ export default function FragranceBuilderHero() {
         background: 'radial-gradient(ellipse 80% 70% at 50% 60%, rgba(120,70,20,0.12) 0%, rgba(59,31,15,0.20) 45%, transparent 75%)',
       }} />
       <div className="absolute top-0 left-1/3 w-[600px] h-[400px] pointer-events-none" style={{
-        background: 'radial-gradient(ellipse, rgba(80,40,10,0.10) 0%, transparent 65%)',
-        filter: 'blur(60px)',
+        background: 'radial-gradient(ellipse 80% 80% at 33% 20%, rgba(80,40,10,0.12) 0%, transparent 70%)',
       }} />
       <div className="absolute bottom-0 right-1/3 w-[500px] h-[300px] pointer-events-none" style={{
-        background: 'radial-gradient(ellipse, rgba(60,30,8,0.08) 0%, transparent 65%)',
-        filter: 'blur(60px)',
+        background: 'radial-gradient(ellipse 80% 80% at 67% 80%, rgba(60,30,8,0.10) 0%, transparent 70%)',
       }} />
-
-      {/* Smoke wisps */}
-      {WISPS.map(({ left, del }, i) => (
-        <motion.div
-          key={i}
-          className="absolute bottom-0 pointer-events-none"
-          style={{ left, width: 200, height: 300 }}
-          animate={{ y: [0, -80], opacity: [0, 0.06, 0], scale: [0.8, 1.5] }}
-          transition={{ duration: 12, repeat: Infinity, delay: del, ease: 'easeOut' }}
-        >
-          <div style={{ width: '100%', height: '100%', background: 'radial-gradient(ellipse, rgba(176,141,87,0.2) 0%, transparent 70%)', filter: 'blur(30px)' }} />
-        </motion.div>
-      ))}
 
       {/* Gold dust particles */}
       {PARTICLES.map((p, i) => (
