@@ -73,14 +73,14 @@ export default function ContactInfo() {
   })
 
   return (
-    <div ref={ref} className="flex flex-col gap-5">
+    <div ref={ref} className="flex flex-col gap-4">
 
       <div>
-        <p className="text-[10px] tracking-[0.45em] uppercase text-gold-400/50 mb-3">Reach Us</p>
-        <h2 className="font-heading text-3xl md:text-4xl text-ivory mb-2">
-          We're <span className="italic text-gold-300">Here</span>
+        <p className="text-[10px] tracking-[0.45em] uppercase mb-3" style={{ color: 'rgba(201,168,76,0.52)' }}>Reach Us</p>
+        <h2 className="font-heading text-3xl md:text-4xl mb-2" style={{ color: 'rgba(255,248,240,0.92)' }}>
+          We're <span className="italic" style={{ color: 'rgba(226,194,125,0.90)' }}>Here</span>
         </h2>
-        <p className="text-ivory/35 text-sm font-light mb-8">
+        <p className="text-sm font-light mb-8" style={{ color: 'rgba(255,248,240,0.55)' }}>
           Every message is read personally. No bots, no auto-replies.
         </p>
       </div>
@@ -89,8 +89,12 @@ export default function ContactInfo() {
       {INFO_CARDS.map(({ icon: Icon, label, value, sub, href, accent }) => {
         const Inner = (
           <div
-            className="flex items-start gap-4 p-5 border border-gold-400/10 hover:border-gold-400/28 transition-all duration-400 group"
-            style={{ background: 'rgba(201,168,76,0.015)' }}
+            className="flex items-start gap-4 p-5 border border-gold-400/12 hover:border-gold-400/30 transition-all duration-400 group"
+            style={{
+              background: 'linear-gradient(160deg, rgba(201,168,76,0.025) 0%, rgba(201,168,76,0.010) 100%)',
+            }}
+            onMouseEnter={e => e.currentTarget.style.background = 'linear-gradient(160deg, rgba(201,168,76,0.045) 0%, rgba(201,168,76,0.018) 100%)'}
+            onMouseLeave={e => e.currentTarget.style.background = 'linear-gradient(160deg, rgba(201,168,76,0.025) 0%, rgba(201,168,76,0.010) 100%)'}
           >
             {/* Icon circle */}
             <div
@@ -104,10 +108,10 @@ export default function ContactInfo() {
               <p className="text-[9px] tracking-[0.35em] uppercase" style={{ color: `${accent}50` }}>
                 {label}
               </p>
-              <p className="text-ivory/75 text-sm font-light group-hover:text-ivory transition-colors duration-300 truncate">
+              <p className="text-sm font-light transition-colors duration-300 truncate" style={{ color: 'rgba(255,248,240,0.82)' }}>
                 {value}
               </p>
-              <p className="text-ivory/30 text-xs font-light">{sub}</p>
+              <p className="text-xs font-light" style={{ color: 'rgba(255,248,240,0.50)' }}>{sub}</p>
             </div>
 
             {/* Bottom accent */}
@@ -152,8 +156,8 @@ export default function ContactInfo() {
         <p className="text-[9px] tracking-[0.35em] uppercase" style={{ color: 'rgba(201,168,76,0.35)' }}>Our Products</p>
         <div className="flex flex-wrap gap-2">
           {['Indian Attar', 'Perfume Spray', 'Deodorant Spray', 'Room Freshener', 'Car Spray', 'Agarbatti'].map(p => (
-            <span key={p} className="text-[9px] tracking-[0.2em] uppercase px-3 py-1.5 border border-gold-400/12"
-              style={{ color: 'rgba(245,240,232,0.30)', background: 'rgba(201,168,76,0.03)' }}>
+            <span key={p} className="text-[9px] tracking-[0.2em] uppercase px-3 py-1.5 border border-gold-400/15"
+              style={{ color: 'rgba(255,248,240,0.50)', background: 'rgba(201,168,76,0.04)' }}>
               {p}
             </span>
           ))}
@@ -173,7 +177,10 @@ export default function ContactInfo() {
         >
           <Instagram size={14} strokeWidth={1.5} className="text-ivory/30 group-hover:text-gold-400/70 transition-colors duration-300" />
         </div>
-        <span className="text-[10px] tracking-[0.3em] uppercase text-ivory/25 group-hover:text-ivory/50 transition-colors duration-300">
+        <span className="text-[10px] tracking-[0.3em] uppercase transition-colors duration-300" style={{ color: 'rgba(255,248,240,0.42)' }}
+          onMouseEnter={e => e.currentTarget.style.color = 'rgba(255,248,240,0.68)'}
+          onMouseLeave={e => e.currentTarget.style.color = 'rgba(255,248,240,0.42)'}
+        >
           Follow Our Journey
         </span>
       </a>

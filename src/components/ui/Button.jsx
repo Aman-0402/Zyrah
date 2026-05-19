@@ -6,8 +6,8 @@ const variants = {
     'border border-gold-400',
     'hover:bg-gold-300 hover:border-gold-300',
     'font-medium tracking-widest uppercase text-xs',
-    'shadow-[0_0_20px_rgba(201,168,76,0.25)]',
-    'hover:shadow-[0_0_30px_rgba(201,168,76,0.45)]',
+    'shadow-[0_0_20px_rgba(201,168,76,0.22)]',
+    'hover:shadow-[0_8px_32px_rgba(201,168,76,0.38),0_0_20px_rgba(201,168,76,0.20)]',
   ].join(' '),
 
   outline: [
@@ -46,8 +46,8 @@ export default function Button({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      whileHover={{ scale: disabled ? 1 : 1.02 }}
-      whileTap={{ scale: disabled ? 1 : 0.97 }}
+      whileHover={disabled ? {} : { scale: 1.02, y: -2 }}
+      whileTap={disabled ? {} : { scale: 0.97, y: 0 }}
       transition={{ type: 'spring', stiffness: 400, damping: 25 }}
       className={[
         'relative inline-flex items-center justify-center gap-2',

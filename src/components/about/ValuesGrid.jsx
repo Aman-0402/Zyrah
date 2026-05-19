@@ -47,15 +47,15 @@ export default function ValuesGrid() {
           <div
             key={val.title}
             data-reveal
-            className="relative flex flex-col gap-5 p-8 border border-gold-400/10 hover:border-gold-400/28 transition-all duration-500 group"
+            className="relative flex flex-col gap-5 p-8 border border-gold-400/10 hover:border-gold-400/28 transition-all duration-500 group overflow-hidden"
             style={{ background: 'rgba(201,168,76,0.015)' }}
             onMouseEnter={e => e.currentTarget.style.background = 'rgba(201,168,76,0.032)'}
             onMouseLeave={e => e.currentTarget.style.background = 'rgba(201,168,76,0.015)'}
           >
             {/* Large symbol */}
             <div
-              className="text-5xl select-none transition-all duration-500 group-hover:scale-110"
-              style={{ color: val.accent, opacity: 0.18 }}
+              className="text-5xl select-none transition-all duration-500 group-hover:scale-105 origin-left"
+              style={{ color: val.accent, opacity: 0.22 }}
             >
               {val.symbol}
             </div>

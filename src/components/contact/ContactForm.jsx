@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { MessageCircle, Check } from 'lucide-react'
 import { useGSAPReveal } from '../../hooks/useGSAPReveal'
-import Button from '../ui/Button'
 
 const WA_NUMBER = '919724586101'
 
@@ -11,9 +10,12 @@ const SUBJECTS = ['Custom Order', 'General Enquiry', 'Feedback', 'Other']
 function LuxuryInput({ label, type = 'text', value, onChange, placeholder, required }) {
   const [focused, setFocused] = useState(false)
   return (
-    <div className="flex flex-col gap-1.5">
-      <label className="text-[9px] tracking-[0.35em] uppercase text-ivory/30">
-        {label}{required && <span className="text-gold-400/60 ml-1">*</span>}
+    <div className="flex flex-col gap-2">
+      <label
+        className="text-[9px] tracking-[0.38em] uppercase"
+        style={{ color: focused ? 'rgba(201,168,76,0.72)' : 'rgba(255,248,240,0.55)', transition: 'color 0.35s' }}
+      >
+        {label}{required && <span style={{ color: 'rgba(201,168,76,0.72)', marginLeft: '4px' }}>*</span>}
       </label>
       <input
         type={type}
@@ -22,8 +24,15 @@ function LuxuryInput({ label, type = 'text', value, onChange, placeholder, requi
         placeholder={placeholder}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
-        className="bg-transparent border-b py-2.5 text-sm text-ivory/80 outline-none transition-colors duration-300 placeholder:text-ivory/15 font-light"
-        style={{ borderColor: focused ? 'rgba(201,168,76,0.6)' : 'rgba(201,168,76,0.12)' }}
+        className="text-sm outline-none font-light transition-all duration-350"
+        style={{
+          background: focused ? 'rgba(201,168,76,0.04)' : 'rgba(255,255,255,0.022)',
+          border: `1px solid ${focused ? 'rgba(201,168,76,0.60)' : 'rgba(201,168,76,0.16)'}`,
+          padding: '12px 14px',
+          color: 'rgba(255,248,240,0.88)',
+          caretColor: 'rgba(201,168,76,0.85)',
+          boxShadow: focused ? '0 0 0 1px rgba(201,168,76,0.12), 0 4px 22px rgba(201,168,76,0.10)' : 'none',
+        }}
       />
     </div>
   )
@@ -52,9 +61,9 @@ export default function ContactForm() {
 
   return (
     <div ref={ref}>
-      <p className="text-[10px] tracking-[0.45em] uppercase text-gold-400/50 mb-3">Write To Us</p>
-      <h2 className="font-heading text-3xl md:text-4xl text-ivory mb-8">
-        Send Us A <span className="italic text-gold-300">Message</span>
+      <p className="text-[10px] tracking-[0.45em] uppercase mb-3" style={{ color: 'rgba(201,168,76,0.52)' }}>Write To Us</p>
+      <h2 className="font-heading text-3xl md:text-4xl mb-8" style={{ color: 'rgba(255,248,240,0.92)' }}>
+        Send Us A <span className="italic" style={{ color: 'rgba(226,194,125,0.90)' }}>Message</span>
       </h2>
 
       <AnimatePresence mode="wait">
@@ -76,7 +85,7 @@ export default function ContactForm() {
             </motion.div>
             <div>
               <h3 className="font-heading text-2xl text-ivory mb-2">Message Sent ✦</h3>
-              <p className="text-ivory/40 text-sm font-light max-w-xs">
+              <p className="text-sm font-light max-w-xs" style={{ color: 'rgba(255,248,240,0.58)' }}>
                 We'll reply within 24 hours. Thank you for reaching out.
               </p>
             </div>
@@ -103,54 +112,121 @@ export default function ContactForm() {
             <LuxuryInput label="Email (optional)" type="email" value={form.email} onChange={set('email')} placeholder="your@email.com" />
 
             {/* Subject chips */}
-            <div className="flex flex-col gap-2.5">
-              <label className="text-[9px] tracking-[0.35em] uppercase text-ivory/30">Subject</label>
-              <div className="flex flex-wrap gap-2">
-                {SUBJECTS.map((s) => (
-                  <button
-                    key={s}
-                    type="button"
-                    onClick={() => setForm((p) => ({ ...p, subject: s }))}
-                    className={[
-                      'px-4 py-1.5 text-[10px] tracking-[0.25em] uppercase transition-all duration-300 border outline-none',
-                      form.subject === s
-                        ? 'bg-gold-400 text-black border-gold-400'
-                        : 'bg-transparent text-ivory/40 border-gold-400/18 hover:border-gold-400/40 hover:text-ivory/70',
-                    ].join(' ')}
-                  >
-                    {s}
-                  </button>
-                ))}
+            <div className="flex flex-col gap-3">
+              <label className="text-[9px] tracking-[0.38em] uppercase" style={{ color: 'rgba(255,248,240,0.52)' }}>Subject</label>
+              <div className="flex flex-wrap gap-2.5">
+                {SUBJECTS.map((s) => {
+                  const active = form.subject === s
+                  return (
+                    <motion.button
+                      key={s}
+                      type="button"
+                      onClick={() => setForm((p) => ({ ...p, subject: s }))}
+                      whileHover={{ y: -2 }}
+                      whileTap={{ scale: 0.97, y: 0 }}
+                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                      className="outline-none select-none flex items-center justify-center"
+                      style={{
+                        padding: '10px 20px',
+                        fontSize: '9px',
+                        letterSpacing: '0.28em',
+                        textTransform: 'uppercase',
+                        fontWeight: 500,
+                        border: active
+                          ? '1px solid rgba(201,168,76,0.80)'
+                          : '1px solid rgba(201,168,76,0.20)',
+                        background: active
+                          ? 'linear-gradient(180deg, rgba(224,188,86,1) 0%, rgba(182,141,42,1) 100%)'
+                          : 'rgba(255,255,255,0.018)',
+                        color: active
+                          ? 'rgba(10,6,3,0.92)'
+                          : 'rgba(255,248,240,0.52)',
+                        boxShadow: active
+                          ? '0 0 22px rgba(201,168,76,0.22), inset 0 1px 0 rgba(255,255,255,0.14)'
+                          : 'inset 0 1px 0 rgba(255,255,255,0.03)',
+                        cursor: 'pointer',
+                        transition: 'background 0.35s, border-color 0.35s, color 0.35s, box-shadow 0.35s',
+                      }}
+                      onMouseEnter={e => {
+                        if (!active) {
+                          e.currentTarget.style.borderColor = 'rgba(201,168,76,0.42)'
+                          e.currentTarget.style.color = 'rgba(255,248,240,0.78)'
+                          e.currentTarget.style.background = 'rgba(201,168,76,0.06)'
+                        }
+                      }}
+                      onMouseLeave={e => {
+                        if (!active) {
+                          e.currentTarget.style.borderColor = 'rgba(201,168,76,0.20)'
+                          e.currentTarget.style.color = 'rgba(255,248,240,0.52)'
+                          e.currentTarget.style.background = 'rgba(255,255,255,0.018)'
+                        }
+                      }}
+                    >
+                      {s}
+                    </motion.button>
+                  )
+                })}
               </div>
             </div>
 
             {/* Message */}
             <div className="flex flex-col gap-1.5">
-              <label className="text-[9px] tracking-[0.35em] uppercase text-ivory/30">
-                Message <span className="text-gold-400/60">*</span>
+              <label className="text-[9px] tracking-[0.38em] uppercase" style={{ color: 'rgba(255,248,240,0.52)' }}>
+                Message <span style={{ color: 'rgba(201,168,76,0.65)' }}>*</span>
               </label>
               <textarea
                 value={form.message}
                 onChange={(e) => set('message')(e.target.value)}
                 placeholder="Tell us about your enquiry, custom fragrance vision, or anything else..."
-                rows={4}
-                className="bg-transparent border-b border-gold-400/12 py-2.5 text-sm text-ivory/80 outline-none transition-colors duration-300 placeholder:text-ivory/15 font-light resize-none focus:border-gold-400/55"
+                rows={5}
+                className="text-sm outline-none font-light resize-none transition-all duration-350"
+                style={{
+                  background: 'rgba(255,255,255,0.022)',
+                  border: '1px solid rgba(201,168,76,0.16)',
+                  padding: '12px 14px',
+                  color: 'rgba(255,248,240,0.88)',
+                  caretColor: 'rgba(201,168,76,0.85)',
+                }}
+                onFocus={e => {
+                  e.target.style.background = 'rgba(201,168,76,0.04)'
+                  e.target.style.borderColor = 'rgba(201,168,76,0.60)'
+                  e.target.style.boxShadow = '0 0 0 1px rgba(201,168,76,0.12), 0 4px 22px rgba(201,168,76,0.10)'
+                }}
+                onBlur={e => {
+                  e.target.style.background = 'rgba(255,255,255,0.022)'
+                  e.target.style.borderColor = 'rgba(201,168,76,0.16)'
+                  e.target.style.boxShadow = 'none'
+                }}
               />
             </div>
 
             {/* Submit */}
             <div className="pt-2">
-              <Button
+              <motion.button
                 type="submit"
-                variant="primary"
-                size="lg"
                 disabled={!canSubmit}
-                className="w-full justify-center gap-3"
+                whileHover={canSubmit ? { y: -3, boxShadow: '0 16px 40px rgba(201,168,76,0.30)' } : {}}
+                whileTap={canSubmit ? { scale: 0.98, y: 0 } : {}}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                className="w-full flex items-center justify-center gap-3 transition-all duration-400"
+                style={{
+                  padding: '18px 28px',
+                  fontSize: '10px',
+                  letterSpacing: '0.38em',
+                  textTransform: 'uppercase',
+                  fontWeight: 500,
+                  background: canSubmit ? 'rgba(201,168,76,1)' : 'rgba(201,168,76,0.35)',
+                  color: canSubmit ? '#0a0603' : 'rgba(10,6,3,0.5)',
+                  border: `1px solid ${canSubmit ? 'rgba(201,168,76,1)' : 'rgba(201,168,76,0.35)'}`,
+                  boxShadow: canSubmit ? '0 0 28px rgba(201,168,76,0.22)' : 'none',
+                  cursor: canSubmit ? 'pointer' : 'not-allowed',
+                  userSelect: 'none',
+                }}
               >
                 <MessageCircle size={15} strokeWidth={1.5} />
                 Send via WhatsApp
-              </Button>
-              <p className="text-center mt-3 text-[8px] tracking-[0.3em] uppercase text-ivory/18">
+              </motion.button>
+              <p className="text-center mt-3 text-[8px] tracking-[0.3em] uppercase" style={{ color: 'rgba(255,248,240,0.32)' }}>
                 Opens WhatsApp with your message pre-filled
               </p>
             </div>
