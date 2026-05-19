@@ -38,7 +38,7 @@ export default function ProductGrid({ activeFilter }) {
     <div className="cx pt-14 pb-24 md:pb-36">
       <motion.div
         layout
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10"
+        className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 md:gap-10"
       >
         <AnimatePresence mode="popLayout">
           {filtered.length === 0 ? (

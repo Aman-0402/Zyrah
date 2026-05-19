@@ -23,8 +23,16 @@ export default function FilterTabs({ active, onChange, isSticky }) {
         boxShadow: isSticky ? '0 4px 40px rgba(0,0,0,0.6)' : 'none',
       }}
     >
-      <div className="cx">
-        <div className="flex items-center justify-center gap-1 md:gap-2 overflow-x-auto py-4 md:py-5">
+      <div className="cx overflow-x-auto">
+        <div
+          className="flex items-center gap-2 md:gap-2 md:justify-center py-4 md:py-5"
+          style={{
+            paddingLeft: 'clamp(12px, 4vw, 0px)',
+            paddingRight: 'clamp(12px, 4vw, 0px)',
+            scrollSnapType: 'x mandatory',
+            WebkitOverflowScrolling: 'touch',
+          }}
+        >
           {CATEGORIES.map(({ id, label }) => {
             const isActive = active === id
             const count = countByCategory(id)
@@ -34,6 +42,7 @@ export default function FilterTabs({ active, onChange, isSticky }) {
                 key={id}
                 onClick={() => onChange(id)}
                 className="relative flex items-center gap-2 flex-shrink-0 outline-none transition-all duration-500 group"
+                style={{ scrollSnapAlign: 'start' }}
                 style={{
                   padding: '10px 22px',
                   borderRadius: '999px',

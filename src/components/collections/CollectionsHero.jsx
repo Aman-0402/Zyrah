@@ -57,7 +57,7 @@ function ArabesqueDivider() {
 
 export default function CollectionsHero() {
   return (
-    <section className="relative flex items-center justify-center overflow-hidden" style={{ minHeight: '56vh', paddingTop: '90px', background: '#050403' }}>
+    <section className="relative flex items-center justify-center overflow-hidden" style={{ minHeight: 'clamp(38vh, 55vw, 56vh)', paddingTop: '90px', background: '#050403' }}>
 
       {/* Deep cinematic glow layers */}
       <div className="absolute inset-0 pointer-events-none" style={{
