@@ -42,8 +42,8 @@ export default function FilterTabs({ active, onChange, isSticky }) {
                 key={id}
                 onClick={() => onChange(id)}
                 className="relative flex items-center gap-2 flex-shrink-0 outline-none transition-all duration-500 group"
-                style={{ scrollSnapAlign: 'start' }}
                 style={{
+                  scrollSnapAlign: 'start',
                   padding: '10px 22px',
                   borderRadius: '999px',
                   border: `1px solid ${isActive ? 'rgba(201,168,76,0.50)' : 'rgba(176,141,87,0.18)'}`,
