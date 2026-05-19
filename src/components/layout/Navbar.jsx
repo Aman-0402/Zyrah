@@ -102,14 +102,14 @@ export default function Navbar() {
               WebkitBackdropFilter: 'blur(14px)',
               borderBottom: '1px solid rgba(176,141,87,0.07)',
               paddingTop: '14px',
-              paddingBottom: '14px',
+              paddingBottom: '6px',
             }
           : {
               background: 'linear-gradient(to bottom, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.22) 70%, transparent 100%)',
               backdropFilter: 'blur(4px)',
               WebkitBackdropFilter: 'blur(4px)',
               paddingTop: '22px',
-              paddingBottom: '22px',
+              paddingBottom: '14px',
             }
         }
       >
