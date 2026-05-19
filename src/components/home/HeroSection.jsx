@@ -287,7 +287,7 @@ export default function HeroSection() {
         {/* LEFT */}
         <motion.div variants={container} initial="hidden" animate="show" className="flex flex-col gap-6 lg:gap-7 items-center lg:items-start text-center lg:text-left">
 
-          <motion.p variants={item} className="text-[10px] md:text-[11px] tracking-[0.5em] uppercase text-gold-400/60">
+          <motion.p variants={item} className="text-[10px] md:text-[11px] tracking-[0.5em] uppercase text-gold-400/82">
             Est. in India &nbsp;·&nbsp; Crafted With Love
           </motion.p>
 

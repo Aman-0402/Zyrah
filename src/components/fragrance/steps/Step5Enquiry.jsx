@@ -36,7 +36,7 @@ function SummaryPill({ label, value }) {
   if (!value) return null
   return (
     <div className="flex flex-col gap-0.5 px-3 py-2 border border-gold-400/15" style={{ background: 'rgba(201,168,76,0.03)' }}>
-      <span className="text-[8px] tracking-[0.3em] uppercase text-gold-400/40">{label}</span>
+      <span className="text-[8px] tracking-[0.3em] uppercase text-gold-400/72">{label}</span>
       <span className="text-xs text-ivory/60 font-light">{value}</span>
     </div>
   )
@@ -102,7 +102,7 @@ export default function Step5Enquiry({ selections, update }) {
             We'll be in touch within 24 hours to craft your signature fragrance.
           </p>
         </div>
-        <p className="text-[9px] tracking-[0.4em] uppercase text-gold-400/40">
+        <p className="text-[9px] tracking-[0.4em] uppercase text-gold-400/72">
           Free delivery across India
         </p>
       </motion.div>
@@ -112,7 +112,7 @@ export default function Step5Enquiry({ selections, update }) {
   return (
     <div className="flex flex-col gap-8">
       <div>
-        <p className="text-[10px] tracking-[0.5em] uppercase text-gold-400/50 mb-2">Step 5 of 5</p>
+        <p className="text-[10px] tracking-[0.5em] uppercase text-gold-400/80 mb-2">Step 5 of 5</p>
         <h2 className="font-heading text-3xl md:text-4xl text-ivory mb-2">
           Your <span className="italic text-gold-300">Enquiry</span>
         </h2>

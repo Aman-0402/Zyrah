@@ -14,7 +14,7 @@ export default function Step3Intensity({ selections, update }) {
     <div className="flex flex-col gap-10">
       <div>
         <p className="text-[10px] tracking-[0.5em] uppercase mb-2"
-          style={{ color: 'rgba(176,141,87,0.55)' }}>
+          style={{ color: 'rgba(176,141,87,0.82)' }}>
           Step 3 of 5
         </p>
         <h2 className="font-heading text-3xl md:text-4xl mb-2"

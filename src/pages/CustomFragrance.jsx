@@ -304,7 +304,7 @@ export default function CustomFragrance() {
 
                   <div className="relative z-10 p-6">
                     <p className="text-[8px] tracking-[0.45em] uppercase text-center mb-1"
-                      style={{ color: 'rgba(176,141,87,0.25)' }}>
+                      style={{ color: 'rgba(176,141,87,0.68)' }}>
                       Your Fragrance
                     </p>
                     <BottlePreview selections={selections} />

@@ -33,7 +33,7 @@ function NoteLayer({ label, sublabel, notes, selected, onToggle }) {
       <div className="flex items-baseline gap-3">
         <h3 className="font-heading text-lg text-ivory">{label}</h3>
         <span className="text-[9px] tracking-[0.3em] uppercase text-ivory/60">{sublabel}</span>
-        <span className="text-[9px] tracking-[0.25em] uppercase text-gold-400/40 ml-auto">
+        <span className="text-[9px] tracking-[0.25em] uppercase text-gold-400/72 ml-auto">
           {selected.length}/{MAX}
         </span>
       </div>
@@ -70,7 +70,7 @@ export default function Step2Notes({ selections, update }) {
   return (
     <div className="flex flex-col gap-8">
       <div>
-        <p className="text-[10px] tracking-[0.5em] uppercase text-gold-400/50 mb-2">Step 2 of 5</p>
+        <p className="text-[10px] tracking-[0.5em] uppercase text-gold-400/80 mb-2">Step 2 of 5</p>
         <h2 className="font-heading text-3xl md:text-4xl text-ivory mb-2">
           Choose Your <span className="italic text-gold-300">Notes</span>
         </h2>
@@ -87,7 +87,7 @@ export default function Step2Notes({ selections, update }) {
       >
         {/* Note layer guide */}
         <div className="flex gap-4 text-[9px] tracking-[0.25em] uppercase">
-          <span className="text-gold-400/40">Top ↑ First impression</span>
+          <span className="text-gold-400/72">Top ↑ First impression</span>
           <span className="text-ivory/15">·</span>
           <span className="text-ivory/60">Middle ↕ Heart</span>
           <span className="text-ivory/30">·</span>

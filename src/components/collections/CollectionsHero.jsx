@@ -95,21 +95,21 @@ export default function CollectionsHero() {
         {/* Breadcrumb */}
         <motion.nav variants={item} className="flex items-center justify-center gap-1.5 mb-10">
           <Link to="/" className="text-[9px] tracking-[0.4em] uppercase transition-colors duration-300"
-            style={{ color: 'rgba(176,141,87,0.35)' }}
-            onMouseEnter={e => e.currentTarget.style.color = 'rgba(176,141,87,0.65)'}
-            onMouseLeave={e => e.currentTarget.style.color = 'rgba(176,141,87,0.35)'}
+            style={{ color: 'rgba(176,141,87,0.65)' }}
+            onMouseEnter={e => e.currentTarget.style.color = 'rgba(176,141,87,0.90)'}
+            onMouseLeave={e => e.currentTarget.style.color = 'rgba(176,141,87,0.65)'}
           >
             Home
           </Link>
-          <ChevronRight size={9} style={{ color: 'rgba(176,141,87,0.22)' }} />
-          <span className="text-[9px] tracking-[0.4em] uppercase" style={{ color: 'rgba(176,141,87,0.55)' }}>
+          <ChevronRight size={9} style={{ color: 'rgba(176,141,87,0.45)' }} />
+          <span className="text-[9px] tracking-[0.4em] uppercase" style={{ color: 'rgba(176,141,87,0.88)' }}>
             Collections
           </span>
         </motion.nav>
 
         {/* Eyebrow */}
         <motion.p variants={item} className="text-[10px] tracking-[0.6em] uppercase mb-6"
-          style={{ color: 'rgba(176,141,87,0.55)' }}>
+          style={{ color: 'rgba(176,141,87,0.82)' }}>
           Our Catalogue
         </motion.p>
 
@@ -134,7 +134,7 @@ export default function CollectionsHero() {
             className="h-px"
             style={{ background: 'linear-gradient(to right, transparent, rgba(176,141,87,0.6))' }}
           />
-          <span style={{ color: 'rgba(176,141,87,0.5)', fontSize: '8px' }}>✦</span>
+          <span style={{ color: 'rgba(176,141,87,0.75)', fontSize: '8px' }}>✦</span>
           <motion.div
             initial={{ width: 0, opacity: 0 }}
             animate={{ width: 60, opacity: 1 }}

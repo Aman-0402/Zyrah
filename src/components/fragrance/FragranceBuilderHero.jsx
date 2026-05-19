@@ -93,14 +93,14 @@ export default function FragranceBuilderHero() {
           <Link
             to="/"
             className="text-[9px] tracking-[0.4em] uppercase transition-colors duration-300"
-            style={{ color: 'rgba(176,141,87,0.35)' }}
-            onMouseEnter={e => e.currentTarget.style.color = 'rgba(176,141,87,0.65)'}
-            onMouseLeave={e => e.currentTarget.style.color = 'rgba(176,141,87,0.35)'}
+            style={{ color: 'rgba(176,141,87,0.65)' }}
+            onMouseEnter={e => e.currentTarget.style.color = 'rgba(176,141,87,0.90)'}
+            onMouseLeave={e => e.currentTarget.style.color = 'rgba(176,141,87,0.65)'}
           >
             Home
           </Link>
-          <ChevronRight size={9} style={{ color: 'rgba(176,141,87,0.22)' }} />
-          <span className="text-[9px] tracking-[0.4em] uppercase" style={{ color: 'rgba(176,141,87,0.55)' }}>
+          <ChevronRight size={9} style={{ color: 'rgba(176,141,87,0.45)' }} />
+          <span className="text-[9px] tracking-[0.4em] uppercase" style={{ color: 'rgba(176,141,87,0.88)' }}>
             Custom Fragrance
           </span>
         </motion.nav>
@@ -109,7 +109,7 @@ export default function FragranceBuilderHero() {
         <motion.p
           variants={item}
           className="text-[10px] tracking-[0.6em] uppercase mb-6"
-          style={{ color: 'rgba(176,141,87,0.55)' }}
+          style={{ color: 'rgba(176,141,87,0.82)' }}
         >
           Bespoke Perfumery
         </motion.p>
@@ -138,7 +138,7 @@ export default function FragranceBuilderHero() {
             className="h-px"
             style={{ background: 'linear-gradient(to right, transparent, rgba(176,141,87,0.6))' }}
           />
-          <span style={{ color: 'rgba(176,141,87,0.5)', fontSize: '8px' }}>✦</span>
+          <span style={{ color: 'rgba(176,141,87,0.75)', fontSize: '8px' }}>✦</span>
           <motion.div
             initial={{ width: 0, opacity: 0 }}
             animate={{ width: 60, opacity: 1 }}

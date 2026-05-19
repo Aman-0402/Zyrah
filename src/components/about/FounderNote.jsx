@@ -232,7 +232,7 @@ export default function FounderNote() {
               {['Free Delivery', 'Handcrafted', 'Made For You'].map((item, i) => (
                 <span key={item} className="flex items-center gap-4">
                   {i > 0 && (
-                    <span style={{ color: 'rgba(201,168,76,0.22)', fontSize: '6px' }}>◆</span>
+                    <span style={{ color: 'rgba(201,168,76,0.55)', fontSize: '6px' }}>◆</span>
                   )}
                   <span
                     className="text-[9px] tracking-[0.38em] uppercase"

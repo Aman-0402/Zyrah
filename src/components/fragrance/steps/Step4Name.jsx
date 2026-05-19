@@ -14,7 +14,7 @@ export default function Step4Name({ selections, update }) {
   return (
     <div className="flex flex-col gap-10">
       <div>
-        <p className="text-[10px] tracking-[0.5em] uppercase text-gold-400/50 mb-2">Step 4 of 5</p>
+        <p className="text-[10px] tracking-[0.5em] uppercase text-gold-400/80 mb-2">Step 4 of 5</p>
         <h2 className="font-heading text-3xl md:text-4xl text-ivory mb-2">
           Name Your <span className="italic text-gold-300">Fragrance</span>
         </h2>

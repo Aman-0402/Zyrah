@@ -61,7 +61,7 @@ export default function ContactForm() {
 
   return (
     <div ref={ref}>
-      <p className="text-[10px] tracking-[0.45em] uppercase mb-3" style={{ color: 'rgba(201,168,76,0.52)' }}>Write To Us</p>
+      <p className="text-[10px] tracking-[0.45em] uppercase mb-3" style={{ color: 'rgba(201,168,76,0.82)' }}>Write To Us</p>
       <h2 className="font-heading text-3xl md:text-4xl mb-8" style={{ color: 'rgba(255,248,240,0.92)' }}>
         Send Us A <span className="italic" style={{ color: 'rgba(226,194,125,0.90)' }}>Message</span>
       </h2>

@@ -26,7 +26,7 @@ function BottomCTA() {
         background: 'linear-gradient(180deg, rgba(59,31,15,0.10) 0%, transparent 100%)',
       }}
     >
-      <p className="text-[10px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,168,76,0.50)' }}>Explore More</p>
+      <p className="text-[10px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,168,76,0.82)' }}>Explore More</p>
       <h3 className="font-heading text-3xl md:text-4xl mb-8" style={{ color: 'rgba(255,248,240,0.90)' }}>
         Still Have <span className="italic" style={{ color: 'rgba(226,194,125,0.90)' }}>Questions?</span>
       </h3>

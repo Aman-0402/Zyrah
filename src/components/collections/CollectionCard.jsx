@@ -301,7 +301,7 @@ export default function CollectionCard({ product, index, featured = false }) {
 
         {/* Product number */}
         <div className="absolute bottom-3 right-3 z-10">
-          <span className="text-[9px] tracking-[0.3em] text-gold-400/20">
+          <span className="text-[9px] tracking-[0.3em] text-gold-400/58">
             No.{String(id).padStart(2, '0')}
           </span>
         </div>

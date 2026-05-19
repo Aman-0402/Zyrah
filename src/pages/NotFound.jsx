@@ -48,7 +48,7 @@ export default function NotFound() {
         animate="show"
         className="relative z-10 text-center max-w-lg"
       >
-        <motion.p variants={item} className="text-[10px] tracking-[0.5em] uppercase text-gold-400/50 mb-6">
+        <motion.p variants={item} className="text-[10px] tracking-[0.5em] uppercase text-gold-400/80 mb-6">
           Page Not Found
         </motion.p>
 

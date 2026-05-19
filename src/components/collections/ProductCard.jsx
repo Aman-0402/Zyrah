@@ -81,7 +81,7 @@ export default function ProductCard({ product, index }) {
 
         {/* Number */}
         <div className="absolute bottom-3 right-3">
-          <span className="text-[9px] tracking-[0.3em] text-gold-400/20">
+          <span className="text-[9px] tracking-[0.3em] text-gold-400/58">
             No.{String(product.id).padStart(2, '0')}
           </span>
         </div>
@@ -96,7 +96,7 @@ export default function ProductCard({ product, index }) {
             <h3 className="font-heading text-lg text-ivory group-hover:text-gold-300 transition-colors duration-300 leading-tight">
               {name}
             </h3>
-            <p className="text-[10px] tracking-wider text-gold-400/30 mt-0.5">{arabicName}</p>
+            <p className="text-[10px] tracking-wider text-gold-400/65 mt-0.5">{arabicName}</p>
           </div>
           <motion.div
             className="text-ivory/20 group-hover:text-gold-400 transition-colors duration-300 mt-1 flex-shrink-0"
@@ -115,7 +115,7 @@ export default function ProductCard({ product, index }) {
           {notes.map((note) => (
             <span
               key={note}
-              className="text-[8px] tracking-[0.25em] uppercase px-2.5 py-1 border border-gold-400/12 text-gold-400/40 group-hover:border-gold-400/28 group-hover:text-gold-400/60 transition-all duration-300"
+              className="text-[8px] tracking-[0.25em] uppercase px-2.5 py-1 border border-gold-400/20 text-gold-400/70 group-hover:border-gold-400/45 group-hover:text-gold-400/90 transition-all duration-300"
             >
               {note}
             </span>

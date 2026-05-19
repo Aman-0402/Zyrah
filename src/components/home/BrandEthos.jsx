@@ -96,7 +96,7 @@ function OrnamentPanel() {
           >
             م
           </motion.span>
-          <span className="text-[7px] tracking-[0.4em] uppercase text-gold-400/35">Attar</span>
+          <span className="text-[7px] tracking-[0.4em] uppercase text-gold-400/65">Attar</span>
         </div>
       </div>
 
@@ -120,7 +120,7 @@ function OrnamentPanel() {
 
       {/* Quote below box */}
       <div className="absolute bottom-8 left-0 right-0 text-center">
-        <p className="text-[9px] tracking-[0.4em] uppercase text-gold-400/25 italic font-heading">
+        <p className="text-[9px] tracking-[0.4em] uppercase text-gold-400/60 italic font-heading">
           &ldquo; Wear your story &rdquo;
         </p>
       </div>
@@ -166,7 +166,7 @@ export default function BrandEthos() {
             whileInView={{ opacity: 1, letterSpacing: '0.5em' }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, ease: 'easeOut' }}
-            className="text-[10px] uppercase text-gold-400/50"
+            className="text-[10px] uppercase text-gold-400/80"
           >
             Our Philosophy
           </motion.p>
@@ -204,7 +204,7 @@ export default function BrandEthos() {
               we source the finest raw ingredients and blend them with care.
               No mass production. No shortcuts. No compromise.
             </motion.p>
-            <motion.p variants={textItem} className="text-[10px] tracking-[0.4em] uppercase italic font-heading" style={{ color: 'rgba(201,168,76,0.35)' }}>
+            <motion.p variants={textItem} className="text-[10px] tracking-[0.4em] uppercase italic font-heading" style={{ color: 'rgba(201,168,76,0.70)' }}>
               जनत का एहसास — The Feeling of Paradise
             </motion.p>
           </motion.div>
@@ -220,7 +220,7 @@ export default function BrandEthos() {
                 className="flex items-center gap-2 px-5 py-2.5 border border-gold-400/15 group cursor-default"
               >
                 <motion.span
-                  className="text-gold-400/40 group-hover:text-gold-400 transition-colors duration-300 text-xs"
+                  className="text-gold-400/70 group-hover:text-gold-400 transition-colors duration-300 text-xs"
                   animate={{ rotate: [0, 10, -10, 0] }}
                   transition={{ duration: 3, repeat: Infinity, delay: Math.random() * 2 }}
                 >

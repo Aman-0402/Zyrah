@@ -183,7 +183,7 @@ function FragranceCard({ fragrance, index }) {
           </div>
         )}
         <div className="absolute top-4 left-4 z-30">
-          <span className="text-[9px] tracking-[0.4em] uppercase text-gold-400/30">No. {String(index + 1).padStart(2, '0')}</span>
+          <span className="text-[9px] tracking-[0.4em] uppercase text-gold-400/62">No. {String(index + 1).padStart(2, '0')}</span>
         </div>
       </motion.div>
       {/* ── END IMAGE AREA ─── */}
@@ -194,14 +194,14 @@ function FragranceCard({ fragrance, index }) {
           <h3 className="luxury-card-title text-2xl md:text-3xl text-ivory group-hover:text-gold-300 transition-colors duration-300">
             {name}
           </h3>
-          <ArrowRight size={14} strokeWidth={1} className="text-gold-400/25 group-hover:text-gold-400 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0" />
+          <ArrowRight size={14} strokeWidth={1} className="text-gold-400/60 group-hover:text-gold-400 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0" />
         </div>
 
         <p className="luxury-body" style={{ maxWidth: '90%', color: 'rgba(255,252,245,0.88)' }}>{desc}</p>
 
         <div className="flex flex-wrap gap-2 mt-auto pt-3">
           {notes.map((note) => (
-            <span key={note} className="text-[9px] tracking-[0.25em] uppercase px-3 py-1.5 border text-gold-400/55 group-hover:text-gold-400/75 transition-all duration-300 rounded-full" style={{ borderColor: `${accentColor}28`, background: `${accentColor}06` }}>
+            <span key={note} className="text-[9px] tracking-[0.25em] uppercase px-3 py-1.5 border text-gold-400/80 group-hover:text-gold-400 transition-all duration-300 rounded-full" style={{ borderColor: `${accentColor}28`, background: `${accentColor}06` }}>
               {note}
             </span>
           ))}
@@ -238,7 +238,7 @@ export default function FeaturedSection() {
 
       {/* Header */}
       <div ref={headingRef} className="w-full text-center mb-20">
-        <p className="text-[11px] tracking-[0.6em] uppercase text-gold-400/65 mb-8">Our Craft</p>
+        <p className="text-[11px] tracking-[0.6em] uppercase text-gold-400/85 mb-8">Our Craft</p>
         <h2 className="luxury-heading text-5xl md:text-7xl text-ivory mb-8 text-center">Signature Scents</h2>
         <p className="font-heading italic text-ivory/85 text-lg md:text-xl max-w-sm mx-auto text-center leading-relaxed">
           Each fragrance tells a story, each drop holds a world.

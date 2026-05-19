@@ -132,7 +132,7 @@ export default function BottlePreview({ selections, compact = false }) {
           )}
           {fam && (
             <p className="text-[8px] tracking-[0.2em] uppercase"
-              style={{ color: 'rgba(201,168,76,0.38)' }}>{fam.label}</p>
+              style={{ color: 'rgba(201,168,76,0.75)' }}>{fam.label}</p>
           )}
         </div>
       </div>

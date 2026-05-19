@@ -43,7 +43,7 @@ export default function ProcessTimeline() {
 
         {/* Header */}
         <div ref={headRef} className="text-center mb-16 md:mb-20">
-          <p className="text-[10px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(201,168,76,0.50)' }}>The Process</p>
+          <p className="text-[10px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(201,168,76,0.82)' }}>The Process</p>
           <h2 className="font-heading text-4xl md:text-6xl mb-3" style={{ color: 'rgba(255,248,240,0.92)' }}>How We Craft</h2>
           <p className="font-heading italic text-lg" style={{ color: 'rgba(255,252,245,0.78)' }}>From vision to vial.</p>
         </div>
@@ -73,7 +73,7 @@ export default function ProcessTimeline() {
 
                 {/* Step number label */}
                 <div className="flex flex-col items-center gap-1.5">
-                  <p className="text-[9px] tracking-[0.4em] uppercase" style={{ color: 'rgba(201,168,76,0.38)' }}>
+                  <p className="text-[9px] tracking-[0.4em] uppercase" style={{ color: 'rgba(201,168,76,0.72)' }}>
                     Step {String(i + 1).padStart(2, '0')}
                   </p>
                   <h4 className="font-heading text-xl" style={{ color: 'rgba(255,248,240,0.90)' }}>{step.label}</h4>
@@ -111,7 +111,7 @@ export default function ProcessTimeline() {
 
               {/* Content */}
               <div className="pb-10">
-                <p className="text-[9px] tracking-[0.35em] uppercase mb-1" style={{ color: 'rgba(201,168,76,0.38)' }}>
+                <p className="text-[9px] tracking-[0.35em] uppercase mb-1" style={{ color: 'rgba(201,168,76,0.72)' }}>
                   Step {String(i + 1).padStart(2, '0')}
                 </p>
                 <h4 className="font-heading text-xl mb-2" style={{ color: 'rgba(255,248,240,0.90)' }}>{step.label}</h4>

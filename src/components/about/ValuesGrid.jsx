@@ -38,7 +38,7 @@ export default function ValuesGrid() {
     <section className="py-24 md:py-32"><div className="cx">
 
       <div ref={headRef} className="text-center mb-14">
-        <p className="text-[10px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(201,168,76,0.50)' }}>Our Principles</p>
+        <p className="text-[10px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(201,168,76,0.82)' }}>Our Principles</p>
         <h2 className="font-heading text-4xl md:text-6xl" style={{ color: 'rgba(255,248,240,0.92)' }}>What We Stand For</h2>
       </div>
 

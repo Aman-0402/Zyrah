@@ -48,7 +48,7 @@ export default function Step1Family({ selections, update }) {
     <div className="flex flex-col gap-7">
       <div>
         <p className="text-[10px] tracking-[0.5em] uppercase mb-2"
-          style={{ color: 'rgba(176,141,87,0.55)' }}>
+          style={{ color: 'rgba(176,141,87,0.82)' }}>
           Step 1 of 5
         </p>
         <h2

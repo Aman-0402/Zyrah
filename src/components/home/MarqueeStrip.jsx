@@ -14,10 +14,10 @@ function MarqueeContent() {
     <div className="flex items-center gap-0 shrink-0">
       {ITEMS.map((text, i) => (
         <span key={i} className="flex items-center">
-          <span className="text-[10px] tracking-[0.35em] uppercase text-gold-400/50 whitespace-nowrap px-6">
+          <span className="text-[10px] tracking-[0.35em] uppercase text-gold-400/80 whitespace-nowrap px-6">
             {text}
           </span>
-          <span className="text-gold-400/30 text-xs">◆</span>
+          <span className="text-gold-400/60 text-xs">◆</span>
         </span>
       ))}
     </div>

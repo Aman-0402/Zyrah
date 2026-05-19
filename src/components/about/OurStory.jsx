@@ -134,7 +134,7 @@ function StoryBlock({ block, index }) {
             {block.num}
           </span>
           <div className="relative z-10">
-            <p className="text-[9px] tracking-[0.45em] uppercase mb-3" style={{ color: 'rgba(201,168,76,0.45)' }}>{block.num}</p>
+            <p className="text-[9px] tracking-[0.45em] uppercase mb-3" style={{ color: 'rgba(201,168,76,0.75)' }}>{block.num}</p>
             <h3 className="font-heading text-3xl md:text-4xl mb-6" style={{ color: 'rgba(255,248,240,0.92)' }}>{block.title}</h3>
             <div className="h-px w-12 mb-6" style={{ background: 'rgba(201,168,76,0.28)' }} />
             {block.body.map((para, i) => (
@@ -163,7 +163,7 @@ export default function OurStory() {
   return (
     <section className="py-24 md:py-36"><div className="cx">
       <div ref={headRef} className="mb-16 md:mb-24">
-        <p className="text-[10px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(201,168,76,0.50)' }}>Our Journey</p>
+        <p className="text-[10px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(201,168,76,0.82)' }}>Our Journey</p>
         <h2 className="font-heading text-4xl md:text-6xl" style={{ color: 'rgba(255,248,240,0.92)' }}>The Story Behind</h2>
       </div>
 

@@ -14,7 +14,7 @@ const T = {
   address: 'rgba(255,252,245,0.80)',
   faint:   'rgba(255,252,245,0.72)',
   gold:    'rgba(201,168,76,0.90)',
-  goldDim: 'rgba(201,168,76,0.45)',
+  goldDim: 'rgba(201,168,76,0.72)',
 }
 
 const NAV_LINKS = [
@@ -180,7 +180,7 @@ export default function Footer() {
                 className="flex items-start gap-3 group w-fit">
                 <MessageCircle size={13} strokeWidth={1} className="mt-0.5 flex-shrink-0" style={{ color: T.goldDim }} />
                 <div className="flex flex-col gap-0.5">
-                  <span className="text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(201,168,76,0.40)' }}>WhatsApp · M. Roeesh</span>
+                  <span className="text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(201,168,76,0.70)' }}>WhatsApp · M. Roeesh</span>
                   <span
                     className="text-[11px] font-light tracking-wide transition-colors duration-500"
                     style={{ color: T.contact }}
@@ -193,7 +193,7 @@ export default function Footer() {
               <a href="tel:+919016361538" className="flex items-start gap-3 group w-fit">
                 <Phone size={13} strokeWidth={1} className="mt-0.5 flex-shrink-0" style={{ color: T.goldDim }} />
                 <div className="flex flex-col gap-0.5">
-                  <span className="text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(201,168,76,0.40)' }}>Call · M. Munavvar</span>
+                  <span className="text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(201,168,76,0.70)' }}>Call · M. Munavvar</span>
                   <span
                     className="text-[11px] font-light tracking-wide transition-colors duration-500"
                     style={{ color: T.contact }}
@@ -216,7 +216,7 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <MapPin size={13} strokeWidth={1} className="mt-0.5 flex-shrink-0" style={{ color: T.goldDim }} />
                 <div className="flex flex-col gap-0.5">
-                  <span className="text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(201,168,76,0.40)' }}>Nazarbaug · Fortune Point</span>
+                  <span className="text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(201,168,76,0.70)' }}>Nazarbaug · Fortune Point</span>
                   <span className="text-[11px] font-light leading-relaxed" style={{ color: T.address }}>
                     Mandvi, Vadodara – 390 017
                   </span>
@@ -226,7 +226,7 @@ export default function Footer() {
               <div className="flex items-start gap-3">
                 <Clock size={13} strokeWidth={1} className="mt-0.5 flex-shrink-0" style={{ color: T.goldDim }} />
                 <div className="flex flex-col gap-0.5">
-                  <span className="text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(201,168,76,0.40)' }}>Open Hours</span>
+                  <span className="text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(201,168,76,0.70)' }}>Open Hours</span>
                   <span className="text-[11px] font-light leading-relaxed" style={{ color: T.address }}>
                     10 am – 8 pm · Mon closed<br />Fri closed 12:45–2:45 pm
                   </span>
@@ -234,7 +234,7 @@ export default function Footer() {
               </div>
 
               <div className="flex items-center gap-2 mt-1">
-                <span style={{ color: 'rgba(201,168,76,0.35)', fontSize: '9px' }}>✦</span>
+                <span style={{ color: 'rgba(201,168,76,0.68)', fontSize: '9px' }}>✦</span>
                 <span className="text-[9px] tracking-[0.3em] uppercase" style={{ color: T.faint }}>
                   Free Delivery India
                 </span>

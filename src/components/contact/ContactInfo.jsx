@@ -76,7 +76,7 @@ export default function ContactInfo() {
     <div ref={ref} className="flex flex-col gap-4">
 
       <div>
-        <p className="text-[10px] tracking-[0.45em] uppercase mb-3" style={{ color: 'rgba(201,168,76,0.52)' }}>Reach Us</p>
+        <p className="text-[10px] tracking-[0.45em] uppercase mb-3" style={{ color: 'rgba(201,168,76,0.82)' }}>Reach Us</p>
         <h2 className="font-heading text-3xl md:text-4xl mb-2" style={{ color: 'rgba(255,248,240,0.92)' }}>
           We're <span className="italic" style={{ color: 'rgba(226,194,125,0.90)' }}>Here</span>
         </h2>
@@ -144,16 +144,16 @@ export default function ContactInfo() {
           boxShadow: '0 0 20px rgba(201,168,76,0.06)',
         }}
       >
-        <span className="text-gold-400/50 text-xs">✦</span>
-        <span className="text-[10px] tracking-[0.4em] uppercase text-gold-400/55">
+        <span className="text-gold-400/78 text-xs">✦</span>
+        <span className="text-[10px] tracking-[0.4em] uppercase text-gold-400/82">
           Free Delivery Across India
         </span>
-        <span className="text-gold-400/50 text-xs">✦</span>
+        <span className="text-gold-400/78 text-xs">✦</span>
       </div>
 
       {/* Products */}
       <div data-reveal className="flex flex-col gap-2 pt-1">
-        <p className="text-[9px] tracking-[0.35em] uppercase" style={{ color: 'rgba(201,168,76,0.35)' }}>Our Products</p>
+        <p className="text-[9px] tracking-[0.35em] uppercase" style={{ color: 'rgba(201,168,76,0.72)' }}>Our Products</p>
         <div className="flex flex-wrap gap-2">
           {['Indian Attar', 'Perfume Spray', 'Deodorant Spray', 'Room Freshener', 'Car Spray', 'Agarbatti'].map(p => (
             <span key={p} className="text-[9px] tracking-[0.2em] uppercase px-3 py-1.5 border border-gold-400/15"
