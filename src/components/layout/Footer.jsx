@@ -77,8 +77,8 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: LUXURY }}
-            className="font-heading italic text-center text-2xl md:text-3xl mb-20"
-            style={{ color: 'rgba(245,240,232,0.22)', letterSpacing: '0.01em', fontWeight: 300 }}
+            className="font-heading italic text-center text-3xl md:text-4xl mb-20"
+            style={{ color: 'rgba(245,240,232,0.38)', letterSpacing: '0.01em', fontWeight: 300 }}
           >
             Crafted to linger beyond memory.
           </motion.p>
@@ -99,7 +99,7 @@ export default function Footer() {
               </Link>
 
               <p className="text-[13px] font-light leading-[1.85] max-w-[200px]"
-                style={{ color: 'rgba(245,240,232,0.35)' }}>
+                style={{ color: 'rgba(245,240,232,0.50)' }}>
                 Custom-made attars blended for you alone. Free delivery across India.
               </p>
 
@@ -136,7 +136,7 @@ export default function Footer() {
                   end={to === '/'}
                   className={({ isActive }) =>
                     'text-[11px] tracking-[0.22em] uppercase font-light transition-colors duration-500 w-fit ' +
-                    (isActive ? 'text-gold-400/60' : 'text-ivory/30 hover:text-ivory/60')
+                    (isActive ? 'text-gold-400/70' : 'text-ivory/45 hover:text-ivory/80')
                   }
                 >
                   {label}

@@ -77,7 +77,7 @@ export const cardVariants = {
   exit: { opacity: 0, scale: 0.95, transition: { duration: 0.25 } },
 }
 
-export default function CollectionCard({ product, index }) {
+export default function CollectionCard({ product, index, featured = false }) {
   const { id, name, arabicName, desc, notes, gradient, accentColor, price, isNew, isBestseller, image } = product
 
   const cardRef         = useRef(null)
@@ -147,7 +147,7 @@ export default function CollectionCard({ product, index }) {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       className="group relative flex flex-col cursor-pointer select-none"
-      style={{ perspective: '900px', boxShadow: cardShadow }}
+      style={{ perspective: '900px', boxShadow: cardShadow, border: `1px solid ${accentColor}08` }}
     >
 
       {/* ════════════════════════════════════════════════════════════
@@ -156,7 +156,7 @@ export default function CollectionCard({ product, index }) {
       <motion.div
         className="relative overflow-hidden"
         style={{
-          height: '268px',
+          height: featured || isBestseller ? '310px' : '268px',
           transformStyle: 'preserve-3d',
           ...tiltStyle,
         }}
@@ -168,15 +168,15 @@ export default function CollectionCard({ product, index }) {
           style={{ inset: '-8%', background: gradient, x: bgX, y: bgY, zIndex: 0 }}
         />
 
-        {/* ── L2: Arabic watermark — moves with BG (same parallax) ── */}
+        {/* ── L2: Arabic watermark — atmospheric, subtle ── */}
         <motion.div
           className="absolute inset-0 flex items-center justify-center pointer-events-none"
           style={{ x: bgX, y: bgY, zIndex: 1 }}
         >
           <motion.span
-            className="font-heading text-7xl font-light select-none"
-            animate={{ opacity: hovered ? 0.04 : 0.08, scale: hovered ? 1.06 : 1 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="font-heading text-5xl font-light select-none"
+            animate={{ opacity: hovered ? 0.03 : 0.06, scale: hovered ? 1.04 : 1 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
             style={{ color: accentColor }}
           >
             {arabicName}
@@ -206,17 +206,21 @@ export default function CollectionCard({ product, index }) {
           >
             {image ? (
               <>
-                <img
+                <motion.img
                   src={image}
                   alt={name}
                   draggable={false}
                   className="absolute inset-0 w-full h-full object-cover"
-                  style={{ filter: 'brightness(0.75) saturate(0.9)' }}
+                  animate={{ scale: hovered ? 1.06 : 1, filter: hovered ? 'brightness(0.85) saturate(0.95)' : 'brightness(0.72) saturate(0.88)' }}
+                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 />
-                {/* Darkening overlay so text stays readable */}
-                <div className="absolute inset-0" style={{
-                  background: 'linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.52) 100%)',
+                {/* Vignette overlay */}
+                <div className="absolute inset-0 pointer-events-none" style={{
+                  background: 'linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.62) 100%)',
                 }} />
+                {/* Accent color tint on hover */}
+                <div className="absolute inset-0 pointer-events-none transition-opacity duration-700"
+                  style={{ background: `radial-gradient(ellipse at 50% 80%, ${accentColor}12 0%, transparent 65%)`, opacity: hovered ? 1 : 0 }} />
               </>
             ) : (
               <BottlePlaceholder accentColor={accentColor} arabicName={arabicName} />
@@ -341,41 +345,47 @@ export default function CollectionCard({ product, index }) {
           CONTENT AREA — flat (no 3D tilt)
           ════════════════════════════════════════════════════════════ */}
       <div
-        className="p-5 flex flex-col gap-3 flex-1 border border-t-0 transition-all duration-400"
+        className="p-6 flex flex-col gap-4 flex-1 border border-t-0 transition-all duration-500"
         style={{
-          background: hovered ? 'rgba(18,12,4,0.96)' : '#111111',
-          borderColor: hovered ? `${accentColor}28` : `${accentColor}10`,
+          background: hovered ? 'rgba(15,10,3,0.98)' : 'rgba(10,8,3,0.95)',
+          borderColor: hovered ? `${accentColor}22` : `${accentColor}08`,
+          paddingBottom: '28px',
         }}
       >
         {/* Name row */}
         <div className="flex items-start justify-between gap-2">
           <div>
-            <h3 className="font-heading text-lg text-ivory group-hover:text-gold-300 transition-colors duration-300 leading-tight">
+            <h3 className="font-heading text-xl text-ivory transition-colors duration-400 leading-tight"
+              style={{ color: hovered ? 'rgba(226,194,125,0.95)' : 'rgba(245,240,232,0.9)' }}>
               {name}
             </h3>
-            <p className="text-[10px] tracking-wider text-gold-400/30 mt-0.5">{arabicName}</p>
           </div>
           <motion.div
-            className="text-ivory/20 group-hover:text-gold-400 transition-colors duration-300 mt-1 flex-shrink-0"
-            animate={{ x: hovered ? 3 : 0 }}
-            transition={{ duration: 0.3 }}
+            className="flex-shrink-0 mt-1 transition-colors duration-400"
+            animate={{ x: hovered ? 4 : 0, opacity: hovered ? 1 : 0.2 }}
+            transition={{ duration: 0.35 }}
+            style={{ color: hovered ? accentColor : 'rgba(245,240,232,0.25)' }}
           >
-            <ArrowRight size={15} strokeWidth={1.5} />
+            <ArrowRight size={14} strokeWidth={1.2} />
           </motion.div>
         </div>
 
         {/* Description */}
-        <p className="text-ivory/60 text-xs leading-relaxed font-light">{desc}</p>
+        <p className="font-light leading-[1.8]"
+          style={{ fontSize: '0.8125rem', color: hovered ? 'rgba(245,240,232,0.75)' : 'rgba(245,240,232,0.50)', transition: 'color 0.4s' }}>
+          {desc}
+        </p>
 
         {/* Note chips */}
-        <div className="flex flex-wrap gap-1.5 mt-auto">
+        <div className="flex flex-wrap gap-2 mt-auto">
           {notes.map((note) => (
             <span
               key={note}
-              className="text-[9px] tracking-[0.22em] uppercase px-2.5 py-1 border transition-all duration-300"
+              className="text-[9px] tracking-[0.22em] uppercase px-2.5 py-1.5 border transition-all duration-400"
               style={{
-                borderColor: hovered ? `${accentColor}28` : `${accentColor}12`,
-                color:       hovered ? `${accentColor}72` : `${accentColor}40`,
+                borderColor: hovered ? `${accentColor}30` : `${accentColor}10`,
+                color:       hovered ? `${accentColor}80` : `${accentColor}38`,
+                background:  hovered ? `${accentColor}05` : 'transparent',
               }}
             >
               {note}
@@ -385,16 +395,20 @@ export default function CollectionCard({ product, index }) {
 
         {/* Price + enquire */}
         <div
-          className="flex items-center justify-between pt-2 border-t transition-colors duration-300"
-          style={{ borderColor: hovered ? `${accentColor}18` : `${accentColor}08` }}
+          className="flex items-center justify-between pt-3 border-t transition-colors duration-400"
+          style={{ borderColor: hovered ? `${accentColor}15` : `${accentColor}06` }}
         >
-          <span className="text-gold-400 text-sm font-medium tracking-wide">{price}</span>
+          <span className="font-heading font-light transition-colors duration-400"
+            style={{ fontSize: '1.15rem', letterSpacing: '0.1em', color: hovered ? accentColor : `${accentColor}70` }}>
+            {price}
+          </span>
           <motion.span
-            className="text-[9px] tracking-[0.3em] uppercase text-ivory/50"
-            animate={{ opacity: hovered ? 1 : 0, x: hovered ? 0 : -5 }}
-            transition={{ duration: 0.3 }}
+            className="text-[9px] tracking-[0.35em] uppercase"
+            animate={{ opacity: hovered ? 1 : 0, x: hovered ? 0 : -8 }}
+            transition={{ duration: 0.35 }}
+            style={{ color: 'rgba(245,240,232,0.45)' }}
           >
-            Enquire →
+            Enquire
           </motion.span>
         </div>
       </div>

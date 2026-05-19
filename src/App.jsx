@@ -2,7 +2,6 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
-import ScrollToTop from './components/layout/ScrollToTop'
 import Home from './pages/Home'
 import Collections from './pages/Collections'
 import CustomFragrance from './pages/CustomFragrance'
@@ -31,7 +30,6 @@ export default function App() {
         </Routes>
       </AnimatePresence>
       <Footer />
-      <ScrollToTop />
     </>
   )
 }

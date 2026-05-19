@@ -38,6 +38,11 @@ export default function Collections() {
         isSticky={tabsSticky}
       />
 
+      {/* Atmospheric fade into grid */}
+      <div className="h-8 pointer-events-none" style={{
+        background: 'linear-gradient(180deg, rgba(30,15,5,0.12) 0%, transparent 100%)',
+      }} />
+
       <ProductGrid activeFilter={activeFilter} />
     </motion.main>
   )

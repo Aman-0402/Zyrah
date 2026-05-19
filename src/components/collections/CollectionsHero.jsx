@@ -2,37 +2,54 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ChevronRight } from 'lucide-react'
 
+const LUXURY = [0.22, 1, 0.36, 1]
+
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.12, delayChildren: 0.3 } },
+  show: { transition: { staggerChildren: 0.14, delayChildren: 0.3 } },
 }
 const item = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } },
+  hidden: { opacity: 0, y: 28 },
+  show: { opacity: 1, y: 0, transition: { duration: 1.0, ease: [0.76, 0, 0.24, 1] } },
 }
 
-/* Horizontal arabesque divider */
+const PARTICLES = [
+  { left: '8%',  top: '30%', dur: 7,  del: 0,   size: 1.5 },
+  { left: '88%', top: '22%', dur: 9,  del: 1.2, size: 1 },
+  { left: '15%', top: '70%', dur: 8,  del: 2.5, size: 2 },
+  { left: '78%', top: '65%', dur: 6,  del: 0.8, size: 1.5 },
+  { left: '48%', top: '12%', dur: 10, del: 1.8, size: 1 },
+  { left: '92%', top: '48%', dur: 7,  del: 3.0, size: 1 },
+  { left: '5%',  top: '50%', dur: 9,  del: 0.4, size: 1.5 },
+  { left: '60%', top: '80%', dur: 8,  del: 2.0, size: 1 },
+]
+
+const WISPS = [
+  { left: '20%', del: 0   },
+  { left: '50%', del: 4   },
+  { left: '78%', del: 8   },
+]
+
 function ArabesqueDivider() {
   return (
     <svg
-      className="absolute bottom-0 left-0 right-0 w-full opacity-20"
-      height="24"
-      viewBox="0 0 1440 24"
+      className="absolute bottom-0 left-0 right-0 w-full"
+      height="28"
+      viewBox="0 0 1440 28"
       preserveAspectRatio="none"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M0 12 Q180 0 360 12 Q540 24 720 12 Q900 0 1080 12 Q1260 24 1440 12"
-        stroke="#C9A84C"
-        strokeWidth="0.6"
+        d="M0 14 Q180 0 360 14 Q540 28 720 14 Q900 0 1080 14 Q1260 28 1440 14"
+        stroke="rgba(176,141,87,0.18)"
+        strokeWidth="0.7"
         fill="none"
       />
-      {[180, 540, 900, 1260].map((cx) => (
-        <circle key={cx} cx={cx} cy="2" r="2" fill="#C9A84C" opacity="0.5" />
-      ))}
       {[360, 720, 1080].map((cx) => (
-        <circle key={cx} cx={cx} cy="22" r="2" fill="#C9A84C" opacity="0.5" />
+        <circle key={cx} cx={cx} cy="14" r="2" fill="rgba(176,141,87,0.35)" />
+      ))}
+      {[180, 540, 900, 1260].map((cx) => (
+        <circle key={cx} cx={cx} cy="4" r="1.2" fill="rgba(176,141,87,0.2)" />
       ))}
     </svg>
   )
@@ -40,75 +57,122 @@ function ArabesqueDivider() {
 
 export default function CollectionsHero() {
   return (
-    <section className="relative flex items-center justify-center overflow-hidden bg-black" style={{ minHeight: '60vh' }}>
+    <section className="relative flex items-center justify-center overflow-hidden" style={{ minHeight: '52vh', background: '#050403' }}>
 
-      {/* Ambient glow */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201,168,76,0.05) 0%, transparent 70%)',
-        }}
-      />
+      {/* Deep cinematic glow layers */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: 'radial-gradient(ellipse 80% 70% at 50% 60%, rgba(120,70,20,0.10) 0%, rgba(59,31,15,0.18) 45%, transparent 75%)',
+      }} />
+      <div className="absolute top-0 left-1/4 w-[600px] h-[400px] pointer-events-none" style={{
+        background: 'radial-gradient(ellipse, rgba(80,40,10,0.08) 0%, transparent 65%)',
+        filter: 'blur(60px)',
+      }} />
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[300px] pointer-events-none" style={{
+        background: 'radial-gradient(ellipse, rgba(60,30,8,0.06) 0%, transparent 65%)',
+        filter: 'blur(60px)',
+      }} />
+
+      {/* Smoke wisps */}
+      {WISPS.map(({ left, del }, i) => (
+        <motion.div
+          key={i}
+          className="absolute bottom-0 pointer-events-none"
+          style={{ left, width: 200, height: 300 }}
+          animate={{ y: [0, -80], opacity: [0, 0.06, 0], scale: [0.8, 1.5] }}
+          transition={{ duration: 12, repeat: Infinity, delay: del, ease: 'easeOut' }}
+        >
+          <div style={{ width: '100%', height: '100%', background: 'radial-gradient(ellipse, rgba(176,141,87,0.2) 0%, transparent 70%)', filter: 'blur(30px)' }} />
+        </motion.div>
+      ))}
+
+      {/* Gold dust particles */}
+      {PARTICLES.map((p, i) => (
+        <motion.div
+          key={i}
+          className="absolute rounded-full pointer-events-none"
+          style={{ left: p.left, top: p.top, width: p.size, height: p.size, background: 'rgba(176,141,87,0.7)' }}
+          animate={{ y: [0, -18, 0], opacity: [0, 0.35, 0], scale: [1, 1.8, 1] }}
+          transition={{ duration: p.dur, repeat: Infinity, delay: p.del, ease: 'easeInOut' }}
+        />
+      ))}
 
       {/* Top border line */}
       <motion.div
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
-        transition={{ duration: 1.2, delay: 0.1, ease: [0.76, 0, 0.24, 1] }}
+        transition={{ duration: 1.4, delay: 0.1, ease: LUXURY }}
         className="absolute top-20 left-0 right-0 h-px origin-left"
-        style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.25), transparent)' }}
+        style={{ background: 'linear-gradient(90deg, transparent, rgba(176,141,87,0.25), transparent)' }}
       />
 
       <motion.div
         variants={container}
         initial="hidden"
         animate="show"
-        className="relative z-10 text-center px-6 max-w-4xl mx-auto"
+        className="relative z-10 text-center px-6 max-w-3xl mx-auto"
       >
         {/* Breadcrumb */}
-        <motion.nav variants={item} className="flex items-center justify-center gap-1.5 mb-8">
-          <Link to="/" className="text-[9px] tracking-[0.35em] uppercase text-gold-400/30 hover:text-gold-400/60 transition-colors duration-300">
+        <motion.nav variants={item} className="flex items-center justify-center gap-1.5 mb-10">
+          <Link to="/" className="text-[9px] tracking-[0.4em] uppercase transition-colors duration-300"
+            style={{ color: 'rgba(176,141,87,0.35)' }}
+            onMouseEnter={e => e.currentTarget.style.color = 'rgba(176,141,87,0.65)'}
+            onMouseLeave={e => e.currentTarget.style.color = 'rgba(176,141,87,0.35)'}
+          >
             Home
           </Link>
-          <ChevronRight size={10} className="text-gold-400/20" />
-          <span className="text-[9px] tracking-[0.35em] uppercase text-gold-400/50">
+          <ChevronRight size={9} style={{ color: 'rgba(176,141,87,0.22)' }} />
+          <span className="text-[9px] tracking-[0.4em] uppercase" style={{ color: 'rgba(176,141,87,0.55)' }}>
             Collections
           </span>
         </motion.nav>
 
-        {/* Label */}
-        <motion.p variants={item} className="text-[10px] tracking-[0.5em] uppercase text-gold-400/50 mb-5">
+        {/* Eyebrow */}
+        <motion.p variants={item} className="text-[10px] tracking-[0.6em] uppercase mb-6"
+          style={{ color: 'rgba(176,141,87,0.55)' }}>
           Our Catalogue
         </motion.p>
 
         {/* Headline */}
-        <motion.h1
-          variants={item}
-          className="font-heading text-5xl md:text-7xl lg:text-8xl text-ivory mb-4 leading-tight"
-          style={{ fontWeight: 300 }}
-        >
-          The{' '}
-          <span className="italic text-gold-gradient" style={{ fontWeight: 400 }}>
-            Collection
-          </span>
-        </motion.h1>
+        <motion.div variants={item} className="overflow-hidden mb-3">
+          <h1 className="font-heading leading-none" style={{ fontWeight: 300 }}>
+            <span className="block text-5xl md:text-6xl lg:text-7xl" style={{ color: 'rgba(245,240,232,0.92)' }}>
+              The
+            </span>
+            <span className="block text-5xl md:text-6xl lg:text-7xl italic text-gold-gradient" style={{ fontWeight: 400, lineHeight: 0.92 }}>
+              Collection
+            </span>
+          </h1>
+        </motion.div>
 
-        {/* Gold divider */}
-        <motion.div
-          initial={{ width: 0 }}
-          animate={{ width: 80 }}
-          transition={{ duration: 0.9, delay: 0.9, ease: [0.76, 0, 0.24, 1] }}
-          className="h-px bg-gold-400/50 mx-auto mb-6"
-        />
+        {/* Animated gold divider */}
+        <motion.div className="flex items-center justify-center gap-3 my-7" variants={item}>
+          <motion.div
+            initial={{ width: 0, opacity: 0 }}
+            animate={{ width: 60, opacity: 1 }}
+            transition={{ duration: 1.0, delay: 1.0, ease: LUXURY }}
+            className="h-px"
+            style={{ background: 'linear-gradient(to right, transparent, rgba(176,141,87,0.6))' }}
+          />
+          <span style={{ color: 'rgba(176,141,87,0.5)', fontSize: '8px' }}>✦</span>
+          <motion.div
+            initial={{ width: 0, opacity: 0 }}
+            animate={{ width: 60, opacity: 1 }}
+            transition={{ duration: 1.0, delay: 1.0, ease: LUXURY }}
+            className="h-px"
+            style={{ background: 'linear-gradient(to left, transparent, rgba(176,141,87,0.6))' }}
+          />
+        </motion.div>
 
         {/* Subtext */}
-        <motion.p
-          variants={item}
-          className="font-heading italic text-ivory/35 text-lg md:text-xl max-w-sm mx-auto"
-        >
+        <motion.p variants={item} className="font-heading italic text-lg md:text-xl"
+          style={{ color: 'rgba(245,240,232,0.55)', letterSpacing: '0.01em' }}>
           Twelve signatures. Countless stories.
         </motion.p>
       </motion.div>
+
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
+        style={{ background: 'linear-gradient(to top, #050403, transparent)' }} />
 
       <ArabesqueDivider />
     </section>
