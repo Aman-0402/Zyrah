@@ -40,13 +40,13 @@ function NavItem({ label, to }) {
         {({ isActive }) => (
           <>
             <span
-              className="text-[11px] tracking-[0.32em] uppercase font-light transition-all duration-500"
+              className="text-[11px] tracking-[0.32em] uppercase font-medium transition-all duration-400"
               style={{
-                color: isActive ? 'rgba(176,141,87,0.95)' : 'rgba(245,240,232,0.45)',
-                textShadow: isActive ? '0 0 20px rgba(176,141,87,0.3)' : 'none',
+                color: isActive ? 'rgba(224,188,100,1)' : 'rgba(255,252,245,0.88)',
+                textShadow: isActive ? '0 0 20px rgba(201,168,76,0.4)' : 'none',
               }}
-              onMouseEnter={e => { if (!isActive) e.currentTarget.style.color = 'rgba(245,240,232,0.85)' }}
-              onMouseLeave={e => { if (!isActive) e.currentTarget.style.color = 'rgba(245,240,232,0.45)' }}
+              onMouseEnter={e => { if (!isActive) { e.currentTarget.style.color = 'rgba(224,188,100,1)'; e.currentTarget.style.textShadow = '0 0 16px rgba(201,168,76,0.35)' } }}
+              onMouseLeave={e => { if (!isActive) { e.currentTarget.style.color = 'rgba(255,252,245,0.88)'; e.currentTarget.style.textShadow = 'none' } }}
             >
               {label}
             </span>
