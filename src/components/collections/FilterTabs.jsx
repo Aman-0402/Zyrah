@@ -15,12 +15,12 @@ export default function FilterTabs({ active, onChange, isSticky }) {
       style={{
         top: '76px',
         background: isSticky
-          ? 'rgba(4,3,2,0.92)'
-          : 'transparent',
-        backdropFilter: isSticky ? 'blur(14px)' : 'none',
-        WebkitBackdropFilter: isSticky ? 'blur(14px)' : 'none',
-        borderBottom: isSticky ? '1px solid rgba(176,141,87,0.08)' : '1px solid rgba(176,141,87,0.06)',
-        boxShadow: isSticky ? '0 4px 40px rgba(0,0,0,0.6)' : 'none',
+          ? 'rgba(10,6,2,0.94)'
+          : 'rgba(10,6,2,0.40)',
+        backdropFilter: isSticky ? 'blur(16px)' : 'blur(8px)',
+        WebkitBackdropFilter: isSticky ? 'blur(16px)' : 'blur(8px)',
+        borderBottom: `1px solid rgba(176,141,87,${isSticky ? '0.12' : '0.08'})`,
+        boxShadow: isSticky ? '0 4px 40px rgba(0,0,0,0.7), 0 1px 0 rgba(201,168,76,0.06)' : 'none',
       }}
     >
       <div className="cx overflow-x-auto">
@@ -46,27 +46,29 @@ export default function FilterTabs({ active, onChange, isSticky }) {
                 style={{
                   padding: '10px 22px',
                   borderRadius: '999px',
-                  border: `1px solid ${isActive ? 'rgba(176,141,87,0.42)' : 'rgba(176,141,87,0.10)'}`,
-                  background: isActive ? 'rgba(176,141,87,0.08)' : 'rgba(176,141,87,0.02)',
-                  boxShadow: isActive ? '0 0 22px rgba(176,141,87,0.12)' : 'none',
+                  border: `1px solid ${isActive ? 'rgba(201,168,76,0.50)' : 'rgba(176,141,87,0.18)'}`,
+                  background: isActive
+                    ? 'linear-gradient(180deg, rgba(201,168,76,0.12) 0%, rgba(176,141,87,0.06) 100%)'
+                    : 'rgba(255,248,235,0.03)',
+                  boxShadow: isActive ? '0 0 28px rgba(201,168,76,0.15), inset 0 1px 0 rgba(255,255,255,0.06)' : 'none',
                 }}
                 onMouseEnter={e => {
                   if (!isActive) {
-                    e.currentTarget.style.borderColor = 'rgba(176,141,87,0.28)'
-                    e.currentTarget.style.background = 'rgba(176,141,87,0.05)'
+                    e.currentTarget.style.borderColor = 'rgba(201,168,76,0.38)'
+                    e.currentTarget.style.background = 'rgba(201,168,76,0.07)'
                   }
                 }}
                 onMouseLeave={e => {
                   if (!isActive) {
-                    e.currentTarget.style.borderColor = 'rgba(176,141,87,0.10)'
-                    e.currentTarget.style.background = 'rgba(176,141,87,0.02)'
+                    e.currentTarget.style.borderColor = 'rgba(176,141,87,0.18)'
+                    e.currentTarget.style.background = 'rgba(255,248,235,0.03)'
                   }
                 }}
               >
                 <span
                   className="text-[10px] tracking-[0.35em] uppercase font-light transition-all duration-400"
                   style={{
-                    color: isActive ? 'rgba(176,141,87,0.95)' : 'rgba(245,240,232,0.40)',
+                    color: isActive ? 'rgba(224,188,100,1)' : 'rgba(255,248,235,0.62)',
                     textShadow: isActive ? '0 0 16px rgba(176,141,87,0.3)' : 'none',
                   }}
                 >
@@ -76,7 +78,7 @@ export default function FilterTabs({ active, onChange, isSticky }) {
                 <span
                   className="text-[8px] tabular-nums transition-all duration-400"
                   style={{
-                    color: isActive ? 'rgba(176,141,87,0.55)' : 'rgba(245,240,232,0.18)',
+                    color: isActive ? 'rgba(201,168,76,0.70)' : 'rgba(255,248,235,0.35)',
                   }}
                 >
                   {count}

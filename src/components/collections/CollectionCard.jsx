@@ -111,7 +111,7 @@ export default function CollectionCard({ product, index, featured = false }) {
   const cardShadow = useTransform(
     [rawX, rawY],
     ([x, y]) =>
-      `${-x * 30}px ${-y * 22}px 55px rgba(0,0,0,0.55), 0 0 45px ${accentColor}10, 0 4px 28px rgba(0,0,0,0.45)`
+      `${-x * 30}px ${-y * 22}px 55px rgba(0,0,0,0.6), 0 0 45px ${accentColor}12, 0 6px 40px rgba(0,0,0,0.5), 0 1px 0 rgba(201,168,76,0.08)`
   )
 
   /* ── Event handlers ── */
@@ -159,7 +159,15 @@ export default function CollectionCard({ product, index, featured = false }) {
       onMouseLeave={onMouseLeave}
       onClick={onTap}
       className={`group relative flex flex-col select-none h-full ${isComingSoon ? 'cursor-default' : 'cursor-pointer'}`}
-      style={{ perspective: '900px', boxShadow: cardShadow, border: `1px solid ${isActive ? accentColor + '32' : accentColor + '18'}`, transition: 'border-color 0.5s', willChange: 'transform' }}
+      style={{
+        perspective: '900px',
+        boxShadow: cardShadow,
+        border: `1px solid ${isActive ? accentColor + '35' : accentColor + '18'}`,
+        transition: 'border-color 0.5s',
+        willChange: 'transform',
+        outline: `1px solid ${isActive ? accentColor + '12' : 'transparent'}`,
+        outlineOffset: '3px',
+      }}
     >
 
       {/* ════════════════════════════════════════════════════════════
@@ -208,12 +216,12 @@ export default function CollectionCard({ product, index, featured = false }) {
                   alt={name}
                   draggable={false}
                   className="absolute inset-0 w-full h-full object-cover"
-                  animate={{ scale: isActive ? 1.06 : 1, filter: isActive ? 'brightness(1.0) saturate(1.05)' : 'brightness(0.88) saturate(0.92)' }}
+                  animate={{ scale: isActive ? 1.06 : 1, filter: isActive ? 'brightness(1.04) saturate(1.08)' : 'brightness(0.96) saturate(0.97)' }}
                   transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 />
                 {/* Vignette overlay */}
                 <div className="absolute inset-0 pointer-events-none" style={{
-                  background: 'linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.62) 100%)',
+                  background: 'linear-gradient(180deg, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.22) 55%, rgba(0,0,0,0.52) 100%)',
                 }} />
                 {/* Accent color tint on hover */}
                 <div className="absolute inset-0 pointer-events-none transition-opacity duration-700"
@@ -332,8 +340,10 @@ export default function CollectionCard({ product, index, featured = false }) {
       <div
         className="p-3 sm:p-5 flex flex-col gap-2 sm:gap-3 flex-1 border border-t-0 transition-all duration-500"
         style={{
-          background: isActive ? 'rgba(16,11,4,0.99)' : 'rgba(13,9,4,0.97)',
-          borderColor: isActive ? `${accentColor}22` : `${accentColor}08`,
+          background: isActive
+            ? 'rgba(22,15,6,0.99)'
+            : 'linear-gradient(180deg, rgba(18,12,5,0.98) 0%, rgba(14,9,3,0.98) 100%)',
+          borderColor: isActive ? `${accentColor}28` : `${accentColor}12`,
           paddingBottom: '16px',
         }}
       >
@@ -350,7 +360,7 @@ export default function CollectionCard({ product, index, featured = false }) {
         <div className="flex items-start justify-between gap-2">
           <div>
             <h3 className={`font-heading ${featured ? 'text-base sm:text-2xl' : 'text-sm sm:text-xl'} transition-colors duration-400 leading-tight`}
-              style={{ color: isActive ? 'rgba(226,194,125,0.98)' : 'rgba(255,248,240,0.92)' }}>
+              style={{ color: isActive ? 'rgba(232,200,132,1)' : 'rgba(255,252,245,0.97)' }}>
               {name}
             </h3>
           </div>
@@ -366,7 +376,7 @@ export default function CollectionCard({ product, index, featured = false }) {
 
         {/* Description — hidden on mobile 2-col */}
         <p className="hidden sm:block font-light leading-[1.8]"
-          style={{ fontSize: '0.8125rem', color: isActive ? 'rgba(255,248,240,0.88)' : 'rgba(255,248,240,0.72)', transition: 'color 0.4s' }}>
+          style={{ fontSize: '0.8125rem', color: isActive ? 'rgba(255,252,245,0.92)' : 'rgba(255,248,235,0.78)', transition: 'color 0.4s' }}>
           {desc}
         </p>
 
@@ -377,8 +387,8 @@ export default function CollectionCard({ product, index, featured = false }) {
               key={note}
               className="text-[9px] tracking-[0.22em] uppercase px-2.5 py-1.5 border transition-all duration-400"
               style={{
-                borderColor: isActive ? `${accentColor}38` : `${accentColor}18`,
-                color:       isActive ? `${accentColor}88` : `${accentColor}52`,
+                borderColor: isActive ? `${accentColor}45` : `${accentColor}28`,
+                color:       isActive ? `${accentColor}92` : `${accentColor}65`,
                 background:  isActive ? `${accentColor}05` : 'transparent',
               }}
             >
@@ -393,7 +403,7 @@ export default function CollectionCard({ product, index, featured = false }) {
           style={{ borderColor: isActive ? `${accentColor}15` : `${accentColor}06` }}
         >
           <span className="font-heading font-light transition-colors duration-400"
-            style={{ fontSize: featured ? '1.3rem' : '1.15rem', letterSpacing: '0.1em', color: isComingSoon ? `${accentColor}30` : isActive ? accentColor : `${accentColor}92` }}>
+            style={{ fontSize: featured ? '1.3rem' : '1.15rem', letterSpacing: '0.1em', color: isComingSoon ? `${accentColor}30` : isActive ? accentColor : `${accentColor}BB` }}>
             {isComingSoon ? 'Notify Me' : price}
           </span>
           {!isComingSoon && (

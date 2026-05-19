@@ -25,25 +25,36 @@ export default function Collections() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen"
-      style={{ background: '#050403' }}
+      className="min-h-screen relative"
+      style={{ background: 'linear-gradient(180deg, #0a0603 0%, #080502 40%, #0c0704 100%)' }}
     >
-      <div ref={heroRef}>
-        <CollectionsHero />
+      {/* Warm ambient glow — top left + bottom right */}
+      <div className="fixed inset-0 pointer-events-none" style={{ zIndex: 0 }}>
+        <div style={{
+          position: 'absolute', top: '20%', left: '-5%',
+          width: '45%', height: '60%',
+          background: 'radial-gradient(ellipse 60% 60% at 20% 40%, rgba(90,48,12,0.07) 0%, transparent 70%)',
+        }} />
+        <div style={{
+          position: 'absolute', bottom: '10%', right: '-5%',
+          width: '45%', height: '60%',
+          background: 'radial-gradient(ellipse 60% 60% at 80% 60%, rgba(70,38,10,0.06) 0%, transparent 70%)',
+        }} />
       </div>
 
-      <FilterTabs
-        active={activeFilter}
-        onChange={setActiveFilter}
-        isSticky={tabsSticky}
-      />
+      <div className="relative" style={{ zIndex: 1 }}>
+        <div ref={heroRef}>
+          <CollectionsHero />
+        </div>
 
-      {/* Atmospheric fade into grid */}
-      <div className="h-8 pointer-events-none" style={{
-        background: 'linear-gradient(180deg, rgba(30,15,5,0.12) 0%, transparent 100%)',
-      }} />
+        <FilterTabs
+          active={activeFilter}
+          onChange={setActiveFilter}
+          isSticky={tabsSticky}
+        />
 
-      <ProductGrid activeFilter={activeFilter} />
+        <ProductGrid activeFilter={activeFilter} />
+      </div>
     </motion.main>
   )
 }

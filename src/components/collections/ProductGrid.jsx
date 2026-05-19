@@ -35,7 +35,7 @@ export default function ProductGrid({ activeFilter }) {
   )
 
   return (
-    <div className="cx pt-14 pb-24 md:pb-36">
+    <div className="cx pt-14 pb-24 md:pb-36" style={{ position: 'relative' }}>
       <motion.div
         layout
         className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 md:gap-10"

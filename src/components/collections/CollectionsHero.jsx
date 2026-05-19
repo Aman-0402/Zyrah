@@ -47,17 +47,24 @@ function ArabesqueDivider() {
 
 export default function CollectionsHero() {
   return (
-    <section className="relative flex items-center justify-center overflow-hidden" style={{ minHeight: 'clamp(38vh, 55vw, 56vh)', paddingTop: '90px', background: '#050403' }}>
+    <section className="relative flex items-center justify-center overflow-hidden" style={{ minHeight: 'clamp(38vh, 55vw, 56vh)', paddingTop: '90px' }}>
 
-      {/* Deep cinematic glow layers */}
+      {/* Background image */}
+      <div className="absolute inset-0" style={{
+        backgroundImage: `url(${import.meta.env.BASE_URL}backgrounddd.png)`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }} />
+
+      {/* Dark overlay — keeps text readable + luxury depth */}
+      <div className="absolute inset-0" style={{
+        background: 'linear-gradient(180deg, rgba(5,4,3,0.62) 0%, rgba(8,5,2,0.55) 50%, rgba(5,4,3,0.82) 100%)',
+      }} />
+
+      {/* Warm cinematic center glow */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        background: 'radial-gradient(ellipse 80% 70% at 50% 60%, rgba(120,70,20,0.10) 0%, rgba(59,31,15,0.18) 45%, transparent 75%)',
-      }} />
-      <div className="absolute top-0 left-1/4 w-[600px] h-[400px] pointer-events-none" style={{
-        background: 'radial-gradient(ellipse 80% 80% at 30% 20%, rgba(80,40,10,0.10) 0%, transparent 70%)',
-      }} />
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[300px] pointer-events-none" style={{
-        background: 'radial-gradient(ellipse 80% 80% at 70% 80%, rgba(60,30,8,0.08) 0%, transparent 70%)',
+        background: 'radial-gradient(ellipse 70% 60% at 50% 55%, rgba(120,70,20,0.18) 0%, transparent 70%)',
       }} />
 
       {/* Gold dust particles */}
