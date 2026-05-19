@@ -63,7 +63,7 @@ export default function Footer() {
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
           <span
             className="font-heading font-light text-ivory select-none whitespace-nowrap"
-            style={{ fontSize: 'clamp(56px,9vw,110px)', letterSpacing: '0.5em', opacity: 0.032 }}
+            style={{ fontSize: 'clamp(56px,9vw,110px)', letterSpacing: '0.5em', opacity: 0.048 }}
           >
             M. M. ATTARWALA
           </span>
@@ -78,7 +78,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: LUXURY }}
             className="font-heading italic text-center text-3xl md:text-4xl mb-20"
-            style={{ color: 'rgba(245,240,232,0.38)', letterSpacing: '0.01em', fontWeight: 300 }}
+            style={{ color: 'rgba(245,240,232,0.50)', letterSpacing: '0.01em', fontWeight: 300 }}
           >
             Crafted to linger beyond memory.
           </motion.p>
@@ -99,7 +99,7 @@ export default function Footer() {
               </Link>
 
               <p className="text-[13px] font-light leading-[1.85] max-w-[200px]"
-                style={{ color: 'rgba(245,240,232,0.50)' }}>
+                style={{ color: 'rgba(245,240,232,0.60)' }}>
                 Custom-made attars blended for you alone. Free delivery across India.
               </p>
 
@@ -232,7 +232,7 @@ export default function Footer() {
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-3"
             style={{ borderTop: '1px solid rgba(201,168,76,0.06)' }}>
             <p className="text-[9px] tracking-[0.35em] uppercase font-light"
-              style={{ color: 'rgba(245,240,232,0.40)' }}>
+              style={{ color: 'rgba(245,240,232,0.52)' }}>
               © {year} M. M. Attarwala. All rights reserved.
             </p>
             <p className="text-[9px] tracking-[0.35em] uppercase font-light"
