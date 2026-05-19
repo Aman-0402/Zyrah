@@ -97,19 +97,21 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-700"
         style={isScrolled
           ? {
-              background: 'linear-gradient(to bottom, rgba(13,8,7,0.96) 0%, rgba(22,12,10,0.84) 72%, rgba(22,12,10,0.42) 100%)',
-              backdropFilter: 'blur(14px)',
-              WebkitBackdropFilter: 'blur(14px)',
-              borderBottom: '1px solid rgba(176,141,87,0.07)',
-              paddingTop: '14px',
+              background: 'linear-gradient(to bottom, rgba(5,3,2,0.98) 0%, rgba(8,5,3,0.96) 100%)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              borderBottom: '1px solid rgba(176,141,87,0.14)',
+              paddingTop: '12px',
               paddingBottom: '6px',
+              boxShadow: '0 4px 40px rgba(0,0,0,0.6), 0 1px 0 rgba(176,141,87,0.08)',
             }
           : {
-              background: 'linear-gradient(to bottom, rgba(12,8,7,0.74) 0%, rgba(27,13,12,0.34) 70%, transparent 100%)',
-              backdropFilter: 'blur(4px)',
-              WebkitBackdropFilter: 'blur(4px)',
-              paddingTop: '22px',
-              paddingBottom: '14px',
+              background: 'linear-gradient(to bottom, rgba(5,3,2,0.92) 0%, rgba(8,5,3,0.86) 80%, rgba(5,3,2,0.72) 100%)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+              borderBottom: '1px solid rgba(176,141,87,0.09)',
+              paddingTop: '20px',
+              paddingBottom: '12px',
             }
         }
       >
@@ -121,12 +123,18 @@ export default function Navbar() {
           }}
         />
 
-        {/* Bottom gold divider — always present, stronger when scrolled */}
+        {/* Top gold micro-line */}
+        <div
+          className="absolute top-0 left-0 right-0 h-px pointer-events-none"
+          style={{ background: 'linear-gradient(to right, transparent 10%, rgba(201,168,76,0.35) 40%, rgba(226,194,125,0.55) 50%, rgba(201,168,76,0.35) 60%, transparent 90%)' }}
+        />
+
+        {/* Bottom gold divider */}
         <div
           className="absolute bottom-0 left-0 right-0 h-px pointer-events-none transition-opacity duration-700"
           style={{
-            background: 'linear-gradient(to right, transparent 5%, rgba(176,141,87,0.22) 40%, rgba(176,141,87,0.32) 50%, rgba(176,141,87,0.22) 60%, transparent 95%)',
-            opacity: isScrolled ? 1 : 0.4,
+            background: 'linear-gradient(to right, transparent 5%, rgba(176,141,87,0.30) 35%, rgba(201,168,76,0.50) 50%, rgba(176,141,87,0.30) 65%, transparent 95%)',
+            opacity: isScrolled ? 1 : 0.65,
           }}
         />
 
@@ -165,31 +173,31 @@ export default function Navbar() {
               to="/custom-fragrance"
               className="relative group overflow-hidden select-none transition-all duration-500"
               style={{
-                border: '1px solid rgba(176,141,87,0.28)',
-                color: 'rgba(176,141,87,0.80)',
-                background: 'rgba(176,141,87,0.04)',
-                padding: '11px 24px',
+                border: '1px solid rgba(201,168,76,0.45)',
+                color: 'rgba(201,168,76,0.90)',
+                background: 'rgba(201,168,76,0.06)',
+                padding: '11px 26px',
                 fontSize: '11px',
-                letterSpacing: '0.28em',
+                letterSpacing: '0.30em',
                 textTransform: 'uppercase',
-                fontWeight: 400,
+                fontWeight: 600,
+                boxShadow: '0 0 0px rgba(201,168,76,0)',
               }}
               onMouseEnter={e => {
-                e.currentTarget.style.borderColor = 'rgba(176,141,87,0.65)'
-                e.currentTarget.style.color = 'rgba(201,168,76,1)'
-                e.currentTarget.style.background = 'rgba(176,141,87,0.10)'
-                e.currentTarget.style.boxShadow = '0 0 24px rgba(176,141,87,0.18), inset 0 0 12px rgba(176,141,87,0.04)'
+                e.currentTarget.style.borderColor = 'rgba(201,168,76,1)'
+                e.currentTarget.style.color = '#080503'
+                e.currentTarget.style.background = 'rgba(201,168,76,1)'
+                e.currentTarget.style.boxShadow = '0 0 28px rgba(201,168,76,0.30), 0 0 8px rgba(201,168,76,0.20)'
               }}
               onMouseLeave={e => {
-                e.currentTarget.style.borderColor = 'rgba(176,141,87,0.28)'
-                e.currentTarget.style.color = 'rgba(176,141,87,0.80)'
-                e.currentTarget.style.background = 'rgba(176,141,87,0.04)'
-                e.currentTarget.style.boxShadow = 'none'
+                e.currentTarget.style.borderColor = 'rgba(201,168,76,0.45)'
+                e.currentTarget.style.color = 'rgba(201,168,76,0.90)'
+                e.currentTarget.style.background = 'rgba(201,168,76,0.06)'
+                e.currentTarget.style.boxShadow = '0 0 0px rgba(201,168,76,0)'
               }}
             >
-              {/* Shimmer sweep on hover */}
-              <span className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                style={{ background: 'linear-gradient(105deg, transparent 30%, rgba(201,168,76,0.06) 50%, transparent 70%)' }}
+              <span className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{ background: 'linear-gradient(105deg, transparent 20%, rgba(255,255,255,0.08) 50%, transparent 80%)' }}
               />
               <span className="relative">Craft Yours</span>
             </NavLink>
@@ -238,11 +246,11 @@ export default function Navbar() {
             animate="open"
             exit="closed"
             className="fixed inset-0 z-40 md:hidden"
-            style={{ background: 'rgba(4,3,2,0.98)', backdropFilter: 'blur(20px)' }}
+            style={{ background: 'rgba(3,2,1,1)', backdropFilter: 'blur(24px)' }}
           >
             {/* Gold accent lines */}
-            <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(to right, transparent, rgba(176,141,87,0.5), transparent)' }} />
-            <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(to right, transparent, rgba(176,141,87,0.2), transparent)' }} />
+            <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(to right, transparent 5%, rgba(201,168,76,0.65) 40%, rgba(226,194,125,0.80) 50%, rgba(201,168,76,0.65) 60%, transparent 95%)' }} />
+            <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(to right, transparent 10%, rgba(176,141,87,0.35) 40%, rgba(201,168,76,0.45) 50%, rgba(176,141,87,0.35) 60%, transparent 90%)' }} />
 
             {/* Atmospheric glow */}
             <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 30%, rgba(80,40,10,0.12) 0%, transparent 70%)' }} />

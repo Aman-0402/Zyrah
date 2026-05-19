@@ -48,7 +48,7 @@ export default function Footer() {
         background: 'linear-gradient(to bottom, transparent 0%, rgba(20,11,9,0.66) 55%, rgba(10,6,6,0.96) 100%)',
       }} />
 
-      <footer className="relative overflow-hidden luxury-section luxury-section-alt luxury-divider-glow">
+      <footer className="relative overflow-hidden luxury-section luxury-section-alt luxury-divider-glow" style={{ background: '#050302' }}>
 
         {/* Atmospheric glow */}
         <div className="absolute inset-0 pointer-events-none">
@@ -67,7 +67,7 @@ export default function Footer() {
 
         {/* Top gold line */}
         <div className="absolute top-0 left-0 right-0 h-px"
-          style={{ background: 'linear-gradient(to right, transparent, rgba(201,168,76,0.15), transparent)' }}
+          style={{ background: 'linear-gradient(to right, transparent 5%, rgba(201,168,76,0.50) 40%, rgba(226,194,125,0.70) 50%, rgba(201,168,76,0.50) 60%, transparent 95%)' }}
         />
 
         {/* Brand watermark */}
