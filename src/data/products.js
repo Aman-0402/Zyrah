@@ -1,5 +1,6 @@
 const BASE = import.meta.env.BASE_URL
 const IMG = (file) => `${BASE}4r3/${encodeURIComponent(file)}`
+const PERF = (file) => `${BASE}Perfume/${encodeURIComponent(file)}`
 
 export const PRODUCTS = [
   /* ── Oud ─────────────────────────────────────────────────────────────── */
@@ -15,7 +16,7 @@ export const PRODUCTS = [
     price: '₹ 799',
     isNew: false,
     isBestseller: true,
-    image: IMG('Luxurious oud fragrance.png'),
+    image: PERF('Luxury oud fragrance in misty woods.png'),
   },
   {
     id: 2,
