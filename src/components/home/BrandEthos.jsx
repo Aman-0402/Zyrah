@@ -132,7 +132,7 @@ export default function BrandEthos() {
   const pillarsRef = useGSAPStaggerReveal({ selector: '[data-reveal]', from: { opacity: 0, y: 20, scale: 0.96 }, to: { opacity: 1, y: 0, scale: 1 }, stagger: 0.13, start: 'top 80%' })
 
   return (
-    <section className="py-28 md:py-40 px-6 relative overflow-hidden">
+    <section className="py-28 md:py-40 relative overflow-hidden">
 
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(180deg, #080605 0%, #0f0805 40%, #0c0703 70%, #080605 100%)' }} />

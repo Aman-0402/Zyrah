@@ -295,7 +295,7 @@ export default function HeroSection() {
             <div className="overflow-hidden">
               <motion.h1
                 variants={lineReveal}
-                className="luxury-hero italic text-[64px] md:text-[88px] lg:text-[96px] xl:text-[120px] text-ivory"
+                className="luxury-hero italic text-[46px] sm:text-[64px] md:text-[88px] lg:text-[96px] xl:text-[120px] text-ivory"
               >
                 Crafted
               </motion.h1>
@@ -303,7 +303,7 @@ export default function HeroSection() {
             <div className="overflow-hidden">
               <motion.h1
                 variants={lineReveal}
-                className="luxury-hero text-[64px] md:text-[88px] lg:text-[96px] xl:text-[120px] text-gold-gradient"
+                className="luxury-hero text-[46px] sm:text-[64px] md:text-[88px] lg:text-[96px] xl:text-[120px] text-gold-gradient"
                 style={{ fontWeight: 400 }}
               >
                 For You.
@@ -321,7 +321,7 @@ export default function HeroSection() {
           <motion.p variants={item} className="text-ivory/85 text-sm md:text-base font-light leading-[1.9] tracking-wide" style={{ maxWidth: 420 }}>
             Custom-made fragrances, blended from the finest attars.
             <br />
-            <span className="text-gold-400/75">Free delivery across India.</span>
+            <span className="text-gold-400/75">Blended fresh, crafted only for you.</span>
           </motion.p>
 
           {/* Premium CTAs */}
@@ -354,7 +354,7 @@ export default function HeroSection() {
 
           {/* Stats */}
           <motion.div variants={item} className="flex gap-0 pt-6 border-t border-gold-400/10 mt-1 justify-center lg:justify-start">
-            {[['500+', 'Blends Created'], ['100%', 'Custom Made'], ['Free', 'Delivery India']].map(([num, label], i, arr) => (
+            {[['500+', 'Blends Created'], ['100%', 'Custom Made']].map(([num, label], i, arr) => (
               <div key={label} className="flex items-stretch">
                 <div className="px-7 first:pl-0 flex flex-col gap-1">
                   <p className="font-heading text-2xl md:text-[28px] text-gold-300 leading-none">{num}</p>

@@ -111,7 +111,7 @@ export default function Footer() {
 
               <p className="text-[13px] font-light leading-[1.85] max-w-[200px]"
                 style={{ color: T.body }}>
-                Custom-made attars blended for you alone. Free delivery across India.
+                Custom-made attars blended for you alone. Crafted fresh, just for you.
               </p>
 
               <div className="flex items-center gap-4 mt-1">

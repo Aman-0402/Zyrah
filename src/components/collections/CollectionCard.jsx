@@ -404,7 +404,7 @@ export default function CollectionCard({ product, index, featured = false }) {
         >
           {/* Keyword label */}
           {!isComingSoon && (
-            <span className="text-[8px] tracking-[0.35em] uppercase"
+            <span className="hidden sm:block text-[8px] tracking-[0.35em] uppercase"
               style={{ color: isActive ? `${accentColor}CC` : `${accentColor}80`, transition: 'color 0.4s' }}>
               Handcrafted · Pure Essence
             </span>

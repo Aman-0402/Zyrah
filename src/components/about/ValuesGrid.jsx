@@ -35,7 +35,7 @@ export default function ValuesGrid() {
         <h2 className="font-heading text-4xl md:text-6xl" style={{ color: 'rgba(255,248,240,0.92)' }}>What We Stand For</h2>
       </div>
 
-      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-10 md:gap-x-8 md:gap-y-14">
+      <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-10 md:gap-x-8 md:gap-y-14 max-w-3xl mx-auto">
         {VALUES.map((val) => (
           <div
             key={val.title}
