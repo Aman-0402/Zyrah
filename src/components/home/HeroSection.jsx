@@ -282,12 +282,12 @@ export default function HeroSection() {
       <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 1.5, delay: 0.4, ease: [0.76, 0, 0.24, 1] }} className="absolute bottom-24 left-0 right-0 h-px origin-right pointer-events-none" style={{ background: 'linear-gradient(90deg, transparent, rgba(201,168,76,0.2), transparent)' }} />
 
       {/* Layout */}
-      <div className="cx relative z-10 grid grid-cols-1 lg:grid-cols-[55%_45%] items-center min-h-screen pt-28 pb-20 gap-8 lg:gap-4">
+      <div className="cx relative z-10 grid grid-cols-1 lg:grid-cols-[55%_45%] items-center min-h-screen pt-28 md:pt-36 pb-20 gap-8 lg:gap-4">
 
         {/* LEFT */}
         <motion.div variants={container} initial="hidden" animate="show" className="flex flex-col gap-6 lg:gap-7 items-center lg:items-start text-center lg:text-left">
 
-          <motion.p variants={item} className="text-[10px] md:text-[11px] tracking-[0.5em] uppercase text-gold-400/82">
+          <motion.p variants={item} className="text-[10px] md:text-[11px] tracking-[0.25em] sm:tracking-[0.5em] uppercase text-gold-400/82">
             Est. in India &nbsp;·&nbsp; Crafted With Love
           </motion.p>
 
