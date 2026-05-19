@@ -109,7 +109,7 @@ export default function CollectionCard({ product, index, featured = false }) {
   const cardShadow = useTransform(
     [rawX, rawY],
     ([x, y]) =>
-      `${-x * 30}px ${-y * 22}px 55px rgba(0,0,0,0.55), 0 0 45px ${accentColor}07`
+      `${-x * 30}px ${-y * 22}px 55px rgba(0,0,0,0.55), 0 0 45px ${accentColor}10, 0 4px 28px rgba(0,0,0,0.45)`
   )
 
   /* ── Event handlers ── */
@@ -146,8 +146,8 @@ export default function CollectionCard({ product, index, featured = false }) {
       onMouseMove={onMouseMove}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
-      className="group relative flex flex-col cursor-pointer select-none"
-      style={{ perspective: '900px', boxShadow: cardShadow, border: `1px solid ${accentColor}08` }}
+      className={`group relative flex flex-col cursor-pointer select-none${featured ? ' md:col-span-2' : ''}`}
+      style={{ perspective: '900px', boxShadow: cardShadow, border: `1px solid ${hovered ? accentColor + '32' : accentColor + '18'}`, transition: 'border-color 0.5s' }}
     >
 
       {/* ════════════════════════════════════════════════════════════
@@ -156,7 +156,7 @@ export default function CollectionCard({ product, index, featured = false }) {
       <motion.div
         className="relative overflow-hidden"
         style={{
-          height: featured || isBestseller ? '310px' : '268px',
+          height: featured ? '360px' : isBestseller ? '310px' : '268px',
           transformStyle: 'preserve-3d',
           ...tiltStyle,
         }}
@@ -211,7 +211,7 @@ export default function CollectionCard({ product, index, featured = false }) {
                   alt={name}
                   draggable={false}
                   className="absolute inset-0 w-full h-full object-cover"
-                  animate={{ scale: hovered ? 1.06 : 1, filter: hovered ? 'brightness(0.85) saturate(0.95)' : 'brightness(0.72) saturate(0.88)' }}
+                  animate={{ scale: hovered ? 1.06 : 1, filter: hovered ? 'brightness(1.0) saturate(1.05)' : 'brightness(0.88) saturate(0.92)' }}
                   transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 />
                 {/* Vignette overlay */}
@@ -347,16 +347,25 @@ export default function CollectionCard({ product, index, featured = false }) {
       <div
         className="p-6 flex flex-col gap-4 flex-1 border border-t-0 transition-all duration-500"
         style={{
-          background: hovered ? 'rgba(15,10,3,0.98)' : 'rgba(10,8,3,0.95)',
+          background: hovered ? 'rgba(16,11,4,0.99)' : 'rgba(13,9,4,0.97)',
           borderColor: hovered ? `${accentColor}22` : `${accentColor}08`,
           paddingBottom: '28px',
         }}
       >
+        {/* Featured signature label */}
+        {featured && (
+          <div className="flex items-center gap-2 mb-1">
+            <div className="h-px flex-1" style={{ background: `linear-gradient(to right, ${accentColor}40, transparent)` }} />
+            <span className="text-[8px] tracking-[0.5em] uppercase" style={{ color: `${accentColor}65` }}>Signature</span>
+            <div className="h-px flex-1" style={{ background: `linear-gradient(to left, ${accentColor}40, transparent)` }} />
+          </div>
+        )}
+
         {/* Name row */}
         <div className="flex items-start justify-between gap-2">
           <div>
-            <h3 className="font-heading text-xl text-ivory transition-colors duration-400 leading-tight"
-              style={{ color: hovered ? 'rgba(226,194,125,0.95)' : 'rgba(245,240,232,0.9)' }}>
+            <h3 className={`font-heading ${featured ? 'text-2xl' : 'text-xl'} transition-colors duration-400 leading-tight`}
+              style={{ color: hovered ? 'rgba(226,194,125,0.98)' : 'rgba(255,248,240,0.92)' }}>
               {name}
             </h3>
           </div>
@@ -372,7 +381,7 @@ export default function CollectionCard({ product, index, featured = false }) {
 
         {/* Description */}
         <p className="font-light leading-[1.8]"
-          style={{ fontSize: '0.8125rem', color: hovered ? 'rgba(245,240,232,0.75)' : 'rgba(245,240,232,0.50)', transition: 'color 0.4s' }}>
+          style={{ fontSize: '0.8125rem', color: hovered ? 'rgba(255,248,240,0.82)' : 'rgba(255,248,240,0.64)', transition: 'color 0.4s' }}>
           {desc}
         </p>
 
@@ -399,7 +408,7 @@ export default function CollectionCard({ product, index, featured = false }) {
           style={{ borderColor: hovered ? `${accentColor}15` : `${accentColor}06` }}
         >
           <span className="font-heading font-light transition-colors duration-400"
-            style={{ fontSize: '1.15rem', letterSpacing: '0.1em', color: hovered ? accentColor : `${accentColor}70` }}>
+            style={{ fontSize: featured ? '1.3rem' : '1.15rem', letterSpacing: '0.1em', color: hovered ? accentColor : `${accentColor}92` }}>
             {price}
           </span>
           <motion.span

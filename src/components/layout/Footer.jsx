@@ -6,6 +6,17 @@ const BASE = import.meta.env.BASE_URL
 const WA_NUMBER = '919724586101'
 const LUXURY = [0.22, 1, 0.36, 1]
 
+/* Warm ivory text scale — luxury ≠ low contrast */
+const T = {
+  quote:   'rgba(255,248,240,0.88)',
+  body:    'rgba(255,248,240,0.74)',
+  contact: 'rgba(255,248,240,0.64)',
+  address: 'rgba(255,248,240,0.58)',
+  faint:   'rgba(255,248,240,0.42)',
+  gold:    'rgba(201,168,76,0.85)',
+  goldDim: 'rgba(201,168,76,0.32)',
+}
+
 const NAV_LINKS = [
   { label: 'Home',             to: '/' },
   { label: 'Collections',      to: '/collections' },
@@ -32,24 +43,24 @@ export default function Footer() {
 
   return (
     <>
-      {/* ── Cinematic transition into footer ── */}
+      {/* Cinematic transition into footer */}
       <div className="h-32 pointer-events-none" style={{
         background: 'linear-gradient(to bottom, transparent 0%, rgba(5,4,3,0.65) 55%, rgba(5,4,3,0.96) 100%)',
       }} />
 
       <footer className="relative overflow-hidden" style={{ background: '#050403' }}>
 
-        {/* Atmospheric glow layers */}
+        {/* Atmospheric glow */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px]"
-            style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(120,58,0,0.07) 0%, transparent 65%)' }}
+            style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(120,58,0,0.08) 0%, transparent 65%)' }}
           />
           <div className="absolute bottom-0 left-0 w-[500px] h-[300px]"
             style={{ background: 'radial-gradient(ellipse at 0% 100%, rgba(80,35,0,0.05) 0%, transparent 65%)' }}
           />
         </div>
 
-        {/* Arabesque wave above top line */}
+        {/* Arabesque wave */}
         <div className="absolute top-0 left-0 right-0 -translate-y-full pointer-events-none">
           <FooterWave />
         </div>
@@ -59,11 +70,11 @@ export default function Footer() {
           style={{ background: 'linear-gradient(to right, transparent, rgba(201,168,76,0.15), transparent)' }}
         />
 
-        {/* Brand watermark — behind everything */}
+        {/* Brand watermark */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
           <span
-            className="font-heading font-light text-ivory select-none whitespace-nowrap"
-            style={{ fontSize: 'clamp(56px,9vw,110px)', letterSpacing: '0.5em', opacity: 0.068 }}
+            className="font-heading font-light select-none whitespace-nowrap"
+            style={{ fontSize: 'clamp(56px,9vw,110px)', letterSpacing: '0.5em', color: 'rgba(255,248,240,1)', opacity: 0.055 }}
           >
             M. M. ATTARWALA
           </span>
@@ -78,7 +89,7 @@ export default function Footer() {
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: LUXURY }}
             className="font-heading italic text-center text-3xl md:text-4xl mb-20"
-            style={{ color: 'rgba(245,240,232,0.50)', letterSpacing: '0.01em', fontWeight: 300 }}
+            style={{ color: T.quote, letterSpacing: '0.01em', fontWeight: 300 }}
           >
             Crafted to linger beyond memory.
           </motion.p>
@@ -86,130 +97,129 @@ export default function Footer() {
           {/* 3-col grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-14 md:gap-8 lg:gap-20 mb-16">
 
-            {/* ── Brand col ── */}
+            {/* Brand col */}
             <div className="flex flex-col gap-6">
               <Link to="/" className="w-fit">
                 <img
                   src={`${BASE}logoakatar.png`}
                   alt="M. M. Attarwala"
                   className="h-14 w-auto object-contain"
-                  style={{ filter: 'drop-shadow(0 0 8px rgba(201,168,76,0.1))', opacity: 0.88 }}
+                  style={{ filter: 'drop-shadow(0 0 8px rgba(201,168,76,0.12))', opacity: 0.90 }}
                   draggable={false}
                 />
               </Link>
 
               <p className="text-[13px] font-light leading-[1.85] max-w-[200px]"
-                style={{ color: 'rgba(245,240,232,0.60)' }}>
+                style={{ color: T.body }}>
                 Custom-made attars blended for you alone. Free delivery across India.
               </p>
 
-              {/* Social — thin icons, no circles */}
               <div className="flex items-center gap-5">
                 <a href="https://instagram.com/mm_attarwala" target="_blank" rel="noopener noreferrer"
                   aria-label="Instagram"
                   className="transition-colors duration-500"
-                  style={{ color: 'rgba(201,168,76,0.28)' }}
-                  onMouseEnter={e => e.currentTarget.style.color = 'rgba(201,168,76,0.7)'}
-                  onMouseLeave={e => e.currentTarget.style.color = 'rgba(201,168,76,0.28)'}
+                  style={{ color: 'rgba(201,168,76,0.32)' }}
+                  onMouseEnter={e => e.currentTarget.style.color = 'rgba(201,168,76,0.75)'}
+                  onMouseLeave={e => e.currentTarget.style.color = 'rgba(201,168,76,0.32)'}
                 >
                   <Instagram size={15} strokeWidth={1} />
                 </a>
                 <a href={`https://wa.me/${WA_NUMBER}`} target="_blank" rel="noopener noreferrer"
                   aria-label="WhatsApp"
                   className="transition-colors duration-500"
-                  style={{ color: 'rgba(201,168,76,0.28)' }}
-                  onMouseEnter={e => e.currentTarget.style.color = 'rgba(201,168,76,0.7)'}
-                  onMouseLeave={e => e.currentTarget.style.color = 'rgba(201,168,76,0.28)'}
+                  style={{ color: 'rgba(201,168,76,0.32)' }}
+                  onMouseEnter={e => e.currentTarget.style.color = 'rgba(201,168,76,0.75)'}
+                  onMouseLeave={e => e.currentTarget.style.color = 'rgba(201,168,76,0.32)'}
                 >
                   <MessageCircle size={15} strokeWidth={1} />
                 </a>
               </div>
             </div>
 
-            {/* ── Nav col ── */}
+            {/* Nav col */}
             <div className="flex flex-col gap-5">
-              <p className="luxury-label mb-2" style={{ color: 'rgba(201,168,76,0.32)' }}>Explore</p>
+              <p className="luxury-label mb-2" style={{ color: T.goldDim }}>Explore</p>
               {NAV_LINKS.map(({ label, to }) => (
                 <NavLink
                   key={to}
                   to={to}
                   end={to === '/'}
-                  className={({ isActive }) =>
-                    'text-[11px] tracking-[0.22em] uppercase font-light transition-colors duration-500 w-fit ' +
-                    (isActive ? 'text-gold-400/70' : 'text-ivory/45 hover:text-ivory/80')
-                  }
+                  className="text-[11px] tracking-[0.22em] uppercase font-light transition-colors duration-500 w-fit"
+                  style={({ isActive }) => ({
+                    color: isActive ? T.gold : T.address,
+                  })}
+                  onMouseEnter={e => { if (!e.currentTarget.className.includes('active')) e.currentTarget.style.color = T.body }}
+                  onMouseLeave={e => { if (!e.currentTarget.className.includes('active')) e.currentTarget.style.color = T.address }}
                 >
                   {label}
                 </NavLink>
               ))}
             </div>
 
-            {/* ── Connect col ── */}
+            {/* Connect col */}
             <div className="flex flex-col gap-4">
-              <p className="luxury-label mb-2" style={{ color: 'rgba(201,168,76,0.32)' }}>Connect</p>
+              <p className="luxury-label mb-2" style={{ color: T.goldDim }}>Connect</p>
 
-              {/* WhatsApp — Roeesh */}
               <a href={`https://wa.me/${WA_NUMBER}`} target="_blank" rel="noopener noreferrer"
                 className="flex items-start gap-3 group w-fit">
-                <MessageCircle size={13} strokeWidth={1} className="mt-0.5 flex-shrink-0 transition-colors duration-500" style={{ color: 'rgba(201,168,76,0.32)' }} />
+                <MessageCircle size={13} strokeWidth={1} className="mt-0.5 flex-shrink-0" style={{ color: T.goldDim }} />
                 <div className="flex flex-col gap-0.5">
-                  <span className="text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(201,168,76,0.28)' }}>WhatsApp · M. Roeesh</span>
-                  <span className="text-[11px] font-light tracking-wide transition-colors duration-500"
-                    style={{ color: 'rgba(245,240,232,0.32)' }}
-                    onMouseEnter={e => e.currentTarget.style.color = 'rgba(245,240,232,0.65)'}
-                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(245,240,232,0.32)'}
+                  <span className="text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(201,168,76,0.40)' }}>WhatsApp · M. Roeesh</span>
+                  <span
+                    className="text-[11px] font-light tracking-wide transition-colors duration-500"
+                    style={{ color: T.contact }}
+                    onMouseEnter={e => e.currentTarget.style.color = T.body}
+                    onMouseLeave={e => e.currentTarget.style.color = T.contact}
                   >+91 97245 86101</span>
                 </div>
               </a>
 
-              {/* Phone — Munavvar */}
               <a href="tel:+919016361538" className="flex items-start gap-3 group w-fit">
-                <Phone size={13} strokeWidth={1} className="mt-0.5 flex-shrink-0 transition-colors duration-500" style={{ color: 'rgba(201,168,76,0.32)' }} />
+                <Phone size={13} strokeWidth={1} className="mt-0.5 flex-shrink-0" style={{ color: T.goldDim }} />
                 <div className="flex flex-col gap-0.5">
-                  <span className="text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(201,168,76,0.28)' }}>Call · M. Munavvar</span>
-                  <span className="text-[11px] font-light tracking-wide transition-colors duration-500"
-                    style={{ color: 'rgba(245,240,232,0.32)' }}
-                    onMouseEnter={e => e.currentTarget.style.color = 'rgba(245,240,232,0.65)'}
-                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(245,240,232,0.32)'}
+                  <span className="text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(201,168,76,0.40)' }}>Call · M. Munavvar</span>
+                  <span
+                    className="text-[11px] font-light tracking-wide transition-colors duration-500"
+                    style={{ color: T.contact }}
+                    onMouseEnter={e => e.currentTarget.style.color = T.body}
+                    onMouseLeave={e => e.currentTarget.style.color = T.contact}
                   >+91 90163 61538</span>
                 </div>
               </a>
 
-              {/* Email */}
               <a href="mailto:mmattarwala2008@rediff.com" className="flex items-start gap-3 group w-fit">
-                <Mail size={13} strokeWidth={1} className="mt-0.5 flex-shrink-0 transition-colors duration-500" style={{ color: 'rgba(201,168,76,0.32)' }} />
-                <span className="text-[11px] font-light tracking-wide transition-colors duration-500"
-                  style={{ color: 'rgba(245,240,232,0.32)' }}
-                  onMouseEnter={e => e.currentTarget.style.color = 'rgba(245,240,232,0.65)'}
-                  onMouseLeave={e => e.currentTarget.style.color = 'rgba(245,240,232,0.32)'}
+                <Mail size={13} strokeWidth={1} className="mt-0.5 flex-shrink-0" style={{ color: T.goldDim }} />
+                <span
+                  className="text-[11px] font-light tracking-wide transition-colors duration-500"
+                  style={{ color: T.contact }}
+                  onMouseEnter={e => e.currentTarget.style.color = T.body}
+                  onMouseLeave={e => e.currentTarget.style.color = T.contact}
                 >mmattarwala2008@rediff.com</span>
               </a>
 
-              {/* Addresses */}
               <div className="flex items-start gap-3">
-                <MapPin size={13} strokeWidth={1} className="mt-0.5 flex-shrink-0" style={{ color: 'rgba(201,168,76,0.32)' }} />
+                <MapPin size={13} strokeWidth={1} className="mt-0.5 flex-shrink-0" style={{ color: T.goldDim }} />
                 <div className="flex flex-col gap-0.5">
-                  <span className="text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(201,168,76,0.28)' }}>Nazarbaug · Fortune Point</span>
-                  <span className="text-[11px] font-light leading-relaxed" style={{ color: 'rgba(245,240,232,0.28)' }}>
+                  <span className="text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(201,168,76,0.40)' }}>Nazarbaug · Fortune Point</span>
+                  <span className="text-[11px] font-light leading-relaxed" style={{ color: T.address }}>
                     Mandvi, Vadodara – 390 017
                   </span>
                 </div>
               </div>
 
-              {/* Hours */}
               <div className="flex items-start gap-3">
-                <Clock size={13} strokeWidth={1} className="mt-0.5 flex-shrink-0" style={{ color: 'rgba(201,168,76,0.32)' }} />
+                <Clock size={13} strokeWidth={1} className="mt-0.5 flex-shrink-0" style={{ color: T.goldDim }} />
                 <div className="flex flex-col gap-0.5">
-                  <span className="text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(201,168,76,0.28)' }}>Open Hours</span>
-                  <span className="text-[11px] font-light leading-relaxed" style={{ color: 'rgba(245,240,232,0.28)' }}>
+                  <span className="text-[9px] tracking-[0.25em] uppercase" style={{ color: 'rgba(201,168,76,0.40)' }}>Open Hours</span>
+                  <span className="text-[11px] font-light leading-relaxed" style={{ color: T.address }}>
                     10 am – 8 pm · Mon closed<br />Fri closed 12:45–2:45 pm
                   </span>
                 </div>
               </div>
 
               <div className="flex items-center gap-2 mt-1">
-                <span style={{ color: 'rgba(201,168,76,0.28)', fontSize: '9px' }}>✦</span>
-                <span className="text-[9px] tracking-[0.3em] uppercase" style={{ color: 'rgba(245,240,232,0.22)' }}>
+                <span style={{ color: 'rgba(201,168,76,0.35)', fontSize: '9px' }}>✦</span>
+                <span className="text-[9px] tracking-[0.3em] uppercase" style={{ color: T.faint }}>
                   Free Delivery India
                 </span>
               </div>
@@ -217,8 +227,8 @@ export default function Footer() {
               <Link to="/custom-fragrance" className="mt-2">
                 <motion.span
                   className="inline-flex items-center gap-3 cursor-pointer select-none"
-                  style={{ border: '1px solid rgba(176,141,87,0.28)', color: 'rgba(176,141,87,0.55)', padding: '10px 20px' }}
-                  whileHover={{ borderColor: 'rgba(201,168,76,0.55)', color: 'rgba(201,168,76,0.85)', boxShadow: '0 0 16px rgba(201,168,76,0.07)' }}
+                  style={{ border: '1px solid rgba(176,141,87,0.28)', color: 'rgba(176,141,87,0.60)', padding: '10px 20px' }}
+                  whileHover={{ borderColor: 'rgba(201,168,76,0.55)', color: 'rgba(201,168,76,0.90)', boxShadow: '0 0 16px rgba(201,168,76,0.07)' }}
                   transition={{ duration: 0.45, ease: LUXURY }}
                 >
                   <span className="text-[9px] tracking-[0.45em] uppercase font-light">Craft Yours</span>
@@ -228,21 +238,19 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ── Bottom bar ── */}
+          {/* Bottom bar */}
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-3"
-            style={{ borderTop: '1px solid rgba(201,168,76,0.06)' }}>
-            <p className="text-[9px] tracking-[0.35em] uppercase font-light"
-              style={{ color: 'rgba(245,240,232,0.58)' }}>
+            style={{ borderTop: '1px solid rgba(201,168,76,0.07)' }}>
+            <p className="text-[9px] tracking-[0.35em] uppercase font-light" style={{ color: T.faint }}>
               © {year} M. M. Attarwala. All rights reserved.
             </p>
-            <p className="text-[9px] tracking-[0.35em] uppercase font-light"
-              style={{ color: 'rgba(245,240,232,0.28)' }}>
+            <p className="text-[9px] tracking-[0.35em] uppercase font-light" style={{ color: 'rgba(255,248,240,0.32)' }}>
               Made with love in India ♥
             </p>
           </div>
         </div>
 
-        {/* Bottom fade to black */}
+        {/* Bottom fade */}
         <div className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none"
           style={{ background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.5))' }}
         />

@@ -30,7 +30,7 @@ export default function FounderNote() {
       ref={sectionRef}
       className="relative py-28 md:py-40 px-6 overflow-hidden"
       style={{
-        background: 'linear-gradient(180deg, #0A0A0A 0%, rgba(59,31,15,0.15) 40%, rgba(59,31,15,0.25) 60%, #0A0A0A 100%)',
+        background: 'linear-gradient(180deg, #050403 0%, rgba(59,31,15,0.18) 40%, rgba(59,31,15,0.28) 60%, #050403 100%)',
       }}
     >
       {/* Decorative borders */}
@@ -59,7 +59,8 @@ export default function FounderNote() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-100px' }}
-          className="font-heading text-2xl md:text-3xl lg:text-4xl text-ivory/75 leading-snug flex flex-wrap justify-center gap-x-2 gap-y-1"
+          className="font-heading text-2xl md:text-3xl lg:text-4xl leading-snug flex flex-wrap justify-center gap-x-2 gap-y-1"
+          style={{ color: 'rgba(255,248,240,0.82)' }}
           style={{ fontWeight: 300, fontStyle: 'italic' }}
         >
           {WORDS.map((w, i) => (
@@ -87,7 +88,7 @@ export default function FounderNote() {
         </div>
 
         {/* Free delivery note */}
-        <p className="text-[9px] tracking-[0.4em] uppercase text-ivory/20">
+        <p className="text-[9px] tracking-[0.4em] uppercase" style={{ color: 'rgba(255,248,240,0.38)' }}>
           Free delivery · Handcrafted · Made for you
         </p>
       </div>

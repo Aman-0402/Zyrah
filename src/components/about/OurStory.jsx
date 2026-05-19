@@ -134,11 +134,11 @@ function StoryBlock({ block, index }) {
             {block.num}
           </span>
           <div className="relative z-10">
-            <p className="text-[9px] tracking-[0.45em] uppercase text-gold-400/40 mb-3">{block.num}</p>
-            <h3 className="font-heading text-3xl md:text-4xl text-ivory mb-6">{block.title}</h3>
-            <div className="h-px w-12 bg-gold-400/30 mb-6" />
+            <p className="text-[9px] tracking-[0.45em] uppercase mb-3" style={{ color: 'rgba(201,168,76,0.45)' }}>{block.num}</p>
+            <h3 className="font-heading text-3xl md:text-4xl mb-6" style={{ color: 'rgba(255,248,240,0.92)' }}>{block.title}</h3>
+            <div className="h-px w-12 mb-6" style={{ background: 'rgba(201,168,76,0.28)' }} />
             {block.body.map((para, i) => (
-              <p key={i} className="text-ivory/45 text-sm md:text-base leading-relaxed font-light mb-4 last:mb-0">
+              <p key={i} className="text-sm md:text-base leading-relaxed font-light mb-4 last:mb-0" style={{ color: 'rgba(255,248,240,0.65)' }}>
                 {para}
               </p>
             ))}
@@ -163,8 +163,8 @@ export default function OurStory() {
   return (
     <section className="py-24 md:py-36"><div className="cx">
       <div ref={headRef} className="mb-16 md:mb-24">
-        <p className="text-[10px] tracking-[0.5em] uppercase text-gold-400/50 mb-3">Our Journey</p>
-        <h2 className="font-heading text-4xl md:text-6xl text-ivory">The Story Behind</h2>
+        <p className="text-[10px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(201,168,76,0.50)' }}>Our Journey</p>
+        <h2 className="font-heading text-4xl md:text-6xl" style={{ color: 'rgba(255,248,240,0.92)' }}>The Story Behind</h2>
       </div>
 
       <div className="flex flex-col divide-y divide-gold-400/6">

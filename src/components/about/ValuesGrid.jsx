@@ -38,8 +38,8 @@ export default function ValuesGrid() {
     <section className="py-24 md:py-32"><div className="cx">
 
       <div ref={headRef} className="text-center mb-14">
-        <p className="text-[10px] tracking-[0.5em] uppercase text-gold-400/50 mb-3">Our Principles</p>
-        <h2 className="font-heading text-4xl md:text-6xl text-ivory">What We Stand For</h2>
+        <p className="text-[10px] tracking-[0.5em] uppercase mb-3" style={{ color: 'rgba(201,168,76,0.50)' }}>Our Principles</p>
+        <h2 className="font-heading text-4xl md:text-6xl" style={{ color: 'rgba(255,248,240,0.92)' }}>What We Stand For</h2>
       </div>
 
       <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -47,8 +47,10 @@ export default function ValuesGrid() {
           <div
             key={val.title}
             data-reveal
-            className="relative flex flex-col gap-5 p-8 border border-gold-400/10 hover:border-gold-400/25 transition-colors duration-500 group"
+            className="relative flex flex-col gap-5 p-8 border border-gold-400/10 hover:border-gold-400/28 transition-all duration-500 group"
             style={{ background: 'rgba(201,168,76,0.015)' }}
+            onMouseEnter={e => e.currentTarget.style.background = 'rgba(201,168,76,0.032)'}
+            onMouseLeave={e => e.currentTarget.style.background = 'rgba(201,168,76,0.015)'}
           >
             {/* Large symbol */}
             <div
@@ -75,7 +77,7 @@ export default function ValuesGrid() {
             <div className="h-px w-10 transition-all duration-500 group-hover:w-16" style={{ background: `${val.accent}40` }} />
 
             {/* Desc */}
-            <p className="text-ivory/35 text-sm leading-relaxed font-light">{val.desc}</p>
+            <p className="text-sm leading-relaxed font-light" style={{ color: 'rgba(255,248,240,0.62)' }}>{val.desc}</p>
 
             {/* Bottom accent */}
             <div

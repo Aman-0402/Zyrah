@@ -14,39 +14,26 @@ import Step5Enquiry from '../components/fragrance/steps/Step5Enquiry'
 const LUXURY = [0.22, 1, 0.36, 1]
 const TOTAL_STEPS = 5
 
-/* Richer, more saturated per-family atmosphere */
+/*
+  ALL page-level atmosphere stays warm amber/gold — brand identity.
+  Family colors live only inside cards and bottle preview.
+  Subtle intensity variation: opacity scales slightly with intensity.
+*/
 const FAMILY_ATM = {
-  oud:    { g1: '165,82,16',   g2: '100,46,8',    p: '201,168,76',  smoke: '180,100,20' },
-  floral: { g1: '185,72,108',  g2: '115,42,68',   p: '226,194,125', smoke: '200,80,120' },
-  musk:   { g1: '185,165,220', g2: '115,98,148',  p: '215,205,238', smoke: '180,165,215' },
-  fresh:  { g1: '42,138,80',   g2: '22,88,52',    p: '110,195,145', smoke: '50,150,90' },
+  oud:    { glow: '145,72,18',  particle: '201,168,76' },
+  floral: { glow: '152,78,20',  particle: '201,168,76' },
+  musk:   { glow: '138,68,16',  particle: '201,168,76' },
+  fresh:  { glow: '130,65,15',  particle: '201,168,76' },
 }
-const DEFAULT_ATM = { g1: '130,72,22', g2: '68,34,10', p: '176,141,87', smoke: '140,80,20' }
+const DEFAULT_ATM = { glow: '118,58,13', particle: '176,141,87' }
 
 const BUILDER_PARTICLES = [
-  { left: '3%',  top: '22%', dur: 8,  del: 0,   size: 1.5 },
-  { left: '95%', top: '28%', dur: 6,  del: 1.5, size: 1 },
-  { left: '7%',  top: '62%', dur: 9,  del: 2.2, size: 1 },
-  { left: '93%', top: '70%', dur: 7,  del: 0.7, size: 1.5 },
-  { left: '48%', top: '6%',  dur: 10, del: 3.0, size: 1 },
-  { left: '20%', top: '88%', dur: 8,  del: 1.1, size: 1 },
-  { left: '80%', top: '8%',  dur: 7,  del: 2.8, size: 1 },
-  { left: '33%', top: '94%', dur: 9,  del: 0.3, size: 1.5 },
-  { left: '68%', top: '96%', dur: 8,  del: 1.8, size: 1 },
-  { left: '12%', top: '42%', dur: 11, del: 4.0, size: 1 },
-]
-
-const SMOKE_WISPS = [
-  { left: '8%',  del: 0 },
-  { left: '38%', del: 7 },
-  { left: '62%', del: 3 },
-  { left: '88%', del: 11 },
-]
-
-const PILLARS = [
-  { symbol: '◈', title: 'Hand-blended', sub: 'For you alone — no two alike' },
-  { symbol: '✦', title: 'Free Delivery', sub: 'Across all of India' },
-  { symbol: '◇', title: 'Ships in 7 Days', sub: 'Crafted by master perfumers' },
+  { left: '4%',  top: '25%', dur: 9,  del: 0,   size: 1.5 },
+  { left: '94%', top: '32%', dur: 7,  del: 1.8, size: 1 },
+  { left: '8%',  top: '68%', dur: 10, del: 3.0, size: 1 },
+  { left: '92%', top: '72%', dur: 8,  del: 0.6, size: 1.5 },
+  { left: '48%', top: '8%',  dur: 11, del: 2.4, size: 1 },
+  { left: '22%', top: '90%', dur: 9,  del: 1.2, size: 1 },
 ]
 
 const initialSelections = {
@@ -121,7 +108,8 @@ export default function CustomFragrance() {
 
   const atm = FAMILY_ATM[selections.family] || DEFAULT_ATM
   const intensityFactor = (selections.intensity - 1) / 4
-  const glowOpacity = 0.09 + intensityFactor * 0.14
+  /* Keep glow subtle — luxury = restraint */
+  const glowOpacity = selections.family ? (0.05 + intensityFactor * 0.06) : 0.03
 
   const previewFam = useMemo(
     () => selections.family ? FAMILIES.find(f => f.id === selections.family) : null,
@@ -137,53 +125,29 @@ export default function CustomFragrance() {
       className="min-h-screen relative"
       style={{ background: '#050403' }}
     >
-      {/* ── Full-page reactive atmosphere — family + intensity driven ── */}
+      {/* ── Warm amber atmospheric glow — single soft centered layer ── */}
       <AnimatePresence>
         <motion.div
           key={selections.family || 'default'}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1.4, ease: LUXURY }}
+          transition={{ duration: 1.6, ease: LUXURY }}
           className="fixed inset-0 pointer-events-none"
           style={{ zIndex: 0 }}
         >
-          {/* Primary glow — left deep */}
           <div style={{
             position: 'absolute', inset: 0,
-            background: `radial-gradient(ellipse 80% 60% at 15% 55%, rgba(${atm.g1},${glowOpacity}) 0%, transparent 65%)`,
+            background: `radial-gradient(ellipse 85% 70% at 25% 50%, rgba(${atm.glow},${glowOpacity}) 0%, transparent 70%)`,
           }} />
-          {/* Secondary glow — right mid */}
           <div style={{
             position: 'absolute', inset: 0,
-            background: `radial-gradient(ellipse 60% 50% at 85% 45%, rgba(${atm.g2},${glowOpacity * 0.55}) 0%, transparent 65%)`,
-          }} />
-          {/* Top-center ambient accent */}
-          <div style={{
-            position: 'absolute', inset: 0,
-            background: `radial-gradient(ellipse 40% 30% at 50% 15%, rgba(${atm.g1},${glowOpacity * 0.35}) 0%, transparent 70%)`,
+            background: `radial-gradient(ellipse 60% 55% at 78% 42%, rgba(${atm.glow},${glowOpacity * 0.50}) 0%, transparent 70%)`,
           }} />
         </motion.div>
       </AnimatePresence>
 
-      {/* ── Smoke wisps — fixed, family-reactive ── */}
-      {selections.family && SMOKE_WISPS.map(({ left, del }, i) => (
-        <motion.div
-          key={`${selections.family}-sw${i}`}
-          className="fixed bottom-0 pointer-events-none"
-          style={{ left, width: 180, height: 280, zIndex: 1 }}
-          animate={{ y: [0, -70], opacity: [0, 0.065, 0], scale: [0.8, 1.45] }}
-          transition={{ duration: 14, repeat: Infinity, delay: del, ease: 'easeOut' }}
-        >
-          <div style={{
-            width: '100%', height: '100%',
-            background: `radial-gradient(ellipse, rgba(${atm.smoke},0.25) 0%, transparent 70%)`,
-            filter: 'blur(28px)',
-          }} />
-        </motion.div>
-      ))}
-
-      {/* ── Floating particles — fixed, family-reactive ── */}
+      {/* ── Gold dust particles — sparse, barely visible ── */}
       {selections.family && BUILDER_PARTICLES.map((p, i) => (
         <motion.div
           key={`${selections.family}-bp${i}`}
@@ -191,15 +155,15 @@ export default function CustomFragrance() {
           style={{
             left: p.left, top: p.top,
             width: p.size, height: p.size,
-            background: `rgba(${atm.p},0.70)`,
+            background: `rgba(${atm.particle},0.60)`,
             zIndex: 1,
           }}
-          animate={{ y: [0, -16, 0], opacity: [0, 0.30, 0], scale: [1, 1.8, 1] }}
+          animate={{ y: [0, -14, 0], opacity: [0, 0.22, 0], scale: [1, 1.7, 1] }}
           transition={{ duration: p.dur, repeat: Infinity, delay: p.del, ease: 'easeInOut' }}
         />
       ))}
 
-      {/* ── Content (above atmosphere) ── */}
+      {/* ── Content ── */}
       <div className="relative" style={{ zIndex: 2 }}>
         <div ref={heroRef}>
           <FragranceBuilderHero />
@@ -209,10 +173,10 @@ export default function CustomFragrance() {
 
         {/* Builder area */}
         <div className="cx py-14 md:py-20">
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_330px] gap-12 lg:gap-14 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_320px] gap-12 lg:gap-14 items-start">
 
             {/* ── Left ── */}
-            <div>
+            <div className="min-w-0">
               <AnimatePresence mode="wait" custom={direction}>
                 <motion.div
                   key={step}
@@ -249,7 +213,7 @@ export default function CustomFragrance() {
                     </button>
                   )}
 
-                  {/* Continue button — shimmer sweep on hover */}
+                  {/* Continue — shimmer sweep, family-amber tinted */}
                   <motion.button
                     onClick={goNext}
                     disabled={!canGo}
@@ -262,27 +226,24 @@ export default function CustomFragrance() {
                     }}
                     className="ml-auto relative overflow-hidden flex items-center gap-3 transition-all duration-500"
                     style={{
-                      padding: '15px 44px',
+                      padding: '14px 44px',
                       fontSize: '10px', letterSpacing: '0.38em', textTransform: 'uppercase', fontWeight: 300,
-                      backdropFilter: canGo ? 'blur(10px)' : 'none',
-                      WebkitBackdropFilter: canGo ? 'blur(10px)' : 'none',
-                      background: canGo ? `rgba(${atm.p},0.10)` : 'rgba(176,141,87,0.03)',
-                      border: `1px solid ${canGo ? `rgba(${atm.p},0.48)` : 'rgba(176,141,87,0.09)'}`,
-                      color: canGo ? `rgba(${atm.p},1.0)` : 'rgba(245,240,232,0.14)',
+                      backdropFilter: canGo ? 'blur(8px)' : 'none',
+                      WebkitBackdropFilter: canGo ? 'blur(8px)' : 'none',
+                      background: canGo ? 'rgba(176,141,87,0.09)' : 'rgba(176,141,87,0.03)',
+                      border: `1px solid ${canGo ? 'rgba(176,141,87,0.45)' : 'rgba(176,141,87,0.09)'}`,
+                      color: canGo ? 'rgba(201,168,76,0.95)' : 'rgba(245,240,232,0.14)',
                       cursor: canGo ? 'pointer' : 'not-allowed',
-                      boxShadow: canGo
-                        ? `0 0 28px rgba(${atm.p},0.14), inset 0 0 14px rgba(${atm.p},0.05)`
-                        : 'none',
+                      boxShadow: canGo ? '0 0 24px rgba(176,141,87,0.10), inset 0 0 12px rgba(176,141,87,0.04)' : 'none',
                     }}
                   >
-                    {/* Shimmer sweep */}
                     <motion.div
                       className="absolute inset-0 pointer-events-none"
                       variants={{
                         rest: { x: '-110%' },
                         hover: { x: '110%', transition: { duration: 0.65, ease: 'easeInOut' } },
                       }}
-                      style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.07), transparent)' }}
+                      style={{ background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)' }}
                     />
                     <span className="relative z-10">
                       {step === TOTAL_STEPS - 1 ? 'Review & Enquire' : 'Continue'}
@@ -312,50 +273,36 @@ export default function CustomFragrance() {
                 <motion.div
                   className="relative overflow-hidden"
                   style={{
-                    border: '1px solid rgba(176,141,87,0.05)',
-                    background: 'rgba(6,5,3,0.80)',
+                    border: '1px solid rgba(176,141,87,0.07)',
+                    background: 'rgba(6,5,3,0.82)',
                     backdropFilter: 'blur(8px)',
                     WebkitBackdropFilter: 'blur(8px)',
                   }}
                   animate={{
                     boxShadow: previewFam
-                      ? `0 0 60px ${previewFam.glowColor}, 0 0 120px ${previewFam.glowColor}`
+                      ? `0 0 50px ${previewFam.glowColor}, 0 0 100px ${previewFam.glowColor}`
                       : '0 0 0 transparent',
                   }}
                   transition={{ duration: 1.0, ease: LUXURY }}
                 >
-                  {/* Intensity-reactive ambient inside panel */}
+                  {/* Intensity-reactive ambient inside panel — warm amber only */}
                   <AnimatePresence>
                     {previewFam && (
                       <motion.div
-                        key={`${previewFam.id}-${Math.round(intensityFactor * 4)}`}
+                        key={previewFam.id}
                         initial={{ opacity: 0 }}
-                        animate={{ opacity: 0.55 + intensityFactor * 0.9 }}
+                        animate={{ opacity: 0.6 + intensityFactor * 0.8 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.9 }}
                         className="absolute inset-0 pointer-events-none"
                         style={{
-                          background: `radial-gradient(ellipse at 50% 90%, ${previewFam.glowColor} 0%, transparent 60%)`,
+                          background: `radial-gradient(ellipse at 50% 88%, ${previewFam.glowColor} 0%, transparent 62%)`,
                         }}
                       />
                     )}
                   </AnimatePresence>
 
-                  {/* Top-right particle hint */}
-                  {previewFam && (
-                    <motion.div
-                      className="absolute top-4 right-4 pointer-events-none"
-                      animate={{ opacity: [0.15, 0.35, 0.15] }}
-                      transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                      style={{
-                        width: '40px', height: '40px',
-                        background: `radial-gradient(circle, ${previewFam.glowColor} 0%, transparent 70%)`,
-                        filter: 'blur(8px)',
-                      }}
-                    />
-                  )}
-
-                  <div className="relative z-10 p-5">
+                  <div className="relative z-10 p-6">
                     <p className="text-[8px] tracking-[0.45em] uppercase text-center mb-1"
                       style={{ color: 'rgba(176,141,87,0.25)' }}>
                       Your Fragrance
@@ -364,86 +311,10 @@ export default function CustomFragrance() {
                   </div>
 
                   <div className="absolute top-0 left-0 right-0 h-px"
-                    style={{ background: 'linear-gradient(to right, transparent, rgba(176,141,87,0.12), transparent)' }} />
+                    style={{ background: 'linear-gradient(to right, transparent, rgba(176,141,87,0.14), transparent)' }} />
                 </motion.div>
-
-                {/* Gradient bridge from preview panel to left content */}
-                {previewFam && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1.2 }}
-                    className="absolute top-0 -left-8 w-8 h-full pointer-events-none"
-                    style={{
-                      background: `linear-gradient(to right, transparent, ${previewFam.glowColor})`,
-                      opacity: 0.3,
-                    }}
-                  />
-                )}
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* ── Craftsmanship strip ── */}
-        <div
-          className="relative overflow-hidden py-16"
-          style={{
-            borderTop: '1px solid rgba(176,141,87,0.05)',
-            background: 'rgba(7,5,3,0.55)',
-          }}
-        >
-          {/* Atmospheric continuation from builder */}
-          <div className="absolute inset-0 pointer-events-none" style={{
-            background: `radial-gradient(ellipse 80% 100% at 50% 50%, rgba(${atm.g1},0.05) 0%, transparent 70%)`,
-          }} />
-          {/* Top fade continuation */}
-          <div className="absolute top-0 left-0 right-0 h-16 pointer-events-none" style={{
-            background: 'linear-gradient(to bottom, rgba(5,4,3,0.40), transparent)',
-          }} />
-
-          <div className="cx relative z-10">
-            <div className="flex items-center justify-center gap-4 mb-10">
-              <div className="h-px flex-1 max-w-[100px]"
-                style={{ background: 'linear-gradient(to right, transparent, rgba(176,141,87,0.18))' }} />
-              <span style={{ color: 'rgba(176,141,87,0.30)', fontSize: '8px' }}>✦</span>
-              <div className="h-px flex-1 max-w-[100px]"
-                style={{ background: 'linear-gradient(to left, transparent, rgba(176,141,87,0.18))' }} />
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-6">
-              {PILLARS.map(({ symbol, title, sub }, i) => (
-                <motion.div
-                  key={title}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: i * 0.15, ease: LUXURY }}
-                  className="flex flex-col items-center text-center gap-3"
-                >
-                  <span style={{ color: 'rgba(176,141,87,0.30)', fontSize: '16px' }}>{symbol}</span>
-                  <p className="text-[10px] tracking-[0.4em] uppercase font-light"
-                    style={{ color: 'rgba(245,240,232,0.52)' }}>
-                    {title}
-                  </p>
-                  <p className="text-[11px] font-light leading-relaxed"
-                    style={{ color: 'rgba(245,240,232,0.26)' }}>
-                    {sub}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.2, delay: 0.5, ease: LUXURY }}
-              className="text-center mt-12 font-heading italic"
-              style={{ color: 'rgba(245,240,232,0.20)', fontSize: '1.05rem', letterSpacing: '0.01em' }}
-            >
-              Every drop carries your story.
-            </motion.p>
           </div>
         </div>
 
@@ -454,7 +325,7 @@ export default function CustomFragrance() {
 
         {/* Atmospheric bridge to footer */}
         <div className="h-24 pointer-events-none" style={{
-          background: 'linear-gradient(to bottom, transparent 0%, rgba(5,4,3,0.70) 60%, rgba(5,4,3,0.98) 100%)',
+          background: 'linear-gradient(to bottom, transparent 0%, rgba(5,4,3,0.65) 60%, rgba(5,4,3,0.98) 100%)',
         }} />
       </div>
     </motion.main>
