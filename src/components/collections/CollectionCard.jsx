@@ -176,7 +176,8 @@ export default function CollectionCard({ product, index, featured = false }) {
       <motion.div
         className="relative overflow-hidden"
         style={{
-          height: isMobile ? '300px' : featured ? '360px' : isBestseller ? '310px' : '268px',
+          height: isMobile ? undefined : featured ? '360px' : isBestseller ? '310px' : '268px',
+          aspectRatio: isMobile ? (featured ? '16/9' : '4/3') : undefined,
           transformStyle: 'preserve-3d',
           ...tiltStyle,
         }}
