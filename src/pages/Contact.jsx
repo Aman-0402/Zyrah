@@ -4,7 +4,6 @@ import ContactHero from '../components/contact/ContactHero'
 import ContactForm from '../components/contact/ContactForm'
 import ContactInfo from '../components/contact/ContactInfo'
 import { useGSAPReveal } from '../hooks/useGSAPReveal'
-import Button from '../components/ui/Button'
 
 const PARTICLES = [
   { left: '3%',  top: '18%', dur: 9,  del: 0,   size: 1.5 },
@@ -20,23 +19,86 @@ function BottomCTA() {
   return (
     <div
       ref={ref}
-      className="border-t py-16 md:py-20 px-6 text-center"
+      className="relative overflow-hidden py-20 md:py-28 px-6 text-center"
       style={{
-        borderColor: 'rgba(201,168,76,0.12)',
-        background: 'linear-gradient(180deg, rgba(72,24,38,0.14) 0%, rgba(59,31,15,0.08) 100%)',
+        borderTop: '1px solid rgba(201,168,76,0.12)',
+        background: 'linear-gradient(180deg, rgba(30,14,8,0.60) 0%, rgba(18,8,6,0.85) 100%)',
       }}
     >
-      <p className="text-[10px] tracking-[0.5em] uppercase mb-4" style={{ color: 'rgba(201,168,76,0.82)' }}>Explore More</p>
-      <h3 className="font-heading text-3xl md:text-4xl mb-8" style={{ color: 'rgba(255,248,240,0.90)' }}>
-        Still Have <span className="italic" style={{ color: 'rgba(226,194,125,0.90)' }}>Questions?</span>
-      </h3>
-      <div className="flex flex-col sm:flex-row gap-4 justify-center">
-        <Link to="/custom-fragrance">
-          <Button variant="outline" size="lg">Craft Your Fragrance</Button>
-        </Link>
-        <Link to="/collections">
-          <Button variant="ghost" size="lg">View Collections</Button>
-        </Link>
+      {/* Atmospheric glow */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(201,168,76,0.07) 0%, transparent 70%)',
+      }} />
+
+      <div className="relative z-10 max-w-2xl mx-auto">
+        <div className="flex items-center justify-center gap-4 mb-8">
+          <div className="h-px w-12" style={{ background: 'linear-gradient(to right, transparent, rgba(201,168,76,0.50))' }} />
+          <span style={{ color: 'rgba(201,168,76,0.55)', fontSize: '8px' }}>✦</span>
+          <div className="h-px w-12" style={{ background: 'linear-gradient(to left, transparent, rgba(201,168,76,0.50))' }} />
+        </div>
+
+        <p className="text-[10px] tracking-[0.50em] uppercase mb-5" style={{ color: 'rgba(201,168,76,0.65)' }}>
+          Your Scent Awaits
+        </p>
+        <h3 className="font-heading font-light mb-4 leading-tight" style={{
+          fontSize: 'clamp(32px, 5vw, 56px)',
+          color: 'rgba(255,248,240,0.94)',
+        }}>
+          A fragrance crafted{' '}
+          <span className="italic" style={{ color: 'rgba(226,194,125,0.92)' }}>only for you.</span>
+        </h3>
+        <p className="text-[14px] leading-relaxed mb-10 max-w-md mx-auto" style={{ color: 'rgba(220,214,205,0.68)' }}>
+          No two blends are the same. Tell us your vision and we'll create something unforgettable.
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <Link to="/custom-fragrance">
+            <motion.span
+              className="inline-flex items-center gap-3 cursor-pointer select-none transition-all duration-400 group relative overflow-hidden"
+              style={{
+                padding: '16px 36px',
+                fontSize: '11px',
+                letterSpacing: '0.32em',
+                textTransform: 'uppercase',
+                fontWeight: 600,
+                background: 'linear-gradient(135deg, rgba(201,168,76,1) 0%, rgba(176,141,87,0.95) 100%)',
+                color: '#060402',
+                border: '1px solid rgba(226,194,125,0.70)',
+                boxShadow: '0 0 28px rgba(201,168,76,0.22), inset 0 1px 0 rgba(255,255,255,0.15)',
+                display: 'inline-flex',
+              }}
+              whileHover={{ y: -3, boxShadow: '0 0 40px rgba(201,168,76,0.32), inset 0 1px 0 rgba(255,255,255,0.18)' }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{ background: 'linear-gradient(105deg, transparent 25%, rgba(255,255,255,0.10) 50%, transparent 75%)' }}
+              />
+              <span className="relative">Craft Your Fragrance</span>
+            </motion.span>
+          </Link>
+          <Link to="/collections">
+            <motion.span
+              className="inline-flex items-center gap-3 cursor-pointer select-none transition-all duration-400"
+              style={{
+                padding: '16px 32px',
+                fontSize: '11px',
+                letterSpacing: '0.32em',
+                textTransform: 'uppercase',
+                fontWeight: 500,
+                background: 'transparent',
+                color: 'rgba(201,168,76,0.80)',
+                border: '1px solid rgba(201,168,76,0.28)',
+                display: 'inline-flex',
+              }}
+              whileHover={{ y: -3, borderColor: 'rgba(201,168,76,0.60)', color: 'rgba(201,168,76,1)', boxShadow: '0 0 20px rgba(201,168,76,0.12)' }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            >
+              View Collections
+            </motion.span>
+          </Link>
+        </div>
       </div>
     </div>
   )
