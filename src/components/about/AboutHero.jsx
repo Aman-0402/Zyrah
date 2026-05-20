@@ -19,7 +19,7 @@ export default function AboutHero() {
         minHeight: '75vh',
         paddingTop: 'clamp(100px, 11vw, 140px)',
         paddingBottom: '5vh',
-        background: 'linear-gradient(160deg, #0c0806 0%, #180d09 40%, #100808 70%, #080505 100%)',
+        background: 'linear-gradient(160deg, #0a0705 0%, #0d0807 40%, #0a0705 70%, #090605 100%)',
       }}
     >
       {/* Atmospheric glows */}

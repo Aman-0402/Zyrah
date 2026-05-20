@@ -135,7 +135,7 @@ export default function BrandEthos() {
     <section className="py-28 md:py-40 luxury-section luxury-section-alt luxury-divider-glow relative overflow-hidden">
 
       {/* Background */}
-      <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(15,9,8,0.88) 0%, rgba(30,14,15,0.82) 44%, rgba(15,8,7,0.92) 100%)' }} />
+      <div className="absolute inset-0 pointer-events-none" style={{ background: 'rgba(9,6,5,0.22)' }} />
       {/* Cinematic glow behind emblem */}
       <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-[500px] h-[500px] pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(201,168,76,0.11) 0%, rgba(95,28,45,0.08) 38%, transparent 68%)' }}

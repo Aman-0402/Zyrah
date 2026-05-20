@@ -204,7 +204,7 @@ span {
     radial-gradient(ellipse 72% 54% at 20% 8%, rgba(97,39,19,0.16) 0%, transparent 58%),
     radial-gradient(ellipse 62% 48% at 82% 22%, rgba(80,23,41,0.12) 0%, transparent 58%),
     radial-gradient(ellipse 68% 46% at 50% 100%, rgba(117,72,22,0.10) 0%, transparent 60%),
-    linear-gradient(180deg, #0b0706 0%, #15100d 38%, #100908 68%, #090605 100%);
+    linear-gradient(180deg, #0a0705 0%, #0c0806 100%);
 }
 
 .luxury-section {
@@ -222,7 +222,7 @@ span {
   background:
     radial-gradient(ellipse 80% 58% at 18% 28%, rgba(102,42,22,0.12) 0%, transparent 66%),
     radial-gradient(ellipse 68% 50% at 86% 64%, rgba(64,20,35,0.10) 0%, transparent 68%),
-    linear-gradient(180deg, rgba(20,12,9,0.96) 0%, rgba(12,8,7,0.98) 100%);
+    linear-gradient(180deg, rgba(9,6,5,0.80) 0%, rgba(9,6,5,0.82) 100%);
 }
 
 .luxury-section::after {
@@ -240,7 +240,7 @@ span {
   background:
     radial-gradient(ellipse 78% 55% at 78% 25%, rgba(104,35,49,0.14) 0%, transparent 66%),
     radial-gradient(ellipse 72% 54% at 8% 74%, rgba(128,75,22,0.10) 0%, transparent 68%),
-    linear-gradient(180deg, rgba(13,8,8,0.98) 0%, rgba(25,13,13,0.96) 48%, rgba(11,7,6,0.98) 100%);
+    linear-gradient(180deg, rgba(9,6,5,0.82) 0%, rgba(9,6,5,0.80) 48%, rgba(9,6,5,0.82) 100%);
 }
 
 .luxury-divider-glow {

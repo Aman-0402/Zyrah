@@ -106,7 +106,7 @@ export default function Footer() {
           </div>
 
           {/* 3-col grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-14 md:gap-8 lg:gap-20 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-8 lg:gap-20 mb-16">
 
             {/* Brand col */}
             <div className="flex flex-col gap-6">
@@ -164,23 +164,25 @@ export default function Footer() {
             </div>
 
             {/* Nav col */}
-            <div className="flex flex-col gap-5">
-              <p className="luxury-label mb-2" style={{ color: T.goldDim }}>Explore</p>
-              {NAV_LINKS.map(({ label, to }) => (
-                <NavLink
-                  key={to}
-                  to={to}
-                  end={to === '/'}
-                  className="text-[12px] tracking-[0.18em] uppercase font-medium transition-colors duration-500 w-fit"
-                  style={({ isActive }) => ({
-                    color: isActive ? T.gold : T.address,
-                  })}
-                  onMouseEnter={e => { if (!e.currentTarget.className.includes('active')) e.currentTarget.style.color = T.body }}
-                  onMouseLeave={e => { if (!e.currentTarget.className.includes('active')) e.currentTarget.style.color = T.address }}
-                >
-                  {label}
-                </NavLink>
-              ))}
+            <div className="flex flex-col gap-4">
+              <p className="luxury-label mb-1" style={{ color: T.goldDim }}>Explore</p>
+              <div className="grid grid-cols-2 md:flex md:flex-col gap-3 md:gap-4">
+                {NAV_LINKS.map(({ label, to }) => (
+                  <NavLink
+                    key={to}
+                    to={to}
+                    end={to === '/'}
+                    className="text-[12px] tracking-[0.18em] uppercase font-medium transition-colors duration-500 w-fit"
+                    style={({ isActive }) => ({
+                      color: isActive ? T.gold : T.address,
+                    })}
+                    onMouseEnter={e => { if (!e.currentTarget.className.includes('active')) e.currentTarget.style.color = T.body }}
+                    onMouseLeave={e => { if (!e.currentTarget.className.includes('active')) e.currentTarget.style.color = T.address }}
+                  >
+                    {label}
+                  </NavLink>
+                ))}
+              </div>
             </div>
 
             {/* Connect col */}

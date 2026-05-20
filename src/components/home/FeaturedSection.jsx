@@ -228,7 +228,8 @@ export default function FeaturedSection() {
   const handleTap = (id) => setActiveId((prev) => (prev === id ? null : id))
 
   const headingRef = useGSAPReveal({ from: { opacity: 0, y: 30 }, to: { opacity: 1, y: 0 } })
-  const gridRef   = useGSAPStaggerReveal({ selector: '[data-reveal]', stagger: 0.18, start: 'top 80%' })
+  const gridRef    = useGSAPStaggerReveal({ selector: '[data-reveal]', stagger: 0.18, start: 'top 80%' })
+  const ctaRef     = useGSAPReveal({ from: { opacity: 0, y: 24 }, to: { opacity: 1, y: 0 }, duration: 0.8, start: 'top 92%' })
 
   return (
     <section className="py-24 md:py-32 luxury-section luxury-divider-glow relative">
@@ -268,47 +269,48 @@ export default function FeaturedSection() {
       </div>
 
       {/* CTA */}
-      <div className="text-center">
+      <div ref={ctaRef} className="text-center mt-16 md:mt-20">
         <Link to="/collections">
           <motion.span
-            className="group inline-flex items-center gap-4 cursor-pointer select-none"
+            className="group relative inline-flex items-center gap-3 cursor-pointer select-none overflow-hidden"
             initial="rest"
             whileHover="hover"
+            whileTap={{ scale: 0.97 }}
+            style={{
+              padding: '16px 40px',
+              background: 'linear-gradient(135deg, rgba(201,168,76,1) 0%, rgba(176,141,87,0.95) 100%)',
+              color: '#060402',
+              border: '1px solid rgba(226,194,125,0.70)',
+              boxShadow: '0 0 28px rgba(201,168,76,0.20), inset 0 1px 0 rgba(255,255,255,0.18)',
+            }}
+            variants={{
+              rest: { y: 0, boxShadow: '0 0 28px rgba(201,168,76,0.20), inset 0 1px 0 rgba(255,255,255,0.18)' },
+              hover: { y: -3, boxShadow: '0 0 48px rgba(201,168,76,0.38), inset 0 1px 0 rgba(255,255,255,0.22)' },
+            }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* Left line — hidden on mobile */}
+            {/* Shimmer sweep */}
             <motion.span
-              variants={{ rest: { width: 24, opacity: 0.25 }, hover: { width: 48, opacity: 0.7 } }}
-              transition={{ duration: 0.4, ease: 'easeOut' }}
-              className="hidden sm:block h-px bg-gold-400"
-            />
-
-            {/* Button box */}
-            <motion.span
+              className="absolute inset-0 pointer-events-none"
               variants={{
-                rest: { borderColor: 'rgba(201,168,76,0.4)', color: 'rgba(201,168,76,0.85)', boxShadow: '0 0 0px rgba(201,168,76,0)' },
-                hover: { borderColor: 'rgba(201,168,76,0.9)', color: 'rgba(201,168,76,1)',   boxShadow: '0 0 36px rgba(201,168,76,0.22)' },
+                rest: { x: '-100%', opacity: 0 },
+                hover: { x: '100%', opacity: 1 },
               }}
-              transition={{ duration: 0.35 }}
-              className="inline-flex items-center gap-3 border px-6 sm:px-14 py-4 sm:py-5"
-              style={{ fontFamily: 'inherit' }}
-            >
-              <span className="text-xs sm:text-sm tracking-[0.3em] sm:tracking-[0.45em] uppercase font-semibold">
-                View All Collections
-              </span>
-              <motion.span
-                variants={{ rest: { x: 0, opacity: 0.6 }, hover: { x: 5, opacity: 1 } }}
-                transition={{ duration: 0.3 }}
-              >
-                <ArrowRight size={14} strokeWidth={1.5} />
-              </motion.span>
-            </motion.span>
-
-            {/* Right line — hidden on mobile */}
-            <motion.span
-              variants={{ rest: { width: 24, opacity: 0.25 }, hover: { width: 48, opacity: 0.7 } }}
-              transition={{ duration: 0.4, ease: 'easeOut' }}
-              className="hidden sm:block h-px bg-gold-400"
+              transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+              style={{
+                background: 'linear-gradient(105deg, transparent 25%, rgba(255,255,255,0.14) 50%, transparent 75%)',
+              }}
             />
+            <span className="relative text-[11px] tracking-[0.36em] uppercase font-semibold">
+              View All Collections
+            </span>
+            <motion.span
+              className="relative"
+              variants={{ rest: { x: 0 }, hover: { x: 4 } }}
+              transition={{ duration: 0.3 }}
+            >
+              <ArrowRight size={13} strokeWidth={2} />
+            </motion.span>
           </motion.span>
         </Link>
       </div>

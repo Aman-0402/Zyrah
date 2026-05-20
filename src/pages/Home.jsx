@@ -21,7 +21,7 @@ function AtmosphericBridge({ warm = false, height = 32 }) {
       {/* Horizontal gold thread */}
       <div className="absolute inset-x-0 top-1/2 h-px" style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(226,194,125,0.15) 30%, rgba(226,194,125,0.32) 50%, rgba(226,194,125,0.15) 70%, transparent 100%)', boxShadow: '0 0 24px rgba(201,168,76,0.08)' }} />
       {/* Diamond center accent */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rotate-45 border border-gold-400/40" style={{ background: '#130b08', boxShadow: '0 0 18px rgba(201,168,76,0.18)' }} />
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rotate-45 border border-gold-400/40" style={{ background: '#090605', boxShadow: '0 0 18px rgba(201,168,76,0.18)' }} />
       {/* Warm color bleed */}
       {warm && (
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 50%, rgba(154,83,28,0.10) 0%, rgba(76,21,36,0.05) 45%, transparent 72%)' }} />
@@ -57,12 +57,12 @@ export default function Home() {
       <HeroSection />
 
       {/* Hero → Marquee: fade out hero atmosphere */}
-      <div className="h-12 pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(16,9,8,0) 0%, rgba(19,11,8,0.74) 100%)' }} />
+      <div className="h-12 pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(9,6,5,0) 0%, rgba(9,6,5,0.70) 100%)' }} />
 
       <MarqueeStrip />
 
       {/* Marquee → Featured: warm atmospheric bridge */}
-      <div className="h-16 pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(19,11,8,0.74) 0%, rgba(57,24,18,0.18) 50%, rgba(16,9,8,0) 100%)' }} />
+      <div className="h-16 pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(9,6,5,0.70) 0%, rgba(9,6,5,0.18) 50%, rgba(9,6,5,0) 100%)' }} />
 
       <FeaturedSection />
 
@@ -70,7 +70,7 @@ export default function Home() {
       <AtmosphericBridge warm height={48} />
 
       {/* Warm glow bleed into philosophy */}
-      <div className="h-12 pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(16,9,8,0) 0%, rgba(42,17,18,0.34) 100%)' }} />
+      <div className="h-12 pointer-events-none" style={{ background: 'linear-gradient(180deg, rgba(9,6,5,0) 0%, rgba(9,6,5,0.30) 100%)' }} />
 
       <BrandEthos />
     </motion.main>
