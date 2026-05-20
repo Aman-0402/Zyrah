@@ -83,16 +83,27 @@ export default function Footer() {
         <div className="cx relative z-10 pt-28 pb-14">
 
           {/* Emotional closing line */}
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: LUXURY }}
-            className="font-heading italic text-center text-4xl md:text-5xl mb-20"
-            style={{ color: T.quote, letterSpacing: '0.01em', fontWeight: 300 }}
+            className="flex flex-col items-center py-16 md:py-24"
           >
-            Crafted to linger beyond memory.
-          </motion.p>
+            <p
+              className="font-heading italic text-center text-4xl md:text-5xl lg:text-6xl"
+              style={{ color: T.quote, letterSpacing: '0.01em', fontWeight: 300, lineHeight: 1.2 }}
+            >
+              Crafted to linger beyond memory.
+            </p>
+          </motion.div>
+
+          {/* Gold separator */}
+          <div className="flex items-center gap-4 mb-16 md:mb-20">
+            <div className="flex-1 h-px" style={{ background: 'linear-gradient(to right, transparent, rgba(201,168,76,0.25))' }} />
+            <span style={{ color: 'rgba(201,168,76,0.35)', fontSize: '7px' }}>◆</span>
+            <div className="flex-1 h-px" style={{ background: 'linear-gradient(to left, transparent, rgba(201,168,76,0.25))' }} />
+          </div>
 
           {/* 3-col grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-14 md:gap-8 lg:gap-20 mb-16">
