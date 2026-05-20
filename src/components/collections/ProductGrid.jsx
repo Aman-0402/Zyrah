@@ -38,7 +38,7 @@ export default function ProductGrid({ activeFilter }) {
     <div className="cx pt-14 pb-24 md:pb-36" style={{ position: 'relative' }}>
       <motion.div
         layout
-        className="grid grid-cols-2 lg:grid-cols-3 gap-x-3 gap-y-6 sm:gap-x-6 sm:gap-y-10 md:gap-x-8 md:gap-y-14"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-3 gap-y-8 sm:gap-x-6 sm:gap-y-10 md:gap-x-8 md:gap-y-14"
       >
         <AnimatePresence mode="popLayout">
           {filtered.length === 0 ? (
@@ -55,12 +55,10 @@ export default function ProductGrid({ activeFilter }) {
                   : i % 3 === 2
                     ? 'lg:pt-5'
                     : ''
-              const mobileStagger = !isFeatured && i % 2 === 1 ? 'pt-5 lg:pt-0' : ''
-
               return (
                 <div
                   key={product.id}
-                  className={`${isFeatured ? 'md:col-span-2' : ''} ${mobileStagger} ${staggerClass}`.trim()}
+                  className={`${isFeatured ? 'md:col-span-2' : ''} ${staggerClass}`.trim()}
                 >
                   <CollectionCard product={product} index={i} featured={isFeatured} />
                 </div>

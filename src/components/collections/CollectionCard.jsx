@@ -176,7 +176,7 @@ export default function CollectionCard({ product, index, featured = false }) {
       <motion.div
         className="relative overflow-hidden"
         style={{
-          height: isMobile ? '200px' : featured ? '360px' : isBestseller ? '310px' : '268px',
+          height: isMobile ? '300px' : featured ? '360px' : isBestseller ? '310px' : '268px',
           transformStyle: 'preserve-3d',
           ...tiltStyle,
         }}
@@ -374,14 +374,14 @@ export default function CollectionCard({ product, index, featured = false }) {
           </motion.div>
         </div>
 
-        {/* Description — hidden on mobile 2-col */}
-        <p className="hidden sm:block font-normal leading-[1.75]"
+        {/* Description */}
+        <p className="font-normal leading-[1.75]"
           style={{ fontSize: '0.875rem', color: isActive ? 'rgba(245,241,234,0.94)' : 'rgba(236,230,220,0.84)', transition: 'color 0.4s' }}>
           {desc}
         </p>
 
-        {/* Note chips — hidden on mobile 2-col */}
-        <div className="hidden sm:flex flex-wrap gap-2 mt-auto">
+        {/* Note chips */}
+        <div className="flex flex-wrap gap-2 mt-auto">
           {notes.map((note) => (
             <span
               key={note}
@@ -404,18 +404,25 @@ export default function CollectionCard({ product, index, featured = false }) {
         >
           {/* Keyword label */}
           {!isComingSoon && (
-            <span className="hidden sm:block text-[9px] tracking-[0.22em] uppercase font-semibold"
-              style={{ color: isActive ? `${accentColor}E6` : `${accentColor}B3`, transition: 'color 0.4s' }}>
+            <span className="text-[9px] tracking-[0.22em] uppercase font-semibold"
+              style={{ color: isActive ? `${accentColor}E6` : `${accentColor}80`, transition: 'color 0.4s' }}>
               Handcrafted · Pure Essence
             </span>
           )}
           {/* Price row */}
           <div className="flex items-center justify-between">
-            <span className="font-heading font-bold transition-colors duration-400"
-              style={{ fontSize: featured ? '1.25rem' : '1.1rem', letterSpacing: '0.06em',
-                color: isComingSoon ? `${accentColor}45` : accentColor }}>
-              {isComingSoon ? 'Coming Soon' : `${price.replace('₹ ', '₹')} for ${size}`}
-            </span>
+            <div className="flex items-baseline gap-2">
+              <span className="font-heading font-bold transition-colors duration-400"
+                style={{ fontSize: featured ? '1.25rem' : '1.1rem', letterSpacing: '0.06em',
+                  color: isComingSoon ? `${accentColor}45` : accentColor }}>
+                {isComingSoon ? 'Coming Soon' : price.replace('₹ ', '₹')}
+              </span>
+              {!isComingSoon && (
+                <span className="text-[10px] tracking-[0.14em]" style={{ color: `${accentColor}70` }}>
+                  · {size}
+                </span>
+              )}
+            </div>
             {!isComingSoon && (
               <motion.span
                 className="text-[10px] tracking-[0.22em] uppercase font-semibold"
