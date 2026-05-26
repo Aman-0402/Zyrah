@@ -1,483 +1,391 @@
-# Agent.md — m_m_attarwala Project Memory
-> Master reference for all AI agents. Update after every phase.
+# AGENT.md — M. M. Attarwala Project Reference
+
+> Master reference for AI agents. Reflects current production state.
 
 ---
 
 ## 1. Project Overview
 
 | Field | Value |
-|-------|-------|
-| **Brand** | m_m_attarwala |
-| **Tagline** | Custom-made fragrances, crafted just for you |
-| **USP** | Free delivery across India |
-| **Type** | Luxury perfume / attar e-commerce brand website |
-| **Goal** | Cinematic, premium frontend — Arabic attar meets modern luxury |
+|---|---|
+| Brand | M. M. Attarwala |
+| Tagline | Custom-made fragrances, crafted just for you |
+| Type | Luxury attar / perfume brand website |
+| Goal | Cinematic, premium frontend — Arabic attar meets modern luxury |
+| Status | **ALL PHASES COMPLETE** — in active polish/improvement |
 
 ---
 
-## 2. Current Progress
+## 2. Real Business Details
 
-**PHASE 1 — COMPLETE**
-**PHASE 2 — COMPLETE**
-**PHASE 3 — COMPLETE**
-**PHASE 4 — COMPLETE**
-**PHASE 5 — COMPLETE**
-**PHASE 6 — COMPLETE**
-**PHASE 7 — COMPLETE ✦ ALL PHASES DONE**
-
-- [x] React + Vite scaffold (manual, not `create-vite` due to existing .git)
-- [x] Tailwind CSS v4 via `@tailwindcss/vite` plugin
-- [x] Luxury dark theme global styles
-- [x] Custom font loading (Cormorant Garamond + Inter)
-- [x] Custom scrollbar (gold on black)
-- [x] useScrollPosition hook
-- [x] Floating Navbar (transparent → blur on scroll)
-- [x] Mobile menu (full-screen overlay, Framer Motion)
-- [x] React Router v6 with AnimatePresence page transitions
-- [x] HeroSection — cinematic full-screen, GSAP orbs, Framer Motion stagger
-- [x] MarqueeStrip — infinite CSS ticker, hover-pause
-- [x] FeaturedSection — 3 fragrance cards, GSAP ScrollTrigger stagger
-- [x] BrandEthos — 2-col layout, GSAP slide-in, rotating ornament
-- [x] useGSAPReveal + useGSAPStaggerReveal hooks
-- [x] CollectionsHero — 60vh, arabesque SVG divider, breadcrumb, FM stagger
-- [x] FilterTabs — sticky glass, layoutId underline slide, count badges
-- [x] ProductGrid — AnimatePresence popLayout filter transitions, result count
-- [x] ProductCard — 12 products, badges, hover lift+glow, enquiry CTA
-- [x] products.js data — 12 products across 4 categories
-- [x] FragranceBuilderHero — 50vh, FM stagger
-- [x] StepIndicator — 5 steps, animated fill track, ✓ complete circles, sticky glass
-- [x] BottlePreview — CSS SVG bottle, animated fill height/opacity, compact mobile strip
-- [x] Step1Family — 4 gradient cards, FM stagger, selected glow+checkmark
-- [x] Step2Notes — 3 layers, chip toggle (max 2 each), family-filtered
-- [x] Step3Intensity — custom slider (1–5), spring thumb, level descriptions
-- [x] Step4Name — luxury input, live bottle label, ornament animations
-- [x] Step5Enquiry — summary pills, form, WhatsApp deep link, success state
-- [x] notes.js — all note options + FAMILIES + INTENSITY_LEVELS data
-- [x] AboutHero — 55vh, warm glow, breadcrumb, FM stagger
-- [x] HeritageBand — full-width clipPath GSAP reveal, warm brown bg
-- [x] OurStory — 3 alternating blocks, GSAP side-slide, CSS ornaments (ring/arabesque/diamond)
-- [x] ProcessTimeline — 4 steps, horizontal desktop / vertical mobile, Arabic numerals
-- [x] ValuesGrid — 3 cards, GSAP stagger, hover bottom-line reveal
-- [x] FounderNote — word-by-word FM quote reveal, WhatsApp/CTA
-- [x] ContactHero — 50vh, FM stagger, breadcrumb
-- [x] ContactForm — subject chips, WhatsApp submit, success state, validation
-- [x] ContactInfo — 3 info cards, delivery badge, Instagram link, GSAP stagger
-- [x] Contact.jsx — 2-col layout, BottomCTA strip
-- [x] Footer.jsx — 3-col, arabesque wave, nav links, social icons, bottom bar
-- [x] ScrollToTop.jsx — fixed button, FM scale in/out, appears at scrollY > 400
-- [x] NotFound.jsx — 404 page, giant watermark, CTA buttons
-- [x] App.jsx — Footer + ScrollToTop + 404 route wired
-- [x] vite.config.js — manual chunks (react/motion/gsap/ui split), no size warnings
-- [x] index.html — OG tags, theme-color, twitter card meta
-- [x] Reusable Button component (3 variants)
-- [x] 5 placeholder pages (Home, Collections, CustomFragrance, About, Contact)
-- [x] Agent.md initialized
+| Field | Value |
+|---|---|
+| WhatsApp (M. Roeesh) | `919724586101` |
+| Phone (M. Munavvar) | `919016361538` |
+| Email | `mmattarwala2008@rediff.com` |
+| Store 1 | GF 154/155 Nazarbaug Palace, Vadodara |
+| Store 2 | Shop No. 3 Fortune Point, Mandvi, Vadodara – 390 017 |
+| Hours | 10 am – 8 pm · Mon closed · Fri closed 12:45–2:45 pm |
+| Instagram | `@mm_attarwala` |
+| Facebook | `mmattarwala` |
 
 ---
 
-## 3. Completed Features
+## 3. Tech Stack
 
-### Home Page — Phase 2
-
-#### HeroSection (`src/components/home/HeroSection.jsx`)
-- Full viewport height, `bg-black`
-- 3 GSAP floating ambient orbs (gold radial gradients, infinite yoyo float)
-- Inline SVG arabesque corners (top-left / top-right), opacity 6%
-- Animated gold border lines (top + bottom), `scaleX` reveal on mount
-- Framer Motion stagger container: `delayChildren: 0.5`, `staggerChildren: 0.15`
-- Headline: `Crafted` (ivory, italic) + `For You.` (gold gradient) — `clipPath inset(0 100% 0 0)` → `inset(0 0% 0 0)` reveal
-- Gold divider: `width 0→120px` on mount, delay 1.2s
-- Body copy + dual CTA buttons (primary + outline)
-- Scroll indicator: bouncing ChevronDown, appears at delay 2s
-- Bottom fade gradient to black
-
-#### MarqueeStrip (`src/components/home/MarqueeStrip.jsx`)
-- CSS `@keyframes marquee` using `translate` property (compositor-only)
-- 3× content duplication for seamless loop (`-33.333%` translate)
-- `will-change: translate` on animated element
-- Hover pauses via `hover:[animation-play-state:paused]`
-- Left/right fade overlays (gradient masks)
-- Items: Custom Made · Free Delivery · Premium Attars · Crafted For You · Arabic Oudh · Pure Essence · Luxury Fragrances · Bespoke Blends
-
-#### FeaturedSection (`src/components/home/FeaturedSection.jsx`)
-- GSAP ScrollTrigger heading reveal (`useGSAPReveal`)
-- GSAP stagger on 3 cards via `useGSAPStaggerReveal` with `[data-reveal]` selector
-- Cards: `#111` bg, `border-gold-400/10` → `border-gold-400/40` on hover
-- Card image area: atmospheric CSS gradient (unique per card), Arabic name watermark
-- Hover: `whileHover y:-8px` spring, gold border glow, line reveals from bottom
-- Note tags: mini pill borders
-- 3 fragrances: Oud Al Layl, Rose Shamama, Misk Malaki
-
-#### BrandEthos (`src/components/home/BrandEthos.jsx`)
-- 2-col grid (stacked mobile → side-by-side md+)
-- Left: giant Arabic `م` text outline + nested concentric circles + Framer Motion infinite rotation ring
-- Right: label, heading with italic gold accent, 2 body paragraphs, 3 pillar pills
-- GSAP: ornament fades+scales in, content slides from right (delay 0.2s)
-
-#### useGSAPReveal hook (`src/hooks/useGSAPReveal.js`)
-- `useGSAPReveal(options)` — single element reveal with ScrollTrigger
-- `useGSAPStaggerReveal(options)` — staggered children reveal via `querySelectorAll(selector)`
-- Both return refs; use `gsap.context()` for cleanup
-
-### Navbar
-- Fixed position, z-50
-- Initial state: transparent, py-5
-- Scrolled state: glassmorphism (`backdrop-blur-16px`), border-b gold/10, py-3
-- Scroll threshold: 50px (via `useScrollPosition` hook)
-- Logo: `m_m_attarwala` in Cormorant Garamond gold, letter-spacing animates on hover
-- Desktop links: 11px, tracking-widest, uppercase; gold animated underline (Framer Motion width 0→100%)
-- Active route: gold text + full underline
-- Desktop CTA button: "Craft Yours" — black text on gold-400 bg
-- Mobile: hamburger/X toggle with spring rotation animation
-- Mobile menu: full-screen overlay, `clipPath` reveal animation, staggered link entrance
-- Mobile links: Cormorant Garamond 4xl–5xl, ivory → gold-300 on hover
-- Body scroll locked when mobile menu open
-- Menu closes on route change
-
-### Button Component (`src/components/ui/Button.jsx`)
-| Prop | Options | Default |
-|------|---------|---------|
-| `variant` | `primary` \| `outline` \| `ghost` | `primary` |
-| `size` | `sm` \| `md` \| `lg` | `md` |
-| `disabled` | boolean | `false` |
-- `primary`: gold-400 bg, black text, gold glow shadow
-- `outline`: transparent bg, gold-400 border/text, fills on hover
-- `ghost`: transparent, ivory text, gold text on hover
-- Framer Motion: `whileHover scale(1.02)`, `whileTap scale(0.97)`
+| Layer | Library | Version |
+|---|---|---|
+| Framework | React + Vite | 18 + 5 |
+| Styling | Tailwind CSS | v4 (`@tailwindcss/vite`, no config file) |
+| Animation | Framer Motion | v11 |
+| Scroll Animation | GSAP + ScrollTrigger | v3 |
+| Routing | React Router | v6 |
+| Icons | Lucide React | latest |
 
 ---
 
-## 4. Folder Architecture
+## 4. File Architecture
 
 ```
 Zyrah/
 ├── public/
-│   └── favicon.svg                 # Arabic م on black bg
+│   ├── logoakatar.png              # Brand logo (used in Navbar + Footer)
+│   ├── contactbackground.png       # Contact hero full-bleed background
+│   └── favicon.svg
 ├── src/
-│   ├── assets/                     # (empty — Phase 3+: images, videos)
 │   ├── components/
 │   │   ├── home/
-│   │   │   ├── HeroSection.jsx     # Full-screen cinematic hero
-│   │   │   ├── MarqueeStrip.jsx    # Infinite scrolling USP ticker
-│   │   │   ├── FeaturedSection.jsx # 3 fragrance cards + GSAP stagger
-│   │   │   └── BrandEthos.jsx      # Philosophy section, 2-col layout
-│   │   ├── ui/
-│   │   │   └── Button.jsx          # Reusable button (primary/outline/ghost)
-│   │   └── layout/
-│   │       └── Navbar.jsx          # Main floating navbar + mobile menu
-│   ├── hooks/
-│   │   ├── useScrollPosition.js    # scrollY + isScrolled (threshold 50px)
-│   │   └── useGSAPReveal.js        # useGSAPReveal + useGSAPStaggerReveal
+│   │   │   ├── HeroSection.jsx         # Cinematic hero, GSAP orbs, FM stagger
+│   │   │   ├── MarqueeStrip.jsx        # Infinite ticker, hover-pause
+│   │   │   ├── FeaturedSection.jsx     # 3 cards, GSAP stagger, mobile tap, gold CTA
+│   │   │   └── BrandEthos.jsx          # Philosophy, 2-col, rotating ornament
+│   │   ├── collections/
+│   │   │   ├── CollectionsHero.jsx     # Hero with arabesque SVG divider
+│   │   │   ├── FilterTabs.jsx          # Sticky glass pills, layoutId slide, counts
+│   │   │   ├── ProductGrid.jsx         # 1/2/3 col responsive, AnimatePresence
+│   │   │   └── CollectionCard.jsx      # 3D tilt card, cursor parallax, shine sweep
+│   │   ├── fragrance/
+│   │   │   ├── FragranceBuilderHero.jsx
+│   │   │   ├── StepIndicator.jsx       # 5-step fill track + completion marks
+│   │   │   ├── BottlePreview.jsx       # CSS SVG bottle, animated fill
+│   │   │   ├── Step1Family.jsx
+│   │   │   ├── Step2Notes.jsx
+│   │   │   ├── Step3Intensity.jsx
+│   │   │   ├── Step4Name.jsx
+│   │   │   └── Step5Enquiry.jsx        # WhatsApp deep-link submission
+│   │   ├── about/
+│   │   │   ├── AboutHero.jsx           # "Our Story." hero, stats, no breadcrumb
+│   │   │   ├── HeritageBand.jsx        # Full-width clipPath GSAP reveal
+│   │   │   ├── OurStory.jsx            # 3 alternating blocks, CSS ornaments
+│   │   │   ├── ProcessTimeline.jsx     # 4 steps, horizontal/vertical responsive
+│   │   │   ├── ValuesGrid.jsx          # 3 cards, GSAP stagger
+│   │   │   └── FounderNote.jsx         # Word-by-word FM quote reveal
+│   │   ├── contact/
+│   │   │   ├── ContactHero.jsx         # BG image hero, 82vh, scrim layers
+│   │   │   ├── ContactForm.jsx         # Glassmorphism, chips, shimmer CTA
+│   │   │   └── ContactInfo.jsx         # WA/phone/email/address/hours/products
+│   │   ├── layout/
+│   │   │   ├── Navbar.jsx              # Black Gold White, blur, mobile overlay
+│   │   │   ├── Footer.jsx              # Quote, 3-col (2-col nav on mobile), social
+│   │   │   └── RouteScrollToTop.jsx    # useLocation → window.scrollTo(0,0)
+│   │   └── ui/
+│   │       └── Button.jsx              # primary / outline / ghost variants
 │   ├── data/
-│   │   └── products.js             # 12 products, 4 categories, CATEGORIES array
+│   │   ├── products.js                 # 12 products, 4 categories, CATEGORIES array
+│   │   └── notes.js                    # FAMILIES, NOTE_OPTIONS, INTENSITY_LEVELS
+│   ├── hooks/
+│   │   ├── useGSAPReveal.js            # useGSAPReveal + useGSAPStaggerReveal
+│   │   └── useScrollPosition.js        # scrollY + isScrolled (threshold 50px)
 │   ├── pages/
-│   │   ├── Home.jsx                # ✅ Complete — 4 sections
-│   │   ├── Collections.jsx         # ✅ Complete — hero, filter, grid
-│   │   ├── CustomFragrance.jsx     # ✅ Complete — 5-step builder
-│   │   ├── About.jsx               # Phase 5: Brand story
-│   │   └── Contact.jsx             # Phase 6: Contact form
+│   │   ├── Home.jsx                    # 4 sections + atmospheric bridge divs
+│   │   ├── Collections.jsx
+│   │   ├── CustomFragrance.jsx
+│   │   ├── About.jsx
+│   │   ├── Contact.jsx                 # 2-col layout + BottomCTA strip
+│   │   └── NotFound.jsx
 │   ├── styles/
-│   │   └── globals.css             # Tailwind v4 @theme tokens + base + marquee
-│   ├── App.jsx                     # Router + AnimatePresence page transitions
-│   └── main.jsx                    # React root + BrowserRouter
-├── Agent.md                        # THIS FILE — project memory
-├── .gitignore
-├── index.html                      # Google Fonts preconnect + meta
+│   │   └── globals.css                 # @theme tokens, base, .cx, .luxury-* utils
+│   ├── App.jsx                         # Router + AnimatePresence + RouteScrollToTop
+│   └── main.jsx
+├── AGENT.md                            # THIS FILE
+├── README.md
+├── index.html                          # OG meta, Google Fonts preconnect
 ├── package.json
-└── vite.config.js                  # @vitejs/plugin-react + @tailwindcss/vite
+└── vite.config.js                      # manual chunks: react/motion/gsap
 ```
 
 ---
 
-## 5. Dependencies Installed
+## 5. Design System
 
-```json
-{
-  "dependencies": {
-    "framer-motion": "^11.0.0",
-    "gsap": "^3.12.5",
-    "lucide-react": "^0.400.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.24.0"
-  },
-  "devDependencies": {
-    "@tailwindcss/vite": "^4.0.0",
-    "@vitejs/plugin-react": "^4.3.1",
-    "tailwindcss": "^4.0.0",
-    "vite": "^5.3.1"
-  }
-}
+### Color Tokens (`globals.css @theme`)
+
+| Token | Hex | Usage |
+|---|---|---|
+| `gold-300` | `#E2C27D` | Hover states, light gold |
+| `gold-400` | `#C9A84C` | Primary gold — CTAs, active, borders |
+| `gold-500` | `#A8862E` | Deep gold, gradients |
+| `gold-600` | `#8A6D1E` | Darkest gold, pressed states |
+| `ivory` | `#F5F0E8` | Primary text |
+| `black` | `#0A0A0A` | Background base |
+
+### Background System (unified)
+
+All sections use a shared base so no visible seams between sections:
+
+```
+body:                    #090605  (solid base)
+.luxury-page:            radial warm glows + linear #0a0705→#0c0806
+.luxury-section::before: rgba(9,6,5, 0.80–0.82) semi-transparent overlay
+.luxury-section-alt::before: same opacity, different tint glows
 ```
 
-**GSAP** — installed, not yet used. Ready for Phase 2 scroll-triggered animations.
+**Rule:** never use near-opaque (0.95+) section backgrounds. Keep at 0.75–0.85 so the page-level gradient unifies all sections.
+
+### Typography
+
+| Role | Font | Weight |
+|---|---|---|
+| Display/Hero | Cormorant Garamond | 300 italic |
+| Headings | Cormorant Garamond | 400 |
+| Italic accent | Cormorant Garamond Italic | 300–400 |
+| Body | Inter | 300–400 |
+| UI / Labels | Inter | 500–600 |
+| Micro tracking | Inter uppercase | 400, `tracking-[0.3em+]` |
+
+### Easing
+
+```js
+const LUXURY   = [0.22, 1, 0.36, 1]       // smooth luxury reveals
+const CINEMATIC = [0.76, 0, 0.24, 1]      // fast-in slow-out card/stagger
+const SPRING   = { stiffness: 180, damping: 28, mass: 0.8 } // 3D card tilt
+```
+
+### Container
+
+```css
+.cx { max-width: 1440px; padding: 0 1.5rem; margin: auto; }
+```
+
+### Section Padding Pattern
+
+Navbar clearance via section-level clamp (not inner padding):
+```jsx
+style={{ paddingTop: 'clamp(96px, 10vw, 130px)' }}  // hero sections
+style={{ paddingTop: 'clamp(100px, 11vw, 140px)' }}  // contact/about heroes
+```
 
 ---
 
-## 6. Design System Rules
-
-### Color Tokens (defined in `globals.css` @theme)
-
-| Token | CSS Variable | Hex | Usage |
-|-------|-------------|-----|-------|
-| `gold-300` | `--color-gold-300` | `#E2C27D` | Hover states, light gold |
-| `gold-400` | `--color-gold-400` | `#C9A84C` | Primary gold — CTAs, active, accents |
-| `gold-500` | `--color-gold-500` | `#A8862E` | Scrollbar, gradients |
-| `gold-600` | `--color-gold-600` | `#8A6D1E` | Pressed/dark gold |
-| `ivory` | `--color-ivory` | `#F5F0E8` | Primary text |
-| `ivory-dark` | `--color-ivory-dark` | `#E8E0D0` | Secondary text |
-| `black` | `--color-black` | `#0A0A0A` | Background |
-| `black-soft` | `--color-black-soft` | `#111111` | Cards, panels |
-| `brown` | `--color-brown` | `#3B1F0F` | Warm accent bg |
-| `brown-light` | `--color-brown-light` | `#5C3420` | Warm accent hover |
-
-### Tailwind v4 Usage Notes
-- Color tokens in `@theme` auto-generate utility classes: `bg-gold-400`, `text-ivory`, `border-brown`, etc.
-- Opacity modifiers work: `text-ivory/70`, `border-gold-400/10`
-- `font-heading` class sets `font-family: var(--font-heading)` (Cormorant Garamond)
-- `font-body` class sets `font-family: var(--font-body)` (Inter)
-- No `tailwind.config.js` needed — all config lives in `globals.css @theme`
-
-### Typography Scale
-
-| Role | Font | Weight | Usage |
-|------|------|--------|-------|
-| Display/Hero | Cormorant Garamond | 300 (light) | Hero titles, page headers |
-| Heading | Cormorant Garamond | 400–500 | Section headings |
-| Italic accent | Cormorant Garamond Italic | 300–400 | Pull quotes, taglines |
-| Body | Inter | 300 | Paragraph text |
-| UI / Labels | Inter | 400–500 | Buttons, nav, badges |
-| Micro / Tracking | Inter | 400 | Uppercase labels, tracking-[0.3em+] |
-
-### Spacing & Layout
-- Max content width: `max-w-7xl` (1280px) centered
-- Horizontal padding: `px-6` (mobile) → `px-8` (lg)
-- Navbar height: ~80px (`pt-80px` via `.page-wrapper`)
-
----
-
-## 7. Animation Rules
+## 6. Animation Patterns
 
 ### Libraries
-- **Framer Motion** — all React component animations (navbar, menu, buttons, page transitions)
-- **GSAP** — Phase 2+: scroll-triggered reveals, parallax, complex timeline sequences
+- **Framer Motion** — component animations, hover, page transitions, variants
+- **GSAP + ScrollTrigger** — scroll-triggered reveals, stagger on scroll
 
-### Easing Standard
+### GSAP Hooks (`src/hooks/useGSAPReveal.js`)
+
 ```js
-// Luxury easing curve — use for reveals, menus, hero elements
-ease: [0.76, 0, 0.24, 1]
+// Single element reveal
+const ref = useGSAPReveal({
+  from: { opacity: 0, y: 30 },
+  to: { opacity: 1, y: 0 },
+  duration: 0.9,          // default
+  start: 'top 82%',       // default
+})
 
-// Standard spring — use for interactive elements (buttons, hovers)
-{ type: 'spring', stiffness: 400, damping: 25 }
-
-// Quick easeOut — use for simple transitions
-{ duration: 0.3, ease: 'easeOut' }
+// Stagger children (attach to container, children need [data-reveal])
+const ref = useGSAPStaggerReveal({
+  selector: '[data-reveal]',
+  from: { opacity: 0, y: 20, scale: 0.96 },
+  to: { opacity: 1, y: 0, scale: 1 },
+  stagger: 0.13,
+  start: 'top 80%',
+})
 ```
 
-### Animation Patterns
+### Framer Motion Patterns
+
 | Pattern | Implementation |
-|---------|---------------|
-| Page entrance | `initial opacity:0 y:30` → `animate opacity:1 y:0`, 0.8s luxury ease |
-| Navbar entrance | `initial y:-80 opacity:0` → `animate y:0 opacity:1`, delay 0.2s |
-| Mobile menu | `clipPath inset(0 0 100% 0)` → `inset(0 0 0% 0)`, 0.5s luxury ease |
-| Stagger links | `delay: 0.1 + i * 0.07` per item |
-| Button hover | `scale(1.02)` spring |
-| Button tap | `scale(0.97)` spring |
-| Logo hover | `letterSpacing` 0.15em → 0.22em, 0.4s |
-| Nav underline | `width` 0% → 100%, 0.3s easeOut |
-
-### Glassmorphism Class
-```css
-.glass {
-  background: rgba(10, 10, 10, 0.6);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(201, 168, 76, 0.15);
-}
-```
+|---|---|
+| Page entrance | `initial={{ opacity:0 }} animate={{ opacity:1 }} exit={{ opacity:0 }}` |
+| Hero text reveal | `initial={{ y:'110%', opacity:0 }} animate={{ y:0, opacity:1 }}` |
+| Shine sweep | `shineKey` state increments on hover → AnimatePresence remount → `left: -38%→138%` |
+| Layout filter | `AnimatePresence mode="popLayout"` in ProductGrid |
+| Active pill slide | `layoutId="filterActive"` on FilterTabs active indicator |
 
 ---
 
-## 8. Component Rules
-
-- All components: functional, hooks-based, no class components
-- Props: destructured with defaults in function signature
-- Animation: always via Framer Motion `motion.*` or GSAP ref
-- No inline style objects unless dynamic values (prefer Tailwind)
-- Import order: React → third-party → local hooks → local components → assets
-- No default exports from `index.js` barrel files (import directly)
-
----
-
-## 9. Responsive Rules
-
-| Breakpoint | Tailwind | Behavior |
-|-----------|---------|---------|
-| Mobile | (default) | Hamburger menu, stacked layout |
-| md (768px) | `md:` | Desktop nav shows, hamburger hides |
-| lg (1024px) | `lg:` | Wider padding, larger type scale |
-| xl (1280px) | `xl:` | Max-width container clamps |
-
-Mobile-first always. Never desktop-first media queries.
-
----
-
-## 10. Routing Structure
-
-```
-/ → Home.jsx
-/collections → Collections.jsx
-/custom-fragrance → CustomFragrance.jsx
-/about → About.jsx
-/contact → Contact.jsx
-```
-
-- Router: BrowserRouter (in `main.jsx`)
-- Route rendering: `<Routes>` in `App.jsx` wrapped in `<AnimatePresence mode="wait">`
-- Active detection: `NavLink` with `end` prop on `/`
-- `useLocation` key on `<Routes>` enables AnimatePresence to detect page changes
-
----
-
-## 11. Reusable Components List
-
-| Component | Path | Props |
-|-----------|------|-------|
-| `Button` | `src/components/ui/Button.jsx` | `variant`, `size`, `onClick`, `type`, `disabled`, `className` |
-| `Navbar` | `src/components/layout/Navbar.jsx` | (none — self-contained) |
-| `HeroSection` | `src/components/home/HeroSection.jsx` | (none — self-contained) |
-| `MarqueeStrip` | `src/components/home/MarqueeStrip.jsx` | (none — self-contained) |
-| `FeaturedSection` | `src/components/home/FeaturedSection.jsx` | (none — self-contained) |
-| `BrandEthos` | `src/components/home/BrandEthos.jsx` | (none — self-contained) |
-
-**Hooks:**
-| Hook | Path | Returns |
-|------|------|---------|
-| `useScrollPosition` | `src/hooks/useScrollPosition.js` | `{ scrollY, isScrolled }` |
-| `useGSAPReveal` | `src/hooks/useGSAPReveal.js` | `ref` — attach to element for ScrollTrigger reveal |
-| `useGSAPStaggerReveal` | `src/hooks/useGSAPReveal.js` | `containerRef` — stagger all `[data-reveal]` children |
-
----
-
-## 12. Pending Features
-
-### Phase 2 — Hero Section (Home page)
-- Full-screen cinematic hero
-- Animated headline (Cormorant Garamond, large)
-- Tagline with reveal animation
-- Floating perfume bottle (image/video bg or 3D)
-- CTA buttons
-- Subtle particle/smoke effect
-- GSAP scroll-triggered section reveals
-
-### Phase 3 — Collections Page
-- Product grid with luxury cards
-- Hover: image zoom + gold overlay
-- Filter tabs (fragrance family)
-- Card entrance animations
-
-### Phase 4 — Custom Fragrance Page
-- Multi-step fragrance builder UI
-- Note selector (top/middle/base)
-- Intensity slider
-- Bottle preview
-
-### Phase 5 — About Page
-- Brand story
-- Founder section
-- Timeline / heritage
-
-### Phase 6 — Contact Page
-- Contact form (name, email, message, fragrance inquiry)
-- WhatsApp CTA (free delivery badge)
-- Map / location
-
-### Phase 7 — Footer
-- Brand info, links, social
-- "Free delivery across India" badge
-
----
-
-## 13. Next Planned Phase
-
-**PHASE 5 — About Page**
-
-Brand story page:
-- Brand heritage section (attar tradition, Indian roots)
-- Founder / artisan section
-- Values / process timeline
-- "Why us" differentiators
-- GSAP scroll reveals
-
-Wait for user message: **"NEXT START"**
-
----
-
-## 14. ★ CollectionCard — Premium 3D Hover (Latest Addition)
+## 7. CollectionCard — 3D Hover Architecture
 
 **File:** `src/components/collections/CollectionCard.jsx`
-**Replaces:** `ProductCard.jsx` in `ProductGrid.jsx`
 
-### Real Business Details (updated throughout site)
-| Field | Value |
-|---|---|
-| Primary WA | 919724586101 (M. Roeesh) |
-| Alternate | 919016361538 (M. Munavvar) |
-| Email | mmattarwala2008@rediff.com |
-| Store 1 | GF 154/155 Nazarbaug Palace, Vadodara |
-| Store 2 | Shop No. 3 Fortune Point, Mandvi, Vadodara-17 |
-| Hours | 10am–8pm · Mon: closed at Namaz · Fri: 12:45–2:45 closed |
-
-### Layer Stack (z-order, all inside 268px image div)
+### Motion Value Layer Stack (image area, z-order)
 
 | Z | Layer | Motion |
 |---|---|---|
 | 0 | BG gradient (inset -8%) | `bgX/bgY` spring — moves opposite cursor |
-| 1 | Arabic watermark | Same `bgX/bgY` — dimmer on hover |
-| 2 | Bottle (outer: float, inner: cursor) | Idle: `y:[0,-11,0]` repeat. Hover: cursor `bottleX/Y` |
-| 3 | Dynamic cursor glow | `glowLeft/glowTop` motion string values → CSS left/top |
-| 5 | Gold particles (×7) | `opacity/scale/y` infinite loop |
-| 20 | Glass shine sweep | `shineKey` increment → AnimatePresence remount → `left:-38%→138%` |
+| 1 | Arabic watermark | Same `bgX/bgY`, fades on hover |
+| 2 | Bottle/image | Cursor `bottleX/Y` amplified |
+| 3 | Dynamic cursor glow | `glowLeft/glowTop` string motion values |
+| 20 | Glass shine sweep | AnimatePresence keyed on `shineKey` |
 
 ### Key Motion Values
 ```js
-rawX, rawY         // onMouseMove → normalized -0.5 to +0.5
-rotateX, rotateY   // useSpring(useTransform(rawX/Y)) — card tilt
-bgX, bgY           // opposite cursor × 7 — parallax depth
-bottleX, bottleY   // same as cursor × 13/9 — layer separation
-glowLeft, glowTop  // string '15%'→'85%' — glow follows cursor
-cardShadow         // combined [rawX,rawY] transform → box-shadow string
+rawX, rawY       // onMouseMove → normalized -0.5 to +0.5
+rotateX, rotateY // card tilt (disabled on mobile)
+bgX, bgY         // parallax × 7, opposite cursor
+bottleX, bottleY // parallax × 13/9, same as cursor
+glowLeft, glowTop // '15%'→'85%' follows cursor
+cardShadow       // [rawX, rawY] combined transform → box-shadow string
 ```
 
-### Spring: `{ stiffness: 180, damping: 28, mass: 0.8 }`
-Increase stiffness → snappier. Increase damping → slower settle.
-
-### Shine sweep: `shineKey` state increments on each `mouseEnter`.
-AnimatePresence keyed on `shineKey` remounts shine div → fresh initial→animate fires.
-
-### Reduced motion: `useReducedMotion()` → disables tilt, float, particles.
-
-### Adding real bottle images to cards:
-1. Put PNG in `public/` (any subfolder)
-2. Import at top of `products.js`: `import img from '../../public/...png'`
-3. Add `image: img` to product object
-4. CollectionCard checks `image` prop → renders `<img>` or `<BottlePlaceholder>`
+### Mobile Behavior
+- `isMobile` detected via `window.matchMedia('(max-width: 639px)')`
+- Mobile: no 3D tilt, no mouse parallax
+- Mobile: tap card → toggle `touchActive` → triggers hover visual state
+- Image area: `aspectRatio: featured ? '16/9' : '4/3'` (not fixed height)
+- Desktop: fixed heights (`featured: 360px`, `bestseller: 310px`, default: `268px`)
 
 ---
 
-## 15. Important Notes for Future AI Agents
+## 8. Routing & Navigation
 
-1. **Tailwind v4**: Config is entirely in `src/styles/globals.css` via `@theme {}`. No `tailwind.config.js`. Color tokens use `--color-*` prefix, font tokens use `--font-*` prefix.
+```
+/                   → Home.jsx
+/collections        → Collections.jsx
+/custom-fragrance   → CustomFragrance.jsx
+/about              → About.jsx
+/contact            → Contact.jsx
+*                   → NotFound.jsx
+```
 
-2. **Build verified**: `npm run build` passes cleanly. Dev server: `npm run dev` → localhost:5173.
+- `BrowserRouter` in `main.jsx`
+- `AnimatePresence mode="wait"` + `key={location.pathname}` in `App.jsx`
+- `RouteScrollToTop` fires `window.scrollTo(0,0)` on every pathname change
+- `NavLink` with `end` prop on `/` for exact active matching
+- Navbar closes mobile menu on route change
 
-3. **GSAP not yet used**: Installed and ready. Use for Phase 2 scroll-triggered animations with `gsap.registerPlugin(ScrollTrigger)`.
+---
 
-4. **Font loading**: Google Fonts loaded in `index.html` via `<link>`. Cormorant Garamond = headings (`font-heading` class). Inter = body (`font-body` class, default on `body`).
+## 9. Component Rules
 
-5. **Mobile menu**: Uses `clipPath` animation, not `height` or `display`. Body scroll is locked via `document.body.style.overflow = 'hidden'` when open.
+- All components: functional, hooks-based
+- Props: destructured with defaults in function signature
+- No class components
+- Import order: React → third-party → local hooks → local components
+- No `index.js` barrel files — import directly by filename
+- Inline styles: only for dynamic values. Prefer Tailwind for static
 
-6. **Page transitions**: `AnimatePresence mode="wait"` + `key={location.pathname}` on `<Routes>`. Each page must have `motion.div` wrapper with entrance animation.
+---
 
-7. **Luxury naming**: Brand is "m_m_attarwala" — exact spelling with underscores. Never use hyphens.
+## 10. Responsive Rules
 
-8. **One phase at a time**: Do NOT build Phase 2 until user sends "NEXT START".
+| Breakpoint | Prefix | Key behaviors |
+|---|---|---|
+| Default | (none) | 1-col, hamburger menu, stacked layout |
+| `sm` (640px) | `sm:` | 2-col product grid, show some desktop patterns |
+| `md` (768px) | `md:` | Desktop nav, 3-col footer, 2-col contact layout |
+| `lg` (1024px) | `lg:` | 3-col product grid, wider paddings |
+
+Mobile-first always. Use `clamp()` for fluid font/spacing. Never desktop-first media queries.
+
+---
+
+## 11. Completed Improvements Log
+
+### Navigation & UX
+- [x] `RouteScrollToTop` — scroll reset on every route change
+- [x] Navbar — Black Gold White premium redesign, gold micro-lines, blur transitions
+- [x] Navbar — CTA button gold-filled with `fontWeight: 600` on hover
+
+### Home Page
+- [x] HeroSection — `paddingTop: clamp(96px,10vw,130px)` navbar clearance fix
+- [x] FeaturedSection — mobile tap-to-hover (activeId state, touchActive toggle)
+- [x] FeaturedSection CTA — gold-filled button with shimmer sweep, `mt-16 md:mt-20`, GSAP reveal
+- [x] MarqueeStrip — background unified to `rgba(9,6,5,0.75)`, fade color `#090605`
+- [x] Home atmospheric bridge divs — all colors unified to `rgba(9,6,5,...)`
+
+### Collections
+- [x] ProductGrid — `grid-cols-1 sm:grid-cols-2 lg:grid-cols-3`, removed mobile stagger offset
+- [x] CollectionCard mobile — image uses `aspectRatio: '4/3'` (featured: `16/9`), not fixed height
+- [x] CollectionCard — desc, notes, "Handcrafted · Pure Essence" label always visible (no `hidden sm:*`)
+- [x] CollectionCard price — split format: `₹799 · 30ml` (was `₹799 for 30ml`)
+
+### About Page
+- [x] AboutHero — oversized one-line headline `clamp(56px,11vw,180px)`, no breadcrumb
+- [x] AboutHero — `75vh justify-center` (was `92vh justify-end` causing huge empty space)
+- [x] AboutHero background unified to `#090605` family
+
+### Contact Page
+- [x] ContactHero — full rewrite: `contactbackground.png` BG, `82vh`, scrim layers, animated eyebrow
+- [x] ContactHero — scrim lightened so background image shows: base `rgba(5,3,2,0.10)`
+- [x] ContactForm — glassmorphism `backdrop-filter: blur(12px)`, animated gold underline on focus
+- [x] ContactForm — subject chips (pill shape), shimmer CTA with Send icon
+- [x] ContactInfo — icon circles `w-12 h-12`, cards with `borderRadius: 4px`, products pill tags
+- [x] Contact BottomCTA — "A fragrance crafted only for you" headline, gold-filled primary CTA
+
+### Footer
+- [x] Footer background `#050302`
+- [x] Footer quote — wrapped in `py-16 md:py-24`, gold `◆` separator with `mb-16 md:mb-20`
+- [x] Footer mobile — nav links `grid grid-cols-2` (was single column text wall), `gap-10`
+
+### Background Unification (no section seams)
+- [x] `globals.css` `.luxury-section::before` — opacity reduced `0.96/0.98 → 0.80/0.82`
+- [x] `globals.css` `.luxury-section-alt::before` — opacity reduced `0.98/0.96 → 0.82/0.80`
+- [x] `globals.css` `.luxury-page` — gradient simplified, removed mid-stop causing lighter band
+- [x] `BrandEthos` explicit overlay — removed double-darkening, replaced with `rgba(9,6,5,0.22)`
+
+---
+
+## 12. Key Patterns for Future Agents
+
+### Adding a new page
+1. Create `src/pages/NewPage.jsx` with `motion.main` wrapper (opacity 0→1 entrance)
+2. Add route in `App.jsx`
+3. Add link to `Navbar.jsx` NAV_LINKS array and `Footer.jsx` NAV_LINKS array
+4. Use `paddingTop: 'clamp(100px, 11vw, 140px)'` on hero section for navbar clearance
+
+### Adding a product image
+1. Put PNG/WebP in `public/images/`
+2. Reference in `products.js`: `image: `${import.meta.env.BASE_URL}images/filename.jpg``
+3. `CollectionCard` checks `image` prop — renders `<img>` or `<BottlePlaceholder>`
+
+### Using GSAP reveal
+```jsx
+import { useGSAPReveal, useGSAPStaggerReveal } from '../../hooks/useGSAPReveal'
+
+const ref = useGSAPReveal({ from: { opacity: 0, y: 30 }, to: { opacity: 1, y: 0 } })
+// attach: <div ref={ref}>
+
+const containerRef = useGSAPStaggerReveal({ selector: '[data-reveal]', stagger: 0.13 })
+// children need data-reveal attribute
+```
+
+### Tailwind v4 notes
+- Config entirely in `src/styles/globals.css` via `@theme {}`. No `tailwind.config.js`.
+- Color tokens: `--color-gold-400` → generates `bg-gold-400`, `text-gold-400`, `border-gold-400`
+- Opacity modifier: `text-gold-400/60`, `border-gold-400/15`
+- `font-heading` → Cormorant Garamond. `font-body` → Inter (default on `body`).
+
+### Background rule
+Never set section background opacity above `0.85`. Keep sections semi-transparent so the `.luxury-page` gradient unifies the whole page. Visible seams appear when sections are `0.95+` opaque.
+
+### BASE_URL
+Always use `import.meta.env.BASE_URL` prefix for public assets:
+```js
+const BASE = import.meta.env.BASE_URL
+// usage: `${BASE}logoakatar.png`
+```
+
+---
+
+## 13. Commands
+
+```bash
+npm run dev      # localhost:5173
+npm run build    # production build
+npm run preview  # preview production build
+```
+
+Build verified clean. No size warnings (manual chunks configured in `vite.config.js`).
